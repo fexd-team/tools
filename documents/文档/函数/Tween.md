@@ -12,7 +12,7 @@
 
 ```jsx
 import React, { useState, useRef } from 'react'
-import { Tween, sample } from '@fexd/tools'
+import { Tween, sample, easing } from '@fexd/tools'
 
 const targetNum = 996
 
@@ -22,7 +22,7 @@ export default () => {
 
   const [tweens] = useState(() => {
     // 变化曲线是ease
-    const ease = Tween.easing |> Object.keys |> sample
+    const ease = sample(Object.keys(easing))
 
     const num1 = new Tween({
       from: 0,
@@ -71,7 +71,7 @@ export default () => {
 
 ```jsx
 import React, { useState, useRef } from 'react'
-import { Tween, sample } from '@fexd/tools'
+import { Tween, sample, easing } from '@fexd/tools'
 
 export default () => {
   const progressRef = useRef(null)
@@ -85,7 +85,7 @@ export default () => {
 
   const [tweens] = useState(() => {
     // 变化曲线是ease
-    const ease = Tween.easing |> Object.keys |> sample
+    const ease = sample(Object.keys(easing))
 
     const x = new Tween({
       from: 0,

@@ -107,6 +107,11 @@ export {
 }
 ```
 
-```js
+```jsx
+/**
+ * style: { display: 'none' }
+ */
+import React from 'react'
 import './layout.less'
+export default () => null
 ```
