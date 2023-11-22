@@ -1,14 +1,8 @@
 # Tween
 
-缓动算法函数。可用于两个数字之间优雅的变化，也可用于各种缓动运动的动画。
+缓动算法函数。可用于两个数字之间的缓动变化，也可用于各种缓动运动的动画。
 
-## 详细 demo
-
-[Tween Demo](https://cjy0208.github.io/webpack-multiple-pages/tweenDemo.html#/)
-
-[使用该算法写的所有 Easing 示例](https://cjy0208.github.io/webpack-multiple-pages/tweenDemo.html#/Easing)
-
-## 简陋举例
+## 简单举例
 
 ```jsx
 import React, { useState, useRef } from 'react'
@@ -22,7 +16,7 @@ export default () => {
 
   const [tweens] = useState(() => {
     // 变化曲线是ease
-    const ease = sample(Object.keys(easing))
+    const ease = sample(Object.values(easing))
 
     const num1 = new Tween({
       from: 0,
@@ -85,7 +79,7 @@ export default () => {
 
   const [tweens] = useState(() => {
     // 变化曲线是ease
-    const ease = sample(Object.keys(easing))
+    const ease = sample(Object.values(easing))
 
     const x = new Tween({
       from: 0,
@@ -171,3 +165,11 @@ export default () => {
   )
 }
 ```
+
+## 详细 demo
+
+[Tween Demo](https://cjy0208.github.io/webpack-multiple-pages/tweenDemo.html#/)
+
+[使用该算法写的所有 Easing 示例](https://cjy0208.github.io/webpack-multiple-pages/tweenDemo.html#/Easing)
+
+<iframe src="https://cjy0208.github.io/webpack-multiple-pages/tweenDemo.html#/" width="100%" style="height: 70vh; border: 1px solid #e6e6e6;" />
