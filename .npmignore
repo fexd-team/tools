@@ -1,0 +1,9 @@
+node_modules
+src
+.fatherrc.ts
+.gitignore
+.npmignore
+.prettierrc
+.npmrc
+tsconfig.json
+yarn.lock
