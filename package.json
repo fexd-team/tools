@@ -16,7 +16,7 @@
     "dev": "dumi dev",
     "start": "dumi dev",
     "build": "npm run clean:build && father-build",
-    "build:docs": "npm run build && dumi build",
+    "build:docs": "dumi build",
     "size": "node ./scripts/size/index.js",
     "format": "prettier --write \"./**/*.{js,ts,jsx,tsx,json,css,scss,sass,less,html}\"",
     "clean:build": "rimraf dist es lib",
