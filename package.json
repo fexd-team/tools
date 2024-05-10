@@ -22,7 +22,9 @@
     "clean:build": "rimraf dist es lib",
     "release": "npm run release:beta",
     "release:latest": "npm run build && np --no-cleanup --yolo --no-publish --tag=latest && npm publish --access=public",
-    "release:beta": "npm run build && np --no-cleanup --yolo --no-publish --tag=beta && npm publish --access=public"
+    "release:beta": "npm run build && np --no-cleanup --yolo --no-publish --tag=beta && npm publish --access=public",
+    "release:al:latest": "npm run build && np --no-cleanup --yolo --no-publish --tag=latest && npm publish --registry http://registry.npm.al.com",
+    "release:al:beta": "npm run build && np --no-cleanup --yolo --no-publish --tag=beta && npm publish --registry http://registry.npm.al.com"
   },
   "homepage": "https://github.com/fexd-team/tools",
   "repository": {

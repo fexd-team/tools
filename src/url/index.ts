@@ -23,7 +23,7 @@ export function param(
   name: string,
   url = root.location.search,
   decode = safeDecode
-) {
+): any {
   let res = get<string>(run(url, 'split', '?'), '1', '').match(
     new RegExp(`(^|&)${name}=([^&]*)(&|$)`)
   )
@@ -32,7 +32,7 @@ export function param(
 }
 
 export const allParamEscape = __(allParam)(__, root.unescape)
-export function allParam(url = root.location.search, decode = safeDecode) {
+export function allParam(url = root.location.search, decode = safeDecode): any {
   const search = get<string>(url.split('?'), [1], '')
 
   if (search.length === 0) {

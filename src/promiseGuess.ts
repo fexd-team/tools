@@ -7,7 +7,7 @@ import isPromiseLike from './isPromiseLike'
  * @param {Function} executor 执行过程获取
  * @param {Function} valuer 值处理过程
  */
-const promiseGuess = <T>(executor: Function, valuer: Function) =>
+const promiseGuess = <T = any>(executor: Function, valuer: Function) =>
   function (...args): T {
     let value = executor.apply(this, args)
 

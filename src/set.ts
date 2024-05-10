@@ -3,7 +3,11 @@ import isObject from './isObject'
 import isArray from './isArray'
 import get, { KType } from './get'
 
-const set = (obj: Object = {}, keys: KType = [], value): Object => {
+const set = (
+  obj: Record<string, any> = {},
+  keys: KType = [],
+  value
+): Record<string, any> => {
   obj = Object.assign({}, obj)
   keys = isString(keys) ? (keys as string).split('.') : keys
   ;(keys as any[]).reduce((res, key, idx) => {

@@ -5,7 +5,7 @@ import pickBy from './pickBy'
  * @param {Object} obj 数据源对象
  * @param {Array} keys
  */
-const pick = (obj: Object, keys: any[] = Object.keys(obj)) =>
+const pick = (obj: Record<string, any>, keys: any[] = Object.keys(obj)) =>
   pickBy(obj, (value, key) => keys.includes(key))
 
 export default pick

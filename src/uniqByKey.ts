@@ -1,4 +1,4 @@
-const uniqByKey = <T>(array = [], key): T[] => {
+const uniqByKey = <T = any>(array = [], key): T[] => {
   const cache = {}
 
   return array.filter((item) => {
