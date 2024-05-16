@@ -8,14 +8,14 @@ export type AnyFunction = (...args: any[]) => any
 const debounce = <T extends AnyFunction>(func: T, wait: number = 16): T => {
   let timeout: any
 
-  return (function (...args: Parameters<T>): ReturnType<T> | void {
+  return function (...args: Parameters<T>): ReturnType<T> | void {
     clearTimeout(timeout)
     timeout = setTimeout(() => {
       func.apply(this, args)
     }, wait)
 
     return timeout
-  } as unknown) as T
+  } as unknown as T
 }
 
 export default debounce

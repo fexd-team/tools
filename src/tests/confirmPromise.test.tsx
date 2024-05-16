@@ -20,8 +20,10 @@ async function testConfirmPromise(confirm = true, props: ModalFuncProps = {}) {
       await delay(60)
       fireEvent.click(
         document.querySelector(
-          `.${className} .ant-modal-confirm-btns .${confirm ? 'ant-btn-primary' : 'ant-btn-default'}`,
-        )!,
+          `.${className} .ant-modal-confirm-btns .${
+            confirm ? 'ant-btn-primary' : 'ant-btn-default'
+          }`
+        )!
       )
     }),
   ])
@@ -32,7 +34,10 @@ async function testConfirmPromise(confirm = true, props: ModalFuncProps = {}) {
 describe('confirmPromise', () => {
   test('正常工作', async () => {
     await act(async () => {
-      const [ok1, cancel1] = await Promise.all([testConfirmPromise(true), testConfirmPromise(false)])
+      const [ok1, cancel1] = await Promise.all([
+        testConfirmPromise(true),
+        testConfirmPromise(false),
+      ])
 
       expect(ok1).toBe(true)
       expect(cancel1).toBe(false)

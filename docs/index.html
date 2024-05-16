@@ -8,7 +8,7 @@
     />
     <link rel="stylesheet" href="/tools/umi.css" />
     <script>
-      window.routerBase = "/";
+      window.routerBase = '/'
     </script>
     <script>
       //! umi version: 3.5.35
@@ -17,15 +17,15 @@
       !(function () {
         var e =
             navigator.cookieEnabled && void 0 !== window.localStorage
-              ? localStorage.getItem("dumi:prefers-color")
-              : "auto",
-          o = window.matchMedia("(prefers-color-scheme: dark)").matches,
-          t = ["light", "dark", "auto"];
+              ? localStorage.getItem('dumi:prefers-color')
+              : 'auto',
+          o = window.matchMedia('(prefers-color-scheme: dark)').matches,
+          t = ['light', 'dark', 'auto']
         document.documentElement.setAttribute(
-          "data-prefers-color",
+          'data-prefers-color',
           e === t[2] ? (o ? t[1] : t[0]) : t.indexOf(e) > -1 ? e : t[0]
-        );
-      })();
+        )
+      })()
     </script>
   </head>
   <body>

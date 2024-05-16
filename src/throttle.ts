@@ -20,7 +20,7 @@ const throttle = <T extends AnyFunction>(func: T, wait: number = 16): T => {
     }
   }, wait)
 
-  return (function (...args: Parameters<T>): ReturnType<T> | void {
+  return function (...args: Parameters<T>): ReturnType<T> | void {
     let invoked = false
 
     const invoke = () => {
@@ -41,7 +41,7 @@ const throttle = <T extends AnyFunction>(func: T, wait: number = 16): T => {
     locked = true
     invoke()
     setTimeout(unlock, wait)
-  } as unknown) as T
+  } as unknown as T
 }
 
 export default throttle
