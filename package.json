@@ -1,6 +1,6 @@
 {
   "name": "@fexd/tools",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "fexd tools library",
   "main": "lib/index.js",
   "module": "es/index.js",

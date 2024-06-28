@@ -218,7 +218,7 @@ export default class I18n {
       const useResource = get(this.config, `types.${type}.resources`) !== false
 
       if (isFunction(format)) {
-        function getRes(splitByDot: boolean) {
+        const getRes = (splitByDot: boolean) => {
           const keyPaths = [type, this.language, keys]
           return run(
             format,
