@@ -9,6 +9,7 @@ import memoize from './memoize'
 import EventBus from './EventBus'
 import deepMerge from './deepMerge'
 import isPromiseLike from './isPromiseLike'
+import random from './random'
 
 const NSReg = /:/
 
@@ -20,6 +21,7 @@ export interface I18nConfig {
       format?: any
     }
   >
+  splitByDot?: boolean | 'auto'
   defaultType?: string
   fallback?: I18n[] | Record<any, any>
   translateFallback?: ((keys: any, options: any) => any) | any
@@ -30,6 +32,7 @@ export interface I18nConfig {
 export default class I18n {
   static instances = []
   static language = undefined
+  static documentEventName = 'fexd-I18n-change'
   static get lng() {
     return I18n.language
   }
@@ -95,6 +98,8 @@ export default class I18n {
 
   resources = {}
   language = undefined
+  key = random(0, 99999)
+  documentEventSilent = false
   get lng() {
     return this.language
   }
@@ -118,14 +123,17 @@ export default class I18n {
     deepMerge(this.config, config)
 
     if (!!this.language) {
-      return this.applyLanguage(this.language)
+      return await this.applyLanguage(this.language)
     }
 
     if (I18n.language) {
       await this.applyLanguage(I18n.language)
     } else {
-      I18n.eventBus.once('change', (language) => {
-        this.applyLanguage(I18n.language)
+      return new Promise((resolve) => {
+        I18n.eventBus.once('change', async (language) => {
+          await this.applyLanguage(I18n.language)
+          resolve(undefined)
+        })
       })
     }
   }
@@ -147,20 +155,59 @@ export default class I18n {
     )
     this.language = language
     this.eventBus.emit('change', language)
+
+    if (!this.documentEventSilent) {
+      try {
+        document.dispatchEvent(
+          new CustomEvent(I18n.documentEventName, {
+            detail: {
+              language,
+              config: this.config,
+              key: this.key,
+              instance: this,
+            },
+          })
+        )
+      } catch (e) {}
+    }
   }
 
   applyLng = this.applyLanguage
 
-  translate = (str, options = {}) => {
-    const useNamespace = NSReg.test(str)
-    const [_keys, type = this.config.defaultType || 'default'] = str.split('@')
+  translate = (
+    str,
+    rawOptions: {
+      [key: string]: any
+      '@namespace'?: string
+      '@type'?: string
+      '@splitByDot'?: I18nConfig['splitByDot']
+    } = {}
+  ) => {
+    const {
+      '@namespace': __options_namespace,
+      '@type': __options_type,
+      '@splitByDot': __options_splitByDot = this.config.splitByDot || 'auto',
+      ...options
+    } = rawOptions
+
+    const useKeyNamespace = NSReg.test(str)
+    const [
+      _keys,
+      type = __options_type || this.config.defaultType || 'default',
+    ] = str.split('@')
 
     let keys = _keys
     let namespace
 
-    if (useNamespace) {
+    if (useKeyNamespace) {
       ;[namespace, keys] = _keys.split(':')
     }
+
+    if (__options_namespace) {
+      namespace = __options_namespace
+    }
+
+    const useNamespace = !!namespace
 
     if (!useNamespace && this.language) {
       const format = get(
@@ -171,14 +218,26 @@ export default class I18n {
       const useResource = get(this.config, `types.${type}.resources`) !== false
 
       if (isFunction(format)) {
-        const res = run(
-          format,
-          undefined,
-          useResource
-            ? get(this.resources, `${type}.${this.language}.${keys}`)
-            : keys,
-          options
-        )
+        function getRes(splitByDot: boolean) {
+          const keyPaths = [type, this.language, keys]
+          return run(
+            format,
+            undefined,
+            useResource
+              ? get(this.resources, splitByDot ? keyPaths.join('.') : keyPaths)
+              : keys,
+            options
+          )
+        }
+
+        const resWithDot = getRes(true)
+        const resWithoutDot = getRes(false)
+        const res =
+          __options_splitByDot === 'auto'
+            ? resWithDot || resWithoutDot
+            : __options_splitByDot
+            ? resWithDot
+            : resWithoutDot
 
         if (res) {
           return res
@@ -187,14 +246,14 @@ export default class I18n {
     }
 
     const fallbackRes =
-      this.fallbackTranslate(`${keys}@${type}`, options, namespace) ||
-      run(this.config, 'translateFallback', keys, options)
+      this.fallbackTranslate(`${keys}@${type}`, rawOptions, namespace) ||
+      run(this.config, 'translateFallback', keys, rawOptions)
 
     if (fallbackRes) {
       return fallbackRes
     }
 
-    if ((options as any)._fbT) {
+    if ((rawOptions as any)._fbT) {
       return undefined
     }
 

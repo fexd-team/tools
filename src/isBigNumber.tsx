@@ -1,27 +1,37 @@
 // import BigNumber from 'bignumber.js'
-import isString from './isString'
+import isNumberString from './isNumberString'
 
-export const isNumberString = (value: any): value is string => {
-  // 判断传入的值是否为字符串类型，如果不是，则返回false
-  if (!isString(value)) {
-    return false
+export function trimZeros(value: string): string {
+  // 去掉前导和尾随空格
+  value = value.trim()
+  // 去掉前导零
+  value = value.replace(/^(-?)0+(?=\d)/, '$1')
+  // 如果有小数点，去掉尾随零
+  if (value.includes('.')) {
+    value = value.replace(/\.?0+$/, '')
   }
-
-  // 使用正则表达式判断字符串是否为数字字符串，如果是，则返回true，否则返回false
-  return /^\d+(\.\d+)*$/.test(value)
+  return value
 }
 
-const isBigNumber = (value: any): value is string => {
+const isBigNumber = (value: any): boolean => {
   // 判断传入的值是否为数字字符串，如果不是，则返回false
   if (!isNumberString(value)) {
     return false
   }
 
-  // 将数字字符串转换为数字类型
-  const number = Number(value)
+  value = trimZeros(value)
 
-  // 判断数字类型转换回字符串后是否与原字符串相等，如果不相等，则说明数字类型超出了字符串表示的范围，返回true
-  return String(number) !== value
+  if (value === '-0') {
+    return false
+  }
+
+  // 分离整数部分和小数部分
+  const [integerPart, decimalPart] = value.split('.')
+
+  // 检查整数部分是否溢出
+  const isIntegerPartBig = String(Number(integerPart)) !== integerPart
+
+  return isIntegerPartBig
 }
 
 export default isBigNumber

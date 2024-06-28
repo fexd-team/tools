@@ -1,28 +1,28 @@
 {
   "name": "@fexd/tools",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "description": "fexd tools library",
   "main": "lib/index.js",
-  "unpkg": "dist/index.umd.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "es",
-    "lib",
-    "dist"
+    "lib"
   ],
   "scripts": {
     "init": "npx pnpm@6 i",
     "dev": "dumi dev",
     "start": "dumi dev",
-    "build": "npm run clean:build && father-build",
+    "build": "npm run clean:build && father build",
     "build:docs": "dumi build",
     "size": "node ./scripts/size/index.js",
     "format": "prettier --write \"./**/*.{js,ts,jsx,tsx,json,css,scss,sass,less,html}\"",
     "clean:build": "rimraf dist es lib",
     "release": "npm run release:beta",
     "release:latest": "npm run build && np --no-cleanup --yolo --no-publish --tag=latest && npm publish --access=public",
-    "release:beta": "npm run build && np --no-cleanup --yolo --no-publish --tag=beta && npm publish --access=public"
+    "release:beta": "npm run build && np --no-cleanup --yolo --no-publish --tag=beta && npm publish --access=public",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --coverage"
   },
   "homepage": "https://github.com/fexd-team/tools",
   "repository": {
@@ -35,16 +35,20 @@
     "@cjy0208/import-cost": "^2.2.1",
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@types/jest": "^28.1.2",
     "dumi": "^1.1.10",
     "eslint": "^7.23.0",
-    "father-build": "^1.19.2",
+    "father": "^4.1.6",
     "filesize": "^8.0.6",
     "husky": "^4.x",
     "lint-staged": "^10.5.4",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
     "np": "^7.4.0",
     "ora": "5.4.1",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
+    "ts-jest": "^28.0.5",
     "yargs": "^17.3.0"
   },
   "resolutions": {
