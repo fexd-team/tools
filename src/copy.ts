@@ -1,10 +1,14 @@
 import isUndefined from './isUndefined'
+import isObject from './isObject'
+
+const isDOMLike = (target: any): boolean =>
+  isObject(target) && 'innerHTML' in target && 'textContent' in target
 
 /**
  * [复制] 尝试通过 web 本身实现复制功能
  * @param {String / Number} value 要复制的值
  */
-const copy = (value: string | number): void => {
+const copyText = (value: string | number): void => {
   if (isUndefined(document)) {
     return console.warn('宿主环境不存在 DOM 对象，无法执行复制操作')
   }
@@ -33,6 +37,37 @@ const copy = (value: string | number): void => {
   }
 
   document.body.removeChild(input)
+}
+
+const copyDom = async (target: HTMLElement) => {
+  if (!isDOMLike(target)) {
+    return
+  }
+
+  // 创建富文本内容
+  const htmlContent = target.innerHTML
+  const textContent = target.textContent
+
+  // 创建Blob对象
+  const blobHtml = new Blob([htmlContent], { type: 'text/html' })
+  const blobText = new Blob([textContent], { type: 'text/plain' })
+
+  // 创建ClipboardItem
+  const clipboardItem = new ClipboardItem({
+    'text/html': blobHtml,
+    'text/plain': blobText,
+  })
+
+  // 写入剪贴板
+  await navigator.clipboard.write([clipboardItem])
+}
+
+const copy = (content: string | number | HTMLElement) => {
+  if (isDOMLike(content)) {
+    return copyDom(content as HTMLElement)
+  }
+
+  return copyText(content as string | number)
 }
 
 export default copy

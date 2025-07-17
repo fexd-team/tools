@@ -18,9 +18,9 @@
     "size": "node ./scripts/size/index.js",
     "format": "prettier --write \"./**/*.{js,ts,jsx,tsx,json,css,scss,sass,less,html}\"",
     "clean:build": "rimraf dist es lib",
-    "release": "npm run release:beta",
-    "release:latest": "npm run build && np --no-cleanup --yolo --no-publish --tag=latest && npm publish --access=public",
-    "release:beta": "npm run build && np --no-cleanup --yolo --no-publish --tag=beta && npm publish --access=public",
+    "release": "npm run release:latest",
+    "release:latest": "np --no-cleanup --yolo --no-publish --tag=latest && npm publish --access=public",
+    "release:beta": "np --no-cleanup --yolo --no-publish --tag=beta && npm publish --access=public",
     "test": "jest --coverage",
     "test:watch": "jest --watch --coverage"
   },
