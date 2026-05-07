@@ -6,30 +6,28 @@
 
 ```ts
 declare type AnyFunction = (...args: any[]) => any
-/**
- * [防抖]
- * @param {Function} func 执行函数
- * @param {Number} wait 多少毫秒后运行一次
- */
+
 declare const debounce: <T extends AnyFunction>(
   func: T,
   wait?: number
-) => (...args: any[]) => void | ReturnType<T>
+) => T & { cancel: () => void }
 ```
 
 ### 参数
 
 - func 执行函数
-- wait 多久后运行，单位为毫秒(ms)
+- wait 多久后运行，单位为毫秒(ms)，默认 16ms
 
 ### 返回值
 
-- 返回新的 debounced（防抖动）函数。
+- 返回新的 debounced（防抖动）函数，包含以下特性：
+  - 调用时返回 timer handle（可用于 `clearTimeout`）
+  - `.cancel()` 方法：取消待执行的延迟调用
 
 ### 举例
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { debounce } from '@fexd/tools'
 
 const debounceFunc = debounce((plus) => {
@@ -38,6 +36,11 @@ const debounceFunc = debounce((plus) => {
 
 export default () => {
   const [num, setNum] = useState(0)
+
+  // 组件卸载时取消待执行的调用
+  useEffect(() => {
+    return () => debounceFunc.cancel()
+  }, [])
 
   return (
     <>

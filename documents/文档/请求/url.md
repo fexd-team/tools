@@ -45,6 +45,10 @@ console.log(url.allParam()) // {}
 
 // 但为了避免某种拿不到的场景，可将第一个参数作为要解析参数的 url。
 console.log(url.allParam(testUrl)) // {id: "2", name: "1"}
+
+// 值中包含 = 的场景（如 Base64、JWT token）也能正确解析
+console.log(url.allParam('http://example.com?token=abc=='))
+// {token: "abc=="}
 ```
 
 ### url.param(name)

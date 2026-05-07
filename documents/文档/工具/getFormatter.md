@@ -30,6 +30,7 @@ getFormatter: ({
 ## 返回值
 
 - 返回一个格式化函数
+- isNumber 模式下：`null` 或 `undefined` 返回空字符串 `''`，数字 `0` 正确返回 `'0'`
 
 ## 举例
 

@@ -10,27 +10,20 @@ const getFormatter =
   } = {}) =>
   (text): string => {
     if (isNumberFormat) {
-      const hasDot = text.toString().indexOf('.') !== -1
+      if (text === null || text === undefined) return ''
+
+      const str = text.toString()
+      const hasDot = str.indexOf('.') !== -1
 
       if (hasDot) {
-        return (
-          text &&
-          text
-            .toString()
-            .replace(
-              new RegExp(`(\\d)(?=(\\d{${length}})+\\.)`, 'g'),
-              ($0, $1) => $1 + separator
-            )
+        return str.replace(
+          new RegExp(`(\\d)(?=(\\d{${length}})+\\.)`, 'g'),
+          ($0, $1) => $1 + separator
         )
       } else {
-        return (
-          text &&
-          text
-            .toString()
-            .replace(
-              new RegExp(`\\d{1,${length}}(?=(\\d{${length}})+$)`, 'g'),
-              `$&${separator}`
-            )
+        return str.replace(
+          new RegExp(`\\d{1,${length}}(?=(\\d{${length}})+$)`, 'g'),
+          `$&${separator}`
         )
       }
     }

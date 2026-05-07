@@ -1,5 +1,5 @@
-// import BigNumber from 'bignumber.js'
 import isNumberString from './isNumberString'
+import expandScientificNumberString from './expandScientificNumberString'
 
 export function trimZeros(value: string): string {
   // 去掉前导和尾随空格
@@ -14,24 +14,33 @@ export function trimZeros(value: string): string {
 }
 
 const isBigNumber = (value: any): boolean => {
-  // 判断传入的值是否为数字字符串，如果不是，则返回false
   if (!isNumberString(value)) {
     return false
   }
 
-  value = trimZeros(value)
+  const num = Number(value)
 
-  if (value === '-0') {
+  if (!Number.isFinite(num)) {
+    return true
+  }
+
+  if (Number.isInteger(num)) {
+    return !Number.isSafeInteger(num)
+  }
+
+  const expanded = expandScientificNumberString(String(value))
+  const trimmed = trimZeros(expanded)
+  if (trimmed === '-0') {
     return false
   }
 
-  // 分离整数部分和小数部分
-  const [integerPart, decimalPart] = value.split('.')
+  const [integerPart] = trimmed.split('.')
 
-  // 检查整数部分是否溢出
-  const isIntegerPartBig = String(Number(integerPart)) !== integerPart
+  if (integerPart === '-0' || integerPart === '0' || integerPart === '') {
+    return false
+  }
 
-  return isIntegerPartBig
+  return String(Number(integerPart)) !== integerPart
 }
 
 export default isBigNumber

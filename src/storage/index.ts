@@ -1,4 +1,5 @@
 import isNull from '../isNull'
+import safeStringify from '../safeStringify'
 import root from '../globalThis'
 
 import withSupportive from './withSupportive'
@@ -27,9 +28,9 @@ const setter = (storage: Storage) =>
     let data
 
     try {
-      data = JSON.stringify(value)
+      data = safeStringify(value)
     } catch (err) {
-      console.error('[ERROR storage.set --> JSON.stringify]', err)
+      console.error('[ERROR storage.set --> safeStringify]', err)
       data = value
     }
 

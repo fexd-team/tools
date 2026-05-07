@@ -1,0 +1,77 @@
+import isNumberString from '../isNumberString'
+
+describe('isNumberString', () => {
+  test('基础整数', () => {
+    expect(isNumberString('0')).toBe(true)
+    expect(isNumberString('1000')).toBe(true)
+    expect(isNumberString('123456789')).toBe(true)
+    expect(isNumberString('-1')).toBe(true)
+    expect(isNumberString('+1')).toBe(true)
+    expect(isNumberString('-0')).toBe(true)
+    expect(isNumberString('+0')).toBe(true)
+  })
+
+  test('基础小数', () => {
+    expect(isNumberString('0.01')).toBe(true)
+    expect(isNumberString('1000.01')).toBe(true)
+    expect(isNumberString('-3.14')).toBe(true)
+    expect(isNumberString('+2.718')).toBe(true)
+    expect(isNumberString('0.000000001')).toBe(true)
+  })
+
+  test('科学计数法', () => {
+    expect(isNumberString('1e20')).toBe(true)
+    expect(isNumberString('1E20')).toBe(true)
+    expect(isNumberString('1.5e+15')).toBe(true)
+    expect(isNumberString('5e-7')).toBe(true)
+    expect(isNumberString('1.23e2')).toBe(true)
+    expect(isNumberString('9.007199254740993e15')).toBe(true)
+    expect(isNumberString('1e308')).toBe(true)
+    expect(isNumberString('-1e20')).toBe(true)
+    expect(isNumberString('+1.5e+15')).toBe(true)
+    expect(isNumberString('1e0')).toBe(true)
+    expect(isNumberString('0e0')).toBe(true)
+  })
+
+  test('无效的科学计数法', () => {
+    expect(isNumberString('e10')).toBe(false)
+    expect(isNumberString('1e')).toBe(false)
+    expect(isNumberString('1e+')).toBe(false)
+    expect(isNumberString('1e-')).toBe(false)
+    expect(isNumberString('1e2.3')).toBe(false)
+    expect(isNumberString('.5e10')).toBe(false)
+  })
+
+  test('无效的数字格式', () => {
+    expect(isNumberString('1,000')).toBe(false)
+    expect(isNumberString('1000.')).toBe(false)
+    expect(isNumberString('0..01')).toBe(false)
+    expect(isNumberString('1000..01')).toBe(false)
+    expect(isNumberString('.01')).toBe(false)
+    expect(isNumberString('1,000.01')).toBe(false)
+    expect(isNumberString('1.2.3')).toBe(false)
+    expect(isNumberString('')).toBe(false)
+    expect(isNumberString(' ')).toBe(false)
+    expect(isNumberString(' 123 ')).toBe(false)
+    expect(isNumberString('abc')).toBe(false)
+    expect(isNumberString('12abc')).toBe(false)
+    expect(isNumberString('foo123')).toBe(false)
+    expect(isNumberString('NaN')).toBe(false)
+    expect(isNumberString('Infinity')).toBe(false)
+    expect(isNumberString('-Infinity')).toBe(false)
+  })
+
+  test('非字符串类型', () => {
+    expect(isNumberString(1000)).toBe(false)
+    expect(isNumberString(0)).toBe(false)
+    expect(isNumberString(-1)).toBe(false)
+    expect(isNumberString(1.5)).toBe(false)
+    expect(isNumberString(true)).toBe(false)
+    expect(isNumberString(false)).toBe(false)
+    expect(isNumberString([])).toBe(false)
+    expect(isNumberString({})).toBe(false)
+    expect(isNumberString(null)).toBe(false)
+    expect(isNumberString(undefined)).toBe(false)
+    expect(isNumberString(NaN)).toBe(false)
+  })
+})

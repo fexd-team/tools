@@ -21,7 +21,7 @@ export default class Thread {
 
   taskList: Set<Task> = new Set()
 
-  public isAvailable = (): boolean => this.taskList.size >= this.maxTaskCount
+  public isAvailable = (): boolean => this.taskList.size < this.maxTaskCount
 
   //进程是否正在工作：进程工作过程中若插入新的任务，不会影响目前的工作流程
   public isRunning: boolean = false

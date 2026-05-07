@@ -39,16 +39,17 @@ export function allParam(url = root.location.search, decode = safeDecode): any {
     return {}
   }
 
-  return search
-    .split('&')
-    .map((param) => param.split('='))
-    .reduce(
-      (res, [key, value]) =>
-        Object.assign(res, {
-          [key]: decode(value),
-        }),
-      {}
-    )
+  return search.split('&').reduce((res, pair) => {
+    const eqIdx = pair.indexOf('=')
+    if (eqIdx === -1) {
+      res[pair] = ''
+      return res
+    }
+    const key = pair.slice(0, eqIdx)
+    const value = pair.slice(eqIdx + 1)
+    res[key] = decode(value)
+    return res
+  }, {} as Record<string, any>)
 }
 
 export function generateParamStr(

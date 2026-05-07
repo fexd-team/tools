@@ -52,15 +52,24 @@ export {
   Tween, // 缓动函数工具
   __, // 自由柯里化
   capitalize, // 首字母大写
+  catchPromise, // Promise 异常捕获
   clamp, // 数值范围限定
   classnames, // classnames 库的自实现
   copy, // 复制粘贴
+  createProxyGetter, // 代理取值器
   curry, // 柯里化
-  debounce, // 防抖
+  debounce, // 防抖（支持 cancel）
+  deepMerge, // 深合并
   defaultFrameProcess, // 默认帧进程
   delay, // 延时 Promise
+  diffArray, // 数组差异比较
+  difference, // 差集
+  easing, // 缓动函数集合
+  enhancePromise, // Promise 增强
+  expandScientificNumberString, // 科学计数法展开为完整数字字符串
   first, // 取首个值，可用于对象或数组
   flatten, // 数组拍平
+  formdata2obj, // FormData 转对象
   get, // 无痛取值，同 ?. 算符
   getFormatter, // 格式化工具
   globalThis, // globalThis
@@ -68,6 +77,7 @@ export {
   intersection, // 交集
   isAndroid, // 是否安卓环境
   isArray, // 是否数组
+  isBigNumber, // 是否大数（超出安全整数范围）
   isBoolean, // 是否 Boolean
   isDate, // 是否日期类型
   isDesktop, // 是否桌面端（PC）
@@ -79,15 +89,17 @@ export {
   isNaN, // 是否 NaN
   isNull, // 是否 Null
   isNumber, // 是否数字类型
+  isNumberString, // 是否合法数字字符串（支持科学计数法）
   isObject, // 是否对象（Array 不算）
   isPromiseLike, // 是否 PromiseLike
   isString, // 是否字符串
   isUndefined, // 是否 undefined
   isWKWebview, // 是否 WKWebview 环境
-  last, // 取首末尾，可用于对象或数组
+  last, // 取末尾值，可用于对象或数组
   lock, // 自锁函数
   memoize, // 记忆函数
   nextTick, // nextTick 的客户端实现
+  obj2formdata, // 对象转 FormData
   pick, // 选值函数
   pickBy, // 自定义选值函数
   pipe, // 管道函数，同 |> 算符
@@ -97,6 +109,7 @@ export {
   random, // 随机函数
   run, // 无痛运行
   sample, // 样本函数
+  segment, // 分段函数
   set, // 无痛属性设置
   source, // 在线资源加载
   storage, // storage 存取
