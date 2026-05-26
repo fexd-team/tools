@@ -13,6 +13,11 @@ const getExt = curry<(value: string, index: number, array: string[]) => any>(
   }
 )
 
+/**
+ * 从全局获取脚本加载后的 externals 导出变量
+ * @param src - 脚本 URL（用于 warn 提示）
+ * @param externals - 要获取的全局变量名或名称数组
+ */
 const getExternals = (src: string, externals?: string | string[]) =>
   isArray(externals)
     ? (externals as string[]).map(getExt(src))

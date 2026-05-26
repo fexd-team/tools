@@ -1,42 +1,41 @@
 # isAndroid
 
-判断是否安卓环境。
+判断当前设备是否为 Android 环境。
 
-### 语法
+## 类型签名
 
 ```ts
-isAndroid: () => boolean
+isAndroid(): boolean
 ```
 
 ## 参数
 
-空
+无
 
 ## 返回值
 
-- `true` 为安卓环境
-- `false` 不为安卓环境
+`boolean` — 当 `navigator.userAgent` 包含 `Android` 时返回 `true`。
 
-## 举例
+## 示例
 
-```jsx
-import React from 'react'
+```ts
 import { isAndroid } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isAndroid()`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isAndroid(), null, 1)}
-      </span>
-      <br />
-    </>
-  )
-}
+// 在 Android 设备中
+isAndroid() // => true
+
+// 在其他设备中
+isAndroid() // => false
 ```
+
+## 注意
+
+- 依赖 `navigator.userAgent`，SSR 或无 `navigator` 的环境会返回 `false`。
+- User-Agent 可被客户端或浏览器扩展修改，**不应**作为唯一的安全判断依据。
+- 与 `isMobile`、`isDesktop` 组合使用更准确；单独调用无法区分平板与手机形态。
+
+## 另见
+
+- [`isMobile`](./isMobile) — 判断是否为移动端
+- [`isIOS`](./isIOS) — 判断是否为 iOS
+- [`isDesktop`](./isDesktop) — 判断是否为桌面端

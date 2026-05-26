@@ -1,121 +1,61 @@
 # promiseGuess
 
-猜测是否为异步函数，用来智能处理 Promise 类型返回值。
+智能处理函数的同步/异步返回值。若函数返回 Promise，则异步调用 `valuer`；否则直接调用 `valuer`。
 
-如果第一个参数，是一个异步函数，将得到 promise 类型返回值，按约定 resolve 最终值。
-
-如果第一个参数，不是一个异步函数，将直接调用函数，返回最终值。
-
-## 语法
+## 类型签名
 
 ```ts
-promiseGuess: <T>(executor: Function, valuer: Function) => (...args: any[]) => T
+const promiseGuess = <T = any>(
+  executor: Function,
+  valuer: Function
+) => (...args: any[]): T
 ```
 
 ## 参数
 
-- executor 函数，执行过程获取。可以是异步函数也可以不是异步函数。
-- valuer 函数，值处理过程。
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `executor` | `Function` | 是 | — | 可能返回 Promise 或普通值的函数 |
+| `valuer` | `Function` | 是 | — | 结果处理函数，签名为 `(err, value, ...args)` |
 
 ## 返回值
 
-- executor 为异步函数，返回值为异步函数。
-- executor 不为异步函数，返回值为普通函数。
+`(...args: any[]): T` — 包装后的函数。若 `executor` 返回 Promise，则 `valuer` 的调用结果也是 Promise。
 
-## 举例
+## 示例
 
-```javascript
-import React, { useState } from 'react'
-import { promiseGuess, delay } from '@fexd/tools'
+```ts
+import { promiseGuess } from '@fexd/tools'
 
-const person = {
-  name: 'Amy',
-  age: 18,
-}
-
-const asyncGreet = promiseGuess(
-  async ({ name, age }) => {
-    console.log(name, age) // Amy 18
-    await delay(1000)
-    return name
-  },
-  (error, value, args) => {
-    console.log(error, value, args) // [null, "Amy", {name: "Amy", age: 18}]
-    return `Hello.I'm ${value}`
-  }
+// 同步函数
+const syncFn = promiseGuess(
+  (x) => x * 2,
+  (err, result) => result + 1
 )
+syncFn(3)  // => 7（(3 * 2) + 1）
 
-const greet = promiseGuess(
-  ({ name, age }) => {
-    console.log(name, age) // Amy 18
-    return name
-  },
-  (error, value, args) => {
-    console.log(error, value, args) // [null, "Amy", {name: "Amy", age: 18}]
-    return `Hello.I'm ${value}`
-  }
+// 异步函数
+const asyncFn = promiseGuess(
+  async (x) => x * 2,
+  (err, result) => result + 1
 )
+await asyncFn(3)  // => 7
 
-console.log(asyncGreet(person)) // Promise{<pending>}
-console.log(greet(person)) // Hello.I'm Amy
+// 错误处理
+const fn = promiseGuess(
+  async () => { throw new Error('fail') },
+  (err, result) => err ? 'error' : result
+)
+await fn()  // => 'error'
 ```
 
-```jsx
-import React, { useState, useEffect } from 'react'
-import { promiseGuess, delay } from '@fexd/tools'
+## 注意
 
-const person = {
-  name: 'Amy',
-  age: 18,
-}
+- `valuer` 签名为 `(err, value, ...args)`，异步失败时 `err` 有值而非 reject。
+- 通过 `isPromiseLike` 判断 `executor` 返回值是否为 Promise。
+- 同步路径直接调用 `valuer` 并返回结果，异步路径返回 Promise。
 
-export default () => {
-  const [result, setResult] = useState('')
-  const [promiseResult, setPromiseResult] = useState('')
+## 另见
 
-  const greet = promiseGuess(
-    ({ name, age }) => {
-      // console.log(name, age) // Amy 18
-      return name
-    },
-    (error, value, args) => {
-      // console.log(error, value, args) // [null, "Amy", {name: "Amy", age: 18}]
-      const str = `Hello.I'm ${value}`
-      setResult(str)
-      return str
-    }
-  )
-
-  const asyncGreet = promiseGuess(
-    async ({ name, age }) => {
-      // console.log(name, age) // Amy 18
-      await delay(1000)
-      return name
-    },
-    (error, value, args) => {
-      // console.log(error, value, args)	// [null, "Amy", {name: "Amy", age: 18}]
-      const str = `Hello.I'm ${value}`
-      setPromiseResult(str)
-      return str
-    }
-  )
-
-  useEffect(() => {
-    greet(person)
-    asyncGreet(person)
-  }, [])
-
-  return (
-    <>
-      <div>
-        <span style={{ color: '#DD4A68' }}>asyncGreet(person)</span> 的结果为：
-        <pre style={{ color: '#690' }}>{promiseResult}</pre>
-      </div>
-      <div>
-        <span style={{ color: '#DD4A68' }}>greet(person)</span> 的结果为：
-        <pre style={{ color: '#690' }}>{result}</pre>
-      </div>
-    </>
-  )
-}
-```
+- [`catchPromise`](./catchPromise) — 安全包装 Promise 为元组
+- [`enhancePromise`](./enhancePromise) — 增强 Promise 状态查询

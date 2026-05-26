@@ -1,51 +1,41 @@
 # isArray
 
-判断是否为数组类型。
+判断值是否为数组。
 
-## 语法
+## 类型签名
 
 ```ts
-isArray: (value: any) => boolean
+isArray(value: any): value is Array<any>
 ```
 
 ## 参数
 
-- value ，要判断的数据
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `value` | `any` | 是 | — | 要判断的值 |
 
 ## 返回值
 
-- `true` ，是数组类型
-- `false` ，不是数组类型
+`boolean` — 当值为数组时返回 `true`，否则返回 `false`。具有 TypeScript 类型守卫，可将类型收窄为 `Array<any>`。
 
-## 举例
+## 示例
 
-```jsx
-import React from 'react'
+```ts
 import { isArray } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isArray([1, 2, 3, 4])`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isArray([1, 2, 3, 4]), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isArray(null)`}
-      </span> 的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isArray(null), null, 1)}
-      </span>
-      <br />
-    </>
-  )
-}
+isArray([1, 2, 3])  // => true
+isArray([])          // => true
+isArray({})          // => false
+isArray(null)        // => false
+isArray('hello')     // => false
 ```
+
+## 注意
+
+- 基于 `instanceof Array` 判断，跨 iframe / realm 的数组可能返回 `false`。
+- 类数组对象（如 `arguments`、`NodeList`）**不是**数组，会返回 `false`。
+- `TypedArray`（如 `Uint8Array`）同样不是 `Array` 实例，需单独处理。
+
+## 另见
+
+- [`isObject`](./isObject) — 判断是否为纯对象

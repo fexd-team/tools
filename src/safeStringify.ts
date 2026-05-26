@@ -1,5 +1,10 @@
 import isReactValidElement from './isReactValidElement'
 
+/**
+ * 安全 JSON 序列化，处理循环引用与 React 元素
+ * @param object - 待序列化的对象
+ * @returns JSON 字符串
+ */
 const safeStringify = (object: any) => {
   const ancestors: any[] = []
 

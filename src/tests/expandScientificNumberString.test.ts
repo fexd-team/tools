@@ -10,7 +10,9 @@ describe('expandScientificNumberString', () => {
 
   test('正指数 - 带小数的大数', () => {
     expect(expandScientificNumberString('1.5e15')).toBe('1500000000000000')
-    expect(expandScientificNumberString('9.007199254740993e15')).toBe('9007199254740993')
+    expect(expandScientificNumberString('9.007199254740993e15')).toBe(
+      '9007199254740993'
+    )
     expect(expandScientificNumberString('1.23e2')).toBe('123')
     expect(expandScientificNumberString('1.23456e3')).toBe('1234.56')
   })
@@ -19,7 +21,9 @@ describe('expandScientificNumberString', () => {
     expect(expandScientificNumberString('5e-7')).toBe('0.0000005')
     expect(expandScientificNumberString('1.5e-3')).toBe('0.0015')
     expect(expandScientificNumberString('1e-1')).toBe('0.1')
-    expect(expandScientificNumberString('1e-20')).toBe('0.' + '0'.repeat(19) + '1')
+    expect(expandScientificNumberString('1e-20')).toBe(
+      '0.' + '0'.repeat(19) + '1'
+    )
   })
 
   test('负数', () => {
@@ -30,7 +34,9 @@ describe('expandScientificNumberString', () => {
 
   test('非科学计数法 - 原样返回', () => {
     expect(expandScientificNumberString('123.456')).toBe('123.456')
-    expect(expandScientificNumberString('9007199254740993')).toBe('9007199254740993')
+    expect(expandScientificNumberString('9007199254740993')).toBe(
+      '9007199254740993'
+    )
     expect(expandScientificNumberString('0')).toBe('0')
     expect(expandScientificNumberString('-0.001')).toBe('-0.001')
   })

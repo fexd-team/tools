@@ -1,6 +1,12 @@
 import random from './random'
 
-// 线段均匀分段
+/**
+ * 将总长度随机分成指定段数，每段长度在范围内
+ * @param length - 总长度
+ * @param count - 分段数量
+ * @param range - 每段长度的 [最小值, 最大值] 区间
+ * @returns 各段长度组成的数组
+ */
 export default function segment(
   length: number,
   count: number,

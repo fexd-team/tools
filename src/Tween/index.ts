@@ -30,6 +30,9 @@ const DEFAULT_CONFIG = {
   loop: false,
 }
 
+/**
+ * 补间动画控制器，支持 from/to/duration/ease 配置及 start/stop/reverse 控制
+ */
 export default class Tween {
   // static easing: EasingFunctionMap = easing
   static DEFAULT_CONFIG = DEFAULT_CONFIG
@@ -48,6 +51,7 @@ export default class Tween {
     this.config(config)
   }
 
+  /** 注册事件监听（start/stop/reverse/update/end） */
   on: TweenOn<this> = (event, listener) => {
     this.bus.on(event, listener)
     return this
@@ -58,6 +62,7 @@ export default class Tween {
     return this
   }
 
+  /** 更新动画配置（from/to/duration/ease/loop） */
   config = (config: Config = DEFAULT_CONFIG): this => {
     this.state.config = {
       ...DEFAULT_CONFIG,
@@ -68,6 +73,7 @@ export default class Tween {
     return this
   }
 
+  /** 启动动画（已结束或正在运行时无效） */
   start = (): this => {
     if (this.isEnded() || !this.state.stoped) {
       return this
@@ -90,6 +96,7 @@ export default class Tween {
     return this
   }
 
+  /** 重置并重新启动 */
   restart = (): this => this.reset().start()
 
   reset = (): this => {
@@ -98,6 +105,7 @@ export default class Tween {
     return this.stop().progress(reversed ? 1 : 0)
   }
 
+  /** 停止动画 */
   stop = (): this => {
     if (this.state.stoped) {
       return this
@@ -110,6 +118,7 @@ export default class Tween {
     return this
   }
 
+  /** 反转动画方向 */
   reverse = (): this => {
     this.state.reversed = !this.state.reversed
     this.bus.emit('reverse')
@@ -117,6 +126,7 @@ export default class Tween {
     return this
   }
 
+  /** 设置动画进度（0~1），触发 update 事件 */
   progress = (progress: number): this => {
     const preProgress = this.state.progress
     this.state.progress = clamp(progress, 0, 1)
@@ -135,6 +145,7 @@ export default class Tween {
     return this
   }
 
+  /** 根据当前进度和缓动函数计算输出值 */
   value = (progress = this.state.progress) => {
     progress = clamp(progress, 0, 1)
     const { config } = this.state
@@ -144,6 +155,7 @@ export default class Tween {
     return (to - from) * run<number>(easeFn, undefined, progress) + from
   }
 
+  /** 判断动画是否已结束 */
   isEnded = (progress = this.state.progress) => {
     const { reversed } = this.state
 

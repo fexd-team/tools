@@ -1,15 +1,17 @@
-// fork from https://github.com/smiranton-ua/deep-merge-js/blob/master/lib/deepmerge.js
 import isObject from './isObject'
 
-const deepMerge = (...sources) => {
+/**
+ * 递归深度合并多个对象，后者覆盖前者
+ * @param sources - 待合并的对象列表
+ * @returns 合并后的对象
+ */
+const deepMerge = (...sources: any[]) => {
   const onlyObjects = sources.filter((s) => isObject(s))
 
-  // in case of not valid objects in the arguments
   if (onlyObjects.length === 0) {
     return {}
   }
 
-  // in case of only one valid object in the arguments
   if (onlyObjects.length === 1) {
     return onlyObjects[0]
   }

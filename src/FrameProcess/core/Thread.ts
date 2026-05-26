@@ -12,6 +12,7 @@ export interface Task {
   startTime: number
 }
 
+/** rAF 线程：管理帧任务列表并在每帧执行 */
 export default class Thread {
   public maxTaskCount: number
 

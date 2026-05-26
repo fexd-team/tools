@@ -1,9 +1,9 @@
 import run from './run'
 
 /**
- * 接收一个返回任何类型的 Promise 对象，并在 Promise 被解决或拒绝后返回一个元组。
- * 如果 Promise 被解决，则第一个元素为 undefined，第二个元素为 Promise 解决时的值。
- * 如果 Promise 被拒绝，则第一个元素为 Promise 被拒绝时的错误对象，第二个元素为 undefined。
+ * 捕获 Promise 结果或错误，返回 [err, data] 元组
+ * @param promise - Promise 对象或返回 Promise 的函数
+ * @returns 成功时为 [undefined, data]，失败时为 [err, undefined]
  */
 const catchPromise: <T = any>(
   promise: Promise<T> | (() => Promise<T>)

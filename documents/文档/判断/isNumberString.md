@@ -1,8 +1,8 @@
 # isNumberString
 
-判断一个值是否为合法的数字字符串。支持整数、小数和科学计数法。
+判断值是否为合法的数字字符串。支持整数、小数和科学计数法格式。
 
-## 语法
+## 类型签名
 
 ```ts
 isNumberString(value: any): boolean
@@ -10,12 +10,13 @@ isNumberString(value: any): boolean
 
 ## 参数
 
-- value 任意值
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `value` | `any` | 是 | — | 要判断的值 |
 
 ## 返回值
 
-- `true` — 值为字符串类型，且内容是合法的数字格式
-- `false` — 其他情况
+`boolean` — 当值为字符串且内容符合数字格式时返回 `true`，否则返回 `false`。
 
 ## 支持的格式
 
@@ -30,18 +31,30 @@ isNumberString(value: any): boolean
 | 仅小数点 | `'1000.'`、`'.5'` | `false` |
 | 非字符串 | `123`、`null` | `false` |
 
-## 举例
+## 示例
 
-```js
+```ts
 import { isNumberString } from '@fexd/tools'
 
-isNumberString('123')        // true
-isNumberString('-3.14')      // true
-isNumberString('1.5e10')     // true
-isNumberString('1E-7')       // true
-
-isNumberString('abc')        // false
-isNumberString('12.34.56')   // false
-isNumberString('')           // false
-isNumberString(123)          // false（非字符串类型）
+isNumberString('123')        // => true
+isNumberString('-3.14')      // => true
+isNumberString('1.5e10')     // => true
+isNumberString('1E-7')       // => true
+isNumberString('abc')        // => false
+isNumberString('12.34.56')   // => false
+isNumberString('')           // => false
+isNumberString(123)          // => false
 ```
+
+## 注意
+
+- **仅接受字符串类型**，`123` 等数字字面量返回 `false`；需先转为字符串再判断。
+- 不支持仅小数点形式：`'1000.'`、`.5` 返回 `false`（整数/小数部分不可省略）。
+- 只校验格式合法性，**不**保证 `Number(value)` 的语义正确性（如 `'007'` 合法但含前导零）。
+- 与 `isNumber` 不同：后者判断运行时数字类型，本函数判断字符串内容是否为数字格式。
+
+## 另见
+
+- [`isBigNumber`](./isBigNumber) — 判断是否超出安全整数范围
+- [`isNumber`](./isNumber) — 判断是否为有效数字
+- [`expandScientificNumberString`](../数字/expandScientificNumberString) — 展开科学计数法字符串

@@ -2,8 +2,9 @@ import pipe from './pipe'
 import flatten from './flatten'
 
 /**
- * [交集]
- * 示例：intersection([1, 2], [2, 3]) => [2]
+ * 返回多个数组的交集
+ * @param args - 参与交集运算的数组
+ * @returns 同时出现在所有数组中的元素
  */
 const intersection = (...args) =>
   pipe<any[]>(

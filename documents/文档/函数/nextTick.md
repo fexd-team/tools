@@ -1,44 +1,38 @@
 # nextTick
 
-nextTick 的客户端实现，用于延迟执行一段代码。
+将函数调度到下一个微任务执行，等同于 `Promise.resolve().then(fn)`。
 
-## 语法
+## 类型签名
 
 ```ts
-nextTick: (func: (value: void) => void | PromiseLike<void>) => Promise<void>;
+const nextTick = <T>(func: (value: void) => T | PromiseLike<T>): Promise<T>
 ```
 
 ## 参数
 
-- func 先执行的函数
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `func` | `(value: void) => T \| PromiseLike<T>` | 是 | — | 要延迟执行的函数 |
 
 ## 返回值
 
-- Promise 对象
+`Promise<T>` — resolve 值为 `func` 的返回值。内部等同于 `Promise.resolve().then(func)`。
 
-## 举例
+## 示例
 
-```jsx
-import React, { useState } from 'react'
+```ts
 import { nextTick } from '@fexd/tools'
 
-export default () => {
-  const [greetStr, setGreetStr] = useState('')
-  const [identity, setIdentity] = useState('')
+// 在下一个微任务中执行
+await nextTick(() => {
+  console.log('this runs in the next microtask')
+})
 
-  const outputIdentity = nextTick(() => {
-    setGreetStr('您好！')
-    return '程序猿！'
-  })
-
-  return (
-    <>
-      <p>{greetStr}</p>
-      <button onClick={() => outputIdentity.then((res) => setIdentity(res))}>
-        点击查询你的身份
-      </button>
-      <p>{identity}</p>
-    </>
-  )
-}
+// 获取返回值
+const result = await nextTick(() => 'hello')
+// result === 'hello'
 ```
+
+## 另见
+
+- [`delay`](./delay) — 延迟指定毫秒数

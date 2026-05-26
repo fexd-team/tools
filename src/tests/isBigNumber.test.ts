@@ -13,15 +13,15 @@ describe('isBigNumber', () => {
 
   // ── 安全整数边界 ──
   test('MAX_SAFE_INTEGER 边界', () => {
-    expect(isBigNumber('9007199254740991')).toBe(false)   // MAX_SAFE_INTEGER
-    expect(isBigNumber('9007199254740992')).toBe(true)    // 2^53, 不再是安全整数
-    expect(isBigNumber('9007199254740993')).toBe(true)    // MAX_SAFE + 2
-    expect(isBigNumber('9007199254740994')).toBe(true)    // 2^53 + 2, float64 精确但不安全
+    expect(isBigNumber('9007199254740991')).toBe(false) // MAX_SAFE_INTEGER
+    expect(isBigNumber('9007199254740992')).toBe(true) // 2^53, 不再是安全整数
+    expect(isBigNumber('9007199254740993')).toBe(true) // MAX_SAFE + 2
+    expect(isBigNumber('9007199254740994')).toBe(true) // 2^53 + 2, float64 精确但不安全
     expect(isBigNumber('9007199254740995')).toBe(true)
   })
 
   test('MIN_SAFE_INTEGER 边界', () => {
-    expect(isBigNumber('-9007199254740991')).toBe(false)  // MIN_SAFE_INTEGER
+    expect(isBigNumber('-9007199254740991')).toBe(false) // MIN_SAFE_INTEGER
     expect(isBigNumber('-9007199254740992')).toBe(true)
     expect(isBigNumber('-9007199254740993')).toBe(true)
   })
@@ -127,5 +127,16 @@ describe('isBigNumber', () => {
   test('Infinity 溢出', () => {
     expect(isBigNumber('1e309')).toBe(true)
     expect(isBigNumber('-1e309')).toBe(true)
+  })
+
+  test('-0 值不算大数', () => {
+    expect(isBigNumber('-0')).toBe(false)
+    expect(isBigNumber('-0.0')).toBe(false)
+  })
+
+  test('整数部分为 0 或空的小数不算大数', () => {
+    expect(isBigNumber('0.123')).toBe(false)
+    expect(isBigNumber('-0.999')).toBe(false)
+    expect(isBigNumber('.5')).toBe(false)
   })
 })

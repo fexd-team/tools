@@ -7,7 +7,7 @@ import isObject from './isObject'
 import isFunction from './isFunction'
 import memoize from './memoize'
 import EventBus from './EventBus'
-import deepMerge from './deepMerge'
+import merge, { DeepMergeOptions } from './merge'
 import isPromiseLike from './isPromiseLike'
 import random from './random'
 
@@ -25,6 +25,20 @@ export interface I18nConfig {
   defaultType?: string
   fallback?: I18n[] | Record<any, any>
   translateFallback?: ((keys: any, options: any) => any) | any
+}
+
+export interface ApplyConfigOptions extends DeepMergeOptions {
+  /**
+   * 补充优先级 (数值越大越优先)。仅在 mode='supplement' 时生效。
+   *
+   * 行为:
+   * - 未指定: 传统 supplement 行为（不覆盖已有值）
+   * - 指定数值: 写入时与已有值的优先级比较
+   *   - 当前 > 已有 → 覆盖（无论 target 是否已有值）
+   *   - 当前 = 已有 → 不覆盖（先到先得）
+   *   - 当前 < 已有 → 跳过
+   */
+  priority?: number
 }
 
 // const defaultTranslateFallback = (keys) => keys
@@ -46,8 +60,11 @@ export default class I18n {
    */
   static template = (
     str = '',
-    data = {},
-    { split = false, fallback = '(unknow)' } = {}
+    data: Record<string, any> = {},
+    {
+      split = false,
+      fallback = '(unknow)' as string | ((key: string, orig: string) => string),
+    } = {}
   ) => {
     const tmpReg = /{{\s*\w*\s*}}/g
     const isFunctionFallback = isFunction(fallback)
@@ -96,7 +113,7 @@ export default class I18n {
 
   static applyLng = I18n.applyLanguage
 
-  resources = {}
+  resources: Record<string, Record<string, any>> = {}
   language = undefined
   key = random(0, 99999)
   documentEventSilent = false
@@ -105,6 +122,9 @@ export default class I18n {
   }
   eventBus = new EventBus()
   config: I18nConfig
+  // 记录每个 type → locale → key 的写入优先级（用纯对象，比 Map 更快）
+  private _priorities: Record<string, Record<string, Record<string, number>>> =
+    {}
 
   constructor(config: I18nConfig) {
     this.config = config
@@ -119,8 +139,101 @@ export default class I18n {
     }
   }
 
-  applyConfig = async (config: I18nConfig) => {
-    deepMerge(this.config, config)
+  private _getPriorityStore(
+    type: string,
+    locale: string
+  ): Record<string, number> {
+    if (!this._priorities[type]) {
+      this._priorities[type] = {}
+    }
+    if (!this._priorities[type][locale]) {
+      this._priorities[type][locale] = {}
+    }
+    return this._priorities[type][locale]
+  }
+
+  private _applyWithPriority(
+    config: I18nConfig,
+    priority: number,
+    mergeOptions?: DeepMergeOptions
+  ) {
+    if (!config.types) return
+
+    if (!this.config.types) {
+      this.config.types = {}
+    }
+
+    for (const [type, typeConfig] of Object.entries(config.types)) {
+      if (!typeConfig.resources) continue
+
+      if (!this.config.types[type]) {
+        this.config.types[type] = {}
+      }
+      if (!this.config.types[type].resources) {
+        this.config.types[type].resources = {}
+      }
+
+      if (typeConfig.format !== undefined && !this.config.types[type].format) {
+        this.config.types[type].format = typeConfig.format
+      }
+
+      const targetResources = this.config.types[type].resources as Record<
+        string,
+        any
+      >
+      const sourceResources = typeConfig.resources
+
+      for (const locale of Object.keys(sourceResources)) {
+        const sourceLocale = sourceResources[locale]
+        if (!isObject(sourceLocale) && !isFunction(sourceLocale)) continue
+
+        if (!targetResources[locale]) {
+          targetResources[locale] = {}
+        }
+
+        if (isFunction(sourceLocale)) {
+          const store = this._getPriorityStore(type, locale)
+          const existingPriority = store['__loader__'] ?? 0
+          if (priority > existingPriority) {
+            targetResources[locale] = sourceLocale
+            store['__loader__'] = priority
+          }
+          continue
+        }
+
+        const target = targetResources[locale]
+        if (!isObject(target)) continue
+
+        const store = this._getPriorityStore(type, locale)
+
+        for (const key in sourceLocale) {
+          if (!(key in store) || priority > store[key]) {
+            target[key] = sourceLocale[key]
+            store[key] = priority
+          }
+        }
+      }
+    }
+
+    // 合并非 types 的其他配置项（fallback, splitByDot 等）
+    const { types: _types, ...restConfig } = config
+    if (Object.keys(restConfig).length > 0) {
+      merge(this.config, restConfig as any, mergeOptions)
+    }
+  }
+
+  applyConfig = async (config: I18nConfig, options?: ApplyConfigOptions) => {
+    const { priority, ...mergeOptions } = options ?? ({} as ApplyConfigOptions)
+
+    if (
+      priority !== undefined &&
+      priority !== 0 &&
+      mergeOptions?.mode === 'supplement'
+    ) {
+      this._applyWithPriority(config, priority, mergeOptions)
+    } else {
+      merge(this.config, config, mergeOptions)
+    }
 
     if (!!this.language) {
       return await this.applyLanguage(this.language)

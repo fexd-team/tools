@@ -1,63 +1,48 @@
 # set
 
-无痛设置属性。
+按路径安全设值，返回新对象（不修改原对象）。
 
-## 语法
+## 类型签名
 
 ```ts
-set: (obj: Object, keys: KType, value: any) => Object
+const set = (
+  obj?: Record<string, any>,
+  keys?: KType,
+  value?: any
+): Record<string, any>
 ```
 
 ## 参数
 
-- obj ，设置对象
-- keys ，设置 key
-- value ，设置 value
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `obj` | `Record<string, any>` | 否 | `{}` | 源对象（不会被修改） |
+| `keys` | `KType` | 否 | `[]` | 属性路径，支持点号字符串、数组或数字 |
+| `value` | `any` | 否 | — | 要设置的值 |
 
 ## 返回值
 
-- 返回设置好的对象
+`Record<string, any>` — 设置后的新对象，原对象不变。
 
-## 举例
+## 示例
 
-```javascript
-set({}, 'a.b.c.d', 'hello world')
-/*  
-{
-  "a": {
-    "b": {
-      "c": {
-        "d": "hello world"
-      }
-    }
-  }
-}
-*/
-```
-
-```jsx
-import React from 'react'
+```ts
 import { set } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <div>
-        <span style={{ color: '#DD4A68' }}>{`set({}, 'a.b.c.d', 'hello world')`}</span>{' '}
-        的结果为：
-        <pre style={{ color: '#690' }}>
-          {JSON.stringify(set({}, 'a.b.c.d', 'hello world'), null, 2)}
-        </pre>
-      </div>
-      <br />
-      <div>
-        <span style={{ color: '#DD4A68' }}>{`set(undefined, 'a.b.c', 1)`}</span>{' '}
-        的结果为：
-        <pre style={{ color: '#690' }}>
-          {JSON.stringify(set(undefined, 'a.b.c', 1), null, 2)}
-        </pre>
-      </div>
-    </>
-  )
-}
+set({}, 'a.b.c', 'hello')
+// => { a: { b: { c: 'hello' } } }
+
+const obj = { x: 1 }
+const result = set(obj, 'x', 2)
+// => { x: 2 }
+// obj 仍然是 { x: 1 }（原对象不变）
 ```
+
+## 注意
+
+- `set` 是 **不可变操作**，始终返回新对象，不会修改原对象。
+- 路径中间不存在的属性会自动创建为空对象。
+
+## 另见
+
+- [`get`](./get) — 按路径安全取值

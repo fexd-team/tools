@@ -1,6 +1,7 @@
 /**
  * 将科学计数法字符串展开为完整十进制字符串
- * 纯字符串操作，不经过 Number 转换，零精度损失
+ * @param str - 科学计数法或普通数字字符串
+ * @returns 展开后的十进制字符串，无法解析时原样返回
  */
 const expandScientificNumberString = (str: string): string => {
   if (typeof str !== 'string' || str.length === 0) return str

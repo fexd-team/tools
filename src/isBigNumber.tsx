@@ -13,6 +13,11 @@ export function trimZeros(value: string): string {
   return value
 }
 
+/**
+ * 判断值是否为大数字
+ * @param value - 要检查的值
+ * @returns 如果是大数字返回 true
+ */
 const isBigNumber = (value: any): boolean => {
   if (!isNumberString(value)) {
     return false

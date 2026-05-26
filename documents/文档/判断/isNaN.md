@@ -1,51 +1,40 @@
 # isNaN
 
-判断是否为 NaN 。
+判断值是否为 `NaN`。
 
-## 语法
+## 类型签名
 
 ```ts
-isNaN: (value: any) => boolean
+isNaN(value: any): boolean
 ```
 
 ## 参数
 
-- value ，要判断的数据
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `value` | `any` | 是 | — | 要判断的值 |
 
 ## 返回值
 
-- `true` 是 NaN 类型
-- `false` 不是 NaN 类型
+`boolean` — 当值为 `NaN` 时返回 `true`，否则返回 `false`。
 
-## 举例
+## 示例
 
-```jsx
-import React from 'react'
+```ts
 import { isNaN } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isNaN(NaN)`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isNaN(NaN), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isNaN(0)`}
-      </span> 的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isNaN(0), null, 1)}
-      </span>
-      <br />
-    </>
-  )
-}
+isNaN(NaN)       // => true
+isNaN(0 / 0)     // => true
+isNaN(123)       // => false
+isNaN('hello')   // => false（字符串不是 NaN）
+isNaN(undefined) // => false
 ```
+
+## 注意
+
+- 使用 `value !== value` 实现，这是检测 `NaN` 的最可靠方式（因为 `NaN` 是 JS 中唯一不等于自身的值）。
+- 此函数 **不会** 对非数字值返回 `true`，与全局 `isNaN()` 的行为不同。
+
+## 另见
+
+- [`isNumber`](./isNumber) — 判断是否为有效数字（`isNumber(NaN)` 返回 `false`）

@@ -29,7 +29,7 @@
  * };
  */
 
-export type EasingFunction = (position: number, ...args: any[]) => number
+export type EasingFunction = (position?: number, ...args: any[]) => number
 
 export interface EasingFunctionMap {
   [key: string]: EasingFunction

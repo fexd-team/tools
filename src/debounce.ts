@@ -5,7 +5,10 @@ export type AnyFunction = (...args: any[]) => any
  * @param {Function} func 执行函数
  * @param {Number} wait 多少毫秒后运行一次
  */
-const debounce = <T extends AnyFunction>(func: T, wait: number = 16): T & { cancel: () => void } => {
+const debounce = <T extends AnyFunction>(
+  func: T,
+  wait: number = 16
+): T & { cancel: () => void } => {
   let timeout: any
 
   const debounced = function (this: any, ...args: Parameters<T>) {

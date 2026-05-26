@@ -1,53 +1,40 @@
 # last
 
-取末个值，可用于对象或数组。
+获取数组或对象的最后一个元素/值。
 
-## 语法
+## 类型签名
 
 ```ts
-const last: <T>(value: any[] | Object) => T
+const last = <T = any>(value: any[] | Record<string, any>): T
 ```
 
 ## 参数
 
-- value 源集合
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `value` | `any[] \| Record<string, any>` | 是 | — | 数组或对象 |
 
 ## 返回值
 
-- 如果 `value 源集合` 为数组，返回数组的最后一个元素。
-- 如果 `value 源集合` 为对象，返回对象的最后一个属性的值。
+`T` — 数组的最后一个元素，或对象最后一个键对应的值。若输入为其他类型返回 `undefined`。
 
-## 举例
+## 示例
 
-```javascript
-last([1, 2, 3, 4, 5]) //5
-```
-
-```jsx
-import React from 'react'
+```ts
 import { last } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <p>const arr = [1, 2, 3, 4]</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>last(arr)</span> 的结果为：
-        <span style={{ color: '#690' }}>{last([1, 2, 3, 4])}</span>
-      </div>
-      <br />
-      <p>{`const obj = { a: 1, b: 2 }`}</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>last(obj)</span> 的结果为：
-        <span style={{ color: '#690' }}>{last({ a: 1, b: 2 })}</span>
-      </div>
-      <br />
-      <p>{`const obj = { name: 'Amy', age: 18 }`}</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>last(obj)</span> 的结果为：
-        <span style={{ color: '#690' }}>{last({ name: 'Amy', age: 18 })}</span>
-      </div>
-    </>
-  )
-}
+last([1, 2, 3])       // => 3
+last(['a', 'b'])      // => 'b'
+last({ x: 1, y: 2 }) // => 2（取最后一个键的值）
+last([])              // => undefined
 ```
+
+## 注意
+
+- 对象场景下「最后一个」取决于 `Object.keys()` 的键顺序，不保证与插入顺序一致（整数键除外）。
+- 空数组或空对象返回 `undefined`。
+- 传入非数组、非对象类型时返回 `undefined`。
+
+## 另见
+
+- [`first`](./first) — 获取第一个元素

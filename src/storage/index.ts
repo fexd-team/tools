@@ -4,6 +4,10 @@ import root from '../globalThis'
 
 import withSupportive from './withSupportive'
 
+/**
+ * 本地存储工具，对 localStorage/sessionStorage 封装 JSON 序列化与容错
+ */
+
 const getter = (storage: Storage) =>
   withSupportive((key: string) => {
     let data = storage.getItem(key)

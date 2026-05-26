@@ -1,133 +1,59 @@
 # run
 
-无痛运行函数或非函数。
+按路径安全调用对象中的函数，或直接返回非函数值。
 
-## 语法
+## 类型签名
 
 ```ts
-run<T>(obj: any, keys?: KType, ...args: any[]): T;
+const run = <T = any>(obj: any, keys?: KType, ...args: any[]): T
 ```
 
 ## 参数
 
-- obj 提取对象或要执行的函数
-- keys 提取对象的 key 操作符，无需请传 `undefined`
-- args 传给函数的参数
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `obj` | `any` | 是 | — | 源对象或值 |
+| `keys` | `KType` | 否 | `[]` | 属性路径，支持点号字符串、数组或数字 |
+| `...args` | `any[]` | 否 | — | 传给目标函数的参数 |
 
 ## 返回值
 
-- 如果要运行的是函数，就会运行，返回函数返回的值。
-- 如果要运行的不是函数，就直接返回要运行的值。
+`T` — 若路径值为函数，调用后返回其返回值；若为非函数值，直接返回该值。
 
-## 举例
+## 示例
 
-```javascript
-const obj = {
-  a: {
-    b: {
-      c: 'abc',
-      func: function () {
-        console.log(arguments)
-        console.log('vagaga')
-      },
-    },
-  },
-}
-
-run(obj, 'a.b.f', 'hello world') // ['hello world'] vagaga
-run(a, 'a.b.c', 'hello world') // abc
-```
-
-```jsx
-import React from 'react'
+```ts
 import { run } from '@fexd/tools'
 
 const obj = {
   a: {
     b: {
-      c: 'abc',
-      func: (str) => {
-        return str
-      },
+      greet: (name) => `Hello, ${name}!`,
+      count: 42,
     },
   },
 }
 
-export default () => {
-  return (
-    <>
-      <h1>无痛执行对象里的：</h1>
-      <p>执行对象里的函数，成功</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>run(obj, 'a.b.func', 'vagaga')</span>{' '}
-        的结果为：
-        <span style={{ color: '#690' }}>{run(obj, 'a.b.func', 'vagaga')}</span>
-      </div>
-      <br />
-      <p>执行对象里不存在的函数，没有成功</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>run(obj, 'a.b.d', 'vagaga')</span>{' '}
-        的结果为：
-        <span style={{ color: '#690' }}>{run(obj, 'a.b.d', 'vagaga')}</span>
-      </div>
-      <br />
-      <p>执行对象里的其他类型，成功</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>run(obj, 'a.b.c', 'vagaga')</span>{' '}
-        的结果为：
-        <span style={{ color: '#690' }}>{run(obj, 'a.b.c', 'vagaga')}</span>
-      </div>
-      <div>
-        <span style={{ color: '#DD4A68' }}>run(obj, 'a.b', 'vagaga')</span>{' '}
-        的结果为：
-        <pre style={{ color: '#690' }}>
-          {JSON.stringify(run(obj, 'a.b', 'vagaga'), null, 2)}
-        </pre>
-      </div>
-      <br />
+// 路径为函数时，调用并传参
+run(obj, 'a.b.greet', 'World')  // => 'Hello, World!'
 
-      <h1>无痛直接执行：</h1>
-      <p>直接执行函数，成功</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>
-          run(obj.a.b.func, undefined, 'vagaga')
-        </span>{' '}
-        的结果为：
-        <span style={{ color: '#690' }}>
-          {run(obj.a.b.func, undefined, 'vagaga')}
-        </span>
-      </div>
-      <p>直接执行字符串，成功</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>
-          run(obj.a.b.c, undefined, 'vagaga')
-        </span>{' '}
-        的结果为：
-        <span style={{ color: '#690' }}>
-          {run(obj.a.b.c, undefined, 'vagaga')}
-        </span>
-      </div>
-      <p>直接执行对象，成功</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>
-          run(obj.a, undefined, 'vagaga')
-        </span>{' '}
-        的结果为：
-        <pre style={{ color: '#690' }}>
-          {JSON.stringify(run(obj.a, undefined, 'vagaga'), null, 2)}
-        </pre>
-      </div>
-      <p>直接执行不存在的，失败</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>
-          run(obj.a.b.d, undefined, 'vagaga')
-        </span>{' '}
-        的结果为：
-        <span style={{ color: '#690' }}>
-          {run(obj.a.b.d, undefined, 'vagaga')}
-        </span>
-      </div>
-    </>
-  )
-}
+// 路径为非函数时，直接返回值
+run(obj, 'a.b.count')            // => 42
+
+// 路径不存在时，返回 undefined
+run(obj, 'a.b.missing')         // => undefined
+
+// 函数调用时 this 指向父对象
+const ctx = { name: 'test', getName() { return this.name } }
+run(ctx, 'getName')             // => 'test'
 ```
+
+## 注意
+
+- 当路径值为函数时，`this` 指向路径的**父对象**。
+- 路径不存在或值为 `undefined` 时，返回 `undefined`，不会报错。
+
+## 另见
+
+- [`get`](./get) — 按路径取值（不调用）
+- [`value`](./value) — 取第一个非 `undefined` 的值

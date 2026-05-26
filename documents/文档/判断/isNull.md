@@ -1,51 +1,41 @@
 # isNull
 
-判断是否为 null 类型。
+判断值是否为 `null`。
 
-## 语法
+## 类型签名
 
 ```ts
-isNull: (value: any) => boolean
+isNull(value: any): value is null
 ```
 
 ## 参数
 
-- value ，要判断的数据
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `value` | `any` | 是 | — | 要判断的值 |
 
 ## 返回值
 
-- `true` 是 null 类型
-- `false` 不是 null 类型
+`boolean` — 当值严格等于 `null` 时返回 `true`，否则返回 `false`。具有 TypeScript 类型守卫，可将类型收窄为 `null`。
 
-## 举例
+## 示例
 
-```jsx
-import React from 'react'
+```ts
 import { isNull } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isNull()`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isNull(), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isNull(null)`}
-      </span> 的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isNull(null), null, 1)}
-      </span>
-      <br />
-    </>
-  )
-}
+isNull(null)       // => true
+isNull(undefined)  // => false
+isNull(0)          // => false
+isNull('')         // => false
 ```
+
+## 注意
+
+- 使用严格相等（`=== null`），`undefined` 返回 `false`，两者不可互换。
+- 与 `isExist` 互补：`isExist(null)` 为 `false`，但 `0`、`''`、`false` 等 falsy 值仍为 `true`。
+- 不要与 `== null`（同时匹配 `null` 和 `undefined`）混淆。
+
+## 另见
+
+- [`isUndefined`](./isUndefined) — 判断是否为 `undefined`
+- [`isExist`](./isExist) — 判断是否非 `null` 且非 `undefined`

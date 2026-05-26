@@ -1,109 +1,78 @@
 # qs
 
-qs 库简易实现。
-
-## 语法
-
+QueryString 的简易解析与序列化工具。
+## 类型签名
 ```ts
-qs: {
-  parse: (str: any) => {}
-  stringify: (params?: {}) => string
+const qs: {
+  parse: (str: string) => Record<string, any>
+  stringify: (params?: Record<string, any>) => string
 }
 ```
 
-### qs.parse
-
-与本工具库的 `url.allParam` 功能相同，从当前的 url 中获取到所有参数。
-
-#### 语法
-
-```ts
-parse: (str: any) => {}
-```
-
-#### 参数
-
-- url，为了避免某种拿不到的场景，可传入要从中解析参数的 url
-
-#### 返回值
-
-- 从 url 中解析出来的参数对象
-
-#### 举例
-
+## 交互演示
 ```jsx
-import React from 'react'
+import React, { useState } from 'react'
 import { qs } from '@fexd/tools'
 
-const url = 'http://www.test.com?id=2&name=1'
-
 export default () => {
-  return (
-    <>
-      <div>
-        <span style={{ color: '#DD4A68' }}>qs.parse()</span> 的结果为：
-        <span style={{ color: '#690' }}>{JSON.stringify(qs.parse())}</span>
-      </div>
-      <br />
+  const [queryStr, setQueryStr] = useState('id=1&name=Alice&role=admin')
+  const parsed = qs.parse(queryStr)
 
-      <p>const url = "http://www.test.com?id=2&name=1"</p>
-      <div>
-        <span style={{ color: '#DD4A68' }}>qs.parse(url)</span> 的结果为：
-        <span style={{ color: '#690' }}>
-          {JSON.stringify(qs.parse(url), null, 2)}
-        </span>
+  return (
+    <div>
+      <div style={{ marginBottom: 12 }}>
+        <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>输入查询字符串:</div>
+        <input
+          value={queryStr}
+          onChange={(e) => setQueryStr(e.target.value)}
+          style={{ padding: 4, width: '100%', fontFamily: 'monospace' }}
+        />
       </div>
-    </>
+      <div style={{ display: 'flex', gap: 24 }}>
+        <div>
+          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>qs.parse 结果:</div>
+          <pre style={{ background: '#f5f5f5', padding: 8, borderRadius: 4, fontSize: 12 }}>
+            {JSON.stringify(parsed, null, 2)}
+          </pre>
+        </div>
+        <div>
+          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>qs.stringify 还原:</div>
+          <code style={{ background: '#f5f5f5', padding: '4px 8px', borderRadius: 4, fontSize: 12 }}>
+            {qs.stringify(parsed)}
+          </code>
+        </div>
+      </div>
+    </div>
   )
 }
 ```
 
-### qs.stringify
+## 对象属性
+| 方法 | 说明 |
+|------|------|
+| `qs.parse(str)` | 将查询字符串解析为对象 |
+| `qs.stringify(params)` | 将对象序列化为查询字符串（不含 `?`） |
 
-将对象序列化成 URL 的形式，以 & 进行拼接。
-
-与本工具库的 `url.generateParamStr` 功能相似，但 `url.generateParamStr` 返回的结果有 `?` ，而 `qs.stringify` 的返回结果没有。
-
-#### 语法
+## 示例
+### 代码用法
 
 ```ts
-stringify: (params?: {}) => string
-```
-
-#### 参数
-
-- 要序列化为 url 形式的参数对象
-
-#### 返回值
-
-- 以 & 拼接后的字符串
-
-#### 举例
-
-```jsx
-import React from 'react'
 import { qs } from '@fexd/tools'
 
-const url = 'http://www.test.com?id=2&name=1'
+// 解析查询字符串
+qs.parse('id=1&name=Alice')
+// => { id: '1', name: 'Alice' }
 
-export default () => {
-  return (
-    <>
-      <div>
-        <span style={{ color: '#DD4A68' }}>{`qs.stringify({ id: 1 })`}</span>{' '}
-        的结果为：
-        <span style={{ color: '#690' }}>{qs.stringify({ id: 1 })}</span>
-      </div>
-      <br />
+// 序列化为查询字符串
+qs.stringify({ id: 1, name: 'Alice' })
+// => 'id=1&name=Alice'
 
-      <div>
-        <span style={{ color: '#DD4A68' }}>{`qs.stringify({ id: 2, name: 1 })`}</span>{' '}
-        的结果为：
-        <span style={{ color: '#690' }}>
-          {qs.stringify({ id: 2, name: 1 })}
-        </span>
-      </div>
-    </>
-  )
-}
+// 注意：stringify 的结果不含 ?
 ```
+
+## 注意
+- `qs.stringify` 的返回值 **不含** 前缀 `?`，与 `url.generateParamStr`（含 `?`）不同。
+- `qs.parse` 的功能与 `url.allParam` 相同。
+
+## 另见
+- [`url`](../请求/url) — URL 参数提取与生成

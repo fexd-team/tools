@@ -1,70 +1,42 @@
 # isString
 
-判断是否为 String 类型。
+判断值是否为字符串。
 
-## 语法
+## 类型签名
 
 ```ts
-isString: (value: any) => boolean
+isString(value: any): value is string
 ```
 
 ## 参数
 
-- value ，要判断的数据
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `value` | `any` | 是 | — | 要判断的值 |
 
 ## 返回值
 
-- `true` 是 String 类型
-- `false` 不是 String 类型
+`boolean` — 当值为字符串时返回 `true`，否则返回 `false`。具有 TypeScript 类型守卫，可将类型收窄为 `string`。
 
-## 举例
+## 示例
 
-```jsx
-import React from 'react'
+```ts
 import { isString } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isString()`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isString(), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isString(123)`}
-      </span> 的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isString(123), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isString("123")`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isString('123'), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isString("")`}
-      </span> 的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isString(''), null, 1)}
-      </span>
-      <br />
-    </>
-  )
-}
+isString('hello')  // => true
+isString('')       // => true
+isString(123)      // => false
+isString(null)     // => false
+isString(undefined)// => false
 ```
+
+## 注意
+
+- 基于 `typeof value === 'string'`，只认原始字符串；`String` 包装对象（`new String('a')`）返回 `false`。
+- 空字符串 `''` 返回 `true`，与 `isExist('')` 不冲突。
+- 与 `isNumberString` 不同：后者要求内容为数字格式，普通字符串应使用 `isString`。
+
+## 另见
+
+- [`isNumber`](./isNumber) — 判断是否为数字
+- [`isNumberString`](./isNumberString) — 判断是否为数字字符串

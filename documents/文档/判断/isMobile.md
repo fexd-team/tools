@@ -1,11 +1,11 @@
 # isMobile
 
-判断是否为移动端。
+判断当前设备是否为移动端。
 
-## 语法
+## 类型签名
 
 ```ts
-isMobile: () => boolean
+isMobile(): boolean
 ```
 
 ## 参数
@@ -14,29 +14,27 @@ isMobile: () => boolean
 
 ## 返回值
 
-- `true` 是移动端
-- `false` 不是移动端
+`boolean` — 当设备为移动端（非桌面端且为 Android 或 iOS）时返回 `true`。
 
-## 举例
+## 示例
 
-```jsx
-import React from 'react'
+```ts
 import { isMobile } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isMobile()`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isMobile(), null, 1)}
-      </span>
-      <br />
-    </>
-  )
-}
+// 在移动端浏览器中
+isMobile() // => true
+
+// 在桌面端浏览器中
+isMobile() // => false
 ```
+
+## 注意
+
+- 此函数在 SSR 环境下可能返回 `false`（依赖 `navigator.userAgent` 和 `navigator.platform`）。
+
+## 另见
+
+- [`isAndroid`](./isAndroid) — 判断是否为 Android
+- [`isIOS`](./isIOS) — 判断是否为 iOS
+- [`isDesktop`](./isDesktop) — 判断是否为桌面端
+- [`isWKWebview`](./isWKWebview) — 判断是否为 WKWebView

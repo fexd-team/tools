@@ -1,98 +1,39 @@
 # value
 
-多层默认值（只在值为 undefined 情况下生效）。
+返回参数列表中第一个非 `undefined` 的值。若值为函数，会调用取其返回值。
 
-## 语法
+## 类型签名
 
 ```ts
-const value: <T>(...values: any[]) => T
+const value = <T = any>(...values: any[]): T
 ```
 
 ## 参数
 
-- values，能从中选取的默认值
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `...values` | `any[]` | 是 | — | 候选值列表，从左到右检查 |
 
 ## 返回值
 
-## 举例
+`T` — 第一个非 `undefined` 的值（若值为函数则取其调用结果）。
 
-```javascript
-var v1,
-  v2,
-  v3 = 'default'
-console.log(v1) // undefined
-console.log(v2) // undefined
-console.log(v3) // "default"
+## 示例
 
-value(v1, v2, v3) // "default"
-value(v1, 0, v3) // 0
+```ts
+import { value } from '@fexd/tools'
 
-// 可传递执行函数
-value(
-  v1,
-  () => {
-    console.log('v1没有，尝试v2')
-    return v2
-  },
-  () => {
-    console.log('v2也没有，尝试v3')
-    return v3
-  }
-) // default
+value(undefined, null, 'hello')   // => null（null 不等于 undefined）
+value(undefined, 0, 'hello')     // => 0（0 不等于 undefined）
+value(undefined, undefined, 42)  // => 42
+value(() => 'computed')          // => 'computed'（函数会被调用）
 ```
 
-```jsx
-import React from 'react'
-import { value, isUndefined } from '@fexd/tools'
+## 注意
 
-var v1,
-  v2,
-  v3 = 'default'
+- 只有 `undefined` 被视为"空值"，`null`、`0`、`''`、`false` 都被视为有效值。
+- 若值为函数，会通过 `run()` 调用取其返回值再判断。
 
-const str = `value(
-  v1,
-  () => {
-    console.log("v1没有，尝试v2");
-    return v2;
-  },
-  () => {
-    console.log("v2也没有，尝试v3");
-    return v3;
-  }
-);`
+## 另见
 
-export default () => {
-  return (
-    <>
-      <h1>var v1, v2, v3 = 'default'</h1>
-      <div>
-        <span style={{ color: '#DD4A68' }}>value(v1, v2, v3)</span> 的结果为：
-        <span style={{ color: '#690' }}>{value(v1, v2, v3)}</span>
-      </div>
-      <br />
-      <div>
-        <span style={{ color: '#DD4A68' }}>value(v1, 0, v3)</span> 的结果为：
-        <span style={{ color: '#690' }}>{value(v1, 0, v3)}</span>
-      </div>
-      <br />
-      <div>
-        <pre style={{ color: '#DD4A68' }}>{str}</pre> 的结果为：
-        <span style={{ color: '#690' }}>
-          {value(
-            v1,
-            () => {
-              console.log('v1没有，尝试v2')
-              return v2
-            },
-            () => {
-              console.log('v2也没有，尝试v3')
-              return v3
-            }
-          )}
-        </span>
-      </div>
-      <br />
-    </>
-  )
-}
-```
+- [`run`](./run) — 安全调用函数或取值

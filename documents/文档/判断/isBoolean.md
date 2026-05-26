@@ -1,61 +1,43 @@
 # isBoolean
 
-判断是否为 Boolean 类型。
+判断值是否为布尔值。
 
-## 语法
+## 类型签名
 
 ```ts
-isBoolean: (value: any) => boolean
+isBoolean(value: any): value is boolean
 ```
 
 ## 参数
 
-- value ，要判断的数据
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `value` | `any` | 是 | — | 要判断的值 |
 
 ## 返回值
 
-- `true` ，是 Boolean 类型
-- `false` ，不是 Boolean 类型
+`boolean` — 当值为 `true` 或 `false` 时返回 `true`，否则返回 `false`。具有 TypeScript 类型守卫，可将类型收窄为 `boolean`。
 
-## 举例
+## 示例
 
-```jsx
-import React from 'react'
+```ts
 import { isBoolean } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isBoolean(true)`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isBoolean(true), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isBoolean(null)`}
-      </span> 的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isBoolean(null), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isBoolean("true")`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isBoolean('true'), null, 1)}
-      </span>
-      <br />
-    </>
-  )
-}
+isBoolean(true)   // => true
+isBoolean(false)  // => true
+isBoolean(0)      // => false
+isBoolean(null)   // => false
+isBoolean('true') // => false
 ```
+
+## 注意
+
+- 基于 `typeof value === 'boolean'`，只认原始布尔值 `true` / `false`。
+- 字符串 `'true'`、`'false'` 以及 `Boolean` 包装对象（`new Boolean(true)`）均返回 `false`。
+- 与 `!!value` 不同：falsy 值（`0`、`''`）不会被当作布尔值。
+
+## 另见
+
+- [`isExist`](./isExist) — 判断值是否非 `null` 且非 `undefined`
+- [`isString`](./isString) — 判断是否为字符串
+- [`isNumber`](./isNumber) — 判断是否为有效数字

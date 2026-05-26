@@ -35,6 +35,10 @@ const getGlobal = () => {
   // return implementation
 }
 
+/**
+ * 跨环境全局 this 的 polyfill，兼容浏览器、Worker 与 Node
+ * @returns 当前环境的全局对象
+ */
 const globalThis = getGlobal()
 
 export default globalThis

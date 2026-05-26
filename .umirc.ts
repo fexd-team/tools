@@ -9,6 +9,7 @@ export default {
   history: { type: 'hash' },
   resolve: {
     includes: ['documents', 'src'],
+    excludes: ['src/tests'],
   },
   navs: [null, { title: `v${version}` }],
 }

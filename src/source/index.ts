@@ -5,12 +5,19 @@ interface Cache {
   css: string[]
 }
 
-// 增加 source 缓存，防止多次加载同一资源
+/**
+ * 动态加载外部 JS/CSS 资源，自动去重
+ */
 const cache: Cache = {
   js: [],
   css: [],
 }
 
+/**
+ * 动态加载 JS 脚本并返回 externals 导出
+ * @param src - 脚本 URL
+ * @param externals - 要从 window 上获取的全局变量名
+ */
 export const js = (src: string, externals?: string | string[]) => {
   if (cache.js.includes(src)) {
     console.warn(`[source.js] ${src} 已被加载`)
@@ -27,11 +34,17 @@ export const js = (src: string, externals?: string | string[]) => {
         resolve(getExternals(src, externals))
       })
     )
-    script.addEventListener('error', reject)
+    script.addEventListener('error', () =>
+      reject(new Error(`Failed to load script: ${src}`))
+    )
     document.body.appendChild(script)
   })
 }
 
+/**
+ * 动态加载 CSS 样式表，自动去重
+ * @param href - 样式表 URL
+ */
 export const css = (href: string) => {
   if (cache.css.includes(href)) {
     console.warn(`[source.css] ${href} 已被加载`)

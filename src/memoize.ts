@@ -1,3 +1,10 @@
+export interface MemoizeDisableContext {
+  cache: Map<any, any>
+  key: any
+  result: any
+  drop: () => void
+}
+
 export interface CachedFunction extends Function {
   cache: Map<any, any>
 }
@@ -8,7 +15,7 @@ export interface CachedFunction extends Function {
  */
 const memoize = <T>(
   func: Function,
-  { disable = () => false } = {}
+  { disable = (() => false) as (ctx?: MemoizeDisableContext) => boolean } = {}
 ): CachedFunction => {
   const cache = new Map()
   const memoizedFunc = function (key, ...rest): T {

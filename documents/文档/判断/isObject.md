@@ -1,61 +1,42 @@
 # isObject
 
-判断是否为 Object 类型。
+判断值是否为纯对象（非 `null`、非数组、`typeof` 为 `'object'`）。
 
-## 语法
+## 类型签名
 
 ```ts
-isObject: (value: any) => boolean
+isObject(value: any): boolean
 ```
 
 ## 参数
 
-- value ，要判断的数据
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `value` | `any` | 是 | — | 要判断的值 |
 
 ## 返回值
 
-- `true` 是 Object 类型
-- `false` 不是 Object 类型
+`boolean` — 当值为纯对象时返回 `true`，否则返回 `false`。
 
-## 举例
+## 示例
 
-```jsx
-import React from 'react'
+```ts
 import { isObject } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isObject([1])`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isObject([1]), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isObject({ a: 1 })`}
-      </span> 的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isObject({ a: 1 }), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isObject({})`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isObject({}), null, 1)}
-      </span>
-      <br />
-    </>
-  )
-}
+isObject({ a: 1 })  // => true
+isObject({})        // => true
+isObject([1, 2])   // => false（数组不是纯对象）
+isObject(null)      // => false
+isObject(123)       // => false
+isObject('hello')   // => false
 ```
+
+## 注意
+
+- 数组 **不是** 纯对象，`isObject([])` 返回 `false`。如需判断数组，请使用 `isArray`。
+
+## 另见
+
+- [`isArray`](./isArray) — 判断是否为数组
+- [`isFunction`](./isFunction) — 判断是否为函数
+- [`isExist`](./isExist) — 判断是否非 `null` 且非 `undefined`

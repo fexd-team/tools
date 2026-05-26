@@ -1,13 +1,19 @@
 {
   "name": "@fexd/tools",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "fexd tools library",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
+  "bin": {
+    "fexd-tools": "./cli/index.js"
+  },
   "files": [
     "es",
-    "lib"
+    "lib",
+    "skills",
+    "cli",
+    "AGENTS.md"
   ],
   "scripts": {
     "init": "npx pnpm@6 i",
@@ -35,15 +41,17 @@
     "@cjy0208/import-cost": "^2.2.1",
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@swc/core": "^1.15.33",
+    "@swc/jest": "^0.2.39",
     "@types/jest": "^28.1.2",
     "dumi": "^1.1.10",
     "eslint": "^7.23.0",
     "father": "^4.1.6",
     "filesize": "^8.0.6",
     "husky": "^4.x",
-    "lint-staged": "^10.5.4",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
+    "lint-staged": "^10.5.4",
     "np": "^7.4.0",
     "ora": "5.4.1",
     "prettier": "^2.2.1",

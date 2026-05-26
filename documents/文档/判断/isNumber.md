@@ -1,67 +1,42 @@
 # isNumber
 
-判断是否为 Number 类型。
+判断值是否为有效数字（排除 `NaN`）。
 
-## 语法
+## 类型签名
 
 ```ts
-isNumber: (value: any) => boolean
+isNumber(value: any): value is number
 ```
 
 ## 参数
 
-- value ，要判断的数据
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `value` | `any` | 是 | — | 要判断的值 |
 
 ## 返回值
 
-- `true` 是 Number 类型
-- `false` 不是 Number 类型
+`boolean` — 当值为数字且不是 `NaN` 时返回 `true`，否则返回 `false`。具有 TypeScript 类型守卫，可将类型收窄为 `number`。
 
-## 举例
+## 示例
 
-```javascript
-isNumber(null) //false
-
-isNumber(1) //true
-```
-
-```jsx
-import React from 'react'
+```ts
 import { isNumber } from '@fexd/tools'
 
-export default () => {
-  return (
-    <>
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isNumber()`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isNumber(), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isNumber("1")`}
-      </span> 的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isNumber('1'), null, 1)}
-      </span>
-      <br />
-      <span
-        style={{ color: '#DD4A68', fontSize: '14px', fontFamily: 'Consolas' }}
-      >
-        {`isNumber(1)`}
-      </span>{' '}
-      的结果为：
-      <span style={{ color: '#690', fontSize: '14px', fontFamily: 'Consolas' }}>
-        {JSON.stringify(isNumber(1), null, 1)}
-      </span>
-      <br />
-    </>
-  )
-}
+isNumber(123)     // => true
+isNumber(0)       // => true
+isNumber(-3.14)   // => true
+isNumber(NaN)      // => false（NaN 被排除）
+isNumber('123')    // => false
+isNumber(null)     // => false
 ```
+
+## 注意
+
+- `NaN` 虽然是 `typeof` 为 `'number'` 的值，但 `isNumber(NaN)` 返回 `false`。如需判断 `NaN`，请使用 `isNaN`。
+
+## 另见
+
+- [`isNaN`](./isNaN) — 判断是否为 `NaN`
+- [`isNumberString`](./isNumberString) — 判断是否为数字字符串
+- [`isBigNumber`](./isBigNumber) — 判断是否超出安全整数范围的大数

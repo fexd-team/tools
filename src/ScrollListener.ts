@@ -43,6 +43,9 @@ export interface ScrollListenerConfig {
   direction?: 'vertical' | 'horizontal'
 }
 
+/**
+ * 滚动监听器，支持距离事件、到底事件和方向判断
+ */
 export default class ScrollListener {
   config: ScrollListenerConfig
   getScrollDistance: Function
