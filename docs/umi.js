@@ -614,7 +614,7 @@
                 '\u81ea\u5b9a\u4e49\u5408\u5e76'
               ),
               r.a.createElement(i['a'], {
-                code: 'merge(\n  { count: 5, items: [1, 2] },\n  { count: 10, items: [3] },\n  {\n    customMerge: {\n      count: (a, b) => a + b,      // \u76f8\u52a0\n      items: (a, b) => a.concat(b), // \u62fc\u63a5\n    },\n  }\n)\n// => { count: 15, items: [1, 2, 3] }',
+                code: 'merge(\n  { count: 5, items: [1, 2] },\n  { count: 10, items: [3] },\n  {\n    customMerge: {\n      count: (a, b) => a + b, // \u76f8\u52a0\n      items: (a, b) => a.concat(b), // \u62fc\u63a5\n    },\n  }\n)\n// => { count: 15, items: [1, 2, 3] }',
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -1365,7 +1365,7 @@
         return _e
       }),
       n.d(t, 'Tween', function () {
-        return je
+        return Ce
       }),
       n.d(t, '__', function () {
         return Re
@@ -1437,7 +1437,7 @@
         return Nt
       }),
       n.d(t, 'isError', function () {
-        return jt
+        return Ct
       }),
       n.d(t, 'isExist', function () {
         return ae
@@ -1587,7 +1587,7 @@
         return Ln
       }),
       n.d(t, 'safeStringify', function () {
-        return Cn
+        return jn
       }),
       n.d(t, 'uniqueId', function () {
         return ga
@@ -2092,7 +2092,7 @@
           (this.maxTaskCount = n)
       }
     }
-    class C {
+    class j {
       constructor() {
         var e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}
@@ -2123,9 +2123,9 @@
         this.maxTaskCount = t
       }
     }
-    C.defaultProcess = new C()
-    var j = C.defaultProcess,
-      T = C,
+    j.defaultProcess = new j()
+    var C = j.defaultProcess,
+      T = j,
       R = n('DBVu'),
       P = n('J9RX'),
       M = n('GAyR'),
@@ -3044,26 +3044,26 @@
           )
       },
       Ie = Le,
-      Ce = { from: 0, to: 1, duration: 1e3, ease: (e) => e, loop: !1 }
-    class je {
+      je = { from: 0, to: 1, duration: 1e3, ease: (e) => e, loop: !1 }
+    class Ce {
       constructor() {
         var e = this,
           t =
-            arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : Ce
+            arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : je
         ;(this.stopRunningFrame = void 0),
           (this.bus = new w()),
-          (this.state = { reversed: !1, progress: 0, stoped: !0, config: Ce }),
+          (this.state = { reversed: !1, progress: 0, stoped: !0, config: je }),
           (this.on = (e, t) => (this.bus.on(e, t), this)),
           (this.off = (e, t) => (this.bus.off(e, t), this)),
           (this.config = function () {
             var t =
               arguments.length > 0 && void 0 !== arguments[0]
                 ? arguments[0]
-                : Ce
+                : je
             return (
               (e.state.config = Object(b['default'])(
                 Object(b['default'])(
-                  Object(b['default'])({}, Ce),
+                  Object(b['default'])({}, je),
                   e.state.config
                 ),
                 Ie(t, ae)
@@ -3076,7 +3076,7 @@
             ;(this.state.stoped = !1), this.bus.emit('start')
             var e = Date.now()
             return (
-              (this.stopRunningFrame = j.start((t) => {
+              (this.stopRunningFrame = C.start((t) => {
                 var n = t.frameTime,
                   a = (n - e) / Ne(this.state.config.duration, 16),
                   r = this.state.reversed ? -1 : 1
@@ -3138,7 +3138,7 @@
           this.config(t)
       }
     }
-    je.DEFAULT_CONFIG = Ce
+    Ce.DEFAULT_CONFIG = je
     var Te = (e, t) =>
         function () {
           for (var n = arguments.length, a = new Array(n), r = 0; r < n; r++)
@@ -3412,11 +3412,11 @@
         .map((e) => N['a'][e])
         .filter((e) => !Object(x['a'])(e)),
       It = (e) => Lt.some((t) => e instanceof t),
-      Ct = (e) =>
+      jt = (e) =>
         e instanceof Error ||
         !!It(e) ||
         '[object Error]' === Object.prototype.toString.call(e),
-      jt = Ct,
+      Ct = jt,
       Tt =
         'function' === typeof Number.isFinite
           ? Number.isFinite
@@ -3654,18 +3654,18 @@
           }
         })
       },
-      Cn = In,
-      jn = !0,
+      jn = In,
+      Cn = !0,
       Tn = '__testSupportive__',
       Rn = N['a'].localStorage
-    ae(Rn) || (jn = !1)
+    ae(Rn) || (Cn = !1)
     try {
       Rn.setItem(Tn, '__testSupportive__'), Rn.removeItem(Tn)
     } catch (cr) {
-      jn = !1
+      Cn = !1
     }
     function Pn(e) {
-      return jn ? e : () => console.warn('Storage unsupported')
+      return Cn ? e : () => console.warn('Storage unsupported')
     }
     var Mn = (e) =>
         Pn((t) => {
@@ -3685,7 +3685,7 @@
         Pn((t, n) => {
           var a
           try {
-            a = Cn(n)
+            a = jn(n)
           } catch (cr) {
             console.error('[ERROR storage.set --\x3e safeStringify]', cr),
               (a = n)
@@ -4069,15 +4069,15 @@
           .concat(e.toString(16).padStart(2, '0'))
           .concat(t.toString(16).padStart(2, '0'))
           .concat(n.toString(16).padStart(2, '0')),
-      Ca = (e, t) => Math.max(0, Math.min(255, Math.floor(e * (1 - t / 100)))),
-      ja = (e, t) => {
+      ja = (e, t) => Math.max(0, Math.min(255, Math.floor(e * (1 - t / 100)))),
+      Ca = (e, t) => {
         var n = La(e),
           a = n.r,
           r = n.g,
           l = n.b
-        return (a = Ca(a, t)), (r = Ca(r, t)), (l = Ca(l, t)), Ia(a, r, l)
+        return (a = ja(a, t)), (r = ja(r, t)), (l = ja(l, t)), Ia(a, r, l)
       },
-      Ta = ja,
+      Ta = Ca,
       Ra = (e) => {
         var t = La(e),
           n = t.r,
@@ -4165,25 +4165,50 @@
           r = void 0 === a ? (e) => e : a,
           l = n.filterItem,
           o = void 0 === l ? () => !0 : l,
-          i = n.prefixKeys,
-          c = void 0 === i ? [] : i
-        if (W(e))
-          return e.map((e, t) => {
-            var n = [...c, t]
-            if (!1 === _(o, void 0, e, t, n)) return e
-            var a = Ka(e, { handleItem: r, filterItem: o, prefixKeys: n })
-            return _(r, void 0, a, t, n)
-          })
-        if ($(e))
-          for (var u in e) {
-            var s = null === e || void 0 === e ? void 0 : e[u],
-              d = [...c, u]
-            if (!1 !== _(o, void 0, s, u, d)) {
-              var m = Ka(s, { handleItem: r, filterItem: o, prefixKeys: d })
-              e[u] = _(r, void 0, m, u, d)
-            } else e[u] = s
+          i = n.mutable,
+          c = void 0 !== i && i,
+          u = n.prefixKeys,
+          s = void 0 === u ? [] : u,
+          d = { handleItem: r, filterItem: o, mutable: c, prefixKeys: [] }
+        if (W(e)) {
+          for (var m = c ? e : [...e], f = 0; f < m.length; f++) {
+            var p = m[f],
+              h = [...s, f]
+            if (!1 !== _(o, void 0, p, f, h)) {
+              var E = Ka(
+                p,
+                Object(b['default'])(
+                  Object(b['default'])({}, d),
+                  {},
+                  { prefixKeys: h }
+                )
+              )
+              m[f] = _(r, void 0, E, f, h)
+            }
           }
-        return _(r, void 0, e, void 0, c)
+          return m
+        }
+        if ($(e)) {
+          var g = c ? e : Object(b['default'])({}, e)
+          for (var v in g) {
+            var y = g[v],
+              k = [...s, v]
+            try {
+              if (!1 === _(o, void 0, y, v, k)) continue
+              var x = Ka(
+                y,
+                Object(b['default'])(
+                  Object(b['default'])({}, d),
+                  {},
+                  { prefixKeys: k }
+                )
+              )
+              g[v] = _(r, void 0, x, v, k)
+            } catch (w) {}
+          }
+          return g
+        }
+        return s.length > 0 ? e : _(r, void 0, e, void 0, s)
       },
       Qa = Ka,
       Ya = () => {
@@ -5246,7 +5271,7 @@
       var t = e.route,
         n = e.opts,
         a = e.props,
-        r = j(
+        r = C(
           d(d({}, n), {}, { routes: t.routes || [], rootRoutes: n.rootRoutes }),
           { location: a.location }
         ),
@@ -5268,7 +5293,7 @@
       }
       return r
     }
-    function C(e) {
+    function j(e) {
       var t,
         n,
         a,
@@ -5308,7 +5333,7 @@
             })
           ))
     }
-    function j(e) {
+    function C(e) {
       var t =
         arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}
       return e.routes
@@ -5316,7 +5341,7 @@
             _,
             t,
             e.routes.map(function (t, n) {
-              return C({
+              return j({
                 route: t,
                 index: n,
                 opts: d(d({}, e), {}, { rootRoutes: e.rootRoutes || e.routes }),
@@ -5359,7 +5384,7 @@
           },
           [t]
         ),
-        u['default'].createElement(r.Router, { history: t }, j(n))
+        u['default'].createElement(r.Router, { history: t }, C(n))
       )
     }
     function P(e) {
@@ -5474,7 +5499,7 @@
           : o.hydrate(t, n, a)
         : o.render(t, n, a)
     }
-    ;(t.renderClient = z), (t.renderRoutes = j)
+    ;(t.renderClient = z), (t.renderRoutes = C)
   },
   '0bwR': function (e, t, n) {
     'use strict'
@@ -6784,7 +6809,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isEmpty } from '@fexd/tools'\n\n// null / undefined\nisEmpty(null)         // => true\nisEmpty(undefined)    // => true\n\n// \u5b57\u7b26\u4e32\nisEmpty('')           // => true\nisEmpty(' ')          // => false (\u6709\u7a7a\u683c\u5b57\u7b26)\nisEmpty('hello')      // => false\n\n// \u6570\u7ec4\nisEmpty([])           // => true\nisEmpty([1])          // => false\n\n// \u5bf9\u8c61\nisEmpty({})           // => true\nisEmpty({ a: 1 })    // => false\n\n// Map / Set\nisEmpty(new Map())    // => true\nisEmpty(new Set([1])) // => false\n\n// \u5176\u4ed6\u7c7b\u578b\nisEmpty(0)            // => true (number \u4e0d\u662f\u96c6\u5408\u7c7b\u578b)\nisEmpty(false)        // => true (boolean \u4e0d\u662f\u96c6\u5408\u7c7b\u578b)",
+              code: "import { isEmpty } from '@fexd/tools'\n\n// null / undefined\nisEmpty(null) // => true\nisEmpty(undefined) // => true\n\n// \u5b57\u7b26\u4e32\nisEmpty('') // => true\nisEmpty(' ') // => false (\u6709\u7a7a\u683c\u5b57\u7b26)\nisEmpty('hello') // => false\n\n// \u6570\u7ec4\nisEmpty([]) // => true\nisEmpty([1]) // => false\n\n// \u5bf9\u8c61\nisEmpty({}) // => true\nisEmpty({ a: 1 }) // => false\n\n// Map / Set\nisEmpty(new Map()) // => true\nisEmpty(new Set([1])) // => false\n\n// \u5176\u4ed6\u7c7b\u578b\nisEmpty(0) // => true (number \u4e0d\u662f\u96c6\u5408\u7c7b\u578b)\nisEmpty(false) // => true (boolean \u4e0d\u662f\u96c6\u5408\u7c7b\u578b)",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -7318,7 +7343,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isInteger } from '@fexd/tools'\n\nisInteger(0)        // => true\nisInteger(1)        // => true\nisInteger(-100)     // => true\nisInteger(2e10)     // => true\n\nisInteger(1.5)      // => false\nisInteger(NaN)      // => false\nisInteger(Infinity) // => false\nisInteger('1')      // => false\nisInteger(null)     // => false",
+              code: "import { isInteger } from '@fexd/tools'\n\nisInteger(0) // => true\nisInteger(1) // => true\nisInteger(-100) // => true\nisInteger(2e10) // => true\n\nisInteger(1.5) // => false\nisInteger(NaN) // => false\nisInteger(Infinity) // => false\nisInteger('1') // => false\nisInteger(null) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -7592,7 +7617,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isSymbol } from '@fexd/tools'\n\nisSymbol(Symbol())           // => true\nisSymbol(Symbol('desc'))     // => true\nisSymbol(Symbol.iterator)    // => true\n\nisSymbol('symbol')           // => false\nisSymbol(42)                 // => false\nisSymbol(null)               // => false\nisSymbol({})                 // => false",
+              code: "import { isSymbol } from '@fexd/tools'\n\nisSymbol(Symbol()) // => true\nisSymbol(Symbol('desc')) // => true\nisSymbol(Symbol.iterator) // => true\n\nisSymbol('symbol') // => false\nisSymbol(42) // => false\nisSymbol(null) // => false\nisSymbol({}) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -8174,7 +8199,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { lock } from '@fexd/tools'\n\nconst lockedFetch = lock(async () => {\n  const res = await fetch('/api/data')\n  return res.json()\n})\n\n// \u9996\u6b21\u8c03\u7528\uff1a\u6267\u884c\u51fd\u6570\nawait lockedFetch()    // \u6267\u884c fetch\n// \u540e\u7eed\u8c03\u7528\uff1a\u8fd4\u56de\u7f13\u5b58\u7ed3\u679c\nawait lockedFetch()    // \u4e0d\u6267\u884c\uff0c\u8fd4\u56de\u4e0a\u6b21\u7ed3\u679c\n\n// \u89e3\u9501\u540e\u53ef\u91cd\u65b0\u6267\u884c\nlockedFetch.unlock()\nawait lockedFetch()    // \u518d\u6b21\u6267\u884c fetch\n\n// \u68c0\u67e5\u9501\u5b9a\u72b6\u6001\nlockedFetch.isLocked() // => true / false",
+                code: "import { lock } from '@fexd/tools'\n\nconst lockedFetch = lock(async () => {\n  const res = await fetch('/api/data')\n  return res.json()\n})\n\n// \u9996\u6b21\u8c03\u7528\uff1a\u6267\u884c\u51fd\u6570\nawait lockedFetch() // \u6267\u884c fetch\n// \u540e\u7eed\u8c03\u7528\uff1a\u8fd4\u56de\u7f13\u5b58\u7ed3\u679c\nawait lockedFetch() // \u4e0d\u6267\u884c\uff0c\u8fd4\u56de\u4e0a\u6b21\u7ed3\u679c\n\n// \u89e3\u9501\u540e\u53ef\u91cd\u65b0\u6267\u884c\nlockedFetch.unlock()\nawait lockedFetch() // \u518d\u6b21\u6267\u884c fetch\n\n// \u68c0\u67e5\u9501\u5b9a\u72b6\u6001\nlockedFetch.isLocked() // => true / false",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -8306,7 +8331,7 @@
               '\u7c7b\u578b\u7b7e\u540d'
             ),
             r.a.createElement(o['a'], {
-              code: 'function enhancePromise<T = any>(promise?: Promise<T>): Promise<T> & {\n  resolve: (value?: T | PromiseLike<T>) => void\n  reject: (reason?: any) => void\n  isPending: () => boolean\n  isNotPending: () => boolean\n  isFulfilled: () => boolean\n  isResolved: () => boolean\n  isRejected: () => boolean\n  getValue: () => T | PromiseLike<T> | undefined\n  getError: () => any\n}',
+              code: 'function enhancePromise<T = any>(\n  promise?: Promise<T>\n): Promise<T> & {\n  resolve: (value?: T | PromiseLike<T>) => void\n  reject: (reason?: any) => void\n  isPending: () => boolean\n  isNotPending: () => boolean\n  isFulfilled: () => boolean\n  isResolved: () => boolean\n  isRejected: () => boolean\n  getValue: () => T | PromiseLike<T> | undefined\n  getError: () => any\n}',
               lang: 'ts',
             }),
             r.a.createElement(
@@ -8539,11 +8564,11 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { enhancePromise } from '@fexd/tools'\n\n// \u5305\u88c5\u5df2\u6709 Promise\nconst enhanced = enhancePromise(fetch('/api/data'))\nenhanced.isPending()  // => true\n\nawait enhanced\nenhanced.isFulfilled()  // => true\nenhanced.getValue()      // => Response object\n\n// \u521b\u5efa\u53ef\u5916\u90e8\u63a7\u5236\u7684 Promise\nconst deferred = enhancePromise()\ndeferred.isPending()  // => true\n\n// \u7a0d\u540e\u624b\u52a8 resolve\nsetTimeout(() => deferred.resolve('hello'), 1000)\nawait deferred  // => 'hello'",
+              code: "import { enhancePromise } from '@fexd/tools'\n\n// \u5305\u88c5\u5df2\u6709 Promise\nconst enhanced = enhancePromise(fetch('/api/data'))\nenhanced.isPending() // => true\n\nawait enhanced\nenhanced.isFulfilled() // => true\nenhanced.getValue() // => Response object\n\n// \u521b\u5efa\u53ef\u5916\u90e8\u63a7\u5236\u7684 Promise\nconst deferred = enhancePromise()\ndeferred.isPending() // => true\n\n// \u7a0d\u540e\u624b\u52a8 resolve\nsetTimeout(() => deferred.resolve('hello'), 1000)\nawait deferred // => 'hello'",
               lang: 'ts',
             }),
             r.a.createElement(o['a'], {
-              code: "// \u5305\u88c5\u5df2\u6709 Promise\nconst enhanced = enhancePromise(fetch('/api/data'))\nenhanced.isPending()   // => true\n\n// \u624b\u52a8 reject\nenhanced.reject(new Error('timeout'))\nenhanced.isFulfilled() // => false\nenhanced.getError()    // => Error: timeout",
+              code: "// \u5305\u88c5\u5df2\u6709 Promise\nconst enhanced = enhancePromise(fetch('/api/data'))\nenhanced.isPending() // => true\n\n// \u624b\u52a8 reject\nenhanced.reject(new Error('timeout'))\nenhanced.isFulfilled() // => false\nenhanced.getError() // => Error: timeout",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -9597,11 +9622,11 @@
         t
       )
     }
-    function C(e) {
+    function j(e) {
       return e && e.__esModule ? e['default'] : e
     }
-    function j(e, t) {
-      return Object(i['createElement'])(C(e), t)
+    function C(e, t) {
+      return Object(i['createElement'])(j(e), t)
     }
     function T(e, t) {
       var n = Object.assign(
@@ -9610,7 +9635,7 @@
             loading: null,
             delay: 200,
             timeout: null,
-            render: j,
+            render: C,
             webpack: null,
             modules: null,
           },
@@ -10189,7 +10214,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isPlainObject } from '@fexd/tools'\n\nisPlainObject({ a: 1 })             // => true\nisPlainObject(Object.create(null))  // => true\nisPlainObject([1, 2])               // => false\nisPlainObject(new Date())           // => false\nisPlainObject(null)                 // => false",
+              code: "import { isPlainObject } from '@fexd/tools'\n\nisPlainObject({ a: 1 }) // => true\nisPlainObject(Object.create(null)) // => true\nisPlainObject([1, 2]) // => false\nisPlainObject(new Date()) // => false\nisPlainObject(null) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -10564,7 +10589,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { run } from '@fexd/tools'\n\nconst obj = {\n  a: {\n    b: {\n      greet: (name) => `Hello, ${name}!`,\n      count: 42,\n    },\n  },\n}\n\n// \u8def\u5f84\u4e3a\u51fd\u6570\u65f6\uff0c\u8c03\u7528\u5e76\u4f20\u53c2\nrun(obj, 'a.b.greet', 'World')  // => 'Hello, World!'\n\n// \u8def\u5f84\u4e3a\u975e\u51fd\u6570\u65f6\uff0c\u76f4\u63a5\u8fd4\u56de\u503c\nrun(obj, 'a.b.count')            // => 42\n\n// \u8def\u5f84\u4e0d\u5b58\u5728\u65f6\uff0c\u8fd4\u56de undefined\nrun(obj, 'a.b.missing')         // => undefined\n\n// \u51fd\u6570\u8c03\u7528\u65f6 this \u6307\u5411\u7236\u5bf9\u8c61\nconst ctx = { name: 'test', getName() { return this.name } }\nrun(ctx, 'getName')             // => 'test'",
+              code: "import { run } from '@fexd/tools'\n\nconst obj = {\n  a: {\n    b: {\n      greet: (name) => `Hello, ${name}!`,\n      count: 42,\n    },\n  },\n}\n\n// \u8def\u5f84\u4e3a\u51fd\u6570\u65f6\uff0c\u8c03\u7528\u5e76\u4f20\u53c2\nrun(obj, 'a.b.greet', 'World') // => 'Hello, World!'\n\n// \u8def\u5f84\u4e3a\u975e\u51fd\u6570\u65f6\uff0c\u76f4\u63a5\u8fd4\u56de\u503c\nrun(obj, 'a.b.count') // => 42\n\n// \u8def\u5f84\u4e0d\u5b58\u5728\u65f6\uff0c\u8fd4\u56de undefined\nrun(obj, 'a.b.missing') // => undefined\n\n// \u51fd\u6570\u8c03\u7528\u65f6 this \u6307\u5411\u7236\u5bf9\u8c61\nconst ctx = {\n  name: 'test',\n  getName() {\n    return this.name\n  },\n}\nrun(ctx, 'getName') // => 'test'",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -10802,11 +10827,11 @@
         })
       )
     }
-    var C = /\/+/g,
-      j = []
+    var j = /\/+/g,
+      C = []
     function T(e, t, n, a) {
-      if (j.length) {
-        var r = j.pop()
+      if (C.length) {
+        var r = C.pop()
         return (
           (r.result = e),
           (r.keyPrefix = t),
@@ -10824,7 +10849,7 @@
         (e.func = null),
         (e.context = null),
         (e.count = 0),
-        10 > j.length && j.push(e)
+        10 > C.length && C.push(e)
     }
     function P(e, t, n, a) {
       var r = typeof e
@@ -10901,14 +10926,14 @@
                 r +
                   (!e.key || (t && t.key === e.key)
                     ? ''
-                    : ('' + e.key).replace(C, '$&/') + '/') +
+                    : ('' + e.key).replace(j, '$&/') + '/') +
                   n
               )),
             a.push(e))
     }
     function D(e, t, n, a, r) {
       var l = ''
-      null != n && (l = ('' + n).replace(C, '$&/') + '/'),
+      null != n && (l = ('' + n).replace(j, '$&/') + '/'),
         (t = T(t, l, a, r)),
         M(e, B, t),
         R(t)
@@ -11354,7 +11379,7 @@
                 '\u7c7b\u578b\u7b7e\u540d'
               ),
               r.a.createElement(i['a'], {
-                code: 'function diffArray<T = any>(init: T[], current: T[]): {\n  add: T[]\n  remove: T[]\n  diff: T[]\n}',
+                code: 'function diffArray<T = any>(\n  init: T[],\n  current: T[]\n): {\n  add: T[]\n  remove: T[]\n  diff: T[]\n}',
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -12413,7 +12438,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isFinite } from '@fexd/tools'\n\nisFinite(0)         // => true\nisFinite(1.5)       // => true\nisFinite(-999)      // => true\n\nisFinite(Infinity)  // => false\nisFinite(-Infinity) // => false\nisFinite(NaN)       // => false\nisFinite('123')     // => false (\u4e0d\u505a\u7c7b\u578b\u8f6c\u6362)\nisFinite(null)      // => false\nisFinite(true)      // => false",
+              code: "import { isFinite } from '@fexd/tools'\n\nisFinite(0) // => true\nisFinite(1.5) // => true\nisFinite(-999) // => true\n\nisFinite(Infinity) // => false\nisFinite(-Infinity) // => false\nisFinite(NaN) // => false\nisFinite('123') // => false (\u4e0d\u505a\u7c7b\u578b\u8f6c\u6362)\nisFinite(null) // => false\nisFinite(true) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -13006,7 +13031,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isBoolean } from '@fexd/tools'\n\nisBoolean(true)   // => true\nisBoolean(false)  // => true\nisBoolean(0)      // => false\nisBoolean(null)   // => false\nisBoolean('true') // => false",
+              code: "import { isBoolean } from '@fexd/tools'\n\nisBoolean(true) // => true\nisBoolean(false) // => true\nisBoolean(0) // => false\nisBoolean(null) // => false\nisBoolean('true') // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -13163,10 +13188,10 @@
       N = s.getterFor(A),
       L = s.getterFor(O),
       I = /\+/g,
-      C = Array(4),
-      j = function (e) {
+      j = Array(4),
+      C = function (e) {
         return (
-          C[e - 1] || (C[e - 1] = RegExp('((?:%[\\da-f]{2}){' + e + '})', 'gi'))
+          j[e - 1] || (j[e - 1] = RegExp('((?:%[\\da-f]{2}){' + e + '})', 'gi'))
         )
       },
       T = function (e) {
@@ -13182,7 +13207,7 @@
         try {
           return decodeURIComponent(t)
         } catch (a) {
-          while (n) t = t.replace(j(n--), T)
+          while (n) t = t.replace(C(n--), T)
           return t
         }
       },
@@ -13862,15 +13887,15 @@
     }
     var L = {},
       I = 1e4,
-      C = 0
-    function j(e, t) {
+      j = 0
+    function C(e, t) {
       var n = '' + t.end + t.strict + t.sensitive,
         a = L[n] || (L[n] = {})
       if (a[e]) return a[e]
       var r = [],
         l = d()(e, r, t),
         o = { regexp: l, keys: r }
-      return C < I && ((a[e] = o), C++), o
+      return j < I && ((a[e] = o), j++), o
     }
     function T(e, t) {
       void 0 === t && (t = {}),
@@ -13887,7 +13912,7 @@
       return s.reduce(function (t, n) {
         if (!n && '' !== n) return null
         if (t) return t
-        var a = j(n, { end: l, strict: i, sensitive: u }),
+        var a = C(n, { end: l, strict: i, sensitive: u }),
           r = a.regexp,
           o = a.keys,
           c = r.exec(e)
@@ -14243,7 +14268,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isPromiseLike } from '@fexd/tools'\n\nisPromiseLike(Promise.resolve(1))  // => true\nisPromiseLike({ then: () => {} })  // => true\nisPromiseLike(123)                 // => false\nisPromiseLike(null)                // => false\nisPromiseLike({})                  // => false",
+              code: "import { isPromiseLike } from '@fexd/tools'\n\nisPromiseLike(Promise.resolve(1)) // => true\nisPromiseLike({ then: () => {} }) // => true\nisPromiseLike(123) // => false\nisPromiseLike(null) // => false\nisPromiseLike({}) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -14438,10 +14463,10 @@
       N = n('8d12'),
       L = n('86T+'),
       I = n('uJNS'),
-      C = n('RzMS'),
-      j = n('3Hes'),
+      j = n('RzMS'),
+      C = n('3Hes'),
       T = n('tDGd'),
-      R = j('species'),
+      R = C('species'),
       P = 'Promise',
       M = I.get,
       F = I.set,
@@ -14462,7 +14487,7 @@
       J = 2,
       Z = 1,
       ee = 2,
-      te = C(P, function () {
+      te = j(P, function () {
         var e = y(B) !== String(B)
         if (!e) {
           if (66 === T) return !0
@@ -14951,7 +14976,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { compactObject } from '@fexd/tools'\n\ncompactObject({ a: 1, b: null, c: '', d: 0, e: undefined })\n// => { a: 1, d: 0 }\n\ncompactObject({ name: 'Alice', age: null })\n// => { name: 'Alice' }\n\n// \u5178\u578b\u573a\u666f\uff1a\u6784\u5efa\u8bf7\u6c42\u53c2\u6570\u65f6\u8fc7\u6ee4\u7a7a\u503c\nconst params = compactObject({\n  keyword: searchText,\n  page: 1,\n  category: selectedCategory || '',  // \u672a\u9009\u62e9\u65f6\u4e3a\u7a7a\u5b57\u7b26\u4e32\uff0c\u4f1a\u88ab\u8fc7\u6ee4\n  tag: null,                          // \u4f1a\u88ab\u8fc7\u6ee4\n})\n// fetch(`/api/list?${new URLSearchParams(params)}`)",
+              code: "import { compactObject } from '@fexd/tools'\n\ncompactObject({ a: 1, b: null, c: '', d: 0, e: undefined })\n// => { a: 1, d: 0 }\n\ncompactObject({ name: 'Alice', age: null })\n// => { name: 'Alice' }\n\n// \u5178\u578b\u573a\u666f\uff1a\u6784\u5efa\u8bf7\u6c42\u53c2\u6570\u65f6\u8fc7\u6ee4\u7a7a\u503c\nconst params = compactObject({\n  keyword: searchText,\n  page: 1,\n  category: selectedCategory || '', // \u672a\u9009\u62e9\u65f6\u4e3a\u7a7a\u5b57\u7b26\u4e32\uff0c\u4f1a\u88ab\u8fc7\u6ee4\n  tag: null, // \u4f1a\u88ab\u8fc7\u6ee4\n})\n// fetch(`/api/list?${new URLSearchParams(params)}`)",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -15763,7 +15788,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { toFixed } from '@fexd/tools'\n\ntoFixed(3.14159)     // => 3.14\ntoFixed(3.14159, 3)  // => 3.142\ntoFixed(3.1, 4)      // => 3.1\ntoFixed()            // => 0",
+                code: "import { toFixed } from '@fexd/tools'\n\ntoFixed(3.14159) // => 3.14\ntoFixed(3.14159, 3) // => 3.142\ntoFixed(3.1, 4) // => 3.1\ntoFixed() // => 0",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -15963,8 +15988,8 @@
       N = 'Invalid host',
       L = 'Invalid port',
       I = /[A-Za-z]/,
-      C = /[\d+-.A-Za-z]/,
-      j = /\d/,
+      j = /[\d+-.A-Za-z]/,
+      C = /\d/,
       T = /^(0x|0X)/,
       R = /^[0-7]+$/,
       P = /^\d+$/,
@@ -16059,8 +16084,8 @@
                   if (!('.' == m() && a < 4)) return
                   d++
                 }
-                if (!j.test(m())) return
-                while (j.test(m())) {
+                if (!C.test(m())) return
+                while (C.test(m())) {
                   if (((l = parseInt(m(), 10)), null === r)) r = l
                   else {
                     if (0 == r) return
@@ -16233,7 +16258,7 @@
               ;(m += o.toLowerCase()), (u = ie)
               break
             case ie:
-              if (o && (C.test(o) || '+' == o || '-' == o || '.' == o))
+              if (o && (j.test(o) || '+' == o || '-' == o || '.' == o))
                 m += o.toLowerCase()
               else {
                 if (':' != o) {
@@ -16400,7 +16425,7 @@
               }
               break
             case ve:
-              if (!j.test(o)) {
+              if (!C.test(o)) {
                 if (
                   o == a ||
                   '/' == o ||
@@ -16558,8 +16583,8 @@
           }),
           l ||
             ((a.href = Ie.call(a)),
-            (a.origin = Ce.call(a)),
-            (a.protocol = je.call(a)),
+            (a.origin = je.call(a)),
+            (a.protocol = Ce.call(a)),
             (a.username = Te.call(a)),
             (a.password = Re.call(a)),
             (a.host = Pe.call(a)),
@@ -16595,7 +16620,7 @@
           u
         )
       },
-      Ce = function () {
+      je = function () {
         var e = w(this),
           t = e.scheme,
           n = e.port
@@ -16609,7 +16634,7 @@
           ? t + '://' + $(e.host) + (null !== n ? ':' + n : '')
           : 'null'
       },
-      je = function () {
+      Ce = function () {
         return w(this).scheme + ':'
       },
       Te = function () {
@@ -16661,8 +16686,8 @@
             if (a) throw TypeError(a)
             k(t.searchParams).updateSearchParams(t.query)
           }),
-          origin: Ue(Ce),
-          protocol: Ue(je, function (e) {
+          origin: Ue(je),
+          protocol: Ue(Ce, function (e) {
             var t = w(this)
             _e(t, String(e) + ':', oe)
           }),
@@ -17360,7 +17385,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isArray } from '@fexd/tools'\n\nisArray([1, 2, 3])  // => true\nisArray([])          // => true\nisArray({})          // => false\nisArray(null)        // => false\nisArray('hello')     // => false",
+              code: "import { isArray } from '@fexd/tools'\n\nisArray([1, 2, 3]) // => true\nisArray([]) // => true\nisArray({}) // => false\nisArray(null) // => false\nisArray('hello') // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -17876,7 +17901,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isNaN } from '@fexd/tools'\n\nisNaN(NaN)       // => true\nisNaN(0 / 0)     // => true\nisNaN(123)       // => false\nisNaN('hello')   // => false\uff08\u5b57\u7b26\u4e32\u4e0d\u662f NaN\uff09\nisNaN(undefined) // => false",
+              code: "import { isNaN } from '@fexd/tools'\n\nisNaN(NaN) // => true\nisNaN(0 / 0) // => true\nisNaN(123) // => false\nisNaN('hello') // => false\uff08\u5b57\u7b26\u4e32\u4e0d\u662f NaN\uff09\nisNaN(undefined) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -17995,8 +18020,8 @@
       N = n('aRba'),
       L = _.get,
       I = _.set,
-      C = A.f,
-      j = O.f,
+      j = A.f,
+      C = O.f,
       T = Math.round,
       R = r.RangeError,
       P = c.ArrayBuffer,
@@ -18017,7 +18042,7 @@
         return r
       },
       H = function (e, t) {
-        C(e, t, {
+        j(e, t, {
           get: function () {
             return L(this)[t]
           },
@@ -18035,7 +18060,7 @@
         return U(e) && 'symbol' != typeof t && t in e && String(+t) == String(t)
       },
       K = function (e, t) {
-        return X(e, (t = h(t, !0))) ? s(2, e[t]) : j(e, t)
+        return X(e, (t = h(t, !0))) ? s(2, e[t]) : C(e, t)
       },
       Q = function (e, t, n) {
         return !(X(e, (t = h(t, !0))) && v(n) && E(n, 'value')) ||
@@ -18044,7 +18069,7 @@
           n.configurable ||
           (E(n, 'writable') && !n.writable) ||
           (E(n, 'enumerable') && !n.enumerable)
-          ? C(e, t, n)
+          ? j(e, t, n)
           : ((e[t] = n.value), e)
       }
     l
@@ -18077,8 +18102,8 @@
               n && (a = (a = T(a)) < 0 ? 0 : a > 255 ? 255 : 255 & a),
                 r.view[s](t * l + r.byteOffset, a, !0)
             },
-            j = function (e, t) {
-              C(e, t, {
+            C = function (e, t) {
+              j(e, t, {
                 get: function () {
                   return O(this, t)
                 },
@@ -18141,7 +18166,7 @@
                   length: c,
                   view: new M(r),
                 })
-                while (s < c) j(e, s++)
+                while (s < c) C(e, s++)
               })),
               y && y(E, B),
               (g = E.prototype = b(D))),
@@ -18574,8 +18599,8 @@
       N = n('uF/W'),
       L = n('WAeE'),
       I = n('8i6t'),
-      C = n('Y3cF'),
-      j = n('KgcE'),
+      j = n('Y3cF'),
+      C = n('KgcE'),
       T = n('3Hes'),
       R = n('2Roc'),
       P = n('KZF9'),
@@ -18685,7 +18710,7 @@
           n = []
         return (
           z(t, function (e) {
-            d(J, e) || d(C, e) || n.push(e)
+            d(J, e) || d(j, e) || n.push(e)
           }),
           n
         )
@@ -18709,7 +18734,7 @@
               arguments.length && void 0 !== arguments[0]
                 ? String(arguments[0])
                 : void 0,
-            t = j(e),
+            t = C(e),
             n = function (e) {
               this === $ && n.call(Z, e),
                 d(this, B) && d(this[B], t) && (this[B][t] = !1),
@@ -18721,7 +18746,7 @@
           return G(this).tag
         }),
         N(H, 'withoutSetter', function (e) {
-          return oe(j(e), e)
+          return oe(C(e), e)
         }),
         (O.f = de),
         (A.f = ce),
@@ -18826,7 +18851,7 @@
         }
       )
     }
-    H[W][U] || _(H[W], U, H[W].valueOf), M(H, D), (C[B] = !0)
+    H[W][U] || _(H[W], U, H[W].valueOf), M(H, D), (j[B] = !0)
   },
   GhqR: function (e, t, n) {
     'use strict'
@@ -18920,7 +18945,7 @@
                 '\u5b9e\u4f8b\u914d\u7f6e'
               ),
               r.a.createElement(i['a'], {
-                code: "interface I18nConfig {\n  types?: Record<string, {\n    resources?: Record<any, any> | false  // \u7ffb\u8bd1\u8d44\u6e90\uff0cfalse \u8868\u793a\u4e0d\u4f7f\u7528\n    format?: any                           // \u81ea\u5b9a\u4e49\u683c\u5f0f\u5316\u51fd\u6570\u6216\u6309\u8bed\u8a00\u6620\u5c04\n  }>\n  splitByDot?: boolean | 'auto'  // \u70b9\u5206\u5272\u6a21\u5f0f\uff1a'auto'(\u9ed8\u8ba4)\u3001true\u3001false\n  defaultType?: string            // \u9ed8\u8ba4\u7c7b\u578b\uff0c\u9ed8\u8ba4 'default'\n  fallback?: I18n[] | Record<any, any>  // \u7ffb\u8bd1\u56de\u9000\n  translateFallback?: ((keys: any, options: any) => any) | any  // \u7ffb\u8bd1\u56de\u9000\u51fd\u6570\n}",
+                code: "interface I18nConfig {\n  types?: Record<\n    string,\n    {\n      resources?: Record<any, any> | false // \u7ffb\u8bd1\u8d44\u6e90\uff0cfalse \u8868\u793a\u4e0d\u4f7f\u7528\n      format?: any // \u81ea\u5b9a\u4e49\u683c\u5f0f\u5316\u51fd\u6570\u6216\u6309\u8bed\u8a00\u6620\u5c04\n    }\n  >\n  splitByDot?: boolean | 'auto' // \u70b9\u5206\u5272\u6a21\u5f0f\uff1a'auto'(\u9ed8\u8ba4)\u3001true\u3001false\n  defaultType?: string // \u9ed8\u8ba4\u7c7b\u578b\uff0c\u9ed8\u8ba4 'default'\n  fallback?: I18n[] | Record<any, any> // \u7ffb\u8bd1\u56de\u9000\n  translateFallback?: ((keys: any, options: any) => any) | any // \u7ffb\u8bd1\u56de\u9000\u51fd\u6570\n}",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -19377,7 +19402,7 @@
                 ' \u9009\u9879\u3002'
               ),
               r.a.createElement(i['a'], {
-                code: "// 1. \u521b\u5efa\u516c\u5171\u6a21\u5757\u7684 I18n \u5b9e\u4f8b\nconst commonI18n = new I18n({\n  types: {\n    default: {\n      resources: {\n        'zh-CN': { button: '\u6309\u94ae', link: '\u94fe\u63a5' },\n        'en-US': { button: 'Button', link: 'Link' },\n      },\n    },\n  },\n})\n\n// 2. \u521b\u5efa\u5e94\u7528\u5b9e\u4f8b\uff0c\u5c06 common \u6ce8\u518c\u4e3a\u547d\u540d\u7a7a\u95f4 fallback\nconst appI18n = new I18n({\n  types: {\n    default: {\n      resources: {\n        'zh-CN': { title: '\u6807\u9898' },\n        'en-US': { title: 'Title' },\n      },\n    },\n  },\n  fallback: {\n    common: commonI18n,  // \u547d\u540d\u7a7a\u95f4\u540d -> fallback \u5b9e\u4f8b\n  },\n})\n\nawait I18n.applyLanguage('zh-CN')\n\n// 3. \u672c\u5730\u8d44\u6e90\nappI18n.t('title')              // => '\u6807\u9898'\n\n// 4. \u901a\u8fc7 namespace:key \u67e5\u627e fallback\nappI18n.t('common:button')      // => '\u6309\u94ae'\nappI18n.t('common:link')        // => '\u94fe\u63a5'\n\n// 5. \u7b49\u4ef7\u5199\u6cd5\uff1a@namespace \u9009\u9879\nappI18n.t('button', { '@namespace': 'common' })  // => '\u6309\u94ae'",
+                code: "// 1. \u521b\u5efa\u516c\u5171\u6a21\u5757\u7684 I18n \u5b9e\u4f8b\nconst commonI18n = new I18n({\n  types: {\n    default: {\n      resources: {\n        'zh-CN': { button: '\u6309\u94ae', link: '\u94fe\u63a5' },\n        'en-US': { button: 'Button', link: 'Link' },\n      },\n    },\n  },\n})\n\n// 2. \u521b\u5efa\u5e94\u7528\u5b9e\u4f8b\uff0c\u5c06 common \u6ce8\u518c\u4e3a\u547d\u540d\u7a7a\u95f4 fallback\nconst appI18n = new I18n({\n  types: {\n    default: {\n      resources: {\n        'zh-CN': { title: '\u6807\u9898' },\n        'en-US': { title: 'Title' },\n      },\n    },\n  },\n  fallback: {\n    common: commonI18n, // \u547d\u540d\u7a7a\u95f4\u540d -> fallback \u5b9e\u4f8b\n  },\n})\n\nawait I18n.applyLanguage('zh-CN')\n\n// 3. \u672c\u5730\u8d44\u6e90\nappI18n.t('title') // => '\u6807\u9898'\n\n// 4. \u901a\u8fc7 namespace:key \u67e5\u627e fallback\nappI18n.t('common:button') // => '\u6309\u94ae'\nappI18n.t('common:link') // => '\u94fe\u63a5'\n\n// 5. \u7b49\u4ef7\u5199\u6cd5\uff1a@namespace \u9009\u9879\nappI18n.t('button', { '@namespace': 'common' }) // => '\u6309\u94ae'",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -19395,7 +19420,7 @@
                 '\u57fa\u672c\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { I18n } from '@fexd/tools'\n\nconst i18n = new I18n({\n  types: {\n    default: {\n      resources: {\n        'zh-CN': { hello: '\u4f60\u597d', 'greeting.morning': '\u65e9\u4e0a\u597d' },\n        'en-US': { hello: 'Hello', 'greeting.morning': 'Good morning' },\n      },\n    },\n  },\n  defaultType: 'default',\n  splitByDot: 'auto',\n})\n\nawait I18n.applyLanguage('zh-CN')\n\ni18n.t('hello')              // => '\u4f60\u597d'\ni18n.t('greeting.morning')   // => '\u65e9\u4e0a\u597d'",
+                code: "import { I18n } from '@fexd/tools'\n\nconst i18n = new I18n({\n  types: {\n    default: {\n      resources: {\n        'zh-CN': { hello: '\u4f60\u597d', 'greeting.morning': '\u65e9\u4e0a\u597d' },\n        'en-US': { hello: 'Hello', 'greeting.morning': 'Good morning' },\n      },\n    },\n  },\n  defaultType: 'default',\n  splitByDot: 'auto',\n})\n\nawait I18n.applyLanguage('zh-CN')\n\ni18n.t('hello') // => '\u4f60\u597d'\ni18n.t('greeting.morning') // => '\u65e9\u4e0a\u597d'",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -19449,7 +19474,7 @@
                 'fallback \u7ffb\u8bd1\u94fe'
               ),
               r.a.createElement(i['a'], {
-                code: "const fallbackI18n = new I18n({\n  types: { default: { resources: { 'zh-CN': { shared: '\u5171\u4eab' } } } },\n})\n\nconst i18n = new I18n({\n  types: { default: { resources: { 'zh-CN': { hello: '\u4f60\u597d' } } } },\n  fallback: [fallbackI18n],  // \u6570\u7ec4\uff1a\u6309\u987a\u5e8f\u67e5\u627e\n  // \u6216 fallback: { common: fallbackI18n },  // \u5bf9\u8c61\uff1a\u547d\u540d\u7a7a\u95f4\n})\n\n// \u7ffb\u8bd1\u4f18\u5148\u7ea7\uff1a\u4e3b\u8d44\u6e90 > fallback \u5b9e\u4f8b > translateFallback > key \u672c\u8eab",
+                code: "const fallbackI18n = new I18n({\n  types: { default: { resources: { 'zh-CN': { shared: '\u5171\u4eab' } } } },\n})\n\nconst i18n = new I18n({\n  types: { default: { resources: { 'zh-CN': { hello: '\u4f60\u597d' } } } },\n  fallback: [fallbackI18n], // \u6570\u7ec4\uff1a\u6309\u987a\u5e8f\u67e5\u627e\n  // \u6216 fallback: { common: fallbackI18n },  // \u5bf9\u8c61\uff1a\u547d\u540d\u7a7a\u95f4\n})\n\n// \u7ffb\u8bd1\u4f18\u5148\u7ea7\uff1a\u4e3b\u8d44\u6e90 > fallback \u5b9e\u4f8b > translateFallback > key \u672c\u8eab",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -19537,7 +19562,7 @@
                 '\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "// \u6bcf\u5c42\u6ce8\u518c\u65f6\u58f0\u660e priority\uff0c\u6570\u503c\u8d8a\u5927\u8d8a\u4f18\u5148\ni18n.applyConfig(baseConfig, { mode: 'supplement', priority: 1 })   // \u5e95\u5c42\ni18n.applyConfig(midConfig, { mode: 'supplement', priority: 2 })    // \u4e2d\u95f4\u5c42\ni18n.applyConfig(appConfig, { mode: 'supplement', priority: 4 })    // \u5e94\u7528\u5c42",
+                code: "// \u6bcf\u5c42\u6ce8\u518c\u65f6\u58f0\u660e priority\uff0c\u6570\u503c\u8d8a\u5927\u8d8a\u4f18\u5148\ni18n.applyConfig(baseConfig, { mode: 'supplement', priority: 1 }) // \u5e95\u5c42\ni18n.applyConfig(midConfig, { mode: 'supplement', priority: 2 }) // \u4e2d\u95f4\u5c42\ni18n.applyConfig(appConfig, { mode: 'supplement', priority: 4 }) // \u5e94\u7528\u5c42",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -20168,7 +20193,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { createSeparatorFormatter } from '@fexd/tools'\n\n// \u5343\u5206\u4f4d\u5206\u9694\uff08\u9ed8\u8ba4\u7a7a\u683c\uff09\nconst format = createSeparatorFormatter()\nformat(1234567)  // => '1 234 567'\n\n// \u7f8e\u5f0f\uff1a\u9017\u53f7\u5206\u7ec4\uff0c\u5c0f\u6570\u70b9\u4e0d\u53d8\nconst formatUS = createSeparatorFormatter({ separator: ',', isNumber: true })\nformatUS(1234567.89)  // => '1,234,567.89'\n\n// \u6b27\u5f0f\uff1a\u70b9\u5206\u7ec4 \u2192 \u5c0f\u6570\u70b9\u81ea\u52a8\u53d8\u9017\u53f7\nconst formatEU = createSeparatorFormatter({ separator: '.', isNumber: true })\nformatEU(1234567.89)  // => '1.234.567,89'\n\n// \u94f6\u884c\u5361\u53f7 4 \u4f4d\u5206\u7ec4\nconst formatCard = createSeparatorFormatter({ separator: ' ', length: 4 })\nformatCard('6222021234567890')  // => '6222 0212 3456 7890'",
+                code: "import { createSeparatorFormatter } from '@fexd/tools'\n\n// \u5343\u5206\u4f4d\u5206\u9694\uff08\u9ed8\u8ba4\u7a7a\u683c\uff09\nconst format = createSeparatorFormatter()\nformat(1234567) // => '1 234 567'\n\n// \u7f8e\u5f0f\uff1a\u9017\u53f7\u5206\u7ec4\uff0c\u5c0f\u6570\u70b9\u4e0d\u53d8\nconst formatUS = createSeparatorFormatter({ separator: ',', isNumber: true })\nformatUS(1234567.89) // => '1,234,567.89'\n\n// \u6b27\u5f0f\uff1a\u70b9\u5206\u7ec4 \u2192 \u5c0f\u6570\u70b9\u81ea\u52a8\u53d8\u9017\u53f7\nconst formatEU = createSeparatorFormatter({ separator: '.', isNumber: true })\nformatEU(1234567.89) // => '1.234.567,89'\n\n// \u94f6\u884c\u5361\u53f7 4 \u4f4d\u5206\u7ec4\nconst formatCard = createSeparatorFormatter({ separator: ' ', length: 4 })\nformatCard('6222021234567890') // => '6222 0212 3456 7890'",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -20430,7 +20455,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isNil } from '@fexd/tools'\n\nisNil(null)       // => true\nisNil(undefined)  // => true\nisNil(void 0)     // => true\n\nisNil(0)          // => false\nisNil('')         // => false\nisNil(false)      // => false\nisNil(NaN)        // => false\nisNil([])         // => false\nisNil({})         // => false",
+              code: "import { isNil } from '@fexd/tools'\n\nisNil(null) // => true\nisNil(undefined) // => true\nisNil(void 0) // => true\n\nisNil(0) // => false\nisNil('') // => false\nisNil(false) // => false\nisNil(NaN) // => false\nisNil([]) // => false\nisNil({}) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -20956,7 +20981,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { capitalize } from '@fexd/tools'\n\ncapitalize('hello')       // => 'Hello'\ncapitalize('hello world') // => 'Hello World'\ncapitalize('')            // => ''\ncapitalize(123)           // => ''\uff08\u975e\u5b57\u7b26\u4e32\u8fd4\u56de\u7a7a\u5b57\u7b26\u4e32\uff09",
+              code: "import { capitalize } from '@fexd/tools'\n\ncapitalize('hello') // => 'Hello'\ncapitalize('hello world') // => 'Hello World'\ncapitalize('') // => ''\ncapitalize(123) // => ''\uff08\u975e\u5b57\u7b26\u4e32\u8fd4\u56de\u7a7a\u5b57\u7b26\u4e32\uff09",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -21480,7 +21505,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isString } from '@fexd/tools'\n\nisString('hello')  // => true\nisString('')       // => true\nisString(123)      // => false\nisString(null)     // => false\nisString(undefined)// => false",
+              code: "import { isString } from '@fexd/tools'\n\nisString('hello') // => true\nisString('') // => true\nisString(123) // => false\nisString(null) // => false\nisString(undefined) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -21967,7 +21992,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { intersection } from '@fexd/tools'\n\nintersection([1, 2, 3], [2, 3, 4])     // => [2, 3]\nintersection([1, 2], [2, 3], [2, 5])   // => [2]\nintersection([1, 2], [3, 4])           // => []",
+              code: "import { intersection } from '@fexd/tools'\n\nintersection([1, 2, 3], [2, 3, 4]) // => [2, 3]\nintersection([1, 2], [2, 3], [2, 5]) // => [2]\nintersection([1, 2], [3, 4]) // => []",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -22090,7 +22115,7 @@
       N = '[object Uint16Array]',
       L = '[object Uint32Array]',
       I = {}
-    function C(e) {
+    function j(e) {
       return l(e) && r(e.length) && !!I[a(e)]
     }
     ;(I[k] = I[x] = I[w] = I[S] = I[A] = I[O] = I[_] = I[N] = I[L] = !0),
@@ -22110,7 +22135,7 @@
         I[g] =
         I[v] =
           !1),
-      (e.exports = C)
+      (e.exports = j)
   },
   J1zz: function (e, t, n) {
     'use strict'
@@ -22334,7 +22359,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { clamp } from '@fexd/tools'\n\nclamp(5, 0, 10)    // => 5\uff08\u8303\u56f4\u5185\uff09\nclamp(-3, 0, 10)   // => 0\uff08\u4f4e\u4e8e\u4e0b\u754c\uff09\nclamp(15, 0, 10)   // => 10\uff08\u8d85\u8fc7\u4e0a\u754c\uff09\nclamp(5, 0)        // => 5\uff08\u4e0d\u8bbe\u4e0a\u754c\uff0c\u9ed8\u8ba4 MAX_VALUE\uff09",
+                code: "import { clamp } from '@fexd/tools'\n\nclamp(5, 0, 10) // => 5\uff08\u8303\u56f4\u5185\uff09\nclamp(-3, 0, 10) // => 0\uff08\u4f4e\u4e8e\u4e0b\u754c\uff09\nclamp(15, 0, 10) // => 10\uff08\u8d85\u8fc7\u4e0a\u754c\uff09\nclamp(5, 0) // => 5\uff08\u4e0d\u8bbe\u4e0a\u754c\uff0c\u9ed8\u8ba4 MAX_VALUE\uff09",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -22797,8 +22822,8 @@
         ]
       )
     }
-    var C = { width: 0, height: 0, left: 0, top: 0, right: 0 }
-    function j(e, t, n, r, l) {
+    var j = { width: 0, height: 0, left: 0, top: 0, right: 0 }
+    function C(e, t, n, r, l) {
       var o,
         i,
         c,
@@ -22818,14 +22843,14 @@
           function () {
             if (!u.length) return [0, 0]
             for (var t = u.length, n = t, a = 0; a < t; a += 1) {
-              var r = e.get(u[a].key) || C
+              var r = e.get(u[a].key) || j
               if (r[i] + r[o] > c + h) {
                 n = a - 1
                 break
               }
             }
             for (var l = 0, s = t - 1; s >= 0; s -= 1) {
-              var d = e.get(u[s].key) || C
+              var d = e.get(u[s].key) || j
               if (d[i] < c) {
                 l = s + 1
                 break
@@ -23034,26 +23059,26 @@
         N = e.itemComponent,
         L = e.onVisibleChange,
         I = Object(u['a'])(e, X),
-        C = W(),
-        j = 'full' === v,
-        T = C(null),
+        j = W(),
+        C = 'full' === v,
+        T = j(null),
         R = Object(i['a'])(T, 2),
         P = R[0],
         M = R[1],
         F = P || 0,
-        z = C(new Map()),
+        z = j(new Map()),
         B = Object(i['a'])(z, 2),
         U = B[0],
         q = B[1],
-        G = C(0),
+        G = j(0),
         $ = Object(i['a'])(G, 2),
         H = $[0],
         V = $[1],
-        Z = C(0),
+        Z = j(0),
         ee = Object(i['a'])(Z, 2),
         te = ee[0],
         ne = ee[1],
-        ae = C(0),
+        ae = j(0),
         re = Object(i['a'])(ae, 2),
         le = re[0],
         oe = re[1],
@@ -23067,7 +23092,7 @@
         pe = me[1],
         he = a['useMemo'](
           function () {
-            return null === fe && j ? Number.MAX_SAFE_INTEGER : fe || 0
+            return null === fe && C ? Number.MAX_SAFE_INTEGER : fe || 0
           },
           [fe, P]
         ),
@@ -23087,7 +23112,7 @@
             return (
               we
                 ? (e =
-                    null === P && j ? c : c.slice(0, Math.min(c.length, F / E)))
+                    null === P && C ? c : c.slice(0, Math.min(c.length, F / E)))
                 : 'number' === typeof k && (e = c.slice(0, k)),
               e
             )
@@ -23126,10 +23151,10 @@
           n || (be(e < c.length - 1), null === L || void 0 === L || L(e)),
           void 0 !== t && se(t))
       }
-      function Ce(e, t) {
+      function je(e, t) {
         M(t.clientWidth)
       }
-      function je(e, t) {
+      function Ce(e, t) {
         q(function (n) {
           var a = new Map(n)
           return null === t ? a['delete'](e) : a.set(e, t), a
@@ -23153,7 +23178,7 @@
             if (!t) return void Ie(0, null)
             for (var a = 0; a < t; a += 1) {
               var r = Pe(a)
-              if ((j && (r = r || 0), void 0 === r)) {
+              if ((C && (r = r || 0), void 0 === r)) {
                 Ie(a - 1, void 0, !0)
                 break
               }
@@ -23193,7 +23218,7 @@
                       order: t,
                       item: e,
                       itemKey: n,
-                      registerSize: je,
+                      registerSize: Ce,
                       display: t <= he,
                     }
                   ),
@@ -23211,7 +23236,7 @@
                   item: e,
                   renderItem: Le,
                   itemKey: n,
-                  registerSize: je,
+                  registerSize: Ce,
                   display: t <= he,
                 })
               )
@@ -23261,7 +23286,7 @@
         xe &&
           (qe = a['createElement'](
             w['a'],
-            { onResize: Ce, disabled: !we },
+            { onResize: je, disabled: !we },
             qe
           )),
         qe
@@ -23408,8 +23433,8 @@
         'onKeyDown',
         'onFocus',
       ],
-      Ce = ['active'],
-      je = (function (e) {
+      je = ['active'],
+      Ce = (function (e) {
         Object(le['a'])(n, e)
         var t = Object(oe['a'])(n)
         function n() {
@@ -23471,9 +23496,9 @@
           N = w.overflowDisabled,
           L = w.itemIcon,
           I = w.selectedKeys,
-          C = w.onActive,
-          j = a['useContext'](Ne),
-          T = j._internalRenderMenuItem,
+          j = w.onActive,
+          C = a['useContext'](Ne),
+          T = C._internalRenderMenuItem,
           R = ''.concat(S, '-item'),
           P = a['useRef'](),
           M = a['useRef'](),
@@ -23490,7 +23515,7 @@
           D = d || L,
           W = fe(i, F, h, E),
           U = W.active,
-          q = Object(u['a'])(W, Ce),
+          q = Object(u['a'])(W, je),
           G = I.includes(i),
           $ = ge(z.length),
           H = function (e) {
@@ -23508,12 +23533,12 @@
             }
           },
           X = function (e) {
-            C(i), null === b || void 0 === b || b(e)
+            j(i), null === b || void 0 === b || b(e)
           },
           K = {}
         'option' === e.role && (K['aria-selected'] = G)
         var Q = a['createElement'](
-          je,
+          Ce,
           Object(l['a'])(
             {
               ref: P,
@@ -23995,14 +24020,14 @@
     function It(e) {
       return Lt(e)
     }
-    function Ct(e) {
+    function jt(e) {
       return Lt(e, !0)
     }
-    function jt(e) {
+    function Ct(e) {
       var t = Nt(e),
         n = e.ownerDocument,
         a = n.defaultView || n.parentWindow
-      return (t.left += It(a)), (t.top += Ct(a)), t
+      return (t.left += It(a)), (t.top += jt(a)), t
     }
     function Tt(e) {
       return null !== e && void 0 !== e && e == e.window
@@ -24070,12 +24095,12 @@
         c = Gt(o)
       'left' !== l && (a = 999), 'top' !== o && (r = 999)
       var u = '',
-        s = jt(e)
+        s = Ct(e)
       ;('left' in t || 'top' in t) && ((u = bt(e) || ''), gt(e, 'none')),
         'left' in t && ((e.style[i] = ''), (e.style[l] = ''.concat(a, 'px'))),
         'top' in t && ((e.style[c] = ''), (e.style[o] = ''.concat(r, 'px'))),
         Ot(e)
-      var d = jt(e),
+      var d = Ct(e),
         m = {}
       for (var f in t)
         if (t.hasOwnProperty(f)) {
@@ -24095,7 +24120,7 @@
       _t(e, g)
     }
     function Ht(e, t) {
-      var n = jt(e),
+      var n = Ct(e),
         a = yt(e),
         r = { x: a.x, y: a.y }
       'left' in t && (r.x = a.x + t.left - n.left),
@@ -24104,7 +24129,7 @@
     }
     function Vt(e, t, n) {
       if (n.ignoreShake) {
-        var a = jt(e),
+        var a = Ct(e),
           r = a.left.toFixed(0),
           l = a.top.toFixed(0),
           o = t.left.toFixed(0),
@@ -24251,7 +24276,7 @@
       },
       getDocument: Rt,
       offset: function (e, t, n) {
-        if ('undefined' === typeof t) return jt(e)
+        if ('undefined' === typeof t) return Ct(e)
         Vt(e, t, n || {})
       },
       isWindow: Tt,
@@ -24271,7 +24296,7 @@
         return It(e)
       },
       getWindowScrollTop: function (e) {
-        return Ct(e)
+        return jt(e)
       },
       merge: function () {
         for (var e = {}, t = 0; t < arguments.length; t++)
@@ -24561,8 +24586,8 @@
       return _n(e, d, st(st({}, n), {}, { points: f }), m)
     }
     ;(Ln.__getOffsetParent = dn), (Ln.__getVisibleRectForElement = pn)
-    var Cn = n('rDMZ'),
-      jn = n.n(Cn),
+    var jn = n('rDMZ'),
+      Cn = n.n(jn),
       Tn = n('QQXB')
     function Rn(e, t) {
       return (
@@ -24698,7 +24723,7 @@
             (k.current.cancel = Mn(f.current, v))),
             (m.current.element === e &&
               Rn(m.current.point, t) &&
-              jn()(m.current.align, o)) ||
+              Cn()(m.current.align, o)) ||
               (v(),
               y.current.element !== e &&
                 (y.current.cancel(),
@@ -24783,7 +24808,7 @@
       function d(e, t, n, a) {
         var l = t && t.prototype instanceof v ? t : v,
           o = Object.create(l.prototype),
-          i = new C(a || [])
+          i = new j(a || [])
         return r(o, '_invoke', { value: _(e, n, i) }), o
       }
       function m(e, t, n) {
@@ -24807,7 +24832,7 @@
         return this
       })
       var x = Object.getPrototypeOf,
-        w = x && x(x(j([])))
+        w = x && x(x(C([])))
       w && w !== n && a.call(w, o) && (k = w)
       var S = (y.prototype = v.prototype = Object.create(k))
       function A(e) {
@@ -24934,12 +24959,12 @@
         var t = e.completion || {}
         ;(t.type = 'normal'), delete t.arg, (e.completion = t)
       }
-      function C(e) {
+      function j(e) {
         ;(this.tryEntries = [{ tryLoc: 'root' }]),
           e.forEach(L, this),
           this.reset(!0)
       }
-      function j(t) {
+      function C(t) {
         if (t || '' === t) {
           var n = t[o]
           if (n) return n.call(t)
@@ -25017,9 +25042,9 @@
             }
           )
         }),
-        (t.values = j),
-        (C.prototype = {
-          constructor: C,
+        (t.values = C),
+        (j.prototype = {
+          constructor: j,
           reset: function (t) {
             if (
               ((this.prev = 0),
@@ -25138,7 +25163,7 @@
           },
           delegateYield: function (t, n, a) {
             return (
-              (this.delegate = { iterator: j(t), resultName: n, nextLoc: a }),
+              (this.delegate = { iterator: C(t), resultName: n, nextLoc: a }),
               'next' === this.method && (this.arg = e),
               g
             )
@@ -25298,8 +25323,8 @@
           N = Object(a['useRef'])(),
           L = Object(a['useState'])(),
           I = Object(i['a'])(L, 2),
-          C = I[0],
-          j = I[1],
+          j = I[0],
+          C = I[1],
           T = Kn(f),
           R = Object(i['a'])(T, 2),
           P = R[0],
@@ -25325,7 +25350,7 @@
         }
         function K(e, t) {
           var n = y(t)
-          C !== n && j(n),
+          j !== n && C(n),
             $(function (e) {
               return e + 1
             }),
@@ -25414,7 +25439,7 @@
             function (e, t) {
               var n = e.className,
                 l = e.style,
-                i = m()(r, o, C, n)
+                i = m()(r, o, j, n)
               return a['createElement'](
                 qn,
                 {
@@ -26249,10 +26274,10 @@
         N = Object(i['a'])(_, 2),
         L = N[0],
         I = N[1],
-        C = g
+        j = g
           ? Object(s['a'])(Object(s['a'])({}, fa), y)
           : Object(s['a'])(Object(s['a'])({}, ma), y),
-        j = ha[f],
+        C = ha[f],
         T = pa(f, A, O),
         R = Object(s['a'])(
           Object(s['a'])({}, T),
@@ -26290,8 +26315,8 @@
             ),
             stretch: 'horizontal' === f ? 'minWidth' : null,
             getPopupContainer: E,
-            builtinPlacements: C,
-            popupPlacement: j,
+            builtinPlacements: j,
+            popupPlacement: C,
             popupVisible: L,
             popup: l,
             popupAlign: u && { offset: u },
@@ -26410,8 +26435,8 @@
           N = a['useContext'](se),
           L = N.prefixCls,
           I = N.mode,
-          C = N.openKeys,
-          j = N.disabled,
+          j = N.openKeys,
+          C = N.disabled,
           T = N.overflowDisabled,
           R = N.activeKey,
           P = N.selectedKeys,
@@ -26426,12 +26451,12 @@
           G = q.isSubPathKey,
           $ = xe(),
           H = ''.concat(L, '-submenu'),
-          V = j || f,
+          V = C || f,
           X = a['useRef'](),
           K = a['useRef']()
         var Q = E || M,
           Y = g || F,
-          J = C.includes(d),
+          J = j.includes(d),
           Z = !T && J,
           ee = G(P, d),
           te = fe(d, V, S, A),
@@ -26510,18 +26535,18 @@
         if (
           ('inline' !== I && (Ie.current = $.length > 1 ? 'vertical' : I), !T)
         ) {
-          var Ce = Ie.current
+          var je = Ie.current
           Le = a['createElement'](
             Ea,
             {
-              mode: Ce,
+              mode: je,
               prefixCls: H,
               visible: !p && Z && 'inline' !== I,
               popupClassName: v,
               popupOffset: b,
               popup: a['createElement'](
                 me,
-                { mode: 'horizontal' === Ce ? 'vertical' : Ce },
+                { mode: 'horizontal' === je ? 'vertical' : je },
                 a['createElement'](Ge, { id: _e, ref: K }, h)
               ),
               disabled: V,
@@ -26530,7 +26555,7 @@
             Le
           )
         }
-        var je = a['createElement'](
+        var Ce = a['createElement'](
           ne.Item,
           Object(l['a'])({ role: 'none' }, O, {
             component: 'li',
@@ -26554,7 +26579,7 @@
         )
         return (
           U &&
-            (je = U(je, e, { selected: ee, active: ve, open: Z, disabled: V })),
+            (Ce = U(Ce, e, { selected: ee, active: ve, open: Z, disabled: V })),
           a['createElement'](
             me,
             {
@@ -26563,7 +26588,7 @@
               itemIcon: Q,
               expandIcon: Y,
             },
-            je
+            Ce
           )
         )
       }
@@ -26624,8 +26649,8 @@
       Na = O['a'].ENTER,
       La = O['a'].ESC,
       Ia = O['a'].HOME,
-      Ca = O['a'].END,
-      ja = [Oa, _a, Sa, Aa]
+      ja = O['a'].END,
+      Ca = [Oa, _a, Sa, Aa]
     function Ta(e, t, n, a) {
       var r,
         l,
@@ -26729,7 +26754,7 @@
         }, []),
         function (a) {
           var p = a.which
-          if ([].concat(ja, [Na, La, Ia, Ca]).includes(p)) {
+          if ([].concat(Ca, [Na, La, Ia, ja]).includes(p)) {
             var h,
               E,
               g,
@@ -26751,8 +26776,8 @@
               y = Pa(b, h),
               k = g.get(y),
               w = Ta(e, 1 === i(k, !0).length, n, p)
-            if (!w && p !== Ia && p !== Ca) return
-            ;(ja.includes(p) || [Ia, Ca].includes(p)) && a.preventDefault()
+            if (!w && p !== Ia && p !== ja) return
+            ;(Ca.includes(p) || [Ia, ja].includes(p)) && a.preventDefault()
             var S = function (e) {
               if (e) {
                 var t = e,
@@ -26768,14 +26793,14 @@
                   }))
               }
             }
-            if ([Ia, Ca].includes(p) || w.sibling || !y) {
+            if ([Ia, ja].includes(p) || w.sibling || !y) {
               var A, O
               A = y && 'inline' !== e ? Ra(y) : l.current
               var _ = Ma(A, h)
               ;(O =
                 p === Ia
                   ? _[0]
-                  : p === Ca
+                  : p === ja
                   ? _[_.length - 1]
                   : Fa(A, h, y, w.offset)),
                 S(O)
@@ -26973,8 +26998,8 @@
           N = e.disabledOverflow,
           L = e.subMenuOpenDelay,
           I = void 0 === L ? 0.1 : L,
-          C = e.subMenuCloseDelay,
-          j = void 0 === C ? 0.1 : C,
+          j = e.subMenuCloseDelay,
+          C = void 0 === j ? 0.1 : j,
           T = e.forceSubMenuRender,
           P = e.defaultOpenKeys,
           M = e.openKeys,
@@ -27031,9 +27056,9 @@
           ),
           Le = Object(i['a'])(_e, 2),
           Ie = Le[0],
-          Ce = Le[1],
-          je = a['useState'](0),
-          Te = Object(i['a'])(je, 2),
+          je = Le[1],
+          Ce = a['useState'](0),
+          Te = Object(i['a'])(Ce, 2),
           Re = Te[0],
           Me = Te[1],
           Fe = Re >= pe.length - 1 || 'horizontal' !== Ie || N,
@@ -27247,7 +27272,7 @@
                   ''.concat(d, '-').concat(Ie),
                   h,
                   ((r = {}),
-                  Object(o['a'])(r, ''.concat(d, '-inline-collapsed'), Ce),
+                  Object(o['a'])(r, ''.concat(d, '-inline-collapsed'), je),
                   Object(o['a'])(r, ''.concat(d, '-rtl'), Oe),
                   r),
                   f
@@ -27310,7 +27335,7 @@
                 selectedKeys: ht,
                 inlineIndent: X,
                 subMenuOpenDelay: I,
-                subMenuCloseDelay: j,
+                subMenuCloseDelay: C,
                 forceSubMenuRender: T,
                 builtinPlacements: Z,
                 triggerSubMenuAction: J,
@@ -27540,16 +27565,16 @@
         N = Object(u['a'])(e, mr),
         L = a['useState'](),
         I = Object(i['a'])(L, 2),
-        C = I[0],
-        j = I[1],
-        T = 'visible' in e ? S : C,
+        j = I[0],
+        C = I[1],
+        T = 'visible' in e ? S : j,
         R = a['useRef'](null)
       a['useImperativeHandle'](t, function () {
         return R.current
       }),
         dr({
           visible: T,
-          setTriggerVisible: j,
+          setTriggerVisible: C,
           triggerRef: R,
           onVisibleChange: e.onVisibleChange,
           autoFocus: _,
@@ -27561,11 +27586,11 @@
         },
         M = function (t) {
           var n = e.onOverlayClick
-          j(!1), n && n(t)
+          C(!1), n && n(t)
         },
         F = function (t) {
           var n = e.onVisibleChange
-          j(t), 'function' === typeof n && n(t)
+          C(t), 'function' === typeof n && n(t)
         },
         z = function () {
           var e = P()
@@ -27683,10 +27708,10 @@
         N = Object(a['useState'])(null),
         L = Object(i['a'])(N, 2),
         I = L[0],
-        C = L[1],
-        j = ''.concat(r, '-more-popup'),
+        j = L[1],
+        C = ''.concat(r, '-more-popup'),
         T = ''.concat(n, '-dropdown'),
-        R = null !== I ? ''.concat(j, '-').concat(I) : null,
+        R = null !== I ? ''.concat(C, '-').concat(I) : null,
         P = null === c || void 0 === c ? void 0 : c.dropdownAriaLabel
       function M(e, t) {
         e.preventDefault(),
@@ -27702,7 +27727,7 @@
             y(t, n), _(!1)
           },
           prefixCls: ''.concat(T, '-menu'),
-          id: j,
+          id: C,
           tabIndex: -1,
           role: 'listbox',
           'aria-activedescendant': R,
@@ -27715,7 +27740,7 @@
             Pe,
             {
               key: e.key,
-              id: ''.concat(j, '-').concat(e.key),
+              id: ''.concat(C, '-').concat(e.key),
               role: 'option',
               'aria-controls': r && ''.concat(r, '-panel-').concat(e.key),
               disabled: e.disabled,
@@ -27754,7 +27779,7 @@
         ) {
           n = (n + e + a) % a
           var o = t[n]
-          if (!o.disabled) return void C(o.key)
+          if (!o.disabled) return void j(o.key)
         }
       }
       function B(e) {
@@ -27788,7 +27813,7 @@
       ),
         Object(a['useEffect'])(
           function () {
-            A || C(null)
+            A || j(null)
           },
           [A]
         )
@@ -27820,7 +27845,7 @@
                   tabIndex: -1,
                   'aria-hidden': 'true',
                   'aria-haspopup': 'listbox',
-                  'aria-controls': j,
+                  'aria-controls': C,
                   id: ''.concat(r, '-more'),
                   'aria-expanded': A,
                   onKeyDown: B,
@@ -28010,7 +28035,7 @@
         O = e.tabPosition,
         _ = e.tabBarGutter,
         L = e.children,
-        C = e.onTabClick,
+        j = e.onTabClick,
         T = e.onTabScroll,
         R = Object(a['useRef'])(),
         P = Object(a['useRef'])(),
@@ -28074,10 +28099,10 @@
           : ((_e = Math.min(0, ie - Z)), (Ne = 0))
         : ((_e = Math.min(0, de - ae)), (Ne = 0))
       var Ie = Object(a['useRef'])(),
-        Ce = Object(a['useState'])(),
-        je = Object(i['a'])(Ce, 2),
-        Te = je[0],
-        Re = je[1]
+        je = Object(a['useState'])(),
+        Ce = Object(i['a'])(je, 2),
+        Te = Ce[0],
+        Re = Ce[1]
       function Pe() {
         Re(Date.now())
       }
@@ -28137,7 +28162,7 @@
           },
           [Te]
         )
-      var ze = j(
+      var ze = C(
           Ae,
           { width: ie, height: de, left: $, top: K },
           { width: Z, height: ae },
@@ -28167,7 +28192,7 @@
               null === y || void 0 === y ? void 0 : y.removeAriaLabel,
             ref: D(n),
             onClick: function (e) {
-              C(n, e)
+              j(n, e)
             },
             onRemove: function () {
               W(n)
@@ -28383,7 +28408,7 @@
       )
     }
     var Ir = a['forwardRef'](Lr)
-    function Cr(e) {
+    function jr(e) {
       var t = e.id,
         n = e.activeKey,
         r = e.animated,
@@ -28431,7 +28456,7 @@
         )
       )
     }
-    function jr(e) {
+    function Cr(e) {
       var t = e.prefixCls,
         n = e.forceRender,
         r = e.className,
@@ -28542,8 +28567,8 @@
         N = e.tabBarStyle,
         L = e.tabBarExtraContent,
         I = e.locale,
-        C = e.moreIcon,
-        j = e.moreTransitionName,
+        j = e.moreIcon,
+        C = e.moreTransitionName,
         T = e.destroyInactiveTabPane,
         R = e.renderTabBar,
         P = e.onChange,
@@ -28636,8 +28661,8 @@
           {
             editable: x,
             locale: I,
-            moreIcon: C,
-            moreTransitionName: j,
+            moreIcon: j,
+            moreTransitionName: C,
             tabBarGutter: _,
             onTabClick: oe,
             onTabScroll: F,
@@ -28674,7 +28699,7 @@
             ),
             ie,
             a['createElement'](
-              Cr,
+              jr,
               Object(l['a'])({ destroyInactiveTabPane: T }, ce, { animated: r })
             )
           )
@@ -28682,7 +28707,7 @@
       )
     }
     var Fr = a['forwardRef'](Mr)
-    Fr.TabPane = jr
+    Fr.TabPane = Cr
     var zr = Fr,
       Br = zr,
       Dr = n('YRe6'),
@@ -28804,9 +28829,9 @@
         N = Object(a['useState'])(Yr(O, u.sources[O])),
         L = $r(N, 2),
         I = L[0],
-        C = L[1],
-        j = Object(a['useState'])(Boolean(u.defaultShowCode)),
-        T = $r(j, 2),
+        j = L[1],
+        C = Object(a['useState'])(Boolean(u.defaultShowCode)),
+        T = $r(C, 2),
         R = T[0],
         P = T[1],
         M = Object(a['useState'])(Math.random()),
@@ -28827,7 +28852,7 @@
               }
             : H
       function X(e) {
-        _(e), C(Yr(e, u.sources[e]))
+        _(e), j(Yr(e, u.sources[e]))
       }
       return (
         Object(a['useEffect'])(
@@ -29022,7 +29047,7 @@
                     onChange: X,
                   },
                   Object.keys(u.sources).map(function (e) {
-                    return r.a.createElement(jr, {
+                    return r.a.createElement(Cr, {
                       tab: '_' === e ? 'index.'.concat(Yr(e, u.sources[e])) : e,
                       key: e,
                     })
@@ -29421,7 +29446,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isIterable } from '@fexd/tools'\n\n// \u5185\u7f6e\u53ef\u8fed\u4ee3\u7c7b\u578b\nisIterable([1, 2, 3])    // => true\nisIterable('hello')      // => true\nisIterable(new Map())    // => true\nisIterable(new Set())    // => true\nisIterable(new Uint8Array())  // => true\n\n// \u81ea\u5b9a\u4e49\u8fed\u4ee3\u5668\nconst range = {\n  [Symbol.iterator]() {\n    let i = 0\n    return { next: () => ({ value: i++, done: i > 3 }) }\n  }\n}\nisIterable(range)        // => true\n\n// \u975e\u53ef\u8fed\u4ee3\nisIterable({})           // => false\nisIterable(42)           // => false\nisIterable(null)         // => false\nisIterable(undefined)    // => false",
+              code: "import { isIterable } from '@fexd/tools'\n\n// \u5185\u7f6e\u53ef\u8fed\u4ee3\u7c7b\u578b\nisIterable([1, 2, 3]) // => true\nisIterable('hello') // => true\nisIterable(new Map()) // => true\nisIterable(new Set()) // => true\nisIterable(new Uint8Array()) // => true\n\n// \u81ea\u5b9a\u4e49\u8fed\u4ee3\u5668\nconst range = {\n  [Symbol.iterator]() {\n    let i = 0\n    return { next: () => ({ value: i++, done: i > 3 }) }\n  },\n}\nisIterable(range) // => true\n\n// \u975e\u53ef\u8fed\u4ee3\nisIterable({}) // => false\nisIterable(42) // => false\nisIterable(null) // => false\nisIterable(undefined) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -29753,7 +29778,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { classnames } from '@fexd/tools'\n\nclassnames('foo', 'bar')              // => 'foo bar'\nclassnames('foo', { bar: true })      // => 'foo bar'\nclassnames({ foo: true, bar: false }) // => 'foo'\nclassnames(['foo', 'bar'])            // => 'foo bar'",
+                code: "import { classnames } from '@fexd/tools'\n\nclassnames('foo', 'bar') // => 'foo bar'\nclassnames('foo', { bar: true }) // => 'foo bar'\nclassnames({ foo: true, bar: false }) // => 'foo'\nclassnames(['foo', 'bar']) // => 'foo bar'",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -30849,7 +30874,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isObject } from '@fexd/tools'\n\nisObject({ a: 1 })  // => true\nisObject({})        // => true\nisObject([1, 2])   // => false\uff08\u6570\u7ec4\u4e0d\u662f\u7eaf\u5bf9\u8c61\uff09\nisObject(null)      // => false\nisObject(123)       // => false\nisObject('hello')   // => false",
+              code: "import { isObject } from '@fexd/tools'\n\nisObject({ a: 1 }) // => true\nisObject({}) // => true\nisObject([1, 2]) // => false\uff08\u6570\u7ec4\u4e0d\u662f\u7eaf\u5bf9\u8c61\uff09\nisObject(null) // => false\nisObject(123) // => false\nisObject('hello') // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -31217,7 +31242,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isDate } from '@fexd/tools'\n\nisDate(new Date())       // => true\nisDate('2024-01-01')     // => false\uff08\u5b57\u7b26\u4e32\u4e0d\u662f Date \u5bf9\u8c61\uff09\nisDate(1700000000000)    // => false\uff08\u65f6\u95f4\u6233\u4e0d\u662f Date \u5bf9\u8c61\uff09\nisDate(null)             // => false",
+              code: "import { isDate } from '@fexd/tools'\n\nisDate(new Date()) // => true\nisDate('2024-01-01') // => false\uff08\u5b57\u7b26\u4e32\u4e0d\u662f Date \u5bf9\u8c61\uff09\nisDate(1700000000000) // => false\uff08\u65f6\u95f4\u6233\u4e0d\u662f Date \u5bf9\u8c61\uff09\nisDate(null) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -32344,7 +32369,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { memoize } from '@fexd/tools'\n\n// \u57fa\u672c\u7528\u6cd5\uff1a\u7f13\u5b58\u9996\u6b21\u7ed3\u679c\nconst expensiveCalc = memoize((n) => {\n  console.log('computing...')\n  return n * 2\n})\n\nexpensiveCalc(5)  // => computing... 10\nexpensiveCalc(5)  // => 10\uff08\u76f4\u63a5\u8fd4\u56de\u7f13\u5b58\uff0c\u4e0d\u518d\u8ba1\u7b97\uff09\n\n// \u6761\u4ef6\u8df3\u8fc7\u7f13\u5b58\nconst cachedFetch = memoize(fetchData, {\n  disable: ({ result }) => result.error,  // \u51fa\u9519\u65f6\u4e0d\u7f13\u5b58\n})\n\n// \u8bbf\u95ee\u7f13\u5b58\ncachedFetch.cache  // => Map { 5 => 10 }\n\n// \u6e05\u7a7a\u7f13\u5b58\ncachedFetch.cache.clear()",
+                code: "import { memoize } from '@fexd/tools'\n\n// \u57fa\u672c\u7528\u6cd5\uff1a\u7f13\u5b58\u9996\u6b21\u7ed3\u679c\nconst expensiveCalc = memoize((n) => {\n  console.log('computing...')\n  return n * 2\n})\n\nexpensiveCalc(5) // => computing... 10\nexpensiveCalc(5) // => 10\uff08\u76f4\u63a5\u8fd4\u56de\u7f13\u5b58\uff0c\u4e0d\u518d\u8ba1\u7b97\uff09\n\n// \u6761\u4ef6\u8df3\u8fc7\u7f13\u5b58\nconst cachedFetch = memoize(fetchData, {\n  disable: ({ result }) => result.error, // \u51fa\u9519\u65f6\u4e0d\u7f13\u5b58\n})\n\n// \u8bbf\u95ee\u7f13\u5b58\ncachedFetch.cache // => Map { 5 => 10 }\n\n// \u6e05\u7a7a\u7f13\u5b58\ncachedFetch.cache.clear()",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -33883,7 +33908,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { last } from '@fexd/tools'\n\nlast([1, 2, 3])       // => 3\nlast(['a', 'b'])      // => 'b'\nlast({ x: 1, y: 2 }) // => 2\uff08\u53d6\u6700\u540e\u4e00\u4e2a\u952e\u7684\u503c\uff09\nlast([])              // => undefined",
+              code: "import { last } from '@fexd/tools'\n\nlast([1, 2, 3]) // => 3\nlast(['a', 'b']) // => 'b'\nlast({ x: 1, y: 2 }) // => 2\uff08\u53d6\u6700\u540e\u4e00\u4e2a\u952e\u7684\u503c\uff09\nlast([]) // => undefined",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -34902,7 +34927,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { groupBy } from '@fexd/tools'\n\n// \u6309\u5947\u5076\u5206\u7ec4\ngroupBy((n) => (n % 2 === 0 ? 'even' : 'odd'), [1, 2, 3, 4, 5])\n// => { odd: [1, 3, 5], even: [2, 4] }\n\n// \u6309\u5c5e\u6027\u5206\u7ec4\ngroupBy((user) => user.role, [\n  { name: 'Alice', role: 'admin' },\n  { name: 'Bob', role: 'user' },\n  { name: 'Carol', role: 'admin' },\n])\n// => { admin: [{ name: 'Alice', ... }, { name: 'Carol', ... }], user: [{ name: 'Bob', ... }] }",
+                code: "import { groupBy } from '@fexd/tools'\n\n// \u6309\u5947\u5076\u5206\u7ec4\ngroupBy((n) => (n % 2 === 0 ? 'even' : 'odd'), [1, 2, 3, 4, 5])\n// => { odd: [1, 3, 5], even: [2, 4] }\n\n// \u6309\u5c5e\u6027\u5206\u7ec4\ngroupBy(\n  (user) => user.role,\n  [\n    { name: 'Alice', role: 'admin' },\n    { name: 'Bob', role: 'user' },\n    { name: 'Carol', role: 'admin' },\n  ]\n)\n// => { admin: [{ name: 'Alice', ... }, { name: 'Carol', ... }], user: [{ name: 'Bob', ... }] }",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -35707,7 +35732,7 @@
                 '\u5355\u53c2\u6570\u76f4\u63a5\u8fd4\u56de'
               ),
               r.a.createElement(i['a'], {
-                code: 'const obj = { a: 1 }\ndeepMerge(obj) === obj  // true',
+                code: 'const obj = { a: 1 }\ndeepMerge(obj) === obj // true',
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -36480,10 +36505,10 @@
               })
             : null,
           I = !!(E ? E(L, n) : L),
-          C = I ? y(p, i) : p,
-          j = I ? Object(c['a'])({}, S, {}, f) : S,
+          j = I ? y(p, i) : p,
+          C = I ? Object(c['a'])({}, S, {}, f) : S,
           T = Object(c['a'])(
-            { 'aria-current': (I && r) || null, className: C, style: j, to: l },
+            { 'aria-current': (I && r) || null, className: j, style: C, to: l },
             _
           )
         return (
@@ -36874,7 +36899,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { identity } from '@fexd/tools'\n\nidentity(42)       // => 42\nidentity('hello')  // => 'hello'\nidentity({ a: 1 }) // => { a: 1 }\n\n// \u5e38\u7528\u4e8e\u51fd\u6570\u5f0f\u7f16\u7a0b\u4e2d\u4f5c\u4e3a\u9ed8\u8ba4\u8f6c\u6362\u51fd\u6570\nconst transform = (arr, fn = identity) => arr.map(fn)\ntransform([1, 2, 3])  // => [1, 2, 3]",
+              code: "import { identity } from '@fexd/tools'\n\nidentity(42) // => 42\nidentity('hello') // => 'hello'\nidentity({ a: 1 }) // => { a: 1 }\n\n// \u5e38\u7528\u4e8e\u51fd\u6570\u5f0f\u7f16\u7a0b\u4e2d\u4f5c\u4e3a\u9ed8\u8ba4\u8f6c\u6362\u51fd\u6570\nconst transform = (arr, fn = identity) => arr.map(fn)\ntransform([1, 2, 3]) // => [1, 2, 3]",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -37492,12 +37517,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { curry } from '@fexd/tools'\n\nconst FUNS = {\n  'add(a,b,c)': { fn: (a, b, c) => a + b + c, params: ['a', 'b', 'c'], desc: '\u6c42\u548c' },\n  'mul(a,b,c)': { fn: (a, b, c) => a * b * c, params: ['a', 'b', 'c'], desc: '\u6c42\u79ef' },\n  'format(greeting,name)': { fn: (g, n) => `${g}, ${n}!`, params: ['greeting', 'name'], desc: '\u62fc\u63a5' },\n  'clamp(min,max,val)': { fn: (min, max, val) => Math.min(Math.max(val, min), max), params: ['min', 'max', 'val'], desc: '\u9650\u754c' },\n}\n\nexport default () => {\n  const [selected, setSelected] = useState('add(a,b,c)')\n  const { fn, params, desc } = FUNS[selected]\n  const curried = curry(fn)\n\n  const [args, setArgs] = useState(Array(params.length).fill(''))\n  const [steps, setSteps] = useState([])\n\n  const setArg = (i, v) => {\n    const next = [...args]\n    next[i] = v\n    setArgs(next)\n\n    const filled = next.slice(0, i + 1).filter((a) => a !== '')\n    const callSteps = []\n    let partial = curried\n    const batch = []\n    for (let j = 0; j <= i; j++) {\n      if (next[j] !== '') {\n        batch.push(next[j])\n        const parsed = isNaN(Number(next[j])) ? next[j] : Number(next[j])\n        partial = partial(parsed)\n        const isComplete = typeof partial !== 'function'\n        callSteps.push({\n          applied: [...batch],\n          remaining: params.slice(j + 1),\n          result: isComplete ? partial : '\u2192 \u0192',\n          complete: isComplete,\n        })\n      }\n    }\n    setSteps(callSteps)\n  }\n\n  const reset = () => {\n    setArgs(Array(params.length).fill(''))\n    setSteps([])\n  }\n\n  const switchFn = (key) => {\n    setSelected(key)\n    const p = FUNS[key].params\n    setArgs(Array(p.length).fill(''))\n    setSteps([])\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 6, marginBottom: 16, flexWrap: 'wrap' }}>\n        {Object.keys(FUNS).map((key) => (\n          <button key={key} onClick={() => switchFn(key)} style={{\n            padding: '4px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 12,\n            border: `2px solid ${key === selected ? '#1890ff' : '#e8e8e8'}`,\n            background: key === selected ? '#e6f7ff' : '#fff',\n            color: key === selected ? '#1890ff' : '#666',\n          }}>{FUNS[key].desc}: {key}</button>\n        ))}\n      </div>\n\n      <div style={{\n        display: 'flex', gap: 8, alignItems: 'center', marginBottom: 16, flexWrap: 'wrap',\n      }}>\n        <span style={{ fontSize: 14, fontFamily: 'monospace', color: '#666' }}>curry(fn)</span>\n        <span style={{ color: '#ccc' }}>(</span>\n        {params.map((p, i) => (\n          <React.Fragment key={p}>\n            {i > 0 && <span style={{ color: '#ccc' }}>,</span>}\n            <div style={{ position: 'relative' }}>\n              <input\n                value={args[i]}\n                onChange={(e) => setArg(i, e.target.value)}\n                placeholder={p}\n                style={{\n                  width: 60, padding: '6px 8px', borderRadius: 6, textAlign: 'center',\n                  border: `2px solid ${args[i] ? '#1890ff' : '#e8e8e8'}`,\n                  fontSize: 14, fontFamily: 'monospace', fontWeight: 600,\n                  background: args[i] ? '#e6f7ff' : '#fff',\n                }}\n              />\n              <span style={{\n                position: 'absolute', bottom: -14, left: '50%', transform: 'translateX(-50%)',\n                fontSize: 10, color: '#999', whiteSpace: 'nowrap',\n              }}>{p}</span>\n            </div>\n          </React.Fragment>\n        ))}\n        <span style={{ color: '#ccc' }}>)</span>\n        <button onClick={reset} style={{\n          padding: '4px 10px', borderRadius: 4, border: '1px solid #d9d9d9',\n          background: '#fff', cursor: 'pointer', fontSize: 12, color: '#999',\n        }}>\ud83d\udd04</button>\n      </div>\n\n      {steps.length > 0 && (\n        <div style={{\n          padding: '10px 14px', borderRadius: 8, background: '#fafafa',\n          border: '1px solid #f0f0f0', marginTop: 8,\n        }}>\n          {steps.map((step, i) => (\n            <div key={i} style={{\n              padding: '4px 0', fontSize: 13, fontFamily: 'monospace',\n              color: step.complete ? '#389e0d' : '#666',\n              display: 'flex', gap: 8, alignItems: 'center',\n            }}>\n              <span style={{ color: '#999', fontSize: 11 }}>#{i + 1}</span>\n              <span>fn({step.applied.join(', ')})</span>\n              <span style={{ color: '#ccc' }}>\u2192</span>\n              <span style={{\n                fontWeight: step.complete ? 700 : 400,\n                color: step.complete ? '#389e0d' : '#999',\n              }}>\n                {step.complete ? (\n                  <span style={{\n                    padding: '2px 10px', borderRadius: 4,\n                    background: '#f6ffed', border: '1px solid #b7eb8f',\n                  }}>\u2705 {String(step.result)}</span>\n                ) : (\n                  <span>\u0192 (\u8fd8\u9700 {step.remaining.join(', ')})</span>\n                )}\n              </span>\n            </div>\n          ))}\n        </div>\n      )}\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { curry } from '@fexd/tools'\n\nconst FUNS = {\n  'add(a,b,c)': {\n    fn: (a, b, c) => a + b + c,\n    params: ['a', 'b', 'c'],\n    desc: '\u6c42\u548c',\n  },\n  'mul(a,b,c)': {\n    fn: (a, b, c) => a * b * c,\n    params: ['a', 'b', 'c'],\n    desc: '\u6c42\u79ef',\n  },\n  'format(greeting,name)': {\n    fn: (g, n) => `${g}, ${n}!`,\n    params: ['greeting', 'name'],\n    desc: '\u62fc\u63a5',\n  },\n  'clamp(min,max,val)': {\n    fn: (min, max, val) => Math.min(Math.max(val, min), max),\n    params: ['min', 'max', 'val'],\n    desc: '\u9650\u754c',\n  },\n}\n\nexport default () => {\n  const [selected, setSelected] = useState('add(a,b,c)')\n  const { fn, params, desc } = FUNS[selected]\n  const curried = curry(fn)\n\n  const [args, setArgs] = useState(Array(params.length).fill(''))\n  const [steps, setSteps] = useState([])\n\n  const setArg = (i, v) => {\n    const next = [...args]\n    next[i] = v\n    setArgs(next)\n\n    const filled = next.slice(0, i + 1).filter((a) => a !== '')\n    const callSteps = []\n    let partial = curried\n    const batch = []\n    for (let j = 0; j <= i; j++) {\n      if (next[j] !== '') {\n        batch.push(next[j])\n        const parsed = isNaN(Number(next[j])) ? next[j] : Number(next[j])\n        partial = partial(parsed)\n        const isComplete = typeof partial !== 'function'\n        callSteps.push({\n          applied: [...batch],\n          remaining: params.slice(j + 1),\n          result: isComplete ? partial : '\u2192 \u0192',\n          complete: isComplete,\n        })\n      }\n    }\n    setSteps(callSteps)\n  }\n\n  const reset = () => {\n    setArgs(Array(params.length).fill(''))\n    setSteps([])\n  }\n\n  const switchFn = (key) => {\n    setSelected(key)\n    const p = FUNS[key].params\n    setArgs(Array(p.length).fill(''))\n    setSteps([])\n  }\n\n  return (\n    <div>\n      <div\n        style={{ display: 'flex', gap: 6, marginBottom: 16, flexWrap: 'wrap' }}\n      >\n        {Object.keys(FUNS).map((key) => (\n          <button\n            key={key}\n            onClick={() => switchFn(key)}\n            style={{\n              padding: '4px 12px',\n              borderRadius: 6,\n              cursor: 'pointer',\n              fontSize: 12,\n              border: `2px solid ${key === selected ? '#1890ff' : '#e8e8e8'}`,\n              background: key === selected ? '#e6f7ff' : '#fff',\n              color: key === selected ? '#1890ff' : '#666',\n            }}\n          >\n            {FUNS[key].desc}: {key}\n          </button>\n        ))}\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 16,\n          flexWrap: 'wrap',\n        }}\n      >\n        <span style={{ fontSize: 14, fontFamily: 'monospace', color: '#666' }}>\n          curry(fn)\n        </span>\n        <span style={{ color: '#ccc' }}>(</span>\n        {params.map((p, i) => (\n          <React.Fragment key={p}>\n            {i > 0 && <span style={{ color: '#ccc' }}>,</span>}\n            <div style={{ position: 'relative' }}>\n              <input\n                value={args[i]}\n                onChange={(e) => setArg(i, e.target.value)}\n                placeholder={p}\n                style={{\n                  width: 60,\n                  padding: '6px 8px',\n                  borderRadius: 6,\n                  textAlign: 'center',\n                  border: `2px solid ${args[i] ? '#1890ff' : '#e8e8e8'}`,\n                  fontSize: 14,\n                  fontFamily: 'monospace',\n                  fontWeight: 600,\n                  background: args[i] ? '#e6f7ff' : '#fff',\n                }}\n              />\n              <span\n                style={{\n                  position: 'absolute',\n                  bottom: -14,\n                  left: '50%',\n                  transform: 'translateX(-50%)',\n                  fontSize: 10,\n                  color: '#999',\n                  whiteSpace: 'nowrap',\n                }}\n              >\n                {p}\n              </span>\n            </div>\n          </React.Fragment>\n        ))}\n        <span style={{ color: '#ccc' }}>)</span>\n        <button\n          onClick={reset}\n          style={{\n            padding: '4px 10px',\n            borderRadius: 4,\n            border: '1px solid #d9d9d9',\n            background: '#fff',\n            cursor: 'pointer',\n            fontSize: 12,\n            color: '#999',\n          }}\n        >\n          \ud83d\udd04\n        </button>\n      </div>\n\n      {steps.length > 0 && (\n        <div\n          style={{\n            padding: '10px 14px',\n            borderRadius: 8,\n            background: '#fafafa',\n            border: '1px solid #f0f0f0',\n            marginTop: 8,\n          }}\n        >\n          {steps.map((step, i) => (\n            <div\n              key={i}\n              style={{\n                padding: '4px 0',\n                fontSize: 13,\n                fontFamily: 'monospace',\n                color: step.complete ? '#389e0d' : '#666',\n                display: 'flex',\n                gap: 8,\n                alignItems: 'center',\n              }}\n            >\n              <span style={{ color: '#999', fontSize: 11 }}>#{i + 1}</span>\n              <span>fn({step.applied.join(', ')})</span>\n              <span style={{ color: '#ccc' }}>\u2192</span>\n              <span\n                style={{\n                  fontWeight: step.complete ? 700 : 400,\n                  color: step.complete ? '#389e0d' : '#999',\n                }}\n              >\n                {step.complete ? (\n                  <span\n                    style={{\n                      padding: '2px 10px',\n                      borderRadius: 4,\n                      background: '#f6ffed',\n                      border: '1px solid #b7eb8f',\n                    }}\n                  >\n                    \u2705 {String(step.result)}\n                  </span>\n                ) : (\n                  <span>\u0192 (\u8fd8\u9700 {step.remaining.join(', ')})</span>\n                )}\n              </span>\n            </div>\n          ))}\n        </div>\n      )}\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'curry-demo',
         },
@@ -37553,7 +37578,8 @@
                   a['default'].createElement(
                     'div',
                     null,
-                    '\u9632\u6296\u540e\u6267\u884c\u6b21\u6570: ',
+                    '\u9632\u6296\u540e\u6267\u884c\u6b21\u6570:',
+                    ' ',
                     a['default'].createElement(
                       'strong',
                       { style: { color: '#1890ff' } },
@@ -37587,12 +37613,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef } from 'react'\nimport { debounce } from '@fexd/tools'\n\nexport default () => {\n  const [rawCount, setRawCount] = useState(0)\n  const [debounceCount, setDebounceCount] = useState(0)\n\n  const [debouncedFn] = useState(() =>\n    debounce(() => setDebounceCount((c) => c + 1), 500)\n  )\n\n  const handleClick = () => {\n    setRawCount((c) => c + 1)\n    debouncedFn()\n  }\n\n  return (\n    <div>\n      <button onClick={handleClick} style={{ padding: '8px 16px', fontSize: 14 }}>\n        \u5feb\u901f\u70b9\u51fb\u6211\n      </button>\n      <div style={{ marginTop: 12, fontSize: 14 }}>\n        <div>\u539f\u59cb\u89e6\u53d1\u6b21\u6570: <strong>{rawCount}</strong></div>\n        <div>\u9632\u6296\u540e\u6267\u884c\u6b21\u6570: <strong style={{ color: '#1890ff' }}>{debounceCount}</strong></div>\n      </div>\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{`const debouncedFn = debounce(() => execute(), 500)\n// \u5feb\u901f\u70b9\u51fb ${rawCount} \u6b21\uff0c\u5b9e\u9645\u6267\u884c ${debounceCount} \u6b21\n// \u505c\u6b62\u64cd\u4f5c 500ms \u540e\u624d\u89e6\u53d1\u4e00\u6b21`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef } from 'react'\nimport { debounce } from '@fexd/tools'\n\nexport default () => {\n  const [rawCount, setRawCount] = useState(0)\n  const [debounceCount, setDebounceCount] = useState(0)\n\n  const [debouncedFn] = useState(() =>\n    debounce(() => setDebounceCount((c) => c + 1), 500)\n  )\n\n  const handleClick = () => {\n    setRawCount((c) => c + 1)\n    debouncedFn()\n  }\n\n  return (\n    <div>\n      <button\n        onClick={handleClick}\n        style={{ padding: '8px 16px', fontSize: 14 }}\n      >\n        \u5feb\u901f\u70b9\u51fb\u6211\n      </button>\n      <div style={{ marginTop: 12, fontSize: 14 }}>\n        <div>\n          \u539f\u59cb\u89e6\u53d1\u6b21\u6570: <strong>{rawCount}</strong>\n        </div>\n        <div>\n          \u9632\u6296\u540e\u6267\u884c\u6b21\u6570:{' '}\n          <strong style={{ color: '#1890ff' }}>{debounceCount}</strong>\n        </div>\n      </div>\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {`const debouncedFn = debounce(() => execute(), 500)\n// \u5feb\u901f\u70b9\u51fb ${rawCount} \u6b21\uff0c\u5b9e\u9645\u6267\u884c ${debounceCount} \u6b21\n// \u505c\u6b62\u64cd\u4f5c 500ms \u540e\u624d\u89e6\u53d1\u4e00\u6b21`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'debounce-demo',
         },
@@ -37731,12 +37757,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { delay } from '@fexd/tools'\n\nexport default () => {\n  const [status, setStatus] = useState('idle')\n  const [seconds, setSeconds] = useState(3)\n\n  const handleStart = async () => {\n    for (let i = seconds; i > 0; i--) {\n      setStatus(`\u23f3 ${i}...`)\n      await delay(1000)\n    }\n    setStatus('\u2705 \u5b8c\u6210\uff01')\n    await delay(2000)\n    setStatus('idle')\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>\n        <select value={seconds} onChange={(e) => setSeconds(Number(e.target.value))} style={{ padding: 4 }}>\n          <option value={1}>1 \u79d2</option>\n          <option value={2}>2 \u79d2</option>\n          <option value={3}>3 \u79d2</option>\n          <option value={5}>5 \u79d2</option>\n        </select>\n        <button onClick={handleStart} disabled={status !== 'idle'} style={{ padding: '4px 16px' }}>\n          \u5f00\u59cb\u5012\u8ba1\u65f6\n        </button>\n        <span style={{ fontSize: 20 }}>{status === 'idle' ? '\ud83d\udca4 \u7b49\u5f85\u4e2d' : status}</span>\n      </div>\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{`for (let i = ${seconds}; i > 0; i--) {\n  setStatus(i + '...')\n  await delay(1000)  // \u6682\u505c 1 \u79d2\n}\nsetStatus('\u5b8c\u6210\uff01')`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { delay } from '@fexd/tools'\n\nexport default () => {\n  const [status, setStatus] = useState('idle')\n  const [seconds, setSeconds] = useState(3)\n\n  const handleStart = async () => {\n    for (let i = seconds; i > 0; i--) {\n      setStatus(`\u23f3 ${i}...`)\n      await delay(1000)\n    }\n    setStatus('\u2705 \u5b8c\u6210\uff01')\n    await delay(2000)\n    setStatus('idle')\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>\n        <select\n          value={seconds}\n          onChange={(e) => setSeconds(Number(e.target.value))}\n          style={{ padding: 4 }}\n        >\n          <option value={1}>1 \u79d2</option>\n          <option value={2}>2 \u79d2</option>\n          <option value={3}>3 \u79d2</option>\n          <option value={5}>5 \u79d2</option>\n        </select>\n        <button\n          onClick={handleStart}\n          disabled={status !== 'idle'}\n          style={{ padding: '4px 16px' }}\n        >\n          \u5f00\u59cb\u5012\u8ba1\u65f6\n        </button>\n        <span style={{ fontSize: 20 }}>\n          {status === 'idle' ? '\ud83d\udca4 \u7b49\u5f85\u4e2d' : status}\n        </span>\n      </div>\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {`for (let i = ${seconds}; i > 0; i--) {\n  setStatus(i + '...')\n  await delay(1000)  // \u6682\u505c 1 \u79d2\n}\nsetStatus('\u5b8c\u6210\uff01')`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'delay-demo',
         },
@@ -37997,12 +38023,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef } from 'react'\nimport { lock } from '@fexd/tools'\n\nexport default () => {\n  const [logs, setLogs] = useState([])\n  const [locked, setLocked] = useState(false)\n  const idRef = useRef(0)\n  const fnRef = useRef(null)\n\n  const addLog = (msg, type) => {\n    setLogs((p) => [{ id: ++idRef.current, msg, type, time: new Date().toLocaleTimeString() }, ...p].slice(0, 12))\n  }\n\n  if (!fnRef.current) {\n    fnRef.current = lock(\n      async () => {\n        addLog('\u23f3 \u8bf7\u6c42\u53d1\u9001\u4e2d...', 'loading')\n        await new Promise((r) => setTimeout(r, 1500))\n        const result = `\u8ba2\u5355 #${Math.floor(Math.random() * 9000 + 1000)}`\n        addLog(`\u2705 \u8bf7\u6c42\u6210\u529f: ${result}`, 'success')\n        return result\n      },\n      {\n        always: () => addLog('\ud83d\udccc always \u56de\u8c03\u89e6\u53d1', 'info'),\n        locking: () => addLog('\ud83d\udd12 \u5df2\u9501\u5b9a\uff0c\u8df3\u8fc7\u91cd\u590d\u8c03\u7528', 'warn'),\n      }\n    )\n  }\n\n  const handleSubmit = async () => {\n    await fnRef.current()\n    setLocked(fnRef.current.isLocked())\n  }\n\n  const handleUnlock = () => {\n    fnRef.current.unlock()\n    setLocked(fnRef.current.isLocked())\n    addLog('\ud83d\udd13 \u5df2\u89e3\u9501', 'unlock')\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'center' }}>\n        <button onClick={handleSubmit} style={{\n          padding: '8px 24px', borderRadius: 8, cursor: 'pointer', fontSize: 14,\n          border: 'none', background: locked ? '#f5f5f5' : '#1890ff',\n          color: locked ? '#999' : '#fff', transition: 'all 0.3s',\n        }}>\n          {locked ? '\ud83d\udd12 \u5df2\u9501\u5b9a \u2014 \u518d\u6b21\u70b9\u51fb\u65e0\u6548' : '\ud83d\udce4 \u63d0\u4ea4\u8ba2\u5355'}\n        </button>\n        <button onClick={handleUnlock} style={{\n          padding: '6px 16px', borderRadius: 6, cursor: 'pointer', fontSize: 13,\n          border: '1px solid #fa8c16', background: '#fff7e6', color: '#fa8c16',\n        }}>\ud83d\udd13 \u89e3\u9501</button>\n        <span style={{\n          padding: '3px 10px', borderRadius: 20, fontSize: 12,\n          background: locked ? '#fff1f0' : '#f6ffed',\n          color: locked ? '#cf1322' : '#389e0d',\n        }}>\n          {locked ? '\u25cf \u5df2\u9501\u5b9a' : '\u25cb \u672a\u9501\u5b9a'}\n        </span>\n      </div>\n\n      <p style={{ color: '#999', fontSize: 12, margin: '0 0 12px' }}>\n        \ud83d\udca1 \u70b9\u51fb\u63d0\u4ea4\u540e\u51fd\u6570\u81ea\u52a8\u9501\u5b9a\uff0c\u540e\u7eed\u70b9\u51fb\u4e0d\u4f1a\u91cd\u590d\u6267\u884c\u3002\u70b9\u51fb\u300c\u89e3\u9501\u300d\u540e\u53ef\u518d\u6b21\u63d0\u4ea4\n      </p>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginBottom: 12 }}>\n{`const lockedFn = lock(submitOrder, { always, locking })\nlockedFn()          // ${locked ? '\u2192 \u5df2\u9501\u5b9a\uff0c\u89e6\u53d1 locking \u56de\u8c03' : '\u2192 \u6267\u884c submitOrder'}\nlockedFn.isLocked() // => ${locked}\nlockedFn.unlock()   // \u89e3\u9501\u540e\u53ef\u518d\u6b21\u6267\u884c`}\n      </pre>\n\n      <div style={{\n        borderRadius: 8, border: '1px solid #f0f0f0', maxHeight: 200,\n        overflowY: 'auto', background: '#fafafa',\n      }}>\n        {logs.map((log) => (\n          <div key={log.id} style={{\n            padding: '5px 12px', borderBottom: '1px solid #f5f5f5',\n            fontSize: 13, display: 'flex', gap: 8,\n            color: log.type === 'warn' ? '#fa8c16' : log.type === 'success' ? '#389e0d' : log.type === 'loading' ? '#1890ff' : '#666',\n          }}>\n            <span style={{ color: '#bbb', fontSize: 11 }}>{log.time}</span>\n            {log.msg}\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef } from 'react'\nimport { lock } from '@fexd/tools'\n\nexport default () => {\n  const [logs, setLogs] = useState([])\n  const [locked, setLocked] = useState(false)\n  const idRef = useRef(0)\n  const fnRef = useRef(null)\n\n  const addLog = (msg, type) => {\n    setLogs((p) =>\n      [\n        {\n          id: ++idRef.current,\n          msg,\n          type,\n          time: new Date().toLocaleTimeString(),\n        },\n        ...p,\n      ].slice(0, 12)\n    )\n  }\n\n  if (!fnRef.current) {\n    fnRef.current = lock(\n      async () => {\n        addLog('\u23f3 \u8bf7\u6c42\u53d1\u9001\u4e2d...', 'loading')\n        await new Promise((r) => setTimeout(r, 1500))\n        const result = `\u8ba2\u5355 #${Math.floor(Math.random() * 9000 + 1000)}`\n        addLog(`\u2705 \u8bf7\u6c42\u6210\u529f: ${result}`, 'success')\n        return result\n      },\n      {\n        always: () => addLog('\ud83d\udccc always \u56de\u8c03\u89e6\u53d1', 'info'),\n        locking: () => addLog('\ud83d\udd12 \u5df2\u9501\u5b9a\uff0c\u8df3\u8fc7\u91cd\u590d\u8c03\u7528', 'warn'),\n      }\n    )\n  }\n\n  const handleSubmit = async () => {\n    await fnRef.current()\n    setLocked(fnRef.current.isLocked())\n  }\n\n  const handleUnlock = () => {\n    fnRef.current.unlock()\n    setLocked(fnRef.current.isLocked())\n    addLog('\ud83d\udd13 \u5df2\u89e3\u9501', 'unlock')\n  }\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 12,\n          marginBottom: 16,\n          alignItems: 'center',\n        }}\n      >\n        <button\n          onClick={handleSubmit}\n          style={{\n            padding: '8px 24px',\n            borderRadius: 8,\n            cursor: 'pointer',\n            fontSize: 14,\n            border: 'none',\n            background: locked ? '#f5f5f5' : '#1890ff',\n            color: locked ? '#999' : '#fff',\n            transition: 'all 0.3s',\n          }}\n        >\n          {locked ? '\ud83d\udd12 \u5df2\u9501\u5b9a \u2014 \u518d\u6b21\u70b9\u51fb\u65e0\u6548' : '\ud83d\udce4 \u63d0\u4ea4\u8ba2\u5355'}\n        </button>\n        <button\n          onClick={handleUnlock}\n          style={{\n            padding: '6px 16px',\n            borderRadius: 6,\n            cursor: 'pointer',\n            fontSize: 13,\n            border: '1px solid #fa8c16',\n            background: '#fff7e6',\n            color: '#fa8c16',\n          }}\n        >\n          \ud83d\udd13 \u89e3\u9501\n        </button>\n        <span\n          style={{\n            padding: '3px 10px',\n            borderRadius: 20,\n            fontSize: 12,\n            background: locked ? '#fff1f0' : '#f6ffed',\n            color: locked ? '#cf1322' : '#389e0d',\n          }}\n        >\n          {locked ? '\u25cf \u5df2\u9501\u5b9a' : '\u25cb \u672a\u9501\u5b9a'}\n        </span>\n      </div>\n\n      <p style={{ color: '#999', fontSize: 12, margin: '0 0 12px' }}>\n        \ud83d\udca1\n        \u70b9\u51fb\u63d0\u4ea4\u540e\u51fd\u6570\u81ea\u52a8\u9501\u5b9a\uff0c\u540e\u7eed\u70b9\u51fb\u4e0d\u4f1a\u91cd\u590d\u6267\u884c\u3002\u70b9\u51fb\u300c\u89e3\u9501\u300d\u540e\u53ef\u518d\u6b21\u63d0\u4ea4\n      </p>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginBottom: 12,\n        }}\n      >\n        {`const lockedFn = lock(submitOrder, { always, locking })\nlockedFn()          // ${\n          locked ? '\u2192 \u5df2\u9501\u5b9a\uff0c\u89e6\u53d1 locking \u56de\u8c03' : '\u2192 \u6267\u884c submitOrder'\n        }\nlockedFn.isLocked() // => ${locked}\nlockedFn.unlock()   // \u89e3\u9501\u540e\u53ef\u518d\u6b21\u6267\u884c`}\n      </pre>\n\n      <div\n        style={{\n          borderRadius: 8,\n          border: '1px solid #f0f0f0',\n          maxHeight: 200,\n          overflowY: 'auto',\n          background: '#fafafa',\n        }}\n      >\n        {logs.map((log) => (\n          <div\n            key={log.id}\n            style={{\n              padding: '5px 12px',\n              borderBottom: '1px solid #f5f5f5',\n              fontSize: 13,\n              display: 'flex',\n              gap: 8,\n              color:\n                log.type === 'warn'\n                  ? '#fa8c16'\n                  : log.type === 'success'\n                  ? '#389e0d'\n                  : log.type === 'loading'\n                  ? '#1890ff'\n                  : '#666',\n            }}\n          >\n            <span style={{ color: '#bbb', fontSize: 11 }}>{log.time}</span>\n            {log.msg}\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'lock-demo',
         },
@@ -38143,7 +38169,8 @@
                     { style: { fontSize: 12, color: '#999' } },
                     '\u7f13\u5b58 ',
                     k.cache.size,
-                    ' \u9879 | \u547d\u4e2d\u7387 ',
+                    ' \u9879 | \u547d\u4e2d\u7387',
+                    ' ',
                     o['default'].createElement(
                       'strong',
                       { style: { color: '#52c41a' } },
@@ -38300,12 +38327,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef } from 'react'\nimport { memoize } from '@fexd/tools'\n\nexport default () => {\n  const [input, setInput] = useState(5)\n  const [logs, setLogs] = useState([])\n  const [stats, setStats] = useState({ hit: 0, miss: 0 })\n  const idRef = useRef(0)\n\n  const [fn] = useState(() =>\n    memoize((n) => {\n      const start = Date.now()\n      let r = 0; for (let i = 0; i < 1e6; i++) r += Math.sin(n + i)\n      return { result: r.toFixed(4), cost: Date.now() - start }\n    })\n  )\n\n  const call = () => {\n    const hadCache = fn.cache.has(input)\n    const { result, cost } = fn(input)\n    const type = hadCache ? 'hit' : 'miss'\n    setStats((s) => ({ ...s, [type]: s[type] + 1 }))\n    setLogs((p) => [{\n      id: ++idRef.current, arg: input, result, cost: hadCache ? 0 : cost, type,\n      time: new Date().toLocaleTimeString(),\n    }, ...p].slice(0, 15))\n  }\n\n  const clear = () => { fn.cache.clear(); setStats({ hit: 0, miss: 0 }); setLogs([]) }\n  const total = stats.hit + stats.miss\n  const hitRate = total > 0 ? ((stats.hit / total) * 100).toFixed(0) : '\u2014'\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' }}>\n        <span style={{ fontSize: 13, color: '#999' }}>\u53c2\u6570</span>\n        <input type=\"number\" value={input} onChange={(e) => setInput(+e.target.value)} style={{\n          width: 70, padding: '4px 8px', borderRadius: 6, border: '1px solid #d9d9d9',\n          fontSize: 14, textAlign: 'center',\n        }} />\n        <button onClick={call} style={{\n          padding: '6px 16px', borderRadius: 6, border: 'none',\n          background: '#1890ff', color: '#fff', cursor: 'pointer', fontSize: 13,\n        }}>\ud83e\uddee \u8ba1\u7b97</button>\n        <button onClick={clear} style={{\n          padding: '5px 12px', borderRadius: 6, border: '1px solid #d9d9d9',\n          background: '#fff', cursor: 'pointer', fontSize: 12, color: '#999',\n        }}>\ud83d\uddd1 \u6e05\u7a7a\u7f13\u5b58</button>\n        <span style={{ fontSize: 12, color: '#999' }}>\n          \u7f13\u5b58 {fn.cache.size} \u9879 | \u547d\u4e2d\u7387 <strong style={{ color: '#52c41a' }}>{hitRate}%</strong>\n        </span>\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>\n        <div style={{\n          flex: 1, height: 8, borderRadius: 4, background: '#f0f0f0', overflow: 'hidden',\n          display: 'flex',\n        }}>\n          {total > 0 && <>\n            <div style={{ width: `${(stats.hit / total) * 100}%`, background: '#52c41a', transition: 'width 0.3s' }} />\n            <div style={{ width: `${(stats.miss / total) * 100}%`, background: '#ff4d4f', transition: 'width 0.3s' }} />\n          </>}\n        </div>\n        <span style={{ fontSize: 11, color: '#52c41a' }}>HIT {stats.hit}</span>\n        <span style={{ fontSize: 11, color: '#ff4d4f' }}>MISS {stats.miss}</span>\n      </div>\n\n      <div style={{\n        borderRadius: 8, border: '1px solid #f0f0f0', maxHeight: 220,\n        overflowY: 'auto', background: '#fafafa',\n      }}>\n        {logs.map((log) => (\n          <div key={log.id} style={{\n            padding: '5px 12px', borderBottom: '1px solid #f5f5f5', fontSize: 13,\n            display: 'flex', gap: 8, alignItems: 'center',\n          }}>\n            <span style={{ color: '#aaa', fontSize: 11, minWidth: 60 }}>{log.time}</span>\n            <span style={{\n              padding: '1px 8px', borderRadius: 3, fontSize: 11, fontWeight: 600,\n              background: log.type === 'hit' ? '#f6ffed' : '#fff2f0',\n              color: log.type === 'hit' ? '#52c41a' : '#ff4d4f',\n            }}>{log.type === 'hit' ? '\ud83d\udfe2 HIT' : '\ud83d\udd34 MISS'}</span>\n            <span style={{ fontFamily: 'monospace', fontSize: 12 }}>fn({log.arg})</span>\n            <span style={{ color: '#999', fontSize: 11 }}>\n              {log.cost}ms \u2192 {log.result}\n            </span>\n          </div>\n        ))}\n      </div>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{`const fn = memoize((n) => heavyCompute(n))\nfn(${input})  // ${fn.cache.has(input) ? `\u2192 \u7f13\u5b58\u547d\u4e2d (0ms)` : `\u2192 \u9996\u6b21\u8ba1\u7b97`}\nfn.cache.size // => ${fn.cache.size}`}\n      </pre>\n      <p style={{ color: '#999', fontSize: 12, marginTop: 4 }}>\n        \ud83d\udca1 \u76f8\u540c\u53c2\u6570\u7b2c\u4e8c\u6b21\u8c03\u7528\u65f6 0ms \u8fd4\u56de\u7f13\u5b58 \xb7 \u6362\u4e2a\u53c2\u6570\u8bd5\u8bd5\u770b MISS\n      </p>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef } from 'react'\nimport { memoize } from '@fexd/tools'\n\nexport default () => {\n  const [input, setInput] = useState(5)\n  const [logs, setLogs] = useState([])\n  const [stats, setStats] = useState({ hit: 0, miss: 0 })\n  const idRef = useRef(0)\n\n  const [fn] = useState(() =>\n    memoize((n) => {\n      const start = Date.now()\n      let r = 0\n      for (let i = 0; i < 1e6; i++) r += Math.sin(n + i)\n      return { result: r.toFixed(4), cost: Date.now() - start }\n    })\n  )\n\n  const call = () => {\n    const hadCache = fn.cache.has(input)\n    const { result, cost } = fn(input)\n    const type = hadCache ? 'hit' : 'miss'\n    setStats((s) => ({ ...s, [type]: s[type] + 1 }))\n    setLogs((p) =>\n      [\n        {\n          id: ++idRef.current,\n          arg: input,\n          result,\n          cost: hadCache ? 0 : cost,\n          type,\n          time: new Date().toLocaleTimeString(),\n        },\n        ...p,\n      ].slice(0, 15)\n    )\n  }\n\n  const clear = () => {\n    fn.cache.clear()\n    setStats({ hit: 0, miss: 0 })\n    setLogs([])\n  }\n  const total = stats.hit + stats.miss\n  const hitRate = total > 0 ? ((stats.hit / total) * 100).toFixed(0) : '\u2014'\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 12,\n          alignItems: 'center',\n          marginBottom: 12,\n          flexWrap: 'wrap',\n        }}\n      >\n        <span style={{ fontSize: 13, color: '#999' }}>\u53c2\u6570</span>\n        <input\n          type=\"number\"\n          value={input}\n          onChange={(e) => setInput(+e.target.value)}\n          style={{\n            width: 70,\n            padding: '4px 8px',\n            borderRadius: 6,\n            border: '1px solid #d9d9d9',\n            fontSize: 14,\n            textAlign: 'center',\n          }}\n        />\n        <button\n          onClick={call}\n          style={{\n            padding: '6px 16px',\n            borderRadius: 6,\n            border: 'none',\n            background: '#1890ff',\n            color: '#fff',\n            cursor: 'pointer',\n            fontSize: 13,\n          }}\n        >\n          \ud83e\uddee \u8ba1\u7b97\n        </button>\n        <button\n          onClick={clear}\n          style={{\n            padding: '5px 12px',\n            borderRadius: 6,\n            border: '1px solid #d9d9d9',\n            background: '#fff',\n            cursor: 'pointer',\n            fontSize: 12,\n            color: '#999',\n          }}\n        >\n          \ud83d\uddd1 \u6e05\u7a7a\u7f13\u5b58\n        </button>\n        <span style={{ fontSize: 12, color: '#999' }}>\n          \u7f13\u5b58 {fn.cache.size} \u9879 | \u547d\u4e2d\u7387{' '}\n          <strong style={{ color: '#52c41a' }}>{hitRate}%</strong>\n        </span>\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>\n        <div\n          style={{\n            flex: 1,\n            height: 8,\n            borderRadius: 4,\n            background: '#f0f0f0',\n            overflow: 'hidden',\n            display: 'flex',\n          }}\n        >\n          {total > 0 && (\n            <>\n              <div\n                style={{\n                  width: `${(stats.hit / total) * 100}%`,\n                  background: '#52c41a',\n                  transition: 'width 0.3s',\n                }}\n              />\n              <div\n                style={{\n                  width: `${(stats.miss / total) * 100}%`,\n                  background: '#ff4d4f',\n                  transition: 'width 0.3s',\n                }}\n              />\n            </>\n          )}\n        </div>\n        <span style={{ fontSize: 11, color: '#52c41a' }}>HIT {stats.hit}</span>\n        <span style={{ fontSize: 11, color: '#ff4d4f' }}>\n          MISS {stats.miss}\n        </span>\n      </div>\n\n      <div\n        style={{\n          borderRadius: 8,\n          border: '1px solid #f0f0f0',\n          maxHeight: 220,\n          overflowY: 'auto',\n          background: '#fafafa',\n        }}\n      >\n        {logs.map((log) => (\n          <div\n            key={log.id}\n            style={{\n              padding: '5px 12px',\n              borderBottom: '1px solid #f5f5f5',\n              fontSize: 13,\n              display: 'flex',\n              gap: 8,\n              alignItems: 'center',\n            }}\n          >\n            <span style={{ color: '#aaa', fontSize: 11, minWidth: 60 }}>\n              {log.time}\n            </span>\n            <span\n              style={{\n                padding: '1px 8px',\n                borderRadius: 3,\n                fontSize: 11,\n                fontWeight: 600,\n                background: log.type === 'hit' ? '#f6ffed' : '#fff2f0',\n                color: log.type === 'hit' ? '#52c41a' : '#ff4d4f',\n              }}\n            >\n              {log.type === 'hit' ? '\ud83d\udfe2 HIT' : '\ud83d\udd34 MISS'}\n            </span>\n            <span style={{ fontFamily: 'monospace', fontSize: 12 }}>\n              fn({log.arg})\n            </span>\n            <span style={{ color: '#999', fontSize: 11 }}>\n              {log.cost}ms \u2192 {log.result}\n            </span>\n          </div>\n        ))}\n      </div>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {`const fn = memoize((n) => heavyCompute(n))\nfn(${input})  // ${fn.cache.has(input) ? `\u2192 \u7f13\u5b58\u547d\u4e2d (0ms)` : `\u2192 \u9996\u6b21\u8ba1\u7b97`}\nfn.cache.size // => ${fn.cache.size}`}\n      </pre>\n      <p style={{ color: '#999', fontSize: 12, marginTop: 4 }}>\n        \ud83d\udca1 \u76f8\u540c\u53c2\u6570\u7b2c\u4e8c\u6b21\u8c03\u7528\u65f6 0ms \u8fd4\u56de\u7f13\u5b58 \xb7 \u6362\u4e2a\u53c2\u6570\u8bd5\u8bd5\u770b MISS\n      </p>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'memoize-demo',
         },
@@ -38631,7 +38658,8 @@
                       .join(', '),
                     ')(',
                     u,
-                    ') = ',
+                    ') =',
+                    ' ',
                     l['default'].createElement('strong', null, k)
                   )
               )
@@ -38641,12 +38669,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { pipe } from '@fexd/tools'\n\nconst TRANSFORMS = {\n  '+1':   { fn: (n) => n + 1,   label: '+1',    color: '#1890ff' },\n  '\xd72':   { fn: (n) => n * 2,   label: '\xd72',    color: '#52c41a' },\n  '\u22123':   { fn: (n) => n - 3,   label: '\u22123',    color: '#fa8c16' },\n  '\xb2':    { fn: (n) => n ** 2,  label: 'n\xb2',    color: '#722ed1' },\n  '\xf72':   { fn: (n) => n / 2,   label: '\xf72',    color: '#eb2f96' },\n  'abs':  { fn: (n) => Math.abs(n), label: '|n|', color: '#13c2c2' },\n  '%10':  { fn: (n) => n % 10,  label: '%10',   color: '#faad14' },\n  'neg':  { fn: (n) => -n,      label: '\u2212n',    color: '#cf1322' },\n}\n\nexport default () => {\n  const [input, setInput] = useState(5)\n  const [steps, setSteps] = useState(['+1', '\xd72', '\u22123'])\n\n  const fns = steps.map((k) => TRANSFORMS[k].fn)\n  const composed = fns.length > 0 ? pipe(...fns) : (x) => x\n\n  const intermediates = []\n  let val = input\n  for (const k of steps) {\n    val = TRANSFORMS[k].fn(val)\n    intermediates.push({ key: k, value: val })\n  }\n\n  const result = composed(input)\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 16 }}>\n        <span style={{ fontSize: 13, color: '#999' }}>\u8f93\u5165</span>\n        <input type=\"number\" value={input} onChange={(e) => setInput(+e.target.value)} style={{\n          width: 70, padding: '4px 8px', borderRadius: 6, border: '1px solid #d9d9d9',\n          fontSize: 16, fontWeight: 600, textAlign: 'center',\n        }} />\n      </div>\n\n      <div style={{ marginBottom: 12 }}>\n        <div style={{ fontSize: 12, color: '#999', marginBottom: 6 }}>\u53ef\u7528\u53d8\u6362\uff08\u70b9\u51fb\u6dfb\u52a0\u5230\u7ba1\u9053\uff09</div>\n        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>\n          {Object.entries(TRANSFORMS).map(([key, { label, color }]) => (\n            <button key={key} onClick={() => setSteps((p) => [...p, key])} style={{\n              padding: '4px 14px', borderRadius: 6, border: `1px solid ${color}`,\n              background: '#fff', color, cursor: 'pointer', fontSize: 13, fontWeight: 600,\n            }}>{label}</button>\n          ))}\n          <button onClick={() => setSteps([])} style={{\n            padding: '4px 12px', borderRadius: 6, border: '1px solid #d9d9d9',\n            background: '#fafafa', cursor: 'pointer', fontSize: 12, color: '#999',\n          }}>\ud83d\uddd1 \u6e05\u7a7a</button>\n        </div>\n      </div>\n\n      <div style={{\n        display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap',\n        padding: '12px 16px', background: '#fafafa', borderRadius: 8, marginBottom: 12,\n        minHeight: 48,\n      }}>\n        <span style={{\n          padding: '4px 12px', borderRadius: 6, background: '#fff',\n          border: '1px solid #d9d9d9', fontWeight: 700, fontSize: 16,\n          fontFamily: 'monospace',\n        }}>{input}</span>\n\n        {steps.map((key, i) => {\n          const t = TRANSFORMS[key]\n          return (\n            <React.Fragment key={i}>\n              <span style={{ color: '#ccc', fontSize: 16 }}>\u2192</span>\n              <span onClick={() => setSteps((p) => p.filter((_, j) => j !== i))} style={{\n                padding: '4px 12px', borderRadius: 6,\n                background: t.color + '15', border: `1px solid ${t.color}`,\n                color: t.color, fontWeight: 600, fontSize: 13, cursor: 'pointer',\n              }} title=\"\u70b9\u51fb\u79fb\u9664\">{t.label}</span>\n              <span style={{\n                fontSize: 11, color: '#999', fontFamily: 'monospace',\n              }}>= {intermediates[i]?.value}</span>\n            </React.Fragment>\n          )\n        })}\n\n        {steps.length > 0 && (\n          <>\n            <span style={{ color: '#ccc', fontSize: 16 }}>\u2192</span>\n            <span style={{\n              padding: '4px 16px', borderRadius: 6, background: '#389e0d',\n              color: '#fff', fontWeight: 700, fontSize: 16, fontFamily: 'monospace',\n            }}>{result}</span>\n          </>\n        )}\n      </div>\n\n      {steps.length > 0 && (\n        <div style={{\n          padding: '6px 12px', borderRadius: 6, background: '#f6f6f6',\n          fontSize: 12, fontFamily: 'monospace', color: '#666',\n        }}>\n          pipe({steps.map((k) => TRANSFORMS[k].label).join(', ')})({input}) = <strong>{result}</strong>\n        </div>\n      )}\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { pipe } from '@fexd/tools'\n\nconst TRANSFORMS = {\n  '+1': { fn: (n) => n + 1, label: '+1', color: '#1890ff' },\n  '\xd72': { fn: (n) => n * 2, label: '\xd72', color: '#52c41a' },\n  '\u22123': { fn: (n) => n - 3, label: '\u22123', color: '#fa8c16' },\n  '\xb2': { fn: (n) => n ** 2, label: 'n\xb2', color: '#722ed1' },\n  '\xf72': { fn: (n) => n / 2, label: '\xf72', color: '#eb2f96' },\n  abs: { fn: (n) => Math.abs(n), label: '|n|', color: '#13c2c2' },\n  '%10': { fn: (n) => n % 10, label: '%10', color: '#faad14' },\n  neg: { fn: (n) => -n, label: '\u2212n', color: '#cf1322' },\n}\n\nexport default () => {\n  const [input, setInput] = useState(5)\n  const [steps, setSteps] = useState(['+1', '\xd72', '\u22123'])\n\n  const fns = steps.map((k) => TRANSFORMS[k].fn)\n  const composed = fns.length > 0 ? pipe(...fns) : (x) => x\n\n  const intermediates = []\n  let val = input\n  for (const k of steps) {\n    val = TRANSFORMS[k].fn(val)\n    intermediates.push({ key: k, value: val })\n  }\n\n  const result = composed(input)\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 16,\n        }}\n      >\n        <span style={{ fontSize: 13, color: '#999' }}>\u8f93\u5165</span>\n        <input\n          type=\"number\"\n          value={input}\n          onChange={(e) => setInput(+e.target.value)}\n          style={{\n            width: 70,\n            padding: '4px 8px',\n            borderRadius: 6,\n            border: '1px solid #d9d9d9',\n            fontSize: 16,\n            fontWeight: 600,\n            textAlign: 'center',\n          }}\n        />\n      </div>\n\n      <div style={{ marginBottom: 12 }}>\n        <div style={{ fontSize: 12, color: '#999', marginBottom: 6 }}>\n          \u53ef\u7528\u53d8\u6362\uff08\u70b9\u51fb\u6dfb\u52a0\u5230\u7ba1\u9053\uff09\n        </div>\n        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>\n          {Object.entries(TRANSFORMS).map(([key, { label, color }]) => (\n            <button\n              key={key}\n              onClick={() => setSteps((p) => [...p, key])}\n              style={{\n                padding: '4px 14px',\n                borderRadius: 6,\n                border: `1px solid ${color}`,\n                background: '#fff',\n                color,\n                cursor: 'pointer',\n                fontSize: 13,\n                fontWeight: 600,\n              }}\n            >\n              {label}\n            </button>\n          ))}\n          <button\n            onClick={() => setSteps([])}\n            style={{\n              padding: '4px 12px',\n              borderRadius: 6,\n              border: '1px solid #d9d9d9',\n              background: '#fafafa',\n              cursor: 'pointer',\n              fontSize: 12,\n              color: '#999',\n            }}\n          >\n            \ud83d\uddd1 \u6e05\u7a7a\n          </button>\n        </div>\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          alignItems: 'center',\n          gap: 4,\n          flexWrap: 'wrap',\n          padding: '12px 16px',\n          background: '#fafafa',\n          borderRadius: 8,\n          marginBottom: 12,\n          minHeight: 48,\n        }}\n      >\n        <span\n          style={{\n            padding: '4px 12px',\n            borderRadius: 6,\n            background: '#fff',\n            border: '1px solid #d9d9d9',\n            fontWeight: 700,\n            fontSize: 16,\n            fontFamily: 'monospace',\n          }}\n        >\n          {input}\n        </span>\n\n        {steps.map((key, i) => {\n          const t = TRANSFORMS[key]\n          return (\n            <React.Fragment key={i}>\n              <span style={{ color: '#ccc', fontSize: 16 }}>\u2192</span>\n              <span\n                onClick={() => setSteps((p) => p.filter((_, j) => j !== i))}\n                style={{\n                  padding: '4px 12px',\n                  borderRadius: 6,\n                  background: t.color + '15',\n                  border: `1px solid ${t.color}`,\n                  color: t.color,\n                  fontWeight: 600,\n                  fontSize: 13,\n                  cursor: 'pointer',\n                }}\n                title=\"\u70b9\u51fb\u79fb\u9664\"\n              >\n                {t.label}\n              </span>\n              <span\n                style={{\n                  fontSize: 11,\n                  color: '#999',\n                  fontFamily: 'monospace',\n                }}\n              >\n                = {intermediates[i]?.value}\n              </span>\n            </React.Fragment>\n          )\n        })}\n\n        {steps.length > 0 && (\n          <>\n            <span style={{ color: '#ccc', fontSize: 16 }}>\u2192</span>\n            <span\n              style={{\n                padding: '4px 16px',\n                borderRadius: 6,\n                background: '#389e0d',\n                color: '#fff',\n                fontWeight: 700,\n                fontSize: 16,\n                fontFamily: 'monospace',\n              }}\n            >\n              {result}\n            </span>\n          </>\n        )}\n      </div>\n\n      {steps.length > 0 && (\n        <div\n          style={{\n            padding: '6px 12px',\n            borderRadius: 6,\n            background: '#f6f6f6',\n            fontSize: 12,\n            fontFamily: 'monospace',\n            color: '#666',\n          }}\n        >\n          pipe({steps.map((k) => TRANSFORMS[k].label).join(', ')})({input}) ={' '}\n          <strong>{result}</strong>\n        </div>\n      )}\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'pipe-demo',
         },
@@ -38702,7 +38730,8 @@
                   a['default'].createElement(
                     'div',
                     null,
-                    '\u8282\u6d41\u540e\u6267\u884c\u6b21\u6570: ',
+                    '\u8282\u6d41\u540e\u6267\u884c\u6b21\u6570:',
+                    ' ',
                     a['default'].createElement(
                       'strong',
                       { style: { color: '#52c41a' } },
@@ -38736,12 +38765,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { throttle } from '@fexd/tools'\n\nexport default () => {\n  const [rawCount, setRawCount] = useState(0)\n  const [throttleCount, setThrottleCount] = useState(0)\n\n  const [throttledFn] = useState(() =>\n    throttle(() => setThrottleCount((c) => c + 1), 500)\n  )\n\n  const handleClick = () => {\n    setRawCount((c) => c + 1)\n    throttledFn()\n  }\n\n  return (\n    <div>\n      <button onClick={handleClick} style={{ padding: '8px 16px', fontSize: 14 }}>\n        \u5feb\u901f\u70b9\u51fb\u6211\n      </button>\n      <div style={{ marginTop: 12, fontSize: 14 }}>\n        <div>\u539f\u59cb\u89e6\u53d1\u6b21\u6570: <strong>{rawCount}</strong></div>\n        <div>\u8282\u6d41\u540e\u6267\u884c\u6b21\u6570: <strong style={{ color: '#52c41a' }}>{throttleCount}</strong></div>\n      </div>\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{`const throttledFn = throttle(() => execute(), 500)\n// \u5feb\u901f\u70b9\u51fb ${rawCount} \u6b21\uff0c\u5b9e\u9645\u6267\u884c ${throttleCount} \u6b21\n// \u6bcf 500ms \u6700\u591a\u6267\u884c\u4e00\u6b21\uff08\u9996\u6b21\u7acb\u5373\u6267\u884c\uff09`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { throttle } from '@fexd/tools'\n\nexport default () => {\n  const [rawCount, setRawCount] = useState(0)\n  const [throttleCount, setThrottleCount] = useState(0)\n\n  const [throttledFn] = useState(() =>\n    throttle(() => setThrottleCount((c) => c + 1), 500)\n  )\n\n  const handleClick = () => {\n    setRawCount((c) => c + 1)\n    throttledFn()\n  }\n\n  return (\n    <div>\n      <button\n        onClick={handleClick}\n        style={{ padding: '8px 16px', fontSize: 14 }}\n      >\n        \u5feb\u901f\u70b9\u51fb\u6211\n      </button>\n      <div style={{ marginTop: 12, fontSize: 14 }}>\n        <div>\n          \u539f\u59cb\u89e6\u53d1\u6b21\u6570: <strong>{rawCount}</strong>\n        </div>\n        <div>\n          \u8282\u6d41\u540e\u6267\u884c\u6b21\u6570:{' '}\n          <strong style={{ color: '#52c41a' }}>{throttleCount}</strong>\n        </div>\n      </div>\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {`const throttledFn = throttle(() => execute(), 500)\n// \u5feb\u901f\u70b9\u51fb ${rawCount} \u6b21\uff0c\u5b9e\u9645\u6267\u884c ${throttleCount} \u6b21\n// \u6bcf 500ms \u6700\u591a\u6267\u884c\u4e00\u6b21\uff08\u9996\u6b21\u7acb\u5373\u6267\u884c\uff09`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'throttle-demo',
         },
@@ -38955,7 +38984,8 @@
                     ? r['default'].createElement(
                         'span',
                         null,
-                        '\ud83d\udd0d \u5df2\u9009 ',
+                        '\ud83d\udd0d \u5df2\u9009',
+                        ' ',
                         Object.entries(s)
                           .map(function (e) {
                             var t = (0, a['default'])(e, 2),
@@ -38979,12 +39009,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useMemo } from 'react'\nimport { CombinationMatcher } from '@fexd/tools'\n\nconst PRODUCTS = {\n  'SKU-001': { color: '\u7ecf\u5178\u9ed1', size: 'S', material: '\u68c9' },\n  'SKU-002': { color: '\u7ecf\u5178\u9ed1', size: 'M', material: '\u68c9' },\n  'SKU-003': { color: '\u7ecf\u5178\u9ed1', size: 'L', material: '\u68c9' },\n  'SKU-004': { color: '\u7ecf\u5178\u9ed1', size: 'S', material: '\u6da4\u7eb6' },\n  'SKU-005': { color: '\u4e2d\u56fd\u7ea2', size: 'S', material: '\u68c9' },\n  'SKU-006': { color: '\u4e2d\u56fd\u7ea2', size: 'M', material: '\u68c9' },\n  'SKU-007': { color: '\u4e2d\u56fd\u7ea2', size: 'M', material: '\u6da4\u7eb6' },\n  'SKU-008': { color: '\u6d77\u519b\u84dd', size: 'M', material: '\u68c9' },\n  'SKU-009': { color: '\u6d77\u519b\u84dd', size: 'L', material: '\u6da4\u7eb6' },\n}\n\nconst COLOR_MAP = { '\u7ecf\u5178\u9ed1': '#333', '\u4e2d\u56fd\u7ea2': '#cf1322', '\u6d77\u519b\u84dd': '#1d39c4' }\nconst LABELS = { color: '\u989c\u8272', size: '\u5c3a\u7801', material: '\u9762\u6599' }\n\nexport default () => {\n  const judge = useMemo(() => new CombinationMatcher(PRODUCTS), [])\n  const [selected, setSelected] = useState({})\n\n  const adapted = judge.adaptedAttr(selected)\n  const matchedId = judge.find(selected)\n\n  const toggle = (key, val) => {\n    setSelected((prev) => {\n      const next = { ...prev }\n      if (next[key] === val) delete next[key]\n      else next[key] = val\n      return next\n    })\n  }\n\n  return (\n    <div>\n      {judge.attrKey.filter((k) => k !== 'price').map((key) => (\n        <div key={key} style={{ marginBottom: 12 }}>\n          <div style={{ fontSize: 13, color: '#666', marginBottom: 6 }}>{LABELS[key] || key}</div>\n          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>\n            {judge.attr[key].map((val) => {\n              const available = adapted[key]?.includes(val)\n              const active = selected[key] === val\n              const isColor = key === 'color'\n              return (\n                <button\n                  key={val}\n                  onClick={() => available && toggle(key, val)}\n                  style={{\n                    padding: isColor ? '4px 12px' : '6px 16px',\n                    borderRadius: 6,\n                    border: `2px solid ${active ? '#1890ff' : available ? '#d9d9d9' : '#f0f0f0'}`,\n                    background: active ? '#e6f7ff' : available ? '#fff' : '#fafafa',\n                    color: available ? '#333' : '#ccc',\n                    cursor: available ? 'pointer' : 'not-allowed',\n                    fontSize: 13,\n                    display: 'flex', alignItems: 'center', gap: 6,\n                    textDecoration: available ? 'none' : 'line-through',\n                    transition: 'all 0.2s',\n                  }}\n                >\n                  {isColor && (\n                    <span style={{\n                      width: 14, height: 14, borderRadius: '50%',\n                      background: COLOR_MAP[val] || '#999',\n                      border: '1px solid #e8e8e8', display: 'inline-block',\n                      opacity: available ? 1 : 0.3,\n                    }} />\n                  )}\n                  {val}\n                </button>\n              )\n            })}\n          </div>\n        </div>\n      ))}\n\n      <div style={{\n        marginTop: 16, padding: '12px 16px', borderRadius: 8,\n        background: matchedId ? '#f6ffed' : Object.keys(selected).length ? '#fffbe6' : '#fafafa',\n        border: `1px solid ${matchedId ? '#b7eb8f' : Object.keys(selected).length ? '#ffe58f' : '#f0f0f0'}`,\n        fontSize: 13, transition: 'all 0.3s',\n      }}>\n        {matchedId ? (\n          <span>\u2705 \u5339\u914d\u5230 <strong style={{ color: '#52c41a' }}>{matchedId}</strong>\n            {' \u2014 '}{Object.entries(PRODUCTS[matchedId]).map(([k, v]) => `${LABELS[k] || k}: ${v}`).join('\u3001')}</span>\n        ) : Object.keys(selected).length ? (\n          <span>\ud83d\udd0d \u5df2\u9009 {Object.entries(selected).map(([k, v]) => `${LABELS[k] || k}: ${v}`).join('\u3001')}\uff0c\u8bf7\u7ee7\u7eed\u9009\u62e9</span>\n        ) : (\n          <span style={{ color: '#999' }}>\ud83d\udc46 \u70b9\u51fb\u4e0a\u65b9\u5c5e\u6027\u5f00\u59cb\u9009\u62e9</span>\n        )}\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useMemo } from 'react'\nimport { CombinationMatcher } from '@fexd/tools'\n\nconst PRODUCTS = {\n  'SKU-001': { color: '\u7ecf\u5178\u9ed1', size: 'S', material: '\u68c9' },\n  'SKU-002': { color: '\u7ecf\u5178\u9ed1', size: 'M', material: '\u68c9' },\n  'SKU-003': { color: '\u7ecf\u5178\u9ed1', size: 'L', material: '\u68c9' },\n  'SKU-004': { color: '\u7ecf\u5178\u9ed1', size: 'S', material: '\u6da4\u7eb6' },\n  'SKU-005': { color: '\u4e2d\u56fd\u7ea2', size: 'S', material: '\u68c9' },\n  'SKU-006': { color: '\u4e2d\u56fd\u7ea2', size: 'M', material: '\u68c9' },\n  'SKU-007': { color: '\u4e2d\u56fd\u7ea2', size: 'M', material: '\u6da4\u7eb6' },\n  'SKU-008': { color: '\u6d77\u519b\u84dd', size: 'M', material: '\u68c9' },\n  'SKU-009': { color: '\u6d77\u519b\u84dd', size: 'L', material: '\u6da4\u7eb6' },\n}\n\nconst COLOR_MAP = { \u7ecf\u5178\u9ed1: '#333', \u4e2d\u56fd\u7ea2: '#cf1322', \u6d77\u519b\u84dd: '#1d39c4' }\nconst LABELS = { color: '\u989c\u8272', size: '\u5c3a\u7801', material: '\u9762\u6599' }\n\nexport default () => {\n  const judge = useMemo(() => new CombinationMatcher(PRODUCTS), [])\n  const [selected, setSelected] = useState({})\n\n  const adapted = judge.adaptedAttr(selected)\n  const matchedId = judge.find(selected)\n\n  const toggle = (key, val) => {\n    setSelected((prev) => {\n      const next = { ...prev }\n      if (next[key] === val) delete next[key]\n      else next[key] = val\n      return next\n    })\n  }\n\n  return (\n    <div>\n      {judge.attrKey\n        .filter((k) => k !== 'price')\n        .map((key) => (\n          <div key={key} style={{ marginBottom: 12 }}>\n            <div style={{ fontSize: 13, color: '#666', marginBottom: 6 }}>\n              {LABELS[key] || key}\n            </div>\n            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>\n              {judge.attr[key].map((val) => {\n                const available = adapted[key]?.includes(val)\n                const active = selected[key] === val\n                const isColor = key === 'color'\n                return (\n                  <button\n                    key={val}\n                    onClick={() => available && toggle(key, val)}\n                    style={{\n                      padding: isColor ? '4px 12px' : '6px 16px',\n                      borderRadius: 6,\n                      border: `2px solid ${\n                        active ? '#1890ff' : available ? '#d9d9d9' : '#f0f0f0'\n                      }`,\n                      background: active\n                        ? '#e6f7ff'\n                        : available\n                        ? '#fff'\n                        : '#fafafa',\n                      color: available ? '#333' : '#ccc',\n                      cursor: available ? 'pointer' : 'not-allowed',\n                      fontSize: 13,\n                      display: 'flex',\n                      alignItems: 'center',\n                      gap: 6,\n                      textDecoration: available ? 'none' : 'line-through',\n                      transition: 'all 0.2s',\n                    }}\n                  >\n                    {isColor && (\n                      <span\n                        style={{\n                          width: 14,\n                          height: 14,\n                          borderRadius: '50%',\n                          background: COLOR_MAP[val] || '#999',\n                          border: '1px solid #e8e8e8',\n                          display: 'inline-block',\n                          opacity: available ? 1 : 0.3,\n                        }}\n                      />\n                    )}\n                    {val}\n                  </button>\n                )\n              })}\n            </div>\n          </div>\n        ))}\n\n      <div\n        style={{\n          marginTop: 16,\n          padding: '12px 16px',\n          borderRadius: 8,\n          background: matchedId\n            ? '#f6ffed'\n            : Object.keys(selected).length\n            ? '#fffbe6'\n            : '#fafafa',\n          border: `1px solid ${\n            matchedId\n              ? '#b7eb8f'\n              : Object.keys(selected).length\n              ? '#ffe58f'\n              : '#f0f0f0'\n          }`,\n          fontSize: 13,\n          transition: 'all 0.3s',\n        }}\n      >\n        {matchedId ? (\n          <span>\n            \u2705 \u5339\u914d\u5230 <strong style={{ color: '#52c41a' }}>{matchedId}</strong>\n            {' \u2014 '}\n            {Object.entries(PRODUCTS[matchedId])\n              .map(([k, v]) => `${LABELS[k] || k}: ${v}`)\n              .join('\u3001')}\n          </span>\n        ) : Object.keys(selected).length ? (\n          <span>\n            \ud83d\udd0d \u5df2\u9009{' '}\n            {Object.entries(selected)\n              .map(([k, v]) => `${LABELS[k] || k}: ${v}`)\n              .join('\u3001')}\n            \uff0c\u8bf7\u7ee7\u7eed\u9009\u62e9\n          </span>\n        ) : (\n          <span style={{ color: '#999' }}>\ud83d\udc46 \u70b9\u51fb\u4e0a\u65b9\u5c5e\u6027\u5f00\u59cb\u9009\u62e9</span>\n        )}\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'CombinationMatcher-demo',
         },
@@ -39188,12 +39218,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { deepMerge } from '@fexd/tools'\n\nexport default () => {\n  const [inputs, setInputs] = useState([\n    '{ \"a\": 1, \"b\": { \"x\": 1, \"y\": 2 } }',\n    '{ \"b\": { \"y\": 3, \"z\": 4 }, \"c\": 5 }',\n  ])\n\n  const addSource = () => setInputs([...inputs, '{}'])\n  const removeSource = (i) => setInputs(inputs.filter((_, idx) => idx !== i))\n  const update = (i, v) => setInputs(inputs.map((s, idx) => idx === i ? v : s))\n\n  let result, error\n  try {\n    const objects = inputs.map((s) => JSON.parse(s))\n    result = deepMerge(...objects.map((o) => JSON.parse(JSON.stringify(o))))\n  } catch (e) { error = e.message }\n\n  const callStr = `deepMerge(${inputs.map((_, i) => `obj${i + 1}`).join(', ')})`\n\n  return (\n    <div>\n      {inputs.map((str, i) => (\n        <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'flex-start' }}>\n          <div style={{ flex: 1 }}>\n            <div style={{ fontSize: 12, color: '#595959', marginBottom: 2 }}>\n              {i === 0 ? 'target' : `source${i}`}\n            </div>\n            <textarea value={str} onChange={(e) => update(i, e.target.value)} style={{\n              width: '100%', height: 50, padding: 6, borderRadius: 4,\n              border: '1px solid #d9d9d9', fontSize: 12, fontFamily: 'monospace',\n              resize: 'vertical', boxSizing: 'border-box',\n            }} />\n          </div>\n          {inputs.length > 2 && (\n            <button onClick={() => removeSource(i)} style={{\n              marginTop: 18, border: 'none', background: 'none',\n              color: '#ff4d4f', cursor: 'pointer', fontSize: 14,\n            }}>x</button>\n          )}\n        </div>\n      ))}\n\n      <button onClick={addSource} style={{\n        marginBottom: 12, padding: '3px 12px', borderRadius: 4,\n        border: '1px solid #d9d9d9', background: '#fff', cursor: 'pointer', fontSize: 12,\n      }}>+ \u6dfb\u52a0\u5bf9\u8c61</button>\n\n      <div style={{ padding: '6px 10px', marginBottom: 12, background: '#f5f5f5', borderRadius: 4, fontSize: 12, fontFamily: 'monospace', color: '#595959' }}>\n        {callStr}\n      </div>\n\n      <div style={{\n        padding: '12px 16px', borderRadius: 8,\n        background: error ? '#fff2f0' : '#f6ffed',\n        border: `1px solid ${error ? '#ffa39e' : '#b7eb8f'}`,\n      }}>\n        <div style={{ fontSize: 12, color: error ? '#cf1322' : '#389e0d', marginBottom: 4, fontWeight: 600 }}>\n          {error ? '\u9519\u8bef' : '\u5408\u5e76\u7ed3\u679c'}\n        </div>\n        <pre style={{ margin: 0, fontSize: 12, fontFamily: 'monospace', lineHeight: 1.5, whiteSpace: 'pre-wrap' }}>\n          {error ? error : JSON.stringify(result, null, 2)}\n        </pre>\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { deepMerge } from '@fexd/tools'\n\nexport default () => {\n  const [inputs, setInputs] = useState([\n    '{ \"a\": 1, \"b\": { \"x\": 1, \"y\": 2 } }',\n    '{ \"b\": { \"y\": 3, \"z\": 4 }, \"c\": 5 }',\n  ])\n\n  const addSource = () => setInputs([...inputs, '{}'])\n  const removeSource = (i) => setInputs(inputs.filter((_, idx) => idx !== i))\n  const update = (i, v) =>\n    setInputs(inputs.map((s, idx) => (idx === i ? v : s)))\n\n  let result, error\n  try {\n    const objects = inputs.map((s) => JSON.parse(s))\n    result = deepMerge(...objects.map((o) => JSON.parse(JSON.stringify(o))))\n  } catch (e) {\n    error = e.message\n  }\n\n  const callStr = `deepMerge(${inputs.map((_, i) => `obj${i + 1}`).join(', ')})`\n\n  return (\n    <div>\n      {inputs.map((str, i) => (\n        <div\n          key={i}\n          style={{\n            display: 'flex',\n            gap: 8,\n            marginBottom: 8,\n            alignItems: 'flex-start',\n          }}\n        >\n          <div style={{ flex: 1 }}>\n            <div style={{ fontSize: 12, color: '#595959', marginBottom: 2 }}>\n              {i === 0 ? 'target' : `source${i}`}\n            </div>\n            <textarea\n              value={str}\n              onChange={(e) => update(i, e.target.value)}\n              style={{\n                width: '100%',\n                height: 50,\n                padding: 6,\n                borderRadius: 4,\n                border: '1px solid #d9d9d9',\n                fontSize: 12,\n                fontFamily: 'monospace',\n                resize: 'vertical',\n                boxSizing: 'border-box',\n              }}\n            />\n          </div>\n          {inputs.length > 2 && (\n            <button\n              onClick={() => removeSource(i)}\n              style={{\n                marginTop: 18,\n                border: 'none',\n                background: 'none',\n                color: '#ff4d4f',\n                cursor: 'pointer',\n                fontSize: 14,\n              }}\n            >\n              x\n            </button>\n          )}\n        </div>\n      ))}\n\n      <button\n        onClick={addSource}\n        style={{\n          marginBottom: 12,\n          padding: '3px 12px',\n          borderRadius: 4,\n          border: '1px solid #d9d9d9',\n          background: '#fff',\n          cursor: 'pointer',\n          fontSize: 12,\n        }}\n      >\n        + \u6dfb\u52a0\u5bf9\u8c61\n      </button>\n\n      <div\n        style={{\n          padding: '6px 10px',\n          marginBottom: 12,\n          background: '#f5f5f5',\n          borderRadius: 4,\n          fontSize: 12,\n          fontFamily: 'monospace',\n          color: '#595959',\n        }}\n      >\n        {callStr}\n      </div>\n\n      <div\n        style={{\n          padding: '12px 16px',\n          borderRadius: 8,\n          background: error ? '#fff2f0' : '#f6ffed',\n          border: `1px solid ${error ? '#ffa39e' : '#b7eb8f'}`,\n        }}\n      >\n        <div\n          style={{\n            fontSize: 12,\n            color: error ? '#cf1322' : '#389e0d',\n            marginBottom: 4,\n            fontWeight: 600,\n          }}\n        >\n          {error ? '\u9519\u8bef' : '\u5408\u5e76\u7ed3\u679c'}\n        </div>\n        <pre\n          style={{\n            margin: 0,\n            fontSize: 12,\n            fontFamily: 'monospace',\n            lineHeight: 1.5,\n            whiteSpace: 'pre-wrap',\n          }}\n        >\n          {error ? error : JSON.stringify(result, null, 2)}\n        </pre>\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'deepMerge-demo',
         },
@@ -39397,7 +39427,8 @@
                           a['default'].createElement(
                             'span',
                             { style: { fontSize: 13 } },
-                            '\ud83d\udfe2 \u65b0\u589e ',
+                            '\ud83d\udfe2 \u65b0\u589e',
+                            ' ',
                             a['default'].createElement(
                               'strong',
                               { style: { color: '#389e0d' } },
@@ -39407,7 +39438,8 @@
                           a['default'].createElement(
                             'span',
                             { style: { fontSize: 13 } },
-                            '\ud83d\udd34 \u5220\u9664 ',
+                            '\ud83d\udd34 \u5220\u9664',
+                            ' ',
                             a['default'].createElement(
                               'strong',
                               { style: { color: '#cf1322' } },
@@ -39479,12 +39511,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { diffArray } from '@fexd/tools'\n\nconst Tag = ({ val, type }) => {\n  const colors = {\n    kept: { bg: '#fafafa', fg: '#999', border: '#e8e8e8' },\n    add: { bg: '#f6ffed', fg: '#389e0d', border: '#b7eb8f' },\n    remove: { bg: '#fff2f0', fg: '#cf1322', border: '#ffa39e' },\n  }\n  const c = colors[type] || colors.kept\n  return (\n    <span style={{\n      display: 'inline-block', padding: '2px 10px', borderRadius: 4,\n      background: c.bg, color: c.fg, border: `1px solid ${c.border}`,\n      fontSize: 13, fontFamily: 'monospace', margin: 2,\n    }}>\n      {type === 'add' && '+ '}{type === 'remove' && '\u2212 '}{JSON.stringify(val)}\n    </span>\n  )\n}\n\nconst PRESETS = [\n  { label: '\ud83d\udce6 \u57fa\u672c\u6570\u5b57', init: '[1, 2, 3, 4, 5]', current: '[2, 4, 5, 6, 7]' },\n  { label: '\ud83d\udd24 \u5b57\u7b26\u4e32', init: '[\"apple\", \"banana\", \"cherry\"]', current: '[\"banana\", \"date\", \"elderberry\"]' },\n  { label: '\ud83d\udd00 \u5b8c\u5168\u4e0d\u540c', init: '[1, 2, 3]', current: '[4, 5, 6]' },\n  { label: '\u2705 \u5b8c\u5168\u76f8\u540c', init: '[\"a\", \"b\"]', current: '[\"a\", \"b\"]' },\n]\n\nexport default () => {\n  const [initStr, setInitStr] = useState('[1, 2, 3, 4, 5]')\n  const [curStr, setCurStr] = useState('[2, 4, 5, 6, 7]')\n\n  let initArr, curArr, result, error\n  try {\n    initArr = JSON.parse(initStr)\n    curArr = JSON.parse(curStr)\n    result = diffArray(initArr, curArr)\n  } catch (e) { error = e.message }\n\n  const kept = result ? initArr.filter((v) => curArr.includes(v)) : []\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 4, marginBottom: 12, flexWrap: 'wrap' }}>\n        {PRESETS.map((p) => (\n          <button key={p.label} onClick={() => { setInitStr(p.init); setCurStr(p.current) }}\n            style={{\n              padding: '3px 10px', borderRadius: 4, border: '1px solid #d9d9d9',\n              background: '#fff', cursor: 'pointer', fontSize: 12,\n            }}>{p.label}</button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u521d\u59cb\u6570\u7ec4 (init)</div>\n          <input value={initStr} onChange={(e) => setInitStr(e.target.value)} style={{\n            width: '100%', padding: '6px 10px', borderRadius: 6,\n            border: '1px solid #d9d9d9', fontSize: 13, fontFamily: 'monospace',\n            boxSizing: 'border-box',\n          }} />\n        </div>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u5f53\u524d\u6570\u7ec4 (current)</div>\n          <input value={curStr} onChange={(e) => setCurStr(e.target.value)} style={{\n            width: '100%', padding: '6px 10px', borderRadius: 6,\n            border: '1px solid #d9d9d9', fontSize: 13, fontFamily: 'monospace',\n            boxSizing: 'border-box',\n          }} />\n        </div>\n      </div>\n\n      {error ? (\n        <div style={{ color: '#ff4d4f', fontSize: 13, padding: 8 }}>\u274c JSON \u89e3\u6790\u5931\u8d25: {error}</div>\n      ) : result && (\n        <div>\n          <div style={{\n            display: 'flex', gap: 12, marginBottom: 12,\n            padding: '10px 12px', background: '#fafafa', borderRadius: 8,\n          }}>\n            <span style={{ fontSize: 13 }}>\n              \ud83d\udfe2 \u65b0\u589e <strong style={{ color: '#389e0d' }}>{result.add.length}</strong>\n            </span>\n            <span style={{ fontSize: 13 }}>\n              \ud83d\udd34 \u5220\u9664 <strong style={{ color: '#cf1322' }}>{result.remove.length}</strong>\n            </span>\n            <span style={{ fontSize: 13 }}>\n              \u26aa \u4fdd\u7559 <strong>{kept.length}</strong>\n            </span>\n          </div>\n\n          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2, marginBottom: 8 }}>\n            {kept.map((v, i) => <Tag key={`k-${i}`} val={v} type=\"kept\" />)}\n            {result.add.map((v, i) => <Tag key={`a-${i}`} val={v} type=\"add\" />)}\n            {result.remove.map((v, i) => <Tag key={`r-${i}`} val={v} type=\"remove\" />)}\n          </div>\n\n          <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555' }}>\n{`diffArray(${initStr}, ${curStr})\n// => { add: ${JSON.stringify(result.add)}, remove: ${JSON.stringify(result.remove)}, diff: ${JSON.stringify(result.diff)} }`}\n          </pre>\n        </div>\n      )}\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { diffArray } from '@fexd/tools'\n\nconst Tag = ({ val, type }) => {\n  const colors = {\n    kept: { bg: '#fafafa', fg: '#999', border: '#e8e8e8' },\n    add: { bg: '#f6ffed', fg: '#389e0d', border: '#b7eb8f' },\n    remove: { bg: '#fff2f0', fg: '#cf1322', border: '#ffa39e' },\n  }\n  const c = colors[type] || colors.kept\n  return (\n    <span\n      style={{\n        display: 'inline-block',\n        padding: '2px 10px',\n        borderRadius: 4,\n        background: c.bg,\n        color: c.fg,\n        border: `1px solid ${c.border}`,\n        fontSize: 13,\n        fontFamily: 'monospace',\n        margin: 2,\n      }}\n    >\n      {type === 'add' && '+ '}\n      {type === 'remove' && '\u2212 '}\n      {JSON.stringify(val)}\n    </span>\n  )\n}\n\nconst PRESETS = [\n  { label: '\ud83d\udce6 \u57fa\u672c\u6570\u5b57', init: '[1, 2, 3, 4, 5]', current: '[2, 4, 5, 6, 7]' },\n  {\n    label: '\ud83d\udd24 \u5b57\u7b26\u4e32',\n    init: '[\"apple\", \"banana\", \"cherry\"]',\n    current: '[\"banana\", \"date\", \"elderberry\"]',\n  },\n  { label: '\ud83d\udd00 \u5b8c\u5168\u4e0d\u540c', init: '[1, 2, 3]', current: '[4, 5, 6]' },\n  { label: '\u2705 \u5b8c\u5168\u76f8\u540c', init: '[\"a\", \"b\"]', current: '[\"a\", \"b\"]' },\n]\n\nexport default () => {\n  const [initStr, setInitStr] = useState('[1, 2, 3, 4, 5]')\n  const [curStr, setCurStr] = useState('[2, 4, 5, 6, 7]')\n\n  let initArr, curArr, result, error\n  try {\n    initArr = JSON.parse(initStr)\n    curArr = JSON.parse(curStr)\n    result = diffArray(initArr, curArr)\n  } catch (e) {\n    error = e.message\n  }\n\n  const kept = result ? initArr.filter((v) => curArr.includes(v)) : []\n\n  return (\n    <div>\n      <div\n        style={{ display: 'flex', gap: 4, marginBottom: 12, flexWrap: 'wrap' }}\n      >\n        {PRESETS.map((p) => (\n          <button\n            key={p.label}\n            onClick={() => {\n              setInitStr(p.init)\n              setCurStr(p.current)\n            }}\n            style={{\n              padding: '3px 10px',\n              borderRadius: 4,\n              border: '1px solid #d9d9d9',\n              background: '#fff',\n              cursor: 'pointer',\n              fontSize: 12,\n            }}\n          >\n            {p.label}\n          </button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            \u521d\u59cb\u6570\u7ec4 (init)\n          </div>\n          <input\n            value={initStr}\n            onChange={(e) => setInitStr(e.target.value)}\n            style={{\n              width: '100%',\n              padding: '6px 10px',\n              borderRadius: 6,\n              border: '1px solid #d9d9d9',\n              fontSize: 13,\n              fontFamily: 'monospace',\n              boxSizing: 'border-box',\n            }}\n          />\n        </div>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            \u5f53\u524d\u6570\u7ec4 (current)\n          </div>\n          <input\n            value={curStr}\n            onChange={(e) => setCurStr(e.target.value)}\n            style={{\n              width: '100%',\n              padding: '6px 10px',\n              borderRadius: 6,\n              border: '1px solid #d9d9d9',\n              fontSize: 13,\n              fontFamily: 'monospace',\n              boxSizing: 'border-box',\n            }}\n          />\n        </div>\n      </div>\n\n      {error ? (\n        <div style={{ color: '#ff4d4f', fontSize: 13, padding: 8 }}>\n          \u274c JSON \u89e3\u6790\u5931\u8d25: {error}\n        </div>\n      ) : (\n        result && (\n          <div>\n            <div\n              style={{\n                display: 'flex',\n                gap: 12,\n                marginBottom: 12,\n                padding: '10px 12px',\n                background: '#fafafa',\n                borderRadius: 8,\n              }}\n            >\n              <span style={{ fontSize: 13 }}>\n                \ud83d\udfe2 \u65b0\u589e{' '}\n                <strong style={{ color: '#389e0d' }}>\n                  {result.add.length}\n                </strong>\n              </span>\n              <span style={{ fontSize: 13 }}>\n                \ud83d\udd34 \u5220\u9664{' '}\n                <strong style={{ color: '#cf1322' }}>\n                  {result.remove.length}\n                </strong>\n              </span>\n              <span style={{ fontSize: 13 }}>\n                \u26aa \u4fdd\u7559 <strong>{kept.length}</strong>\n              </span>\n            </div>\n\n            <div\n              style={{\n                display: 'flex',\n                flexWrap: 'wrap',\n                gap: 2,\n                marginBottom: 8,\n              }}\n            >\n              {kept.map((v, i) => (\n                <Tag key={`k-${i}`} val={v} type=\"kept\" />\n              ))}\n              {result.add.map((v, i) => (\n                <Tag key={`a-${i}`} val={v} type=\"add\" />\n              ))}\n              {result.remove.map((v, i) => (\n                <Tag key={`r-${i}`} val={v} type=\"remove\" />\n              ))}\n            </div>\n\n            <pre\n              style={{\n                background: '#f9f9f9',\n                padding: '8px 12px',\n                borderRadius: 6,\n                fontSize: 12,\n                color: '#555',\n              }}\n            >\n              {`diffArray(${initStr}, ${curStr})\n// => { add: ${JSON.stringify(result.add)}, remove: ${JSON.stringify(\n                result.remove\n              )}, diff: ${JSON.stringify(result.diff)} }`}\n            </pre>\n          </div>\n        )\n      )}\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'diffArray-demo',
         },
@@ -39792,12 +39824,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { difference, intersection } from '@fexd/tools'\n\nconst Dot = ({ val, type }) => {\n  const palette = { a: '#e6f7ff', b: '#fff7e6', both: '#f6ffed', diff: '#f0f5ff' }\n  const border = { a: '#91d5ff', b: '#ffd591', both: '#b7eb8f', diff: '#adc6ff' }\n  return (\n    <span style={{\n      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',\n      width: 36, height: 36, borderRadius: '50%',\n      background: palette[type], border: `2px solid ${border[type]}`,\n      fontSize: 14, fontWeight: 600, fontFamily: 'monospace',\n    }}>{val}</span>\n  )\n}\n\nexport default () => {\n  const [a, setA] = useState([1, 2, 3, 4, 5])\n  const [b, setB] = useState([3, 4, 5, 6, 7])\n  const [input, setInput] = useState('')\n  const [target, setTarget] = useState('a')\n\n  const add = () => {\n    const val = input.trim()\n    if (!val) return\n    const num = isNaN(Number(val)) ? val : Number(val)\n    if (target === 'a') setA((p) => [...p, num])\n    else setB((p) => [...p, num])\n    setInput('')\n  }\n\n  const remove = (arr, setArr, idx) => setArr((p) => p.filter((_, i) => i !== idx))\n\n  const onlyA = difference(a, b)\n  const onlyB = difference(b, a)\n  const common = intersection(a, b)\n\n  const Row = ({ label, color, items, arr, setArr }) => (\n    <div style={{\n      display: 'flex', alignItems: 'center', gap: 8, padding: '8px 0',\n      borderBottom: '1px solid #f5f5f5', flexWrap: 'wrap',\n    }}>\n      <span style={{\n        fontSize: 12, fontWeight: 600, color, minWidth: 130, fontFamily: 'monospace',\n        padding: '2px 8px', borderRadius: 4,\n        background: color + '18',\n      }}>{label}</span>\n      {items.map((v, i) => (\n        <span key={i} onClick={() => setArr && remove(arr, setArr, arr.indexOf(v))} style={{\n          cursor: setArr ? 'pointer' : 'default',\n        }}>\n          <Dot val={v} type={setArr ? (label === 'A' ? 'a' : 'b') : label === '\u4ea4\u96c6' ? 'both' : 'diff'} />\n        </span>\n      ))}\n      {items.length === 0 && <span style={{ color: '#ccc', fontSize: 12 }}>\u7a7a</span>}\n    </div>\n  )\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' }}>\n        <select value={target} onChange={(e) => setTarget(e.target.value)} style={{\n          padding: '4px 8px', borderRadius: 4, border: '1px solid #d9d9d9', fontSize: 13,\n        }}>\n          <option value=\"a\">\u6dfb\u52a0\u5230 A</option>\n          <option value=\"b\">\u6dfb\u52a0\u5230 B</option>\n        </select>\n        <input value={input} onChange={(e) => setInput(e.target.value)}\n          onKeyDown={(e) => e.key === 'Enter' && add()}\n          placeholder=\"\u8f93\u5165\u503c\u540e\u56de\u8f66\"\n          style={{ padding: '4px 10px', borderRadius: 4, border: '1px solid #d9d9d9', fontSize: 13, width: 120 }} />\n        <button onClick={add} style={{\n          padding: '4px 12px', borderRadius: 4, border: '1px solid #1890ff',\n          background: '#1890ff', color: '#fff', cursor: 'pointer', fontSize: 13,\n        }}>\u6dfb\u52a0</button>\n        <button onClick={() => { setA([1, 2, 3, 4, 5]); setB([3, 4, 5, 6, 7]) }} style={{\n          padding: '4px 12px', borderRadius: 4, border: '1px solid #d9d9d9',\n          background: '#fff', cursor: 'pointer', fontSize: 12, color: '#999',\n        }}>\ud83d\udd04 \u91cd\u7f6e</button>\n      </div>\n\n      <Row label=\"A\" color=\"#1890ff\" items={a} arr={a} setArr={setA} />\n      <Row label=\"B\" color=\"#fa8c16\" items={b} arr={b} setArr={setB} />\n      <Row label=\"difference(a, b)\" color=\"#722ed1\" items={onlyA} />\n      <Row label=\"difference(b, a)\" color=\"#eb2f96\" items={onlyB} />\n      <Row label=\"intersection(a, b)\" color=\"#52c41a\" items={common} />\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', margin: '12px 0 0' }}>\n{`const onlyA = difference(a, b)  // => [${onlyA.join(', ')}]\nconst onlyB = difference(b, a)  // => [${onlyB.join(', ')}]\nconst common = intersection(a, b) // => [${common.join(', ')}]`}\n      </pre>\n\n      <p style={{ color: '#999', fontSize: 12, marginTop: 8 }}>\n        \ud83d\udca1 \u70b9\u51fb A/B \u884c\u7684\u5706\u5708\u53ef\u5220\u9664\u5143\u7d20\n      </p>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { difference, intersection } from '@fexd/tools'\n\nconst Dot = ({ val, type }) => {\n  const palette = {\n    a: '#e6f7ff',\n    b: '#fff7e6',\n    both: '#f6ffed',\n    diff: '#f0f5ff',\n  }\n  const border = {\n    a: '#91d5ff',\n    b: '#ffd591',\n    both: '#b7eb8f',\n    diff: '#adc6ff',\n  }\n  return (\n    <span\n      style={{\n        display: 'inline-flex',\n        alignItems: 'center',\n        justifyContent: 'center',\n        width: 36,\n        height: 36,\n        borderRadius: '50%',\n        background: palette[type],\n        border: `2px solid ${border[type]}`,\n        fontSize: 14,\n        fontWeight: 600,\n        fontFamily: 'monospace',\n      }}\n    >\n      {val}\n    </span>\n  )\n}\n\nexport default () => {\n  const [a, setA] = useState([1, 2, 3, 4, 5])\n  const [b, setB] = useState([3, 4, 5, 6, 7])\n  const [input, setInput] = useState('')\n  const [target, setTarget] = useState('a')\n\n  const add = () => {\n    const val = input.trim()\n    if (!val) return\n    const num = isNaN(Number(val)) ? val : Number(val)\n    if (target === 'a') setA((p) => [...p, num])\n    else setB((p) => [...p, num])\n    setInput('')\n  }\n\n  const remove = (arr, setArr, idx) =>\n    setArr((p) => p.filter((_, i) => i !== idx))\n\n  const onlyA = difference(a, b)\n  const onlyB = difference(b, a)\n  const common = intersection(a, b)\n\n  const Row = ({ label, color, items, arr, setArr }) => (\n    <div\n      style={{\n        display: 'flex',\n        alignItems: 'center',\n        gap: 8,\n        padding: '8px 0',\n        borderBottom: '1px solid #f5f5f5',\n        flexWrap: 'wrap',\n      }}\n    >\n      <span\n        style={{\n          fontSize: 12,\n          fontWeight: 600,\n          color,\n          minWidth: 130,\n          fontFamily: 'monospace',\n          padding: '2px 8px',\n          borderRadius: 4,\n          background: color + '18',\n        }}\n      >\n        {label}\n      </span>\n      {items.map((v, i) => (\n        <span\n          key={i}\n          onClick={() => setArr && remove(arr, setArr, arr.indexOf(v))}\n          style={{\n            cursor: setArr ? 'pointer' : 'default',\n          }}\n        >\n          <Dot\n            val={v}\n            type={\n              setArr\n                ? label === 'A'\n                  ? 'a'\n                  : 'b'\n                : label === '\u4ea4\u96c6'\n                ? 'both'\n                : 'diff'\n            }\n          />\n        </span>\n      ))}\n      {items.length === 0 && (\n        <span style={{ color: '#ccc', fontSize: 12 }}>\u7a7a</span>\n      )}\n    </div>\n  )\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 12,\n          flexWrap: 'wrap',\n        }}\n      >\n        <select\n          value={target}\n          onChange={(e) => setTarget(e.target.value)}\n          style={{\n            padding: '4px 8px',\n            borderRadius: 4,\n            border: '1px solid #d9d9d9',\n            fontSize: 13,\n          }}\n        >\n          <option value=\"a\">\u6dfb\u52a0\u5230 A</option>\n          <option value=\"b\">\u6dfb\u52a0\u5230 B</option>\n        </select>\n        <input\n          value={input}\n          onChange={(e) => setInput(e.target.value)}\n          onKeyDown={(e) => e.key === 'Enter' && add()}\n          placeholder=\"\u8f93\u5165\u503c\u540e\u56de\u8f66\"\n          style={{\n            padding: '4px 10px',\n            borderRadius: 4,\n            border: '1px solid #d9d9d9',\n            fontSize: 13,\n            width: 120,\n          }}\n        />\n        <button\n          onClick={add}\n          style={{\n            padding: '4px 12px',\n            borderRadius: 4,\n            border: '1px solid #1890ff',\n            background: '#1890ff',\n            color: '#fff',\n            cursor: 'pointer',\n            fontSize: 13,\n          }}\n        >\n          \u6dfb\u52a0\n        </button>\n        <button\n          onClick={() => {\n            setA([1, 2, 3, 4, 5])\n            setB([3, 4, 5, 6, 7])\n          }}\n          style={{\n            padding: '4px 12px',\n            borderRadius: 4,\n            border: '1px solid #d9d9d9',\n            background: '#fff',\n            cursor: 'pointer',\n            fontSize: 12,\n            color: '#999',\n          }}\n        >\n          \ud83d\udd04 \u91cd\u7f6e\n        </button>\n      </div>\n\n      <Row label=\"A\" color=\"#1890ff\" items={a} arr={a} setArr={setA} />\n      <Row label=\"B\" color=\"#fa8c16\" items={b} arr={b} setArr={setB} />\n      <Row label=\"difference(a, b)\" color=\"#722ed1\" items={onlyA} />\n      <Row label=\"difference(b, a)\" color=\"#eb2f96\" items={onlyB} />\n      <Row label=\"intersection(a, b)\" color=\"#52c41a\" items={common} />\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          margin: '12px 0 0',\n        }}\n      >\n        {`const onlyA = difference(a, b)  // => [${onlyA.join(', ')}]\nconst onlyB = difference(b, a)  // => [${onlyB.join(', ')}]\nconst common = intersection(a, b) // => [${common.join(', ')}]`}\n      </pre>\n\n      <p style={{ color: '#999', fontSize: 12, marginTop: 8 }}>\n        \ud83d\udca1 \u70b9\u51fb A/B \u884c\u7684\u5706\u5708\u53ef\u5220\u9664\u5143\u7d20\n      </p>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'difference-demo',
         },
@@ -40055,12 +40087,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { flatten } from '@fexd/tools'\n\nconst PRESETS = [\n  { label: '3 \u5c42\u5d4c\u5957', data: [1, [2, [3, [4]]]], str: '[1, [2, [3, [4]]]]' },\n  { label: '\u6df7\u5408\u5d4c\u5957', data: ['a', ['b', 'c'], [['d'], 'e']], str: '[\"a\", [\"b\",\"c\"], [[\"d\"],\"e\"]]' },\n  { label: '\u6df1\u5c42', data: [[[[[1]]]]], str: '[[[[[1]]]]]' },\n  { label: '\u6241\u5e73', data: [1, 2, 3, 4], str: '[1, 2, 3, 4]' },\n]\n\nconst DEPTH_COLORS = ['#1890ff', '#52c41a', '#fa8c16', '#722ed1', '#eb2f96']\n\nconst renderNested = (arr, depth = 0) => (\n  <span style={{\n    display: 'inline-flex', gap: 2, alignItems: 'center',\n    padding: '2px 4px', borderRadius: 4,\n    background: DEPTH_COLORS[depth % DEPTH_COLORS.length] + '15',\n    border: `1px solid ${DEPTH_COLORS[depth % DEPTH_COLORS.length]}44`,\n  }}>\n    <span style={{ fontSize: 10, color: DEPTH_COLORS[depth % DEPTH_COLORS.length] }}>[</span>\n    {arr.map((item, i) => (\n      <span key={i}>\n        {i > 0 && <span style={{ color: '#ccc', margin: '0 1px' }}>,</span>}\n        {Array.isArray(item) ? renderNested(item, depth + 1) : (\n          <span style={{\n            padding: '1px 6px', borderRadius: 3,\n            background: DEPTH_COLORS[depth % DEPTH_COLORS.length] + '20',\n            fontSize: 13, fontWeight: 600, fontFamily: 'monospace',\n          }}>{JSON.stringify(item)}</span>\n        )}\n      </span>\n    ))}\n    <span style={{ fontSize: 10, color: DEPTH_COLORS[depth % DEPTH_COLORS.length] }}>]</span>\n  </span>\n)\n\nexport default () => {\n  const [data, setData] = useState(PRESETS[0].data)\n  const [dataStr, setDataStr] = useState(PRESETS[0].str)\n  const [deep, setDeep] = useState(999)\n\n  const maxDepth = (() => {\n    let d = 0; const check = (a, lv) => { if (Array.isArray(a)) { d = Math.max(d, lv); a.forEach((i) => check(i, lv + 1)) } }\n    check(data, 0); return d\n  })()\n\n  const result = flatten(data, deep === 999 ? Infinity : deep)\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 6, marginBottom: 12, flexWrap: 'wrap' }}>\n        {PRESETS.map((p) => (\n          <button key={p.label} onClick={() => { setData(p.data); setDataStr(p.str) }}\n            style={{\n              padding: '3px 10px', borderRadius: 4, border: '1px solid #d9d9d9',\n              background: '#fff', cursor: 'pointer', fontSize: 12,\n            }}>{p.label}</button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 16 }}>\n        <span style={{ fontSize: 13, color: '#999' }}>\u5c55\u5f00\u6df1\u5ea6</span>\n        <input type=\"range\" min={0} max={maxDepth + 1} value={deep > maxDepth ? maxDepth + 1 : deep}\n          onChange={(e) => setDeep(+e.target.value > maxDepth ? 999 : +e.target.value)}\n          style={{ width: 150 }} />\n        <code style={{ fontSize: 13, minWidth: 30 }}>{deep === 999 ? '\u221e' : deep}</code>\n      </div>\n\n      <div style={{ marginBottom: 12 }}>\n        <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u8f93\u5165\uff08\u5d4c\u5957\u7ed3\u6784\uff09</div>\n        <div style={{ padding: '8px 12px', background: '#fafafa', borderRadius: 8, overflow: 'auto' }}>\n          {renderNested(data)}\n        </div>\n      </div>\n\n      <div style={{ fontSize: 16, textAlign: 'center', color: '#ccc', margin: '8px 0' }}>\n        \u2193 flatten(data{deep !== 999 ? `, ${deep}` : ''}) \u2193\n      </div>\n\n      <div style={{\n        padding: '8px 12px', borderRadius: 8,\n        background: '#f6ffed', border: '1px solid #b7eb8f',\n        overflow: 'auto',\n      }}>\n        {renderNested(result)}\n      </div>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{`flatten(${dataStr}${deep !== 999 ? `, ${deep}` : ''})\n// => [${result.map(v => JSON.stringify(v)).join(', ')}]`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { flatten } from '@fexd/tools'\n\nconst PRESETS = [\n  { label: '3 \u5c42\u5d4c\u5957', data: [1, [2, [3, [4]]]], str: '[1, [2, [3, [4]]]]' },\n  {\n    label: '\u6df7\u5408\u5d4c\u5957',\n    data: ['a', ['b', 'c'], [['d'], 'e']],\n    str: '[\"a\", [\"b\",\"c\"], [[\"d\"],\"e\"]]',\n  },\n  { label: '\u6df1\u5c42', data: [[[[[1]]]]], str: '[[[[[1]]]]]' },\n  { label: '\u6241\u5e73', data: [1, 2, 3, 4], str: '[1, 2, 3, 4]' },\n]\n\nconst DEPTH_COLORS = ['#1890ff', '#52c41a', '#fa8c16', '#722ed1', '#eb2f96']\n\nconst renderNested = (arr, depth = 0) => (\n  <span\n    style={{\n      display: 'inline-flex',\n      gap: 2,\n      alignItems: 'center',\n      padding: '2px 4px',\n      borderRadius: 4,\n      background: DEPTH_COLORS[depth % DEPTH_COLORS.length] + '15',\n      border: `1px solid ${DEPTH_COLORS[depth % DEPTH_COLORS.length]}44`,\n    }}\n  >\n    <span\n      style={{ fontSize: 10, color: DEPTH_COLORS[depth % DEPTH_COLORS.length] }}\n    >\n      [\n    </span>\n    {arr.map((item, i) => (\n      <span key={i}>\n        {i > 0 && <span style={{ color: '#ccc', margin: '0 1px' }}>,</span>}\n        {Array.isArray(item) ? (\n          renderNested(item, depth + 1)\n        ) : (\n          <span\n            style={{\n              padding: '1px 6px',\n              borderRadius: 3,\n              background: DEPTH_COLORS[depth % DEPTH_COLORS.length] + '20',\n              fontSize: 13,\n              fontWeight: 600,\n              fontFamily: 'monospace',\n            }}\n          >\n            {JSON.stringify(item)}\n          </span>\n        )}\n      </span>\n    ))}\n    <span\n      style={{ fontSize: 10, color: DEPTH_COLORS[depth % DEPTH_COLORS.length] }}\n    >\n      ]\n    </span>\n  </span>\n)\n\nexport default () => {\n  const [data, setData] = useState(PRESETS[0].data)\n  const [dataStr, setDataStr] = useState(PRESETS[0].str)\n  const [deep, setDeep] = useState(999)\n\n  const maxDepth = (() => {\n    let d = 0\n    const check = (a, lv) => {\n      if (Array.isArray(a)) {\n        d = Math.max(d, lv)\n        a.forEach((i) => check(i, lv + 1))\n      }\n    }\n    check(data, 0)\n    return d\n  })()\n\n  const result = flatten(data, deep === 999 ? Infinity : deep)\n\n  return (\n    <div>\n      <div\n        style={{ display: 'flex', gap: 6, marginBottom: 12, flexWrap: 'wrap' }}\n      >\n        {PRESETS.map((p) => (\n          <button\n            key={p.label}\n            onClick={() => {\n              setData(p.data)\n              setDataStr(p.str)\n            }}\n            style={{\n              padding: '3px 10px',\n              borderRadius: 4,\n              border: '1px solid #d9d9d9',\n              background: '#fff',\n              cursor: 'pointer',\n              fontSize: 12,\n            }}\n          >\n            {p.label}\n          </button>\n        ))}\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 16,\n        }}\n      >\n        <span style={{ fontSize: 13, color: '#999' }}>\u5c55\u5f00\u6df1\u5ea6</span>\n        <input\n          type=\"range\"\n          min={0}\n          max={maxDepth + 1}\n          value={deep > maxDepth ? maxDepth + 1 : deep}\n          onChange={(e) =>\n            setDeep(+e.target.value > maxDepth ? 999 : +e.target.value)\n          }\n          style={{ width: 150 }}\n        />\n        <code style={{ fontSize: 13, minWidth: 30 }}>\n          {deep === 999 ? '\u221e' : deep}\n        </code>\n      </div>\n\n      <div style={{ marginBottom: 12 }}>\n        <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n          \u8f93\u5165\uff08\u5d4c\u5957\u7ed3\u6784\uff09\n        </div>\n        <div\n          style={{\n            padding: '8px 12px',\n            background: '#fafafa',\n            borderRadius: 8,\n            overflow: 'auto',\n          }}\n        >\n          {renderNested(data)}\n        </div>\n      </div>\n\n      <div\n        style={{\n          fontSize: 16,\n          textAlign: 'center',\n          color: '#ccc',\n          margin: '8px 0',\n        }}\n      >\n        \u2193 flatten(data{deep !== 999 ? `, ${deep}` : ''}) \u2193\n      </div>\n\n      <div\n        style={{\n          padding: '8px 12px',\n          borderRadius: 8,\n          background: '#f6ffed',\n          border: '1px solid #b7eb8f',\n          overflow: 'auto',\n        }}\n      >\n        {renderNested(result)}\n      </div>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {`flatten(${dataStr}${deep !== 999 ? `, ${deep}` : ''})\n// => [${result.map((v) => JSON.stringify(v)).join(', ')}]`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'flatten-demo',
         },
@@ -40481,12 +40513,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { get, set } from '@fexd/tools'\n\nconst INITIAL = {\n  user: {\n    name: 'Alice',\n    profile: { age: 25, hobbies: ['coding', 'reading', 'hiking'] },\n    settings: { theme: 'dark', lang: 'zh-CN' },\n  },\n  meta: { version: '1.0', tags: ['stable', 'release'] },\n}\n\nconst PRESETS = [\n  'user.name',\n  'user.profile.age',\n  'user.profile.hobbies.0',\n  'user.settings.theme',\n  'meta.tags',\n  'user.nonexist',\n]\n\nexport default () => {\n  const [obj, setObj] = useState(INITIAL)\n  const [path, setPath] = useState('user.profile.age')\n  const [defaultVal, setDefaultVal] = useState(\"'fallback'\")\n  const [setPath2, setSetPath2] = useState('user.settings.theme')\n  const [setValue, setSetValue] = useState(\"'light'\")\n  const [mode, setMode] = useState('get')\n\n  const parsed = (() => { try { return eval(`(${defaultVal})`) } catch { return undefined } })()\n  const result = get(obj, path, parsed)\n\n  const doSet = () => {\n    try {\n      const val = eval(`(${setValue})`)\n      const newObj = set(JSON.parse(JSON.stringify(obj)), setPath2, val)\n      setObj(newObj)\n    } catch {}\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>\n        {['get', 'set'].map((m) => (\n          <button key={m} onClick={() => setMode(m)} style={{\n            padding: '4px 16px', borderRadius: 6, cursor: 'pointer', fontSize: 14,\n            border: `2px solid ${m === mode ? '#1890ff' : '#e8e8e8'}`,\n            background: m === mode ? '#e6f7ff' : '#fff',\n            color: m === mode ? '#1890ff' : '#666', fontWeight: 600,\n          }}>{m}</button>\n        ))}\n        <button onClick={() => setObj(INITIAL)} style={{\n          padding: '4px 12px', borderRadius: 4, border: '1px solid #d9d9d9',\n          background: '#fff', cursor: 'pointer', fontSize: 12, color: '#999',\n        }}>\ud83d\udd04 \u91cd\u7f6e\u6570\u636e</button>\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>\n        <div style={{ flex: 1, minWidth: 200 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\ud83d\udce6 \u6570\u636e\u5bf9\u8c61</div>\n          <pre style={{\n            padding: 10, borderRadius: 6, background: '#fafafa',\n            border: '1px solid #e8e8e8', fontSize: 11,\n            fontFamily: 'monospace', margin: 0, maxHeight: 200, overflowY: 'auto',\n            whiteSpace: 'pre-wrap',\n          }}>{JSON.stringify(obj, null, 2)}</pre>\n        </div>\n\n        <div style={{ flex: 1, minWidth: 200 }}>\n          {mode === 'get' ? (\n            <>\n              <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\ud83d\udd0d get \u53d6\u503c</div>\n              <div style={{ marginBottom: 8 }}>\n                <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\u8def\u5f84</div>\n                <input value={path} onChange={(e) => setPath(e.target.value)} style={{\n                  width: '100%', padding: '6px 10px', borderRadius: 6,\n                  border: '1px solid #d9d9d9', fontSize: 13, fontFamily: 'monospace',\n                  boxSizing: 'border-box',\n                }} />\n              </div>\n              <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginBottom: 8 }}>\n                {PRESETS.map((p) => (\n                  <button key={p} onClick={() => setPath(p)} style={{\n                    padding: '1px 6px', borderRadius: 3, fontSize: 11, cursor: 'pointer',\n                    border: '1px solid #e8e8e8', background: p === path ? '#e6f7ff' : '#fff',\n                    fontFamily: 'monospace',\n                  }}>{p}</button>\n                ))}\n              </div>\n              <div style={{ marginBottom: 8 }}>\n                <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>defaultValue</div>\n                <input value={defaultVal} onChange={(e) => setDefaultVal(e.target.value)} style={{\n                  width: '100%', padding: '4px 8px', borderRadius: 6,\n                  border: '1px solid #d9d9d9', fontSize: 12, fontFamily: 'monospace',\n                  boxSizing: 'border-box',\n                }} />\n              </div>\n              <div style={{\n                padding: '10px 12px', borderRadius: 6,\n                background: result !== undefined ? '#f6ffed' : '#fff7e6',\n                border: `1px solid ${result !== undefined ? '#b7eb8f' : '#ffe58f'}`,\n              }}>\n                <div style={{ fontSize: 11, color: '#999' }}>\u7ed3\u679c</div>\n                <div style={{ fontSize: 16, fontWeight: 700, fontFamily: 'monospace', color: result !== undefined ? '#389e0d' : '#fa8c16' }}>\n                  {JSON.stringify(result)}\n                </div>\n              </div>\n            </>\n          ) : (\n            <>\n              <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u270f\ufe0f set \u8bbe\u503c</div>\n              <div style={{ marginBottom: 8 }}>\n                <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\u8def\u5f84</div>\n                <input value={setPath2} onChange={(e) => setSetPath2(e.target.value)} style={{\n                  width: '100%', padding: '6px 10px', borderRadius: 6,\n                  border: '1px solid #d9d9d9', fontSize: 13, fontFamily: 'monospace',\n                  boxSizing: 'border-box',\n                }} />\n              </div>\n              <div style={{ marginBottom: 8 }}>\n                <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\u503c</div>\n                <input value={setValue} onChange={(e) => setSetValue(e.target.value)} style={{\n                  width: '100%', padding: '6px 10px', borderRadius: 6,\n                  border: '1px solid #d9d9d9', fontSize: 13, fontFamily: 'monospace',\n                  boxSizing: 'border-box',\n                }} />\n              </div>\n              <button onClick={doSet} style={{\n                padding: '6px 20px', borderRadius: 6, border: 'none',\n                background: '#52c41a', color: '#fff', cursor: 'pointer', fontSize: 13,\n              }}>\u2705 \u5e94\u7528 set</button>\n            </>\n          )}\n        </div>\n      </div>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555' }}>\n{mode === 'get'\n  ? `get(obj, '${path}'${defaultVal !== \"'fallback'\" && defaultVal ? `, ${defaultVal}` : ''})  // => ${JSON.stringify(result)}`\n  : `set(obj, '${setPath2}', ${setValue})`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { get, set } from '@fexd/tools'\n\nconst INITIAL = {\n  user: {\n    name: 'Alice',\n    profile: { age: 25, hobbies: ['coding', 'reading', 'hiking'] },\n    settings: { theme: 'dark', lang: 'zh-CN' },\n  },\n  meta: { version: '1.0', tags: ['stable', 'release'] },\n}\n\nconst PRESETS = [\n  'user.name',\n  'user.profile.age',\n  'user.profile.hobbies.0',\n  'user.settings.theme',\n  'meta.tags',\n  'user.nonexist',\n]\n\nexport default () => {\n  const [obj, setObj] = useState(INITIAL)\n  const [path, setPath] = useState('user.profile.age')\n  const [defaultVal, setDefaultVal] = useState(\"'fallback'\")\n  const [setPath2, setSetPath2] = useState('user.settings.theme')\n  const [setValue, setSetValue] = useState(\"'light'\")\n  const [mode, setMode] = useState('get')\n\n  const parsed = (() => {\n    try {\n      return eval(`(${defaultVal})`)\n    } catch {\n      return undefined\n    }\n  })()\n  const result = get(obj, path, parsed)\n\n  const doSet = () => {\n    try {\n      const val = eval(`(${setValue})`)\n      const newObj = set(JSON.parse(JSON.stringify(obj)), setPath2, val)\n      setObj(newObj)\n    } catch {}\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>\n        {['get', 'set'].map((m) => (\n          <button\n            key={m}\n            onClick={() => setMode(m)}\n            style={{\n              padding: '4px 16px',\n              borderRadius: 6,\n              cursor: 'pointer',\n              fontSize: 14,\n              border: `2px solid ${m === mode ? '#1890ff' : '#e8e8e8'}`,\n              background: m === mode ? '#e6f7ff' : '#fff',\n              color: m === mode ? '#1890ff' : '#666',\n              fontWeight: 600,\n            }}\n          >\n            {m}\n          </button>\n        ))}\n        <button\n          onClick={() => setObj(INITIAL)}\n          style={{\n            padding: '4px 12px',\n            borderRadius: 4,\n            border: '1px solid #d9d9d9',\n            background: '#fff',\n            cursor: 'pointer',\n            fontSize: 12,\n            color: '#999',\n          }}\n        >\n          \ud83d\udd04 \u91cd\u7f6e\u6570\u636e\n        </button>\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>\n        <div style={{ flex: 1, minWidth: 200 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            \ud83d\udce6 \u6570\u636e\u5bf9\u8c61\n          </div>\n          <pre\n            style={{\n              padding: 10,\n              borderRadius: 6,\n              background: '#fafafa',\n              border: '1px solid #e8e8e8',\n              fontSize: 11,\n              fontFamily: 'monospace',\n              margin: 0,\n              maxHeight: 200,\n              overflowY: 'auto',\n              whiteSpace: 'pre-wrap',\n            }}\n          >\n            {JSON.stringify(obj, null, 2)}\n          </pre>\n        </div>\n\n        <div style={{ flex: 1, minWidth: 200 }}>\n          {mode === 'get' ? (\n            <>\n              <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n                \ud83d\udd0d get \u53d6\u503c\n              </div>\n              <div style={{ marginBottom: 8 }}>\n                <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\n                  \u8def\u5f84\n                </div>\n                <input\n                  value={path}\n                  onChange={(e) => setPath(e.target.value)}\n                  style={{\n                    width: '100%',\n                    padding: '6px 10px',\n                    borderRadius: 6,\n                    border: '1px solid #d9d9d9',\n                    fontSize: 13,\n                    fontFamily: 'monospace',\n                    boxSizing: 'border-box',\n                  }}\n                />\n              </div>\n              <div\n                style={{\n                  display: 'flex',\n                  gap: 4,\n                  flexWrap: 'wrap',\n                  marginBottom: 8,\n                }}\n              >\n                {PRESETS.map((p) => (\n                  <button\n                    key={p}\n                    onClick={() => setPath(p)}\n                    style={{\n                      padding: '1px 6px',\n                      borderRadius: 3,\n                      fontSize: 11,\n                      cursor: 'pointer',\n                      border: '1px solid #e8e8e8',\n                      background: p === path ? '#e6f7ff' : '#fff',\n                      fontFamily: 'monospace',\n                    }}\n                  >\n                    {p}\n                  </button>\n                ))}\n              </div>\n              <div style={{ marginBottom: 8 }}>\n                <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\n                  defaultValue\n                </div>\n                <input\n                  value={defaultVal}\n                  onChange={(e) => setDefaultVal(e.target.value)}\n                  style={{\n                    width: '100%',\n                    padding: '4px 8px',\n                    borderRadius: 6,\n                    border: '1px solid #d9d9d9',\n                    fontSize: 12,\n                    fontFamily: 'monospace',\n                    boxSizing: 'border-box',\n                  }}\n                />\n              </div>\n              <div\n                style={{\n                  padding: '10px 12px',\n                  borderRadius: 6,\n                  background: result !== undefined ? '#f6ffed' : '#fff7e6',\n                  border: `1px solid ${\n                    result !== undefined ? '#b7eb8f' : '#ffe58f'\n                  }`,\n                }}\n              >\n                <div style={{ fontSize: 11, color: '#999' }}>\u7ed3\u679c</div>\n                <div\n                  style={{\n                    fontSize: 16,\n                    fontWeight: 700,\n                    fontFamily: 'monospace',\n                    color: result !== undefined ? '#389e0d' : '#fa8c16',\n                  }}\n                >\n                  {JSON.stringify(result)}\n                </div>\n              </div>\n            </>\n          ) : (\n            <>\n              <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n                \u270f\ufe0f set \u8bbe\u503c\n              </div>\n              <div style={{ marginBottom: 8 }}>\n                <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\n                  \u8def\u5f84\n                </div>\n                <input\n                  value={setPath2}\n                  onChange={(e) => setSetPath2(e.target.value)}\n                  style={{\n                    width: '100%',\n                    padding: '6px 10px',\n                    borderRadius: 6,\n                    border: '1px solid #d9d9d9',\n                    fontSize: 13,\n                    fontFamily: 'monospace',\n                    boxSizing: 'border-box',\n                  }}\n                />\n              </div>\n              <div style={{ marginBottom: 8 }}>\n                <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\n                  \u503c\n                </div>\n                <input\n                  value={setValue}\n                  onChange={(e) => setSetValue(e.target.value)}\n                  style={{\n                    width: '100%',\n                    padding: '6px 10px',\n                    borderRadius: 6,\n                    border: '1px solid #d9d9d9',\n                    fontSize: 13,\n                    fontFamily: 'monospace',\n                    boxSizing: 'border-box',\n                  }}\n                />\n              </div>\n              <button\n                onClick={doSet}\n                style={{\n                  padding: '6px 20px',\n                  borderRadius: 6,\n                  border: 'none',\n                  background: '#52c41a',\n                  color: '#fff',\n                  cursor: 'pointer',\n                  fontSize: 13,\n                }}\n              >\n                \u2705 \u5e94\u7528 set\n              </button>\n            </>\n          )}\n        </div>\n      </div>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n        }}\n      >\n        {mode === 'get'\n          ? `get(obj, '${path}'${\n              defaultVal !== \"'fallback'\" && defaultVal ? `, ${defaultVal}` : ''\n            })  // => ${JSON.stringify(result)}`\n          : `set(obj, '${setPath2}', ${setValue})`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'get-demo',
         },
@@ -40728,12 +40760,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { groupBy } from '@fexd/tools'\n\nconst MEMBERS = [\n  { name: 'Alice', dept: '\u5de5\u7a0b', level: 'Senior', city: '\u5317\u4eac' },\n  { name: 'Bob', dept: '\u8bbe\u8ba1', level: 'Junior', city: '\u4e0a\u6d77' },\n  { name: 'Carol', dept: '\u5de5\u7a0b', level: 'Senior', city: '\u4e0a\u6d77' },\n  { name: 'Dave', dept: '\u4ea7\u54c1', level: 'Lead', city: '\u5317\u4eac' },\n  { name: 'Eve', dept: '\u5de5\u7a0b', level: 'Junior', city: '\u6df1\u5733' },\n  { name: 'Frank', dept: '\u8bbe\u8ba1', level: 'Senior', city: '\u5317\u4eac' },\n  { name: 'Grace', dept: '\u4ea7\u54c1', level: 'Junior', city: '\u6df1\u5733' },\n  { name: 'Hank', dept: '\u5de5\u7a0b', level: 'Lead', city: '\u4e0a\u6d77' },\n]\n\nconst FIELDS = ['dept', 'level', 'city']\nconst LABELS = { dept: '\u90e8\u95e8', level: '\u7ea7\u522b', city: '\u57ce\u5e02' }\nconst GROUP_COLORS = ['#1890ff', '#52c41a', '#fa8c16', '#722ed1', '#eb2f96', '#13c2c2']\n\nexport default () => {\n  const [field, setField] = useState('dept')\n\n  const grouped = groupBy((item) => item[field], MEMBERS)\n  const groups = Object.entries(grouped)\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 16, alignItems: 'center' }}>\n        <span style={{ fontSize: 13, color: '#999' }}>\u5206\u7ec4\u5b57\u6bb5</span>\n        {FIELDS.map((f) => (\n          <button key={f} onClick={() => setField(f)} style={{\n            padding: '4px 14px', borderRadius: 6, cursor: 'pointer', fontSize: 13,\n            border: `2px solid ${f === field ? '#1890ff' : '#e8e8e8'}`,\n            background: f === field ? '#e6f7ff' : '#fff',\n            color: f === field ? '#1890ff' : '#666', transition: 'all 0.2s',\n          }}>{LABELS[f]}</button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>\n        {groups.map(([key, items], gi) => {\n          const color = GROUP_COLORS[gi % GROUP_COLORS.length]\n          return (\n            <div key={key} style={{\n              flex: '1 1 180px', borderRadius: 8,\n              border: `1px solid ${color}33`, overflow: 'hidden',\n            }}>\n              <div style={{\n                padding: '6px 12px', background: color + '15',\n                borderBottom: `1px solid ${color}33`,\n                display: 'flex', justifyContent: 'space-between', alignItems: 'center',\n              }}>\n                <span style={{ fontWeight: 600, color, fontSize: 14 }}>{key}</span>\n                <span style={{\n                  background: color, color: '#fff', borderRadius: 10,\n                  padding: '1px 8px', fontSize: 11, fontWeight: 600,\n                }}>{items.length}</span>\n              </div>\n              {items.map((item) => (\n                <div key={item.name} style={{\n                  padding: '6px 12px', borderBottom: '1px solid #f5f5f5',\n                  fontSize: 13, display: 'flex', justifyContent: 'space-between',\n                }}>\n                  <span style={{ fontWeight: 500 }}>{item.name}</span>\n                  <span style={{ color: '#999', fontSize: 12 }}>\n                    {FIELDS.filter((f) => f !== field).map((f) => item[f]).join(' \xb7 ')}\n                  </span>\n                </div>\n              ))}\n            </div>\n          )\n        })}\n      </div>\n\n      <div style={{\n        marginTop: 12, padding: '6px 12px', borderRadius: 6,\n        background: '#f6f6f6', fontSize: 12, fontFamily: 'monospace', color: '#666',\n      }}>\n        groupBy(item =&gt; item.{field}, data) \u2192 {groups.length} \u7ec4\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { groupBy } from '@fexd/tools'\n\nconst MEMBERS = [\n  { name: 'Alice', dept: '\u5de5\u7a0b', level: 'Senior', city: '\u5317\u4eac' },\n  { name: 'Bob', dept: '\u8bbe\u8ba1', level: 'Junior', city: '\u4e0a\u6d77' },\n  { name: 'Carol', dept: '\u5de5\u7a0b', level: 'Senior', city: '\u4e0a\u6d77' },\n  { name: 'Dave', dept: '\u4ea7\u54c1', level: 'Lead', city: '\u5317\u4eac' },\n  { name: 'Eve', dept: '\u5de5\u7a0b', level: 'Junior', city: '\u6df1\u5733' },\n  { name: 'Frank', dept: '\u8bbe\u8ba1', level: 'Senior', city: '\u5317\u4eac' },\n  { name: 'Grace', dept: '\u4ea7\u54c1', level: 'Junior', city: '\u6df1\u5733' },\n  { name: 'Hank', dept: '\u5de5\u7a0b', level: 'Lead', city: '\u4e0a\u6d77' },\n]\n\nconst FIELDS = ['dept', 'level', 'city']\nconst LABELS = { dept: '\u90e8\u95e8', level: '\u7ea7\u522b', city: '\u57ce\u5e02' }\nconst GROUP_COLORS = [\n  '#1890ff',\n  '#52c41a',\n  '#fa8c16',\n  '#722ed1',\n  '#eb2f96',\n  '#13c2c2',\n]\n\nexport default () => {\n  const [field, setField] = useState('dept')\n\n  const grouped = groupBy((item) => item[field], MEMBERS)\n  const groups = Object.entries(grouped)\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          marginBottom: 16,\n          alignItems: 'center',\n        }}\n      >\n        <span style={{ fontSize: 13, color: '#999' }}>\u5206\u7ec4\u5b57\u6bb5</span>\n        {FIELDS.map((f) => (\n          <button\n            key={f}\n            onClick={() => setField(f)}\n            style={{\n              padding: '4px 14px',\n              borderRadius: 6,\n              cursor: 'pointer',\n              fontSize: 13,\n              border: `2px solid ${f === field ? '#1890ff' : '#e8e8e8'}`,\n              background: f === field ? '#e6f7ff' : '#fff',\n              color: f === field ? '#1890ff' : '#666',\n              transition: 'all 0.2s',\n            }}\n          >\n            {LABELS[f]}\n          </button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>\n        {groups.map(([key, items], gi) => {\n          const color = GROUP_COLORS[gi % GROUP_COLORS.length]\n          return (\n            <div\n              key={key}\n              style={{\n                flex: '1 1 180px',\n                borderRadius: 8,\n                border: `1px solid ${color}33`,\n                overflow: 'hidden',\n              }}\n            >\n              <div\n                style={{\n                  padding: '6px 12px',\n                  background: color + '15',\n                  borderBottom: `1px solid ${color}33`,\n                  display: 'flex',\n                  justifyContent: 'space-between',\n                  alignItems: 'center',\n                }}\n              >\n                <span style={{ fontWeight: 600, color, fontSize: 14 }}>\n                  {key}\n                </span>\n                <span\n                  style={{\n                    background: color,\n                    color: '#fff',\n                    borderRadius: 10,\n                    padding: '1px 8px',\n                    fontSize: 11,\n                    fontWeight: 600,\n                  }}\n                >\n                  {items.length}\n                </span>\n              </div>\n              {items.map((item) => (\n                <div\n                  key={item.name}\n                  style={{\n                    padding: '6px 12px',\n                    borderBottom: '1px solid #f5f5f5',\n                    fontSize: 13,\n                    display: 'flex',\n                    justifyContent: 'space-between',\n                  }}\n                >\n                  <span style={{ fontWeight: 500 }}>{item.name}</span>\n                  <span style={{ color: '#999', fontSize: 12 }}>\n                    {FIELDS.filter((f) => f !== field)\n                      .map((f) => item[f])\n                      .join(' \xb7 ')}\n                  </span>\n                </div>\n              ))}\n            </div>\n          )\n        })}\n      </div>\n\n      <div\n        style={{\n          marginTop: 12,\n          padding: '6px 12px',\n          borderRadius: 6,\n          background: '#f6f6f6',\n          fontSize: 12,\n          fontFamily: 'monospace',\n          color: '#666',\n        }}\n      >\n        groupBy(item =&gt; item.{field}, data) \u2192 {groups.length} \u7ec4\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'groupBy-demo',
         },
@@ -41022,7 +41054,8 @@
                     h,
                     "' ",
                     '}',
-                    ') \u2192 ',
+                    ') \u2192',
+                    ' ',
                     l['default'].createElement(
                       'strong',
                       { style: { color: '#1890ff' } },
@@ -41037,12 +41070,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef, useCallback, useEffect } from 'react'\nimport { I18n } from '@fexd/tools'\n\nconst LANGS = ['zh-CN', 'en-US', 'ja-JP']\nconst FLAG = { 'zh-CN': '\ud83c\udde8\ud83c\uddf3', 'en-US': '\ud83c\uddfa\ud83c\uddf8', 'ja-JP': '\ud83c\uddef\ud83c\uddf5' }\nconst LANG_NAME = { 'zh-CN': '\u4e2d\u6587', 'en-US': 'English', 'ja-JP': '\u65e5\u672c\u8a9e' }\n\nexport default () => {\n  const i18nRef = useRef(null)\n  const [lang, setLang] = useState('zh-CN')\n  const [name, setName] = useState('World')\n  const [result, setResult] = useState({})\n\n  useEffect(() => {\n    const i18n = new I18n({\n      types: {\n        default: {\n          resources: {\n            'zh-CN': {\n              hello: '\u4f60\u597d',\n              greeting: '\u4f60\u597d\uff0c{{name}}\uff01',\n              nav: { home: '\u9996\u9875', about: '\u5173\u4e8e', settings: '\u8bbe\u7f6e' },\n              weather: '\u4eca\u5929\u5929\u6c14 {{status}}',\n              count: '\u5171 {{n}} \u6761\u6d88\u606f',\n            },\n            'en-US': {\n              hello: 'Hello',\n              greeting: 'Hello, {{name}}!',\n              nav: { home: 'Home', about: 'About', settings: 'Settings' },\n              weather: 'Weather is {{status}} today',\n              count: '{{n}} messages',\n            },\n            'ja-JP': {\n              hello: '\u3053\u3093\u306b\u3061\u306f',\n              greeting: '\u3053\u3093\u306b\u3061\u306f\u3001{{name}}\uff01',\n              nav: { home: '\u30db\u30fc\u30e0', about: '\u6982\u8981', settings: '\u8a2d\u5b9a' },\n              weather: '\u4eca\u65e5\u306e\u5929\u6c17\u306f{{status}}\u3067\u3059',\n              count: '{{n}}\u4ef6\u306e\u30e1\u30c3\u30bb\u30fc\u30b8',\n            },\n          },\n          format: (str, options) => I18n.template(str, options),\n        },\n      },\n      splitByDot: true,\n    })\n    i18nRef.current = i18n\n    I18n.applyLanguage(lang).then(() => refresh())\n  }, [])\n\n  const refresh = useCallback(() => {\n    const i18n = i18nRef.current\n    if (!i18n) return\n    setResult({\n      hello: i18n.t('hello'),\n      greeting: i18n.t('greeting', { name }),\n      home: i18n.t('nav.home'),\n      about: i18n.t('nav.about'),\n      settings: i18n.t('nav.settings'),\n      weather: i18n.t('weather', { status: '\u2600\ufe0f' }),\n      count: i18n.t('count', { n: 5 }),\n    })\n  }, [name])\n\n  const switchLang = async (lng) => {\n    setLang(lng)\n    await I18n.applyLanguage(lng)\n    refresh()\n  }\n\n  useEffect(() => { refresh() }, [name, refresh])\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>\n        {LANGS.map((lng) => (\n          <button key={lng} onClick={() => switchLang(lng)} style={{\n            padding: '6px 16px', borderRadius: 8, cursor: 'pointer', fontSize: 14,\n            border: `2px solid ${lng === lang ? '#1890ff' : '#e8e8e8'}`,\n            background: lng === lang ? '#e6f7ff' : '#fff',\n            color: lng === lang ? '#1890ff' : '#666', transition: 'all 0.2s',\n          }}>{FLAG[lng]} {LANG_NAME[lng]}</button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 16 }}>\n        <span style={{ fontSize: 13, color: '#999' }}>name \u53c2\u6570</span>\n        <input value={name} onChange={(e) => setName(e.target.value)} style={{\n          padding: '4px 10px', borderRadius: 6, border: '1px solid #d9d9d9', fontSize: 14, width: 120,\n        }} />\n      </div>\n\n      <div style={{\n        borderRadius: 10, border: '1px solid #e8e8e8', overflow: 'hidden',\n        background: '#fff',\n      }}>\n        <div style={{\n          padding: '10px 16px', background: '#fafafa', borderBottom: '1px solid #f0f0f0',\n          display: 'flex', gap: 24,\n        }}>\n          {['home', 'about', 'settings'].map((k) => (\n            <span key={k} style={{ fontSize: 14, fontWeight: 500 }}>{result[k]}</span>\n          ))}\n        </div>\n        <div style={{ padding: 20 }}>\n          <div style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>{result.hello} \ud83d\udc4b</div>\n          <div style={{ fontSize: 16, color: '#333', marginBottom: 12 }}>{result.greeting}</div>\n          <div style={{ display: 'flex', gap: 12, fontSize: 14, color: '#666' }}>\n            <span>{result.weather}</span>\n            <span>\xb7</span>\n            <span>{result.count}</span>\n          </div>\n        </div>\n      </div>\n\n      <div style={{\n        marginTop: 12, padding: '8px 12px', borderRadius: 6,\n        background: '#f6f6f6', fontSize: 12, fontFamily: 'monospace', color: '#666',\n      }}>\n        t('greeting', {'{'} name: '{name}' {'}'}) \u2192 <strong style={{ color: '#1890ff' }}>{result.greeting}</strong>\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef, useCallback, useEffect } from 'react'\nimport { I18n } from '@fexd/tools'\n\nconst LANGS = ['zh-CN', 'en-US', 'ja-JP']\nconst FLAG = { 'zh-CN': '\ud83c\udde8\ud83c\uddf3', 'en-US': '\ud83c\uddfa\ud83c\uddf8', 'ja-JP': '\ud83c\uddef\ud83c\uddf5' }\nconst LANG_NAME = { 'zh-CN': '\u4e2d\u6587', 'en-US': 'English', 'ja-JP': '\u65e5\u672c\u8a9e' }\n\nexport default () => {\n  const i18nRef = useRef(null)\n  const [lang, setLang] = useState('zh-CN')\n  const [name, setName] = useState('World')\n  const [result, setResult] = useState({})\n\n  useEffect(() => {\n    const i18n = new I18n({\n      types: {\n        default: {\n          resources: {\n            'zh-CN': {\n              hello: '\u4f60\u597d',\n              greeting: '\u4f60\u597d\uff0c{{name}}\uff01',\n              nav: { home: '\u9996\u9875', about: '\u5173\u4e8e', settings: '\u8bbe\u7f6e' },\n              weather: '\u4eca\u5929\u5929\u6c14 {{status}}',\n              count: '\u5171 {{n}} \u6761\u6d88\u606f',\n            },\n            'en-US': {\n              hello: 'Hello',\n              greeting: 'Hello, {{name}}!',\n              nav: { home: 'Home', about: 'About', settings: 'Settings' },\n              weather: 'Weather is {{status}} today',\n              count: '{{n}} messages',\n            },\n            'ja-JP': {\n              hello: '\u3053\u3093\u306b\u3061\u306f',\n              greeting: '\u3053\u3093\u306b\u3061\u306f\u3001{{name}}\uff01',\n              nav: { home: '\u30db\u30fc\u30e0', about: '\u6982\u8981', settings: '\u8a2d\u5b9a' },\n              weather: '\u4eca\u65e5\u306e\u5929\u6c17\u306f{{status}}\u3067\u3059',\n              count: '{{n}}\u4ef6\u306e\u30e1\u30c3\u30bb\u30fc\u30b8',\n            },\n          },\n          format: (str, options) => I18n.template(str, options),\n        },\n      },\n      splitByDot: true,\n    })\n    i18nRef.current = i18n\n    I18n.applyLanguage(lang).then(() => refresh())\n  }, [])\n\n  const refresh = useCallback(() => {\n    const i18n = i18nRef.current\n    if (!i18n) return\n    setResult({\n      hello: i18n.t('hello'),\n      greeting: i18n.t('greeting', { name }),\n      home: i18n.t('nav.home'),\n      about: i18n.t('nav.about'),\n      settings: i18n.t('nav.settings'),\n      weather: i18n.t('weather', { status: '\u2600\ufe0f' }),\n      count: i18n.t('count', { n: 5 }),\n    })\n  }, [name])\n\n  const switchLang = async (lng) => {\n    setLang(lng)\n    await I18n.applyLanguage(lng)\n    refresh()\n  }\n\n  useEffect(() => {\n    refresh()\n  }, [name, refresh])\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>\n        {LANGS.map((lng) => (\n          <button\n            key={lng}\n            onClick={() => switchLang(lng)}\n            style={{\n              padding: '6px 16px',\n              borderRadius: 8,\n              cursor: 'pointer',\n              fontSize: 14,\n              border: `2px solid ${lng === lang ? '#1890ff' : '#e8e8e8'}`,\n              background: lng === lang ? '#e6f7ff' : '#fff',\n              color: lng === lang ? '#1890ff' : '#666',\n              transition: 'all 0.2s',\n            }}\n          >\n            {FLAG[lng]} {LANG_NAME[lng]}\n          </button>\n        ))}\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 16,\n        }}\n      >\n        <span style={{ fontSize: 13, color: '#999' }}>name \u53c2\u6570</span>\n        <input\n          value={name}\n          onChange={(e) => setName(e.target.value)}\n          style={{\n            padding: '4px 10px',\n            borderRadius: 6,\n            border: '1px solid #d9d9d9',\n            fontSize: 14,\n            width: 120,\n          }}\n        />\n      </div>\n\n      <div\n        style={{\n          borderRadius: 10,\n          border: '1px solid #e8e8e8',\n          overflow: 'hidden',\n          background: '#fff',\n        }}\n      >\n        <div\n          style={{\n            padding: '10px 16px',\n            background: '#fafafa',\n            borderBottom: '1px solid #f0f0f0',\n            display: 'flex',\n            gap: 24,\n          }}\n        >\n          {['home', 'about', 'settings'].map((k) => (\n            <span key={k} style={{ fontSize: 14, fontWeight: 500 }}>\n              {result[k]}\n            </span>\n          ))}\n        </div>\n        <div style={{ padding: 20 }}>\n          <div style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>\n            {result.hello} \ud83d\udc4b\n          </div>\n          <div style={{ fontSize: 16, color: '#333', marginBottom: 12 }}>\n            {result.greeting}\n          </div>\n          <div\n            style={{ display: 'flex', gap: 12, fontSize: 14, color: '#666' }}\n          >\n            <span>{result.weather}</span>\n            <span>\xb7</span>\n            <span>{result.count}</span>\n          </div>\n        </div>\n      </div>\n\n      <div\n        style={{\n          marginTop: 12,\n          padding: '8px 12px',\n          borderRadius: 6,\n          background: '#f6f6f6',\n          fontSize: 12,\n          fontFamily: 'monospace',\n          color: '#666',\n        }}\n      >\n        t('greeting', {'{'} name: '{name}' {'}'}) \u2192{' '}\n        <strong style={{ color: '#1890ff' }}>{result.greeting}</strong>\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'I18n-demo',
         },
@@ -41448,12 +41481,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { merge } from '@fexd/tools'\n\nconst PRESETS = [\n  {\n    label: '\u57fa\u7840\u8986\u76d6',\n    target: '{ \"a\": 1, \"b\": { \"x\": 1, \"y\": 2 } }',\n    source: '{ \"b\": { \"y\": 3, \"z\": 4 }, \"c\": 5 }',\n    options: {},\n  },\n  {\n    label: '\u4ec5\u8865\u7f3a',\n    target: '{ \"a\": 1, \"b\": 2 }',\n    source: '{ \"b\": 999, \"c\": 3 }',\n    options: { mode: 'supplement' },\n  },\n  {\n    label: '\u6570\u7ec4 concat',\n    target: '{ \"tags\": [\"js\", \"ts\"], \"count\": 1 }',\n    source: '{ \"tags\": [\"react\"], \"count\": 2 }',\n    options: { arrayMerge: 'concat' },\n  },\n  {\n    label: '\u6570\u7ec4 combine',\n    target: '{ \"items\": [{ \"id\": 1, \"name\": \"a\" }, { \"id\": 2 }] }',\n    source: '{ \"items\": [{ \"id\": 10, \"score\": 99 }] }',\n    options: { arrayMerge: 'combine' },\n  },\n  {\n    label: '\u6df1\u5c42\u5d4c\u5957',\n    target: '{ \"ui\": { \"theme\": { \"primary\": \"#1890ff\", \"bg\": \"#fff\" }, \"fontSize\": 14 } }',\n    source: '{ \"ui\": { \"theme\": { \"bg\": \"#000\", \"text\": \"#fff\" }, \"dark\": true } }',\n    options: {},\n  },\n]\n\nconst renderJSON = (obj, depth = 0) => {\n  if (obj === null || obj === undefined) return <span style={{ color: '#999' }}>null</span>\n  if (typeof obj !== 'object') {\n    if (typeof obj === 'string') return <span style={{ color: '#c41d7f' }}>\"{obj}\"</span>\n    if (typeof obj === 'number') return <span style={{ color: '#1890ff' }}>{obj}</span>\n    if (typeof obj === 'boolean') return <span style={{ color: '#fa8c16' }}>{String(obj)}</span>\n  }\n  if (Array.isArray(obj)) {\n    return <span>[{obj.map((v, i) => <span key={i}>{i > 0 && ', '}{renderJSON(v, depth + 1)}</span>)}]</span>\n  }\n  const entries = Object.entries(obj)\n  const indent = '  '.repeat(depth + 1)\n  const closingIndent = '  '.repeat(depth)\n  return (\n    <span>{'{\\n'}\n      {entries.map(([k, v], i) => (\n        <span key={k}>{indent}<span style={{ color: '#389e0d' }}>\"{k}\"</span>: {renderJSON(v, depth + 1)}{i < entries.length - 1 && ','}{'\\n'}</span>\n      ))}\n      {closingIndent}{'}'}\n    </span>\n  )\n}\n\nexport default () => {\n  const [targetStr, setTargetStr] = useState(PRESETS[0].target)\n  const [sourceStr, setSourceStr] = useState(PRESETS[0].source)\n  const [mode, setMode] = useState('override')\n  const [arrayMerge, setArrayMerge] = useState('replace')\n  const [clone, setClone] = useState(true)\n\n  let result, error\n  try {\n    const t = JSON.parse(targetStr)\n    const s = JSON.parse(sourceStr)\n    result = merge(t, s, { mode, arrayMerge, clone })\n  } catch (e) { error = e.message }\n\n  const callStr = `merge(target, source, { mode: '${mode}', arrayMerge: '${arrayMerge}', clone: ${clone} })`\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 4, marginBottom: 12, flexWrap: 'wrap' }}>\n        {PRESETS.map((p) => (\n          <button key={p.label} onClick={() => {\n            setTargetStr(p.target); setSourceStr(p.source)\n            setMode(p.options.mode || 'override')\n            setArrayMerge(p.options.arrayMerge || 'replace')\n          }} style={{\n            padding: '3px 10px', borderRadius: 4, border: '1px solid #d9d9d9',\n            background: '#fff', cursor: 'pointer', fontSize: 12,\n          }}>{p.label}</button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12, flexWrap: 'wrap' }}>\n        <div style={{ flex: 1, minWidth: 200 }}>\n          <div style={{ fontSize: 12, color: '#1890ff', marginBottom: 4, fontWeight: 600 }}>target</div>\n          <textarea value={targetStr} onChange={(e) => setTargetStr(e.target.value)} style={{\n            width: '100%', height: 80, padding: 8, borderRadius: 6, border: '1px solid #91d5ff',\n            fontSize: 12, fontFamily: 'monospace', resize: 'vertical', boxSizing: 'border-box',\n          }} />\n        </div>\n        <div style={{ flex: 1, minWidth: 200 }}>\n          <div style={{ fontSize: 12, color: '#fa8c16', marginBottom: 4, fontWeight: 600 }}>source</div>\n          <textarea value={sourceStr} onChange={(e) => setSourceStr(e.target.value)} style={{\n            width: '100%', height: 80, padding: 8, borderRadius: 6, border: '1px solid #ffd591',\n            fontSize: 12, fontFamily: 'monospace', resize: 'vertical', boxSizing: 'border-box',\n          }} />\n        </div>\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12, alignItems: 'center', flexWrap: 'wrap' }}>\n        <span style={{ fontSize: 12, color: '#999' }}>mode</span>\n        {['override', 'supplement'].map((m) => (\n          <button key={m} onClick={() => setMode(m)} style={{\n            padding: '2px 10px', borderRadius: 4, fontSize: 12, cursor: 'pointer',\n            border: `1px solid ${m === mode ? '#1890ff' : '#d9d9d9'}`,\n            background: m === mode ? '#e6f7ff' : '#fff',\n            color: m === mode ? '#1890ff' : '#666',\n          }}>{m}</button>\n        ))}\n        <span style={{ fontSize: 12, color: '#999' }}>arrayMerge</span>\n        {['replace', 'concat', 'combine'].map((a) => (\n          <button key={a} onClick={() => setArrayMerge(a)} style={{\n            padding: '2px 10px', borderRadius: 4, fontSize: 12, cursor: 'pointer',\n            border: `1px solid ${a === arrayMerge ? '#52c41a' : '#d9d9d9'}`,\n            background: a === arrayMerge ? '#f6ffed' : '#fff',\n            color: a === arrayMerge ? '#52c41a' : '#666',\n          }}>{a}</button>\n        ))}\n      </div>\n\n      <div style={{ padding: '6px 10px', marginBottom: 12, background: '#f5f5f5', borderRadius: 4, fontSize: 12, fontFamily: 'monospace', color: '#595959' }}>\n        {callStr}\n      </div>\n\n      <div style={{\n        padding: '12px 16px', borderRadius: 8,\n        background: error ? '#fff2f0' : '#f6ffed',\n        border: `1px solid ${error ? '#ffa39e' : '#b7eb8f'}`,\n      }}>\n        <div style={{ fontSize: 12, color: error ? '#cf1322' : '#389e0d', marginBottom: 4, fontWeight: 600 }}>\n          {error ? '\u9519\u8bef' : '\u5408\u5e76\u7ed3\u679c'}\n        </div>\n        {error ? (\n          <span style={{ fontSize: 12, color: '#cf1322' }}>{error}</span>\n        ) : (\n          <pre style={{ margin: 0, fontSize: 12, fontFamily: 'monospace', lineHeight: 1.5, whiteSpace: 'pre-wrap' }}>\n            {renderJSON(result)}\n          </pre>\n        )}\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { merge } from '@fexd/tools'\n\nconst PRESETS = [\n  {\n    label: '\u57fa\u7840\u8986\u76d6',\n    target: '{ \"a\": 1, \"b\": { \"x\": 1, \"y\": 2 } }',\n    source: '{ \"b\": { \"y\": 3, \"z\": 4 }, \"c\": 5 }',\n    options: {},\n  },\n  {\n    label: '\u4ec5\u8865\u7f3a',\n    target: '{ \"a\": 1, \"b\": 2 }',\n    source: '{ \"b\": 999, \"c\": 3 }',\n    options: { mode: 'supplement' },\n  },\n  {\n    label: '\u6570\u7ec4 concat',\n    target: '{ \"tags\": [\"js\", \"ts\"], \"count\": 1 }',\n    source: '{ \"tags\": [\"react\"], \"count\": 2 }',\n    options: { arrayMerge: 'concat' },\n  },\n  {\n    label: '\u6570\u7ec4 combine',\n    target: '{ \"items\": [{ \"id\": 1, \"name\": \"a\" }, { \"id\": 2 }] }',\n    source: '{ \"items\": [{ \"id\": 10, \"score\": 99 }] }',\n    options: { arrayMerge: 'combine' },\n  },\n  {\n    label: '\u6df1\u5c42\u5d4c\u5957',\n    target:\n      '{ \"ui\": { \"theme\": { \"primary\": \"#1890ff\", \"bg\": \"#fff\" }, \"fontSize\": 14 } }',\n    source:\n      '{ \"ui\": { \"theme\": { \"bg\": \"#000\", \"text\": \"#fff\" }, \"dark\": true } }',\n    options: {},\n  },\n]\n\nconst renderJSON = (obj, depth = 0) => {\n  if (obj === null || obj === undefined)\n    return <span style={{ color: '#999' }}>null</span>\n  if (typeof obj !== 'object') {\n    if (typeof obj === 'string')\n      return <span style={{ color: '#c41d7f' }}>\"{obj}\"</span>\n    if (typeof obj === 'number')\n      return <span style={{ color: '#1890ff' }}>{obj}</span>\n    if (typeof obj === 'boolean')\n      return <span style={{ color: '#fa8c16' }}>{String(obj)}</span>\n  }\n  if (Array.isArray(obj)) {\n    return (\n      <span>\n        [\n        {obj.map((v, i) => (\n          <span key={i}>\n            {i > 0 && ', '}\n            {renderJSON(v, depth + 1)}\n          </span>\n        ))}\n        ]\n      </span>\n    )\n  }\n  const entries = Object.entries(obj)\n  const indent = '  '.repeat(depth + 1)\n  const closingIndent = '  '.repeat(depth)\n  return (\n    <span>\n      {'{\\n'}\n      {entries.map(([k, v], i) => (\n        <span key={k}>\n          {indent}\n          <span style={{ color: '#389e0d' }}>\"{k}\"</span>: {renderJSON(\n            v,\n            depth + 1\n          )}\n          {i < entries.length - 1 && ','}\n          {'\\n'}\n        </span>\n      ))}\n      {closingIndent}\n      {'}'}\n    </span>\n  )\n}\n\nexport default () => {\n  const [targetStr, setTargetStr] = useState(PRESETS[0].target)\n  const [sourceStr, setSourceStr] = useState(PRESETS[0].source)\n  const [mode, setMode] = useState('override')\n  const [arrayMerge, setArrayMerge] = useState('replace')\n  const [clone, setClone] = useState(true)\n\n  let result, error\n  try {\n    const t = JSON.parse(targetStr)\n    const s = JSON.parse(sourceStr)\n    result = merge(t, s, { mode, arrayMerge, clone })\n  } catch (e) {\n    error = e.message\n  }\n\n  const callStr = `merge(target, source, { mode: '${mode}', arrayMerge: '${arrayMerge}', clone: ${clone} })`\n\n  return (\n    <div>\n      <div\n        style={{ display: 'flex', gap: 4, marginBottom: 12, flexWrap: 'wrap' }}\n      >\n        {PRESETS.map((p) => (\n          <button\n            key={p.label}\n            onClick={() => {\n              setTargetStr(p.target)\n              setSourceStr(p.source)\n              setMode(p.options.mode || 'override')\n              setArrayMerge(p.options.arrayMerge || 'replace')\n            }}\n            style={{\n              padding: '3px 10px',\n              borderRadius: 4,\n              border: '1px solid #d9d9d9',\n              background: '#fff',\n              cursor: 'pointer',\n              fontSize: 12,\n            }}\n          >\n            {p.label}\n          </button>\n        ))}\n      </div>\n\n      <div\n        style={{ display: 'flex', gap: 12, marginBottom: 12, flexWrap: 'wrap' }}\n      >\n        <div style={{ flex: 1, minWidth: 200 }}>\n          <div\n            style={{\n              fontSize: 12,\n              color: '#1890ff',\n              marginBottom: 4,\n              fontWeight: 600,\n            }}\n          >\n            target\n          </div>\n          <textarea\n            value={targetStr}\n            onChange={(e) => setTargetStr(e.target.value)}\n            style={{\n              width: '100%',\n              height: 80,\n              padding: 8,\n              borderRadius: 6,\n              border: '1px solid #91d5ff',\n              fontSize: 12,\n              fontFamily: 'monospace',\n              resize: 'vertical',\n              boxSizing: 'border-box',\n            }}\n          />\n        </div>\n        <div style={{ flex: 1, minWidth: 200 }}>\n          <div\n            style={{\n              fontSize: 12,\n              color: '#fa8c16',\n              marginBottom: 4,\n              fontWeight: 600,\n            }}\n          >\n            source\n          </div>\n          <textarea\n            value={sourceStr}\n            onChange={(e) => setSourceStr(e.target.value)}\n            style={{\n              width: '100%',\n              height: 80,\n              padding: 8,\n              borderRadius: 6,\n              border: '1px solid #ffd591',\n              fontSize: 12,\n              fontFamily: 'monospace',\n              resize: 'vertical',\n              boxSizing: 'border-box',\n            }}\n          />\n        </div>\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 12,\n          marginBottom: 12,\n          alignItems: 'center',\n          flexWrap: 'wrap',\n        }}\n      >\n        <span style={{ fontSize: 12, color: '#999' }}>mode</span>\n        {['override', 'supplement'].map((m) => (\n          <button\n            key={m}\n            onClick={() => setMode(m)}\n            style={{\n              padding: '2px 10px',\n              borderRadius: 4,\n              fontSize: 12,\n              cursor: 'pointer',\n              border: `1px solid ${m === mode ? '#1890ff' : '#d9d9d9'}`,\n              background: m === mode ? '#e6f7ff' : '#fff',\n              color: m === mode ? '#1890ff' : '#666',\n            }}\n          >\n            {m}\n          </button>\n        ))}\n        <span style={{ fontSize: 12, color: '#999' }}>arrayMerge</span>\n        {['replace', 'concat', 'combine'].map((a) => (\n          <button\n            key={a}\n            onClick={() => setArrayMerge(a)}\n            style={{\n              padding: '2px 10px',\n              borderRadius: 4,\n              fontSize: 12,\n              cursor: 'pointer',\n              border: `1px solid ${a === arrayMerge ? '#52c41a' : '#d9d9d9'}`,\n              background: a === arrayMerge ? '#f6ffed' : '#fff',\n              color: a === arrayMerge ? '#52c41a' : '#666',\n            }}\n          >\n            {a}\n          </button>\n        ))}\n      </div>\n\n      <div\n        style={{\n          padding: '6px 10px',\n          marginBottom: 12,\n          background: '#f5f5f5',\n          borderRadius: 4,\n          fontSize: 12,\n          fontFamily: 'monospace',\n          color: '#595959',\n        }}\n      >\n        {callStr}\n      </div>\n\n      <div\n        style={{\n          padding: '12px 16px',\n          borderRadius: 8,\n          background: error ? '#fff2f0' : '#f6ffed',\n          border: `1px solid ${error ? '#ffa39e' : '#b7eb8f'}`,\n        }}\n      >\n        <div\n          style={{\n            fontSize: 12,\n            color: error ? '#cf1322' : '#389e0d',\n            marginBottom: 4,\n            fontWeight: 600,\n          }}\n        >\n          {error ? '\u9519\u8bef' : '\u5408\u5e76\u7ed3\u679c'}\n        </div>\n        {error ? (\n          <span style={{ fontSize: 12, color: '#cf1322' }}>{error}</span>\n        ) : (\n          <pre\n            style={{\n              margin: 0,\n              fontSize: 12,\n              fontFamily: 'monospace',\n              lineHeight: 1.5,\n              whiteSpace: 'pre-wrap',\n            }}\n          >\n            {renderJSON(result)}\n          </pre>\n        )}\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'merge-demo',
         },
@@ -41655,7 +41688,8 @@
                           e,
                           '"'
                         ),
-                        ': ',
+                        ':',
+                        ' ',
                         r['default'].createElement(
                           'span',
                           { style: { color: '#1890ff' } },
@@ -41735,12 +41769,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { pick, pickBy, isNumber, isString } from '@fexd/tools'\n\nconst DATA = {\n  id: 1, name: 'Alice', age: 25, email: 'alice@example.com',\n  role: 'admin', score: 98.5, active: true, bio: null,\n}\n\nconst PREDICATES = {\n  '\u5168\u90e8': () => true,\n  '\u975e\u7a7a (isExist)': (v) => v != null,\n  '\u4ec5\u6570\u5b57 (isNumber)': isNumber,\n  '\u4ec5\u5b57\u7b26\u4e32 (isString)': isString,\n  '\u503c > 10': (v) => typeof v === 'number' && v > 10,\n  'key \u957f\u5ea6 \u2264 4': (_v, k) => k.length <= 4,\n}\n\nexport default () => {\n  const [mode, setMode] = useState('pick')\n  const [selected, setSelected] = useState(new Set(['id', 'name']))\n  const [predicate, setPredicate] = useState('\u975e\u7a7a (isExist)')\n\n  const toggleKey = (key) => {\n    setSelected((prev) => {\n      const next = new Set(prev)\n      next.has(key) ? next.delete(key) : next.add(key)\n      return next\n    })\n  }\n\n  const result = mode === 'pick'\n    ? pick(DATA, [...selected])\n    : pickBy(DATA, PREDICATES[predicate])\n\n  const keys = Object.keys(DATA)\n  const resultKeys = new Set(Object.keys(result))\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>\n        {['pick', 'pickBy'].map((m) => (\n          <button key={m} onClick={() => setMode(m)} style={{\n            padding: '4px 16px', borderRadius: 6, cursor: 'pointer', fontSize: 14,\n            border: `2px solid ${m === mode ? '#1890ff' : '#e8e8e8'}`,\n            background: m === mode ? '#e6f7ff' : '#fff',\n            color: m === mode ? '#1890ff' : '#666', fontWeight: 600,\n          }}>{m}</button>\n        ))}\n      </div>\n\n      {mode === 'pick' ? (\n        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16 }}>\n          {keys.map((key) => (\n            <button key={key} onClick={() => toggleKey(key)} style={{\n              padding: '4px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 13,\n              border: `1px solid ${selected.has(key) ? '#1890ff' : '#d9d9d9'}`,\n              background: selected.has(key) ? '#e6f7ff' : '#fff',\n              color: selected.has(key) ? '#1890ff' : '#666',\n            }}>\n              {selected.has(key) ? '\u2611' : '\u2610'} {key}\n            </button>\n          ))}\n        </div>\n      ) : (\n        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16 }}>\n          {Object.keys(PREDICATES).map((p) => (\n            <button key={p} onClick={() => setPredicate(p)} style={{\n              padding: '3px 10px', borderRadius: 4, cursor: 'pointer', fontSize: 12,\n              border: `1px solid ${p === predicate ? '#52c41a' : '#d9d9d9'}`,\n              background: p === predicate ? '#f6ffed' : '#fff',\n              color: p === predicate ? '#52c41a' : '#666',\n            }}>{p}</button>\n          ))}\n        </div>\n      )}\n\n      <div style={{ display: 'flex', gap: 12 }}>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u539f\u59cb\u5bf9\u8c61</div>\n          {keys.map((key) => {\n            const kept = resultKeys.has(key)\n            return (\n              <div key={key} style={{\n                padding: '4px 10px', borderBottom: '1px solid #f5f5f5',\n                fontSize: 13, fontFamily: 'monospace',\n                opacity: kept ? 1 : 0.3, transition: 'all 0.3s',\n                background: kept ? '#f6ffed' : 'transparent',\n              }}>\n                <span style={{ color: '#389e0d' }}>\"{key}\"</span>: <span style={{ color: '#1890ff' }}>{JSON.stringify(DATA[key])}</span>\n              </div>\n            )\n          })}\n        </div>\n        <div style={{ display: 'flex', alignItems: 'center', fontSize: 20 }}>\u2192</div>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u7ed3\u679c ({Object.keys(result).length} \u9879)</div>\n          <pre style={{\n            padding: 10, borderRadius: 6, background: '#f6ffed',\n            border: '1px solid #b7eb8f', fontSize: 12,\n            fontFamily: 'monospace', margin: 0, whiteSpace: 'pre-wrap',\n          }}>{JSON.stringify(result, null, 2)}</pre>\n        </div>\n      </div>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{mode === 'pick'\n  ? `pick(obj, [${[...selected].map(k => `'${k}'`).join(', ')}])`\n  : `pickBy(obj, ${predicate})`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { pick, pickBy, isNumber, isString } from '@fexd/tools'\n\nconst DATA = {\n  id: 1,\n  name: 'Alice',\n  age: 25,\n  email: 'alice@example.com',\n  role: 'admin',\n  score: 98.5,\n  active: true,\n  bio: null,\n}\n\nconst PREDICATES = {\n  \u5168\u90e8: () => true,\n  '\u975e\u7a7a (isExist)': (v) => v != null,\n  '\u4ec5\u6570\u5b57 (isNumber)': isNumber,\n  '\u4ec5\u5b57\u7b26\u4e32 (isString)': isString,\n  '\u503c > 10': (v) => typeof v === 'number' && v > 10,\n  'key \u957f\u5ea6 \u2264 4': (_v, k) => k.length <= 4,\n}\n\nexport default () => {\n  const [mode, setMode] = useState('pick')\n  const [selected, setSelected] = useState(new Set(['id', 'name']))\n  const [predicate, setPredicate] = useState('\u975e\u7a7a (isExist)')\n\n  const toggleKey = (key) => {\n    setSelected((prev) => {\n      const next = new Set(prev)\n      next.has(key) ? next.delete(key) : next.add(key)\n      return next\n    })\n  }\n\n  const result =\n    mode === 'pick'\n      ? pick(DATA, [...selected])\n      : pickBy(DATA, PREDICATES[predicate])\n\n  const keys = Object.keys(DATA)\n  const resultKeys = new Set(Object.keys(result))\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>\n        {['pick', 'pickBy'].map((m) => (\n          <button\n            key={m}\n            onClick={() => setMode(m)}\n            style={{\n              padding: '4px 16px',\n              borderRadius: 6,\n              cursor: 'pointer',\n              fontSize: 14,\n              border: `2px solid ${m === mode ? '#1890ff' : '#e8e8e8'}`,\n              background: m === mode ? '#e6f7ff' : '#fff',\n              color: m === mode ? '#1890ff' : '#666',\n              fontWeight: 600,\n            }}\n          >\n            {m}\n          </button>\n        ))}\n      </div>\n\n      {mode === 'pick' ? (\n        <div\n          style={{\n            display: 'flex',\n            gap: 6,\n            flexWrap: 'wrap',\n            marginBottom: 16,\n          }}\n        >\n          {keys.map((key) => (\n            <button\n              key={key}\n              onClick={() => toggleKey(key)}\n              style={{\n                padding: '4px 12px',\n                borderRadius: 6,\n                cursor: 'pointer',\n                fontSize: 13,\n                border: `1px solid ${\n                  selected.has(key) ? '#1890ff' : '#d9d9d9'\n                }`,\n                background: selected.has(key) ? '#e6f7ff' : '#fff',\n                color: selected.has(key) ? '#1890ff' : '#666',\n              }}\n            >\n              {selected.has(key) ? '\u2611' : '\u2610'} {key}\n            </button>\n          ))}\n        </div>\n      ) : (\n        <div\n          style={{\n            display: 'flex',\n            gap: 6,\n            flexWrap: 'wrap',\n            marginBottom: 16,\n          }}\n        >\n          {Object.keys(PREDICATES).map((p) => (\n            <button\n              key={p}\n              onClick={() => setPredicate(p)}\n              style={{\n                padding: '3px 10px',\n                borderRadius: 4,\n                cursor: 'pointer',\n                fontSize: 12,\n                border: `1px solid ${p === predicate ? '#52c41a' : '#d9d9d9'}`,\n                background: p === predicate ? '#f6ffed' : '#fff',\n                color: p === predicate ? '#52c41a' : '#666',\n              }}\n            >\n              {p}\n            </button>\n          ))}\n        </div>\n      )}\n\n      <div style={{ display: 'flex', gap: 12 }}>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            \u539f\u59cb\u5bf9\u8c61\n          </div>\n          {keys.map((key) => {\n            const kept = resultKeys.has(key)\n            return (\n              <div\n                key={key}\n                style={{\n                  padding: '4px 10px',\n                  borderBottom: '1px solid #f5f5f5',\n                  fontSize: 13,\n                  fontFamily: 'monospace',\n                  opacity: kept ? 1 : 0.3,\n                  transition: 'all 0.3s',\n                  background: kept ? '#f6ffed' : 'transparent',\n                }}\n              >\n                <span style={{ color: '#389e0d' }}>\"{key}\"</span>:{' '}\n                <span style={{ color: '#1890ff' }}>\n                  {JSON.stringify(DATA[key])}\n                </span>\n              </div>\n            )\n          })}\n        </div>\n        <div style={{ display: 'flex', alignItems: 'center', fontSize: 20 }}>\n          \u2192\n        </div>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            \u7ed3\u679c ({Object.keys(result).length} \u9879)\n          </div>\n          <pre\n            style={{\n              padding: 10,\n              borderRadius: 6,\n              background: '#f6ffed',\n              border: '1px solid #b7eb8f',\n              fontSize: 12,\n              fontFamily: 'monospace',\n              margin: 0,\n              whiteSpace: 'pre-wrap',\n            }}\n          >\n            {JSON.stringify(result, null, 2)}\n          </pre>\n        </div>\n      </div>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {mode === 'pick'\n          ? `pick(obj, [${[...selected].map((k) => `'${k}'`).join(', ')}])`\n          : `pickBy(obj, ${predicate})`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'pick-demo',
         },
@@ -42170,12 +42204,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef, useEffect } from 'react'\nimport { reactive, computed, watch } from '@fexd/tools'\n\nconst createStore = () => {\n  const state = reactive({ count: 0, price: 10, quantity: 1 })\n  const doubled = computed(() => state.count * 2)\n  const total = computed(() => state.price * state.quantity)\n  return { state, doubled, total }\n}\n\nexport default () => {\n  const [, forceUpdate] = useState(0)\n  const [logs, setLogs] = useState([])\n  const storeRef = useRef(null)\n\n  if (!storeRef.current) {\n    storeRef.current = createStore()\n  }\n\n  const { state, doubled, total } = storeRef.current\n\n  useEffect(() => {\n    const stop1 = watch(() => state.count, (val) => {\n      setLogs((prev) => [{ msg: `watch(() => state.count) \u2192 ${val}`, time: new Date().toLocaleTimeString() }, ...prev].slice(0, 15))\n    })\n    const stop2 = watch(() => state.price * state.quantity, (val) => {\n      setLogs((prev) => [{ msg: `watch(() => state.price * state.quantity) \u2192 \xa5${val}`, time: new Date().toLocaleTimeString() }, ...prev].slice(0, 15))\n    })\n    return () => { stop1(); stop2() }\n  }, [])\n\n  const modify = (key, fn) => {\n    state[key] = fn(state[key])\n    forceUpdate((n) => n + 1)\n  }\n\n  const Btn = ({ children, onClick }) => (\n    <button onClick={onClick} style={{\n      padding: '2px 10px', borderRadius: 4, border: '1px solid #d9d9d9',\n      background: '#fff', cursor: 'pointer', fontSize: 13,\n    }}>{children}</button>\n  )\n\n  const Val = ({ label, value, color }) => (\n    <div style={{\n      padding: '8px 12px', borderRadius: 6, background: '#fafafa',\n      border: '1px solid #f0f0f0', minWidth: 80, textAlign: 'center',\n    }}>\n      <div style={{ fontSize: 11, color: '#999' }}>{label}</div>\n      <div style={{ fontSize: 18, fontWeight: 700, color: color || '#333', fontFamily: 'monospace' }}>\n        {value}\n      </div>\n    </div>\n  )\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}>\n        <div style={{\n          flex: 1, minWidth: 200, padding: 12, borderRadius: 8,\n          border: '1px solid #e8e8e8', background: '#fff',\n        }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 8 }}>reactive(&#123; count, price, quantity &#125;)</div>\n          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>\n            <code style={{ fontSize: 12, width: 60 }}>count</code>\n            <Btn onClick={() => modify('count', (v) => v - 1)}>\u2212</Btn>\n            <strong style={{ fontSize: 16, minWidth: 24, textAlign: 'center' }}>{state.count}</strong>\n            <Btn onClick={() => modify('count', (v) => v + 1)}>+</Btn>\n          </div>\n          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>\n            <code style={{ fontSize: 12, width: 60 }}>price</code>\n            <Btn onClick={() => modify('price', (v) => Math.max(0, v - 5))}>\u22125</Btn>\n            <strong style={{ fontSize: 16, minWidth: 24, textAlign: 'center' }}>\xa5{state.price}</strong>\n            <Btn onClick={() => modify('price', (v) => v + 5)}>+5</Btn>\n          </div>\n          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>\n            <code style={{ fontSize: 12, width: 60 }}>quantity</code>\n            <Btn onClick={() => modify('quantity', (v) => Math.max(1, v - 1))}>\u2212</Btn>\n            <strong style={{ fontSize: 16, minWidth: 24, textAlign: 'center' }}>{state.quantity}</strong>\n            <Btn onClick={() => modify('quantity', (v) => v + 1)}>+</Btn>\n          </div>\n        </div>\n\n        <div style={{\n          flex: 1, minWidth: 200, padding: 12, borderRadius: 8,\n          border: '1px solid #d3e8fc', background: '#f0f7ff',\n        }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 8 }}>computed \u2014 \u60f0\u6027\u6c42\u503c\uff0c\u8bfb .value \u65f6\u8ba1\u7b97</div>\n          <div style={{ display: 'flex', gap: 8 }}>\n            <Val label=\"computed(() => state.count * 2)\" value={doubled.value} color=\"#1890ff\" />\n            <Val label=\"computed(() => price * qty)\" value={`\xa5${total.value}`} color=\"#52c41a\" />\n          </div>\n        </div>\n      </div>\n\n      <div style={{\n        padding: 12, borderRadius: 8, border: '1px solid #e8e8e8',\n        maxHeight: 180, overflowY: 'auto', background: '#fafafa',\n      }}>\n        <div style={{ fontSize: 12, color: '#999', marginBottom: 6 }}>watch \u56de\u8c03\u65e5\u5fd7</div>\n        {logs.length === 0 ? (\n          <div style={{ fontSize: 12, color: '#ccc' }}>\u64cd\u4f5c\u4e0a\u65b9\u63a7\u4ef6\u89e6\u53d1 watch \u56de\u8c03...</div>\n        ) : logs.map((log, i) => (\n          <div key={i} style={{\n            fontSize: 12, padding: '2px 0', fontFamily: 'monospace',\n            color: i === 0 ? '#333' : '#999',\n            borderBottom: '1px solid #f5f5f5',\n          }}>\n            <span style={{ color: '#aaa', marginRight: 8 }}>{log.time}</span>\n            {log.msg}\n          </div>\n        ))}\n      </div>\n\n      <pre style={{ background: '#f5f5f5', padding: 8, borderRadius: 4, fontSize: 11, color: '#690', marginTop: 12 }}>\n{`const state = reactive({ count: ${state.count}, price: ${state.price}, quantity: ${state.quantity} })\nconst doubled = computed(() => state.count * 2)   // .value = ${doubled.value}\nconst total = computed(() => state.price * state.quantity) // .value = ${total.value}`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef, useEffect } from 'react'\nimport { reactive, computed, watch } from '@fexd/tools'\n\nconst createStore = () => {\n  const state = reactive({ count: 0, price: 10, quantity: 1 })\n  const doubled = computed(() => state.count * 2)\n  const total = computed(() => state.price * state.quantity)\n  return { state, doubled, total }\n}\n\nexport default () => {\n  const [, forceUpdate] = useState(0)\n  const [logs, setLogs] = useState([])\n  const storeRef = useRef(null)\n\n  if (!storeRef.current) {\n    storeRef.current = createStore()\n  }\n\n  const { state, doubled, total } = storeRef.current\n\n  useEffect(() => {\n    const stop1 = watch(\n      () => state.count,\n      (val) => {\n        setLogs((prev) =>\n          [\n            {\n              msg: `watch(() => state.count) \u2192 ${val}`,\n              time: new Date().toLocaleTimeString(),\n            },\n            ...prev,\n          ].slice(0, 15)\n        )\n      }\n    )\n    const stop2 = watch(\n      () => state.price * state.quantity,\n      (val) => {\n        setLogs((prev) =>\n          [\n            {\n              msg: `watch(() => state.price * state.quantity) \u2192 \xa5${val}`,\n              time: new Date().toLocaleTimeString(),\n            },\n            ...prev,\n          ].slice(0, 15)\n        )\n      }\n    )\n    return () => {\n      stop1()\n      stop2()\n    }\n  }, [])\n\n  const modify = (key, fn) => {\n    state[key] = fn(state[key])\n    forceUpdate((n) => n + 1)\n  }\n\n  const Btn = ({ children, onClick }) => (\n    <button\n      onClick={onClick}\n      style={{\n        padding: '2px 10px',\n        borderRadius: 4,\n        border: '1px solid #d9d9d9',\n        background: '#fff',\n        cursor: 'pointer',\n        fontSize: 13,\n      }}\n    >\n      {children}\n    </button>\n  )\n\n  const Val = ({ label, value, color }) => (\n    <div\n      style={{\n        padding: '8px 12px',\n        borderRadius: 6,\n        background: '#fafafa',\n        border: '1px solid #f0f0f0',\n        minWidth: 80,\n        textAlign: 'center',\n      }}\n    >\n      <div style={{ fontSize: 11, color: '#999' }}>{label}</div>\n      <div\n        style={{\n          fontSize: 18,\n          fontWeight: 700,\n          color: color || '#333',\n          fontFamily: 'monospace',\n        }}\n      >\n        {value}\n      </div>\n    </div>\n  )\n\n  return (\n    <div>\n      <div\n        style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}\n      >\n        <div\n          style={{\n            flex: 1,\n            minWidth: 200,\n            padding: 12,\n            borderRadius: 8,\n            border: '1px solid #e8e8e8',\n            background: '#fff',\n          }}\n        >\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 8 }}>\n            reactive(&#123; count, price, quantity &#125;)\n          </div>\n          <div\n            style={{\n              display: 'flex',\n              alignItems: 'center',\n              gap: 8,\n              marginBottom: 8,\n            }}\n          >\n            <code style={{ fontSize: 12, width: 60 }}>count</code>\n            <Btn onClick={() => modify('count', (v) => v - 1)}>\u2212</Btn>\n            <strong style={{ fontSize: 16, minWidth: 24, textAlign: 'center' }}>\n              {state.count}\n            </strong>\n            <Btn onClick={() => modify('count', (v) => v + 1)}>+</Btn>\n          </div>\n          <div\n            style={{\n              display: 'flex',\n              alignItems: 'center',\n              gap: 8,\n              marginBottom: 8,\n            }}\n          >\n            <code style={{ fontSize: 12, width: 60 }}>price</code>\n            <Btn onClick={() => modify('price', (v) => Math.max(0, v - 5))}>\n              \u22125\n            </Btn>\n            <strong style={{ fontSize: 16, minWidth: 24, textAlign: 'center' }}>\n              \xa5{state.price}\n            </strong>\n            <Btn onClick={() => modify('price', (v) => v + 5)}>+5</Btn>\n          </div>\n          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>\n            <code style={{ fontSize: 12, width: 60 }}>quantity</code>\n            <Btn onClick={() => modify('quantity', (v) => Math.max(1, v - 1))}>\n              \u2212\n            </Btn>\n            <strong style={{ fontSize: 16, minWidth: 24, textAlign: 'center' }}>\n              {state.quantity}\n            </strong>\n            <Btn onClick={() => modify('quantity', (v) => v + 1)}>+</Btn>\n          </div>\n        </div>\n\n        <div\n          style={{\n            flex: 1,\n            minWidth: 200,\n            padding: 12,\n            borderRadius: 8,\n            border: '1px solid #d3e8fc',\n            background: '#f0f7ff',\n          }}\n        >\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 8 }}>\n            computed \u2014 \u60f0\u6027\u6c42\u503c\uff0c\u8bfb .value \u65f6\u8ba1\u7b97\n          </div>\n          <div style={{ display: 'flex', gap: 8 }}>\n            <Val\n              label=\"computed(() => state.count * 2)\"\n              value={doubled.value}\n              color=\"#1890ff\"\n            />\n            <Val\n              label=\"computed(() => price * qty)\"\n              value={`\xa5${total.value}`}\n              color=\"#52c41a\"\n            />\n          </div>\n        </div>\n      </div>\n\n      <div\n        style={{\n          padding: 12,\n          borderRadius: 8,\n          border: '1px solid #e8e8e8',\n          maxHeight: 180,\n          overflowY: 'auto',\n          background: '#fafafa',\n        }}\n      >\n        <div style={{ fontSize: 12, color: '#999', marginBottom: 6 }}>\n          watch \u56de\u8c03\u65e5\u5fd7\n        </div>\n        {logs.length === 0 ? (\n          <div style={{ fontSize: 12, color: '#ccc' }}>\n            \u64cd\u4f5c\u4e0a\u65b9\u63a7\u4ef6\u89e6\u53d1 watch \u56de\u8c03...\n          </div>\n        ) : (\n          logs.map((log, i) => (\n            <div\n              key={i}\n              style={{\n                fontSize: 12,\n                padding: '2px 0',\n                fontFamily: 'monospace',\n                color: i === 0 ? '#333' : '#999',\n                borderBottom: '1px solid #f5f5f5',\n              }}\n            >\n              <span style={{ color: '#aaa', marginRight: 8 }}>{log.time}</span>\n              {log.msg}\n            </div>\n          ))\n        )}\n      </div>\n\n      <pre\n        style={{\n          background: '#f5f5f5',\n          padding: 8,\n          borderRadius: 4,\n          fontSize: 11,\n          color: '#690',\n          marginTop: 12,\n        }}\n      >\n        {`const state = reactive({ count: ${state.count}, price: ${state.price}, quantity: ${state.quantity} })\nconst doubled = computed(() => state.count * 2)   // .value = ${doubled.value}\nconst total = computed(() => state.price * state.quantity) // .value = ${total.value}`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'reactivity-demo',
         },
@@ -42479,12 +42513,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useCallback } from 'react'\nimport { sample } from '@fexd/tools'\n\nconst FRUIT = ['\ud83c\udf4e \u82f9\u679c', '\ud83c\udf4c \u9999\u8549', '\ud83c\udf47 \u8461\u8404', '\ud83c\udf4a \u6a58\u5b50', '\ud83c\udf53 \u8349\u8393', '\ud83e\udd5d \u7315\u7334\u6843', '\ud83c\udf51 \u6843\u5b50', '\ud83c\udf52 \u6a31\u6843']\nconst COLORS = ['#ff4d4f', '#fadb14', '#722ed1', '#fa8c16', '#eb2f96', '#52c41a', '#fa541c', '#cf1322']\nconst NAMES = ['Alice', 'Bob', 'Carol', 'Dave', 'Eve', 'Frank', 'Grace', 'Hank']\n\nexport default () => {\n  const [result, setResult] = useState(null)\n  const [history, setHistory] = useState([])\n  const [source, setSource] = useState('fruit')\n\n  const items = source === 'fruit' ? FRUIT : source === 'color' ? COLORS : NAMES\n\n  const pick = useCallback(() => {\n    const picked = sample(items)\n    setResult(picked)\n    setHistory((prev) => [{ value: picked, time: new Date().toLocaleTimeString() }, ...prev].slice(0, 12))\n  }, [items])\n\n  const pickMultiple = useCallback(() => {\n    const picks = Array.from({ length: 5 }, () => sample(items))\n    setResult(picks.join(', '))\n    picks.forEach((p) => {\n      setHistory((prev) => [{ value: p, time: new Date().toLocaleTimeString() }, ...prev].slice(0, 12))\n    })\n  }, [items])\n\n  const btnStyle = { padding: '6px 16px', borderRadius: 6, cursor: 'pointer', fontSize: 13, border: '1px solid #d9d9d9' }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12, alignItems: 'center', flexWrap: 'wrap' }}>\n        <span style={{ fontSize: 12, color: '#999' }}>\u6570\u636e\u6e90</span>\n        {[\n          { key: 'fruit', label: '\u6c34\u679c' },\n          { key: 'color', label: '\u989c\u8272' },\n          { key: 'name', label: '\u540d\u5b57' },\n        ].map((s) => (\n          <button key={s.key} onClick={() => { setSource(s.key); setResult(null) }} style={{\n            ...btnStyle,\n            border: `2px solid ${s.key === source ? '#1890ff' : '#e8e8e8'}`,\n            background: s.key === source ? '#e6f7ff' : '#fff',\n            color: s.key === source ? '#1890ff' : '#666',\n          }}>{s.label}</button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 4, marginBottom: 12, flexWrap: 'wrap' }}>\n        {items.map((item, i) => (\n          <span key={i} style={{\n            padding: '2px 8px', borderRadius: 4, fontSize: 12,\n            background: source === 'color' ? item : '#f5f5f5',\n            color: source === 'color' ? '#fff' : '#666',\n            border: '1px solid #e8e8e8',\n          }}>{source === 'color' ? item : item}</span>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>\n        <button onClick={pick} style={{ ...btnStyle, background: '#1890ff', color: '#fff', border: '1px solid #1890ff' }}>\n          \ud83c\udfb2 sample() \u53d6\u4e00\u4e2a\n        </button>\n        <button onClick={pickMultiple} style={{ ...btnStyle, background: '#722ed1', color: '#fff', border: '1px solid #722ed1' }}>\n          \ud83c\udfaf \u8fde\u7eed\u53d6 5 \u6b21\n        </button>\n      </div>\n\n      {result && (\n        <div style={{\n          padding: '12px 16px', borderRadius: 8, background: '#f6ffed',\n          border: '1px solid #b7eb8f', marginBottom: 12, fontSize: 18, fontWeight: 600,\n        }}>\n          {result}\n        </div>\n      )}\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginBottom: 12 }}>\n{`sample([${items.slice(0, 4).map(i => `'${i}'`).join(', ')}, ...])${result ? `\\n// => '${typeof result === 'string' && result.includes(',') ? result.split(', ')[0] : result}'` : ''}`}\n      </pre>\n\n      {history.length > 0 && (\n        <div style={{ borderRadius: 8, border: '1px solid #f0f0f0', maxHeight: 160, overflowY: 'auto', background: '#fafafa' }}>\n          {history.map((h, i) => (\n            <div key={i} style={{\n              padding: '3px 12px', borderBottom: '1px solid #f5f5f5',\n              fontSize: 12, display: 'flex', gap: 8,\n              color: i === 0 ? '#333' : '#999',\n            }}>\n              <span style={{ color: '#bbb' }}>{h.time}</span>\n              <span style={{ fontFamily: 'monospace' }}>sample(arr) \u2192 {h.value}</span>\n            </div>\n          ))}\n        </div>\n      )}\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useCallback } from 'react'\nimport { sample } from '@fexd/tools'\n\nconst FRUIT = [\n  '\ud83c\udf4e \u82f9\u679c',\n  '\ud83c\udf4c \u9999\u8549',\n  '\ud83c\udf47 \u8461\u8404',\n  '\ud83c\udf4a \u6a58\u5b50',\n  '\ud83c\udf53 \u8349\u8393',\n  '\ud83e\udd5d \u7315\u7334\u6843',\n  '\ud83c\udf51 \u6843\u5b50',\n  '\ud83c\udf52 \u6a31\u6843',\n]\nconst COLORS = [\n  '#ff4d4f',\n  '#fadb14',\n  '#722ed1',\n  '#fa8c16',\n  '#eb2f96',\n  '#52c41a',\n  '#fa541c',\n  '#cf1322',\n]\nconst NAMES = ['Alice', 'Bob', 'Carol', 'Dave', 'Eve', 'Frank', 'Grace', 'Hank']\n\nexport default () => {\n  const [result, setResult] = useState(null)\n  const [history, setHistory] = useState([])\n  const [source, setSource] = useState('fruit')\n\n  const items = source === 'fruit' ? FRUIT : source === 'color' ? COLORS : NAMES\n\n  const pick = useCallback(() => {\n    const picked = sample(items)\n    setResult(picked)\n    setHistory((prev) =>\n      [{ value: picked, time: new Date().toLocaleTimeString() }, ...prev].slice(\n        0,\n        12\n      )\n    )\n  }, [items])\n\n  const pickMultiple = useCallback(() => {\n    const picks = Array.from({ length: 5 }, () => sample(items))\n    setResult(picks.join(', '))\n    picks.forEach((p) => {\n      setHistory((prev) =>\n        [{ value: p, time: new Date().toLocaleTimeString() }, ...prev].slice(\n          0,\n          12\n        )\n      )\n    })\n  }, [items])\n\n  const btnStyle = {\n    padding: '6px 16px',\n    borderRadius: 6,\n    cursor: 'pointer',\n    fontSize: 13,\n    border: '1px solid #d9d9d9',\n  }\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          marginBottom: 12,\n          alignItems: 'center',\n          flexWrap: 'wrap',\n        }}\n      >\n        <span style={{ fontSize: 12, color: '#999' }}>\u6570\u636e\u6e90</span>\n        {[\n          { key: 'fruit', label: '\u6c34\u679c' },\n          { key: 'color', label: '\u989c\u8272' },\n          { key: 'name', label: '\u540d\u5b57' },\n        ].map((s) => (\n          <button\n            key={s.key}\n            onClick={() => {\n              setSource(s.key)\n              setResult(null)\n            }}\n            style={{\n              ...btnStyle,\n              border: `2px solid ${s.key === source ? '#1890ff' : '#e8e8e8'}`,\n              background: s.key === source ? '#e6f7ff' : '#fff',\n              color: s.key === source ? '#1890ff' : '#666',\n            }}\n          >\n            {s.label}\n          </button>\n        ))}\n      </div>\n\n      <div\n        style={{ display: 'flex', gap: 4, marginBottom: 12, flexWrap: 'wrap' }}\n      >\n        {items.map((item, i) => (\n          <span\n            key={i}\n            style={{\n              padding: '2px 8px',\n              borderRadius: 4,\n              fontSize: 12,\n              background: source === 'color' ? item : '#f5f5f5',\n              color: source === 'color' ? '#fff' : '#666',\n              border: '1px solid #e8e8e8',\n            }}\n          >\n            {source === 'color' ? item : item}\n          </span>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>\n        <button\n          onClick={pick}\n          style={{\n            ...btnStyle,\n            background: '#1890ff',\n            color: '#fff',\n            border: '1px solid #1890ff',\n          }}\n        >\n          \ud83c\udfb2 sample() \u53d6\u4e00\u4e2a\n        </button>\n        <button\n          onClick={pickMultiple}\n          style={{\n            ...btnStyle,\n            background: '#722ed1',\n            color: '#fff',\n            border: '1px solid #722ed1',\n          }}\n        >\n          \ud83c\udfaf \u8fde\u7eed\u53d6 5 \u6b21\n        </button>\n      </div>\n\n      {result && (\n        <div\n          style={{\n            padding: '12px 16px',\n            borderRadius: 8,\n            background: '#f6ffed',\n            border: '1px solid #b7eb8f',\n            marginBottom: 12,\n            fontSize: 18,\n            fontWeight: 600,\n          }}\n        >\n          {result}\n        </div>\n      )}\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginBottom: 12,\n        }}\n      >\n        {`sample([${items\n          .slice(0, 4)\n          .map((i) => `'${i}'`)\n          .join(', ')}, ...])${\n          result\n            ? `\\n// => '${\n                typeof result === 'string' && result.includes(',')\n                  ? result.split(', ')[0]\n                  : result\n              }'`\n            : ''\n        }`}\n      </pre>\n\n      {history.length > 0 && (\n        <div\n          style={{\n            borderRadius: 8,\n            border: '1px solid #f0f0f0',\n            maxHeight: 160,\n            overflowY: 'auto',\n            background: '#fafafa',\n          }}\n        >\n          {history.map((h, i) => (\n            <div\n              key={i}\n              style={{\n                padding: '3px 12px',\n                borderBottom: '1px solid #f5f5f5',\n                fontSize: 12,\n                display: 'flex',\n                gap: 8,\n                color: i === 0 ? '#333' : '#999',\n              }}\n            >\n              <span style={{ color: '#bbb' }}>{h.time}</span>\n              <span style={{ fontFamily: 'monospace' }}>\n                sample(arr) \u2192 {h.value}\n              </span>\n            </div>\n          ))}\n        </div>\n      )}\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'sample-demo',
         },
@@ -42560,7 +42594,8 @@
                     'span',
                     { style: { fontSize: 12, color: '#999', marginLeft: 8 } },
                     l.length,
-                    ' \u2192 ',
+                    ' \u2192',
+                    ' ',
                     a['default'].createElement(
                       'strong',
                       { style: { color: '#52c41a' } },
@@ -42572,7 +42607,8 @@
                       { style: { color: '#ff4d4f' } },
                       d
                     ),
-                    ' \u4e2a\u91cd\u590d\uff09'
+                    ' ',
+                    '\u4e2a\u91cd\u590d\uff09'
                   )
                 ),
                 a['default'].createElement(
@@ -42668,12 +42704,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { uniqByKey } from '@fexd/tools'\n\nconst DATA = [\n  { id: 1, name: 'Alice', dept: '\u5de5\u7a0b' },\n  { id: 2, name: 'Bob', dept: '\u8bbe\u8ba1' },\n  { id: 3, name: 'Carol', dept: '\u5de5\u7a0b' },\n  { id: 1, name: 'Alice (\u91cd\u590d)', dept: '\u4ea7\u54c1' },\n  { id: 4, name: 'Dave', dept: '\u8bbe\u8ba1' },\n  { id: 2, name: 'Bob (\u91cd\u590d)', dept: '\u5de5\u7a0b' },\n  { id: 5, name: 'Eve', dept: '\u5de5\u7a0b' },\n  { id: 3, name: 'Carol (\u91cd\u590d)', dept: '\u8bbe\u8ba1' },\n]\n\nexport default () => {\n  const [key, setKey] = useState('id')\n  const keys = ['id', 'name', 'dept']\n\n  const result = uniqByKey(DATA, key)\n  const resultSet = new Set(result)\n  const removedCount = DATA.length - result.length\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 16 }}>\n        <span style={{ fontSize: 13, color: '#999' }}>\u53bb\u91cd\u5b57\u6bb5</span>\n        {keys.map((k) => (\n          <button key={k} onClick={() => setKey(k)} style={{\n            padding: '4px 14px', borderRadius: 6, cursor: 'pointer', fontSize: 13,\n            border: `2px solid ${k === key ? '#1890ff' : '#e8e8e8'}`,\n            background: k === key ? '#e6f7ff' : '#fff',\n            color: k === key ? '#1890ff' : '#666',\n          }}>{k}</button>\n        ))}\n        <span style={{ fontSize: 12, color: '#999', marginLeft: 8 }}>\n          {DATA.length} \u2192 <strong style={{ color: '#52c41a' }}>{result.length}</strong> \u9879\n          \uff08\u53bb\u9664 <strong style={{ color: '#ff4d4f' }}>{removedCount}</strong> \u4e2a\u91cd\u590d\uff09\n        </span>\n      </div>\n\n      <div style={{ display: 'flex', gap: 4 }}>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u539f\u59cb\u6570\u7ec4 ({DATA.length})</div>\n          <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginBottom: 8 }}>\n{`uniqByKey(data, '${key}')  // ${DATA.length} \u2192 ${result.length} \u9879`}\n          </pre>\n          {DATA.map((item, i) => {\n            const kept = resultSet.has(item)\n            const seenBefore = !kept\n            return (\n              <div key={i} style={{\n                padding: '5px 10px', marginBottom: 2, borderRadius: 4,\n                background: seenBefore ? '#fff2f0' : '#fff',\n                border: `1px solid ${seenBefore ? '#ffa39e' : '#f0f0f0'}`,\n                opacity: seenBefore ? 0.5 : 1,\n                textDecoration: seenBefore ? 'line-through' : 'none',\n                fontSize: 12, fontFamily: 'monospace', transition: 'all 0.3s',\n                display: 'flex', gap: 8,\n              }}>\n                <span style={{ color: seenBefore ? '#ff4d4f' : '#52c41a', fontWeight: 600, minWidth: 14 }}>\n                  {seenBefore ? '\u2717' : '\u2713'}\n                </span>\n                {keys.map((k) => (\n                  <span key={k} style={{\n                    color: k === key ? '#1890ff' : '#666',\n                    fontWeight: k === key ? 600 : 400,\n                  }}>\n                    {k}: {JSON.stringify(item[k])}\n                  </span>\n                ))}\n              </div>\n            )\n          })}\n        </div>\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { uniqByKey } from '@fexd/tools'\n\nconst DATA = [\n  { id: 1, name: 'Alice', dept: '\u5de5\u7a0b' },\n  { id: 2, name: 'Bob', dept: '\u8bbe\u8ba1' },\n  { id: 3, name: 'Carol', dept: '\u5de5\u7a0b' },\n  { id: 1, name: 'Alice (\u91cd\u590d)', dept: '\u4ea7\u54c1' },\n  { id: 4, name: 'Dave', dept: '\u8bbe\u8ba1' },\n  { id: 2, name: 'Bob (\u91cd\u590d)', dept: '\u5de5\u7a0b' },\n  { id: 5, name: 'Eve', dept: '\u5de5\u7a0b' },\n  { id: 3, name: 'Carol (\u91cd\u590d)', dept: '\u8bbe\u8ba1' },\n]\n\nexport default () => {\n  const [key, setKey] = useState('id')\n  const keys = ['id', 'name', 'dept']\n\n  const result = uniqByKey(DATA, key)\n  const resultSet = new Set(result)\n  const removedCount = DATA.length - result.length\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 16,\n        }}\n      >\n        <span style={{ fontSize: 13, color: '#999' }}>\u53bb\u91cd\u5b57\u6bb5</span>\n        {keys.map((k) => (\n          <button\n            key={k}\n            onClick={() => setKey(k)}\n            style={{\n              padding: '4px 14px',\n              borderRadius: 6,\n              cursor: 'pointer',\n              fontSize: 13,\n              border: `2px solid ${k === key ? '#1890ff' : '#e8e8e8'}`,\n              background: k === key ? '#e6f7ff' : '#fff',\n              color: k === key ? '#1890ff' : '#666',\n            }}\n          >\n            {k}\n          </button>\n        ))}\n        <span style={{ fontSize: 12, color: '#999', marginLeft: 8 }}>\n          {DATA.length} \u2192{' '}\n          <strong style={{ color: '#52c41a' }}>{result.length}</strong> \u9879\n          \uff08\u53bb\u9664 <strong style={{ color: '#ff4d4f' }}>{removedCount}</strong>{' '}\n          \u4e2a\u91cd\u590d\uff09\n        </span>\n      </div>\n\n      <div style={{ display: 'flex', gap: 4 }}>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            \u539f\u59cb\u6570\u7ec4 ({DATA.length})\n          </div>\n          <pre\n            style={{\n              background: '#f9f9f9',\n              padding: '8px 12px',\n              borderRadius: 6,\n              fontSize: 12,\n              color: '#555',\n              marginBottom: 8,\n            }}\n          >\n            {`uniqByKey(data, '${key}')  // ${DATA.length} \u2192 ${result.length} \u9879`}\n          </pre>\n          {DATA.map((item, i) => {\n            const kept = resultSet.has(item)\n            const seenBefore = !kept\n            return (\n              <div\n                key={i}\n                style={{\n                  padding: '5px 10px',\n                  marginBottom: 2,\n                  borderRadius: 4,\n                  background: seenBefore ? '#fff2f0' : '#fff',\n                  border: `1px solid ${seenBefore ? '#ffa39e' : '#f0f0f0'}`,\n                  opacity: seenBefore ? 0.5 : 1,\n                  textDecoration: seenBefore ? 'line-through' : 'none',\n                  fontSize: 12,\n                  fontFamily: 'monospace',\n                  transition: 'all 0.3s',\n                  display: 'flex',\n                  gap: 8,\n                }}\n              >\n                <span\n                  style={{\n                    color: seenBefore ? '#ff4d4f' : '#52c41a',\n                    fontWeight: 600,\n                    minWidth: 14,\n                  }}\n                >\n                  {seenBefore ? '\u2717' : '\u2713'}\n                </span>\n                {keys.map((k) => (\n                  <span\n                    key={k}\n                    style={{\n                      color: k === key ? '#1890ff' : '#666',\n                      fontWeight: k === key ? 600 : 400,\n                    }}\n                  >\n                    {k}: {JSON.stringify(item[k])}\n                  </span>\n                ))}\n              </div>\n            )\n          })}\n        </div>\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'uniqByKey-demo',
         },
@@ -42916,12 +42952,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { clamp } from '@fexd/tools'\n\nexport default () => {\n  const [value, setValue] = useState(50)\n  const [min, setMin] = useState(20)\n  const [max, setMax] = useState(80)\n\n  const clamped = clamp(value, min, max)\n  const isBelow = value < min\n  const isAbove = value > max\n  const inRange = !isBelow && !isAbove\n\n  const toPct = (v) => `${v}%`\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 20, marginBottom: 20, flexWrap: 'wrap' }}>\n        {[\n          { label: 'value', val: value, set: setValue, color: '#1890ff' },\n          { label: 'min', val: min, set: setMin, color: '#52c41a' },\n          { label: 'max', val: max, set: setMax, color: '#fa8c16' },\n        ].map(({ label, val, set, color }) => (\n          <div key={label} style={{ flex: 1, minWidth: 100 }}>\n            <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n              <span style={{ color, fontWeight: 600 }}>{label}</span>\n              <span style={{ float: 'right', fontFamily: 'monospace' }}>{val}</span>\n            </div>\n            <input type=\"range\" min={0} max={100} value={val} onChange={(e) => set(+e.target.value)}\n              style={{ width: '100%' }} />\n          </div>\n        ))}\n      </div>\n\n      <div style={{\n        position: 'relative', height: 48, background: '#f5f5f5',\n        borderRadius: 8, marginBottom: 16, overflow: 'hidden',\n      }}>\n        <div style={{\n          position: 'absolute', left: toPct(min), right: toPct(100 - max),\n          top: 0, bottom: 0, background: '#e6f7ff', border: '1px dashed #91d5ff',\n        }} />\n\n        <div style={{\n          position: 'absolute', left: toPct(value), top: 4, bottom: 4,\n          width: 3, background: isBelow ? '#ff4d4f' : isAbove ? '#ff4d4f' : '#1890ff',\n          borderRadius: 2, transition: 'left 0.2s',\n        }} />\n        <div style={{\n          position: 'absolute', left: toPct(clamped), top: 8, bottom: 8,\n          width: 3, background: '#52c41a', borderRadius: 2, transition: 'left 0.2s',\n        }} />\n\n        <span style={{\n          position: 'absolute', left: toPct(min), bottom: 2, fontSize: 10,\n          color: '#52c41a', transform: 'translateX(-50%)',\n        }}>min:{min}</span>\n        <span style={{\n          position: 'absolute', left: toPct(max), bottom: 2, fontSize: 10,\n          color: '#fa8c16', transform: 'translateX(-50%)',\n        }}>max:{max}</span>\n      </div>\n\n      <div style={{\n        padding: '12px 16px', borderRadius: 8, textAlign: 'center',\n        background: inRange ? '#f6ffed' : '#fff2f0',\n        border: `1px solid ${inRange ? '#b7eb8f' : '#ffa39e'}`,\n        fontSize: 15, transition: 'all 0.3s',\n      }}>\n        <code style={{ fontFamily: 'monospace' }}>\n          clamp(<strong style={{ color: '#1890ff' }}>{value}</strong>,\n          <strong style={{ color: '#52c41a' }}> {min}</strong>,\n          <strong style={{ color: '#fa8c16' }}> {max}</strong>) =\n          <strong style={{ fontSize: 20, color: inRange ? '#52c41a' : '#ff4d4f', marginLeft: 8 }}>{clamped}</strong>\n        </code>\n        {!inRange && (\n          <div style={{ fontSize: 12, color: '#ff4d4f', marginTop: 4 }}>\n            {isBelow ? `\u2b07\ufe0f ${value} < min(${min})\uff0c\u88ab\u62c9\u56de\u5230 ${min}` : `\u2b06\ufe0f ${value} > max(${max})\uff0c\u88ab\u62c9\u56de\u5230 ${max}`}\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { clamp } from '@fexd/tools'\n\nexport default () => {\n  const [value, setValue] = useState(50)\n  const [min, setMin] = useState(20)\n  const [max, setMax] = useState(80)\n\n  const clamped = clamp(value, min, max)\n  const isBelow = value < min\n  const isAbove = value > max\n  const inRange = !isBelow && !isAbove\n\n  const toPct = (v) => `${v}%`\n\n  return (\n    <div>\n      <div\n        style={{ display: 'flex', gap: 20, marginBottom: 20, flexWrap: 'wrap' }}\n      >\n        {[\n          { label: 'value', val: value, set: setValue, color: '#1890ff' },\n          { label: 'min', val: min, set: setMin, color: '#52c41a' },\n          { label: 'max', val: max, set: setMax, color: '#fa8c16' },\n        ].map(({ label, val, set, color }) => (\n          <div key={label} style={{ flex: 1, minWidth: 100 }}>\n            <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n              <span style={{ color, fontWeight: 600 }}>{label}</span>\n              <span style={{ float: 'right', fontFamily: 'monospace' }}>\n                {val}\n              </span>\n            </div>\n            <input\n              type=\"range\"\n              min={0}\n              max={100}\n              value={val}\n              onChange={(e) => set(+e.target.value)}\n              style={{ width: '100%' }}\n            />\n          </div>\n        ))}\n      </div>\n\n      <div\n        style={{\n          position: 'relative',\n          height: 48,\n          background: '#f5f5f5',\n          borderRadius: 8,\n          marginBottom: 16,\n          overflow: 'hidden',\n        }}\n      >\n        <div\n          style={{\n            position: 'absolute',\n            left: toPct(min),\n            right: toPct(100 - max),\n            top: 0,\n            bottom: 0,\n            background: '#e6f7ff',\n            border: '1px dashed #91d5ff',\n          }}\n        />\n\n        <div\n          style={{\n            position: 'absolute',\n            left: toPct(value),\n            top: 4,\n            bottom: 4,\n            width: 3,\n            background: isBelow ? '#ff4d4f' : isAbove ? '#ff4d4f' : '#1890ff',\n            borderRadius: 2,\n            transition: 'left 0.2s',\n          }}\n        />\n        <div\n          style={{\n            position: 'absolute',\n            left: toPct(clamped),\n            top: 8,\n            bottom: 8,\n            width: 3,\n            background: '#52c41a',\n            borderRadius: 2,\n            transition: 'left 0.2s',\n          }}\n        />\n\n        <span\n          style={{\n            position: 'absolute',\n            left: toPct(min),\n            bottom: 2,\n            fontSize: 10,\n            color: '#52c41a',\n            transform: 'translateX(-50%)',\n          }}\n        >\n          min:{min}\n        </span>\n        <span\n          style={{\n            position: 'absolute',\n            left: toPct(max),\n            bottom: 2,\n            fontSize: 10,\n            color: '#fa8c16',\n            transform: 'translateX(-50%)',\n          }}\n        >\n          max:{max}\n        </span>\n      </div>\n\n      <div\n        style={{\n          padding: '12px 16px',\n          borderRadius: 8,\n          textAlign: 'center',\n          background: inRange ? '#f6ffed' : '#fff2f0',\n          border: `1px solid ${inRange ? '#b7eb8f' : '#ffa39e'}`,\n          fontSize: 15,\n          transition: 'all 0.3s',\n        }}\n      >\n        <code style={{ fontFamily: 'monospace' }}>\n          clamp(<strong style={{ color: '#1890ff' }}>{value}</strong>,\n          <strong style={{ color: '#52c41a' }}> {min}</strong>,\n          <strong style={{ color: '#fa8c16' }}> {max}</strong>) =\n          <strong\n            style={{\n              fontSize: 20,\n              color: inRange ? '#52c41a' : '#ff4d4f',\n              marginLeft: 8,\n            }}\n          >\n            {clamped}\n          </strong>\n        </code>\n        {!inRange && (\n          <div style={{ fontSize: 12, color: '#ff4d4f', marginTop: 4 }}>\n            {isBelow\n              ? `\u2b07\ufe0f ${value} < min(${min})\uff0c\u88ab\u62c9\u56de\u5230 ${min}`\n              : `\u2b06\ufe0f ${value} > max(${max})\uff0c\u88ab\u62c9\u56de\u5230 ${max}`}\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'clamp-demo',
         },
@@ -43043,7 +43079,8 @@
                   a['default'].createElement(
                     'label',
                     { style: { fontSize: 13 } },
-                    '\u5206\u7ec4: ',
+                    '\u5206\u7ec4:',
+                    ' ',
                     a['default'].createElement(
                       'select',
                       {
@@ -43071,7 +43108,8 @@
                   a['default'].createElement(
                     'label',
                     { style: { fontSize: 13 } },
-                    '\u5c0f\u6570\u70b9: ',
+                    '\u5c0f\u6570\u70b9:',
+                    ' ',
                     a['default'].createElement(
                       'select',
                       {
@@ -43139,12 +43177,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useMemo } from 'react'\nimport { createSeparatorFormatter } from '@fexd/tools'\n\nconst presets = [\n  { label: '\ud83c\uddfa\ud83c\uddf8 \u7f8e\u5f0f 1,234.56', sep: ',', decimal: '' },\n  { label: '\ud83c\udde9\ud83c\uddea \u6b27\u5f0f 1.234,56', sep: '.', decimal: '' },\n  { label: '\ud83c\uddeb\ud83c\uddf7 \u6cd5\u5f0f 1 234,56', sep: ' ', decimal: ',' },\n  { label: '\ud83c\udde8\ud83c\udded \u745e\u58eb 1\\'234.56', sep: \"'\", decimal: '.' },\n]\n\nexport default () => {\n  const [input, setInput] = useState('1234567.89')\n  const [sep, setSep] = useState(',')\n  const [decimal, setDecimal] = useState('')\n\n  const opts = useMemo(() => {\n    const o = { separator: sep, isNumber: true }\n    if (decimal) o.decimalSeparator = decimal\n    return o\n  }, [sep, decimal])\n\n  const fmt = createSeparatorFormatter(opts)\n  const result = fmt(input)\n\n  const resolvedDecimal = decimal || (sep === '.' ? ',' : '.')\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>\n        {presets.map((p) => (\n          <button\n            key={p.label}\n            onClick={() => { setSep(p.sep); setDecimal(p.decimal) }}\n            style={{\n              padding: '4px 10px', borderRadius: 4, cursor: 'pointer',\n              border: sep === p.sep && decimal === p.decimal ? '2px solid #1890ff' : '1px solid #d9d9d9',\n              background: sep === p.sep && decimal === p.decimal ? '#e6f7ff' : '#fff',\n              fontSize: 13,\n            }}\n          >{p.label}</button>\n        ))}\n      </div>\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' }}>\n        <input\n          value={input}\n          onChange={(e) => setInput(e.target.value)}\n          style={{ padding: '4px 8px', width: 160, borderRadius: 4, border: '1px solid #d9d9d9' }}\n          placeholder=\"\u8f93\u5165\u6570\u5b57\"\n        />\n        <label style={{ fontSize: 13 }}>\n          \u5206\u7ec4: <select value={sep} onChange={(e) => setSep(e.target.value)} style={{ padding: 4 }}>\n            <option value=\",\">,</option>\n            <option value=\".\">.</option>\n            <option value=\" \">\u7a7a\u683c</option>\n            <option value=\"'\"> ' </option>\n            <option value=\"_\">_</option>\n          </select>\n        </label>\n        <label style={{ fontSize: 13 }}>\n          \u5c0f\u6570\u70b9: <select value={decimal} onChange={(e) => setDecimal(e.target.value)} style={{ padding: 4 }}>\n            <option value=\"\">\u81ea\u52a8 ({resolvedDecimal})</option>\n            <option value=\".\">.</option>\n            <option value=\",\">,</option>\n            <option value=\"\xb7\">\xb7</option>\n          </select>\n        </label>\n      </div>\n      <div style={{ fontSize: 28, fontWeight: 'bold', color: '#13c2c2', letterSpacing: 1, marginBottom: 8 }}>\n        {result}\n      </div>\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 8 }}>\n{`const fmt = createSeparatorFormatter({ separator: '${sep}', isNumber: true${decimal ? `, decimalSeparator: '${decimal}'` : ''} })\nfmt('${input}')  // => '${result}'`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useMemo } from 'react'\nimport { createSeparatorFormatter } from '@fexd/tools'\n\nconst presets = [\n  { label: '\ud83c\uddfa\ud83c\uddf8 \u7f8e\u5f0f 1,234.56', sep: ',', decimal: '' },\n  { label: '\ud83c\udde9\ud83c\uddea \u6b27\u5f0f 1.234,56', sep: '.', decimal: '' },\n  { label: '\ud83c\uddeb\ud83c\uddf7 \u6cd5\u5f0f 1 234,56', sep: ' ', decimal: ',' },\n  { label: \"\ud83c\udde8\ud83c\udded \u745e\u58eb 1'234.56\", sep: \"'\", decimal: '.' },\n]\n\nexport default () => {\n  const [input, setInput] = useState('1234567.89')\n  const [sep, setSep] = useState(',')\n  const [decimal, setDecimal] = useState('')\n\n  const opts = useMemo(() => {\n    const o = { separator: sep, isNumber: true }\n    if (decimal) o.decimalSeparator = decimal\n    return o\n  }, [sep, decimal])\n\n  const fmt = createSeparatorFormatter(opts)\n  const result = fmt(input)\n\n  const resolvedDecimal = decimal || (sep === '.' ? ',' : '.')\n\n  return (\n    <div>\n      <div\n        style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}\n      >\n        {presets.map((p) => (\n          <button\n            key={p.label}\n            onClick={() => {\n              setSep(p.sep)\n              setDecimal(p.decimal)\n            }}\n            style={{\n              padding: '4px 10px',\n              borderRadius: 4,\n              cursor: 'pointer',\n              border:\n                sep === p.sep && decimal === p.decimal\n                  ? '2px solid #1890ff'\n                  : '1px solid #d9d9d9',\n              background:\n                sep === p.sep && decimal === p.decimal ? '#e6f7ff' : '#fff',\n              fontSize: 13,\n            }}\n          >\n            {p.label}\n          </button>\n        ))}\n      </div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 12,\n          flexWrap: 'wrap',\n        }}\n      >\n        <input\n          value={input}\n          onChange={(e) => setInput(e.target.value)}\n          style={{\n            padding: '4px 8px',\n            width: 160,\n            borderRadius: 4,\n            border: '1px solid #d9d9d9',\n          }}\n          placeholder=\"\u8f93\u5165\u6570\u5b57\"\n        />\n        <label style={{ fontSize: 13 }}>\n          \u5206\u7ec4:{' '}\n          <select\n            value={sep}\n            onChange={(e) => setSep(e.target.value)}\n            style={{ padding: 4 }}\n          >\n            <option value=\",\">,</option>\n            <option value=\".\">.</option>\n            <option value=\" \">\u7a7a\u683c</option>\n            <option value=\"'\"> ' </option>\n            <option value=\"_\">_</option>\n          </select>\n        </label>\n        <label style={{ fontSize: 13 }}>\n          \u5c0f\u6570\u70b9:{' '}\n          <select\n            value={decimal}\n            onChange={(e) => setDecimal(e.target.value)}\n            style={{ padding: 4 }}\n          >\n            <option value=\"\">\u81ea\u52a8 ({resolvedDecimal})</option>\n            <option value=\".\">.</option>\n            <option value=\",\">,</option>\n            <option value=\"\xb7\">\xb7</option>\n          </select>\n        </label>\n      </div>\n      <div\n        style={{\n          fontSize: 28,\n          fontWeight: 'bold',\n          color: '#13c2c2',\n          letterSpacing: 1,\n          marginBottom: 8,\n        }}\n      >\n        {result}\n      </div>\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 8,\n        }}\n      >\n        {`const fmt = createSeparatorFormatter({ separator: '${sep}', isNumber: true${\n          decimal ? `, decimalSeparator: '${decimal}'` : ''\n        } })\nfmt('${input}')  // => '${result}'`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'createSeparatorFormatter-demo',
         },
@@ -43453,12 +43491,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { darkenColor, getBrightness } from '@fexd/tools'\n\nconst PRESETS = ['#ff4d4f', '#fa8c16', '#fadb14', '#52c41a', '#1890ff', '#722ed1', '#eb2f96']\n\nexport default () => {\n  const [color, setColor] = useState('#1890ff')\n  const [pct, setPct] = useState(30)\n\n  const steps = Array.from({ length: 11 }, (_, i) => i * 10)\n  const darkened = darkenColor(color, pct)\n  const textColor = (hex) => getBrightness(hex) > 128 ? '#333' : '#fff'\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', marginBottom: 12 }}>\n        <input type=\"color\" value={color} onChange={(e) => setColor(e.target.value)}\n          style={{ width: 40, height: 34, border: 'none', cursor: 'pointer', borderRadius: 4 }} />\n        {PRESETS.map((c) => (\n          <span key={c} onClick={() => setColor(c)} style={{\n            width: 24, height: 24, borderRadius: '50%', background: c, cursor: 'pointer',\n            border: c === color ? '3px solid #333' : '2px solid #e8e8e8', transition: 'all 0.2s',\n          }} />\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 16 }}>\n        <span style={{ fontSize: 13, color: '#666', whiteSpace: 'nowrap' }}>\u52a0\u6df1</span>\n        <input type=\"range\" min={0} max={100} value={pct} onChange={(e) => setPct(+e.target.value)}\n          style={{ flex: 1 }} />\n        <code style={{ fontSize: 13, minWidth: 42 }}>{pct}%</code>\n      </div>\n\n      <div style={{ display: 'flex', gap: 2, borderRadius: 8, overflow: 'hidden', marginBottom: 16 }}>\n        {steps.map((p) => {\n          const c = darkenColor(color, p)\n          return (\n            <div key={p} onClick={() => setPct(p)} style={{\n              flex: 1, height: 48, background: c, cursor: 'pointer', position: 'relative',\n              outline: p === pct ? '2px solid #333' : 'none', outlineOffset: -2,\n              display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: 4,\n            }}>\n              <span style={{ fontSize: 10, color: textColor(c), opacity: 0.8 }}>{p}%</span>\n            </div>\n          )\n        })}\n      </div>\n\n      <div style={{ display: 'flex', gap: 12 }}>\n        <div style={{\n          flex: 1, padding: 16, borderRadius: 8, background: color, textAlign: 'center',\n          color: textColor(color), fontSize: 13, transition: 'all 0.3s',\n        }}>\n          <div style={{ fontSize: 11, opacity: 0.7 }}>\u539f\u8272</div>\n          <div style={{ fontFamily: 'monospace', fontSize: 16, fontWeight: 600 }}>{color}</div>\n        </div>\n        <div style={{ display: 'flex', alignItems: 'center', fontSize: 20 }}>\u2192</div>\n        <div style={{\n          flex: 1, padding: 16, borderRadius: 8, background: darkened, textAlign: 'center',\n          color: textColor(darkened), fontSize: 13, transition: 'all 0.3s',\n        }}>\n          <div style={{ fontSize: 11, opacity: 0.7 }}>darkenColor('{color}', {pct})</div>\n          <div style={{ fontFamily: 'monospace', fontSize: 16, fontWeight: 600 }}>{darkened}</div>\n        </div>\n      </div>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{`darkenColor('${color}', ${pct})  // => '${darkened}'`}\n      </pre>\n\n      <div style={{ marginTop: 12, fontSize: 12, color: '#888' }}>\n        <div style={{ marginBottom: 4 }}>\u8272\u9636\uff08\u70b9\u51fb\u9009\u53d6\uff09:</div>\n        <div style={{ fontFamily: 'monospace', lineHeight: 1.8 }}>\n          {steps.map((p) => (\n            <div key={p}>\n              <span style={{ color: '#999' }}>darkenColor('{color}', {p})</span>\n              {' \u2192 '}\n              <span style={{ color: darkenColor(color, p), fontWeight: 600 }}>{darkenColor(color, p)}</span>\n            </div>\n          ))}\n        </div>\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { darkenColor, getBrightness } from '@fexd/tools'\n\nconst PRESETS = [\n  '#ff4d4f',\n  '#fa8c16',\n  '#fadb14',\n  '#52c41a',\n  '#1890ff',\n  '#722ed1',\n  '#eb2f96',\n]\n\nexport default () => {\n  const [color, setColor] = useState('#1890ff')\n  const [pct, setPct] = useState(30)\n\n  const steps = Array.from({ length: 11 }, (_, i) => i * 10)\n  const darkened = darkenColor(color, pct)\n  const textColor = (hex) => (getBrightness(hex) > 128 ? '#333' : '#fff')\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 12,\n          alignItems: 'center',\n          flexWrap: 'wrap',\n          marginBottom: 12,\n        }}\n      >\n        <input\n          type=\"color\"\n          value={color}\n          onChange={(e) => setColor(e.target.value)}\n          style={{\n            width: 40,\n            height: 34,\n            border: 'none',\n            cursor: 'pointer',\n            borderRadius: 4,\n          }}\n        />\n        {PRESETS.map((c) => (\n          <span\n            key={c}\n            onClick={() => setColor(c)}\n            style={{\n              width: 24,\n              height: 24,\n              borderRadius: '50%',\n              background: c,\n              cursor: 'pointer',\n              border: c === color ? '3px solid #333' : '2px solid #e8e8e8',\n              transition: 'all 0.2s',\n            }}\n          />\n        ))}\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 16,\n        }}\n      >\n        <span style={{ fontSize: 13, color: '#666', whiteSpace: 'nowrap' }}>\n          \u52a0\u6df1\n        </span>\n        <input\n          type=\"range\"\n          min={0}\n          max={100}\n          value={pct}\n          onChange={(e) => setPct(+e.target.value)}\n          style={{ flex: 1 }}\n        />\n        <code style={{ fontSize: 13, minWidth: 42 }}>{pct}%</code>\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 2,\n          borderRadius: 8,\n          overflow: 'hidden',\n          marginBottom: 16,\n        }}\n      >\n        {steps.map((p) => {\n          const c = darkenColor(color, p)\n          return (\n            <div\n              key={p}\n              onClick={() => setPct(p)}\n              style={{\n                flex: 1,\n                height: 48,\n                background: c,\n                cursor: 'pointer',\n                position: 'relative',\n                outline: p === pct ? '2px solid #333' : 'none',\n                outlineOffset: -2,\n                display: 'flex',\n                alignItems: 'flex-end',\n                justifyContent: 'center',\n                paddingBottom: 4,\n              }}\n            >\n              <span style={{ fontSize: 10, color: textColor(c), opacity: 0.8 }}>\n                {p}%\n              </span>\n            </div>\n          )\n        })}\n      </div>\n\n      <div style={{ display: 'flex', gap: 12 }}>\n        <div\n          style={{\n            flex: 1,\n            padding: 16,\n            borderRadius: 8,\n            background: color,\n            textAlign: 'center',\n            color: textColor(color),\n            fontSize: 13,\n            transition: 'all 0.3s',\n          }}\n        >\n          <div style={{ fontSize: 11, opacity: 0.7 }}>\u539f\u8272</div>\n          <div\n            style={{ fontFamily: 'monospace', fontSize: 16, fontWeight: 600 }}\n          >\n            {color}\n          </div>\n        </div>\n        <div style={{ display: 'flex', alignItems: 'center', fontSize: 20 }}>\n          \u2192\n        </div>\n        <div\n          style={{\n            flex: 1,\n            padding: 16,\n            borderRadius: 8,\n            background: darkened,\n            textAlign: 'center',\n            color: textColor(darkened),\n            fontSize: 13,\n            transition: 'all 0.3s',\n          }}\n        >\n          <div style={{ fontSize: 11, opacity: 0.7 }}>\n            darkenColor('{color}', {pct})\n          </div>\n          <div\n            style={{ fontFamily: 'monospace', fontSize: 16, fontWeight: 600 }}\n          >\n            {darkened}\n          </div>\n        </div>\n      </div>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {`darkenColor('${color}', ${pct})  // => '${darkened}'`}\n      </pre>\n\n      <div style={{ marginTop: 12, fontSize: 12, color: '#888' }}>\n        <div style={{ marginBottom: 4 }}>\u8272\u9636\uff08\u70b9\u51fb\u9009\u53d6\uff09:</div>\n        <div style={{ fontFamily: 'monospace', lineHeight: 1.8 }}>\n          {steps.map((p) => (\n            <div key={p}>\n              <span style={{ color: '#999' }}>\n                darkenColor('{color}', {p})\n              </span>\n              {' \u2192 '}\n              <span style={{ color: darkenColor(color, p), fontWeight: 600 }}>\n                {darkenColor(color, p)}\n              </span>\n            </div>\n          ))}\n        </div>\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'darkenColor-demo',
         },
@@ -43682,12 +43720,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { getBrightness, randomRGB } from '@fexd/tools'\n\nconst PRESETS = [\n  { label: '\u7eaf\u767d', hex: '#ffffff' },\n  { label: '\u7eaf\u9ed1', hex: '#000000' },\n  { label: '\u7ea2\u8272', hex: '#ff0000' },\n  { label: '\u7eff\u8272', hex: '#00ff00' },\n  { label: '\u84dd\u8272', hex: '#0000ff' },\n  { label: '\u9ec4\u8272', hex: '#ffff00' },\n  { label: '\u54c1\u7ea2', hex: '#ff00ff' },\n  { label: '\u9752\u8272', hex: '#00ffff' },\n]\n\nexport default () => {\n  const [color, setColor] = useState('#1890ff')\n  const [history, setHistory] = useState(PRESETS.map((p) => p.hex))\n\n  const brightness = getBrightness(color)\n  const textColor = brightness > 128 ? '#000' : '#fff'\n  const ratio = (brightness / 255) * 100\n  const callExpr = `getBrightness('${color}') // => ${brightness.toFixed(1)}`\n\n  const addRandom = () => {\n    const c = randomRGB()\n    setColor(c)\n    setHistory((h) => [c, ...h].slice(0, 16))\n  }\n\n  return (\n    <div>\n      <div style={{\n        padding: 24, borderRadius: 12, background: color, textAlign: 'center',\n        color: textColor, transition: 'all 0.3s', marginBottom: 16,\n      }}>\n        <div style={{ fontSize: 28, fontWeight: 700, fontFamily: 'monospace' }}>{color}</div>\n        <div style={{ marginTop: 8, fontSize: 14, opacity: 0.8 }}>\n          \u4eae\u5ea6 {brightness.toFixed(1)} / 255\n        </div>\n        <div style={{\n          marginTop: 8, display: 'inline-block', padding: '4px 16px', borderRadius: 20,\n          border: `1px solid ${textColor}`, fontSize: 13,\n        }}>\n          \u63a8\u8350\u4f7f\u7528 <strong>{brightness > 128 ? '\u6df1\u8272' : '\u6d45\u8272'}</strong> \u6587\u5b57\n        </div>\n      </div>\n\n      <div style={{\n        height: 8, borderRadius: 4, marginBottom: 16, position: 'relative',\n        background: 'linear-gradient(to right, #000, #fff)',\n      }}>\n        <div style={{\n          position: 'absolute', left: `${ratio}%`, top: -4,\n          width: 16, height: 16, borderRadius: '50%', background: color,\n          border: '2px solid #333', transform: 'translateX(-50%)', transition: 'left 0.3s',\n        }} />\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 16, flexWrap: 'wrap' }}>\n        <input type=\"color\" value={color} onChange={(e) => setColor(e.target.value)}\n          style={{ width: 34, height: 30, border: 'none', cursor: 'pointer' }} />\n        <button onClick={addRandom} style={{\n          padding: '4px 12px', borderRadius: 6, border: '1px solid #d9d9d9',\n          cursor: 'pointer', fontSize: 13, background: '#fff',\n        }}>\ud83c\udfb2 \u968f\u673a\u989c\u8272</button>\n      </div>\n\n      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>\n        {history.map((hex, i) => {\n          const b = getBrightness(hex)\n          return (\n            <div key={`${hex}-${i}`} onClick={() => setColor(hex)} style={{\n              width: 44, height: 36, borderRadius: 6, background: hex, cursor: 'pointer',\n              display: 'flex', alignItems: 'center', justifyContent: 'center',\n              border: hex === color ? '2px solid #333' : '1px solid #e8e8e8',\n              fontSize: 10, color: b > 128 ? '#333' : '#fff',\n              fontFamily: 'monospace', transition: 'all 0.2s',\n            }}>\n              {b.toFixed(0)}\n            </div>\n          )\n        })}\n      </div>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{callExpr}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { getBrightness, randomRGB } from '@fexd/tools'\n\nconst PRESETS = [\n  { label: '\u7eaf\u767d', hex: '#ffffff' },\n  { label: '\u7eaf\u9ed1', hex: '#000000' },\n  { label: '\u7ea2\u8272', hex: '#ff0000' },\n  { label: '\u7eff\u8272', hex: '#00ff00' },\n  { label: '\u84dd\u8272', hex: '#0000ff' },\n  { label: '\u9ec4\u8272', hex: '#ffff00' },\n  { label: '\u54c1\u7ea2', hex: '#ff00ff' },\n  { label: '\u9752\u8272', hex: '#00ffff' },\n]\n\nexport default () => {\n  const [color, setColor] = useState('#1890ff')\n  const [history, setHistory] = useState(PRESETS.map((p) => p.hex))\n\n  const brightness = getBrightness(color)\n  const textColor = brightness > 128 ? '#000' : '#fff'\n  const ratio = (brightness / 255) * 100\n  const callExpr = `getBrightness('${color}') // => ${brightness.toFixed(1)}`\n\n  const addRandom = () => {\n    const c = randomRGB()\n    setColor(c)\n    setHistory((h) => [c, ...h].slice(0, 16))\n  }\n\n  return (\n    <div>\n      <div\n        style={{\n          padding: 24,\n          borderRadius: 12,\n          background: color,\n          textAlign: 'center',\n          color: textColor,\n          transition: 'all 0.3s',\n          marginBottom: 16,\n        }}\n      >\n        <div style={{ fontSize: 28, fontWeight: 700, fontFamily: 'monospace' }}>\n          {color}\n        </div>\n        <div style={{ marginTop: 8, fontSize: 14, opacity: 0.8 }}>\n          \u4eae\u5ea6 {brightness.toFixed(1)} / 255\n        </div>\n        <div\n          style={{\n            marginTop: 8,\n            display: 'inline-block',\n            padding: '4px 16px',\n            borderRadius: 20,\n            border: `1px solid ${textColor}`,\n            fontSize: 13,\n          }}\n        >\n          \u63a8\u8350\u4f7f\u7528 <strong>{brightness > 128 ? '\u6df1\u8272' : '\u6d45\u8272'}</strong> \u6587\u5b57\n        </div>\n      </div>\n\n      <div\n        style={{\n          height: 8,\n          borderRadius: 4,\n          marginBottom: 16,\n          position: 'relative',\n          background: 'linear-gradient(to right, #000, #fff)',\n        }}\n      >\n        <div\n          style={{\n            position: 'absolute',\n            left: `${ratio}%`,\n            top: -4,\n            width: 16,\n            height: 16,\n            borderRadius: '50%',\n            background: color,\n            border: '2px solid #333',\n            transform: 'translateX(-50%)',\n            transition: 'left 0.3s',\n          }}\n        />\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 16,\n          flexWrap: 'wrap',\n        }}\n      >\n        <input\n          type=\"color\"\n          value={color}\n          onChange={(e) => setColor(e.target.value)}\n          style={{ width: 34, height: 30, border: 'none', cursor: 'pointer' }}\n        />\n        <button\n          onClick={addRandom}\n          style={{\n            padding: '4px 12px',\n            borderRadius: 6,\n            border: '1px solid #d9d9d9',\n            cursor: 'pointer',\n            fontSize: 13,\n            background: '#fff',\n          }}\n        >\n          \ud83c\udfb2 \u968f\u673a\u989c\u8272\n        </button>\n      </div>\n\n      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>\n        {history.map((hex, i) => {\n          const b = getBrightness(hex)\n          return (\n            <div\n              key={`${hex}-${i}`}\n              onClick={() => setColor(hex)}\n              style={{\n                width: 44,\n                height: 36,\n                borderRadius: 6,\n                background: hex,\n                cursor: 'pointer',\n                display: 'flex',\n                alignItems: 'center',\n                justifyContent: 'center',\n                border: hex === color ? '2px solid #333' : '1px solid #e8e8e8',\n                fontSize: 10,\n                color: b > 128 ? '#333' : '#fff',\n                fontFamily: 'monospace',\n                transition: 'all 0.2s',\n              }}\n            >\n              {b.toFixed(0)}\n            </div>\n          )\n        })}\n      </div>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {callExpr}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'getBrightness-demo',
         },
@@ -43878,12 +43916,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { hexToRgb } from '@fexd/tools'\n\nexport default () => {\n  const [hex, setHex] = useState('#1890ffcc')\n  const rgb = hexToRgb(hex)\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 16 }}>\n        <input type=\"color\" value={hex.slice(0, 7)} onChange={(e) => setHex(e.target.value + hex.slice(7))}\n          style={{ width: 48, height: 36, border: 'none', cursor: 'pointer', borderRadius: 4 }} />\n        <input type=\"text\" value={hex} onChange={(e) => setHex(e.target.value)}\n          style={{ fontFamily: 'monospace', fontSize: 14, padding: '4px 8px', border: '1px solid #d9d9d9', borderRadius: 4 }} />\n      </div>\n      <div style={{ display: 'flex', gap: 12 }}>\n        <div style={{ flex: 1, padding: 12, borderRadius: 8, background: '#fee', textAlign: 'center' }}>\n          <div style={{ fontSize: 12, color: '#999' }}>R</div>\n          <div style={{ fontSize: 24, fontWeight: 600, color: '#f44' }}>{rgb.r}</div>\n        </div>\n        <div style={{ flex: 1, padding: 12, borderRadius: 8, background: '#efe', textAlign: 'center' }}>\n          <div style={{ fontSize: 12, color: '#999' }}>G</div>\n          <div style={{ fontSize: 24, fontWeight: 600, color: '#4a4' }}>{rgb.g}</div>\n        </div>\n        <div style={{ flex: 1, padding: 12, borderRadius: 8, background: '#eef', textAlign: 'center' }}>\n          <div style={{ fontSize: 12, color: '#999' }}>B</div>\n          <div style={{ fontSize: 24, fontWeight: 600, color: '#44f' }}>{rgb.b}</div>\n        </div>\n        {rgb.a !== undefined && (\n          <div style={{ flex: 1, padding: 12, borderRadius: 8, background: '#ffe', textAlign: 'center' }}>\n            <div style={{ fontSize: 12, color: '#999' }}>A</div>\n            <div style={{ fontSize: 24, fontWeight: 600, color: '#a80' }}>{rgb.a}</div>\n          </div>\n        )}\n      </div>\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{`hexToRgb('${hex}')\n// => { r: ${rgb.r}, g: ${rgb.g}, b: ${rgb.b}${rgb.a !== undefined ? `, a: ${rgb.a}` : ''} }`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { hexToRgb } from '@fexd/tools'\n\nexport default () => {\n  const [hex, setHex] = useState('#1890ffcc')\n  const rgb = hexToRgb(hex)\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 12,\n          alignItems: 'center',\n          marginBottom: 16,\n        }}\n      >\n        <input\n          type=\"color\"\n          value={hex.slice(0, 7)}\n          onChange={(e) => setHex(e.target.value + hex.slice(7))}\n          style={{\n            width: 48,\n            height: 36,\n            border: 'none',\n            cursor: 'pointer',\n            borderRadius: 4,\n          }}\n        />\n        <input\n          type=\"text\"\n          value={hex}\n          onChange={(e) => setHex(e.target.value)}\n          style={{\n            fontFamily: 'monospace',\n            fontSize: 14,\n            padding: '4px 8px',\n            border: '1px solid #d9d9d9',\n            borderRadius: 4,\n          }}\n        />\n      </div>\n      <div style={{ display: 'flex', gap: 12 }}>\n        <div\n          style={{\n            flex: 1,\n            padding: 12,\n            borderRadius: 8,\n            background: '#fee',\n            textAlign: 'center',\n          }}\n        >\n          <div style={{ fontSize: 12, color: '#999' }}>R</div>\n          <div style={{ fontSize: 24, fontWeight: 600, color: '#f44' }}>\n            {rgb.r}\n          </div>\n        </div>\n        <div\n          style={{\n            flex: 1,\n            padding: 12,\n            borderRadius: 8,\n            background: '#efe',\n            textAlign: 'center',\n          }}\n        >\n          <div style={{ fontSize: 12, color: '#999' }}>G</div>\n          <div style={{ fontSize: 24, fontWeight: 600, color: '#4a4' }}>\n            {rgb.g}\n          </div>\n        </div>\n        <div\n          style={{\n            flex: 1,\n            padding: 12,\n            borderRadius: 8,\n            background: '#eef',\n            textAlign: 'center',\n          }}\n        >\n          <div style={{ fontSize: 12, color: '#999' }}>B</div>\n          <div style={{ fontSize: 24, fontWeight: 600, color: '#44f' }}>\n            {rgb.b}\n          </div>\n        </div>\n        {rgb.a !== undefined && (\n          <div\n            style={{\n              flex: 1,\n              padding: 12,\n              borderRadius: 8,\n              background: '#ffe',\n              textAlign: 'center',\n            }}\n          >\n            <div style={{ fontSize: 12, color: '#999' }}>A</div>\n            <div style={{ fontSize: 24, fontWeight: 600, color: '#a80' }}>\n              {rgb.a}\n            </div>\n          </div>\n        )}\n      </div>\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {`hexToRgb('${hex}')\n// => { r: ${rgb.r}, g: ${rgb.g}, b: ${rgb.b}${\n          rgb.a !== undefined ? `, a: ${rgb.a}` : ''\n        } }`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'hexToRgb-demo',
         },
@@ -43981,12 +44019,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { qs } from '@fexd/tools'\n\nexport default () => {\n  const [queryStr, setQueryStr] = useState('id=1&name=Alice&role=admin')\n  const parsed = qs.parse(queryStr)\n\n  return (\n    <div>\n      <div style={{ marginBottom: 12 }}>\n        <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u8f93\u5165\u67e5\u8be2\u5b57\u7b26\u4e32:</div>\n        <input\n          value={queryStr}\n          onChange={(e) => setQueryStr(e.target.value)}\n          style={{ padding: 4, width: '100%', fontFamily: 'monospace' }}\n        />\n      </div>\n      <div style={{ display: 'flex', gap: 24 }}>\n        <div>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>qs.parse \u7ed3\u679c:</div>\n          <pre style={{ background: '#f5f5f5', padding: 8, borderRadius: 4, fontSize: 12 }}>\n            {JSON.stringify(parsed, null, 2)}\n          </pre>\n        </div>\n        <div>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>qs.stringify \u8fd8\u539f:</div>\n          <code style={{ background: '#f5f5f5', padding: '4px 8px', borderRadius: 4, fontSize: 12 }}>\n            {qs.stringify(parsed)}\n          </code>\n        </div>\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { qs } from '@fexd/tools'\n\nexport default () => {\n  const [queryStr, setQueryStr] = useState('id=1&name=Alice&role=admin')\n  const parsed = qs.parse(queryStr)\n\n  return (\n    <div>\n      <div style={{ marginBottom: 12 }}>\n        <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n          \u8f93\u5165\u67e5\u8be2\u5b57\u7b26\u4e32:\n        </div>\n        <input\n          value={queryStr}\n          onChange={(e) => setQueryStr(e.target.value)}\n          style={{ padding: 4, width: '100%', fontFamily: 'monospace' }}\n        />\n      </div>\n      <div style={{ display: 'flex', gap: 24 }}>\n        <div>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            qs.parse \u7ed3\u679c:\n          </div>\n          <pre\n            style={{\n              background: '#f5f5f5',\n              padding: 8,\n              borderRadius: 4,\n              fontSize: 12,\n            }}\n          >\n            {JSON.stringify(parsed, null, 2)}\n          </pre>\n        </div>\n        <div>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            qs.stringify \u8fd8\u539f:\n          </div>\n          <code\n            style={{\n              background: '#f5f5f5',\n              padding: '4px 8px',\n              borderRadius: 4,\n              fontSize: 12,\n            }}\n          >\n            {qs.stringify(parsed)}\n          </code>\n        </div>\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'qs-demo',
         },
@@ -44221,12 +44259,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useCallback } from 'react'\nimport { randomRGB, getBrightness } from '@fexd/tools'\n\nconst genPalette = (count, min) => Array.from({ length: count }, () => randomRGB(min))\n\nexport default () => {\n  const [min, setMin] = useState(0)\n  const [cols, setCols] = useState(8)\n  const [palette, setPalette] = useState(() => genPalette(24, 0))\n  const [locked, setLocked] = useState(new Set())\n\n  const refresh = useCallback(() => {\n    setPalette((prev) =>\n      prev.map((c, i) => locked.has(i) ? c : randomRGB(min))\n    )\n  }, [min, locked])\n\n  const toggleLock = (i) => {\n    setLocked((prev) => {\n      const next = new Set(prev)\n      next.has(i) ? next.delete(i) : next.add(i)\n      return next\n    })\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' }}>\n        <button onClick={refresh} style={{\n          padding: '6px 16px', borderRadius: 6, border: '1px solid #1890ff',\n          background: '#1890ff', color: '#fff', cursor: 'pointer', fontSize: 13,\n        }}>\ud83c\udfb2 \u751f\u6210\u8c03\u8272\u76d8</button>\n        <span style={{ fontSize: 13, color: '#666' }}>\u6700\u5c0f\u4eae\u5ea6</span>\n        <input type=\"range\" min={0} max={200} value={min} onChange={(e) => setMin(+e.target.value)}\n          style={{ width: 100 }} />\n        <code style={{ fontSize: 12 }}>{min}</code>\n        <span style={{ fontSize: 13, color: '#666' }}>\u5217\u6570</span>\n        {[4, 6, 8].map((n) => (\n          <button key={n} onClick={() => setCols(n)} style={{\n            padding: '2px 8px', borderRadius: 4, cursor: 'pointer', fontSize: 12,\n            border: '1px solid', borderColor: n === cols ? '#1890ff' : '#d9d9d9',\n            background: n === cols ? '#e6f7ff' : '#fff', color: n === cols ? '#1890ff' : '#666',\n          }}>{n}</button>\n        ))}\n      </div>\n\n      <div style={{\n        display: 'grid',\n        gridTemplateColumns: `repeat(${cols}, 1fr)`,\n        gap: 4, borderRadius: 8, overflow: 'hidden',\n      }}>\n        {palette.map((hex, i) => {\n          const b = getBrightness(hex)\n          const isLocked = locked.has(i)\n          return (\n            <div key={i} style={{\n              height: 56, background: hex, position: 'relative',\n              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',\n              cursor: 'pointer', transition: 'all 0.2s',\n            }}>\n              <span onClick={() => toggleLock(i)} style={{\n                position: 'absolute', top: 2, right: 4, fontSize: 12,\n                opacity: isLocked ? 1 : 0.3,\n              }}>{isLocked ? '\ud83d\udd12' : '\ud83d\udd13'}</span>\n              <span style={{\n                fontSize: 10, fontFamily: 'monospace', fontWeight: 600,\n                color: b > 128 ? '#333' : '#fff',\n              }}>{hex}</span>\n            </div>\n          )\n        })}\n      </div>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{`randomRGB(${min})  // \u6bcf\u6b21\u8c03\u7528\u968f\u673a\u751f\u6210\uff0cmin=${min} \u63a7\u5236\u6700\u4f4e\u4eae\u5ea6\n// \u5f53\u524d\u8c03\u8272\u76d8\u793a\u4f8b\uff1a\n${palette.slice(0, 4).map((c) => `// randomRGB(${min}) \u2192 '${c}'`).join('\\n')}`}\n      </pre>\n      <p style={{ color: '#999', fontSize: 12, marginTop: 8 }}>\n        \ud83d\udca1 \u70b9\u51fb \ud83d\udd13 \u9501\u5b9a\u989c\u8272\uff0c\u518d\u6b21\u751f\u6210\u65f6\u4fdd\u7559\u9501\u5b9a\u8272\n      </p>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useCallback } from 'react'\nimport { randomRGB, getBrightness } from '@fexd/tools'\n\nconst genPalette = (count, min) =>\n  Array.from({ length: count }, () => randomRGB(min))\n\nexport default () => {\n  const [min, setMin] = useState(0)\n  const [cols, setCols] = useState(8)\n  const [palette, setPalette] = useState(() => genPalette(24, 0))\n  const [locked, setLocked] = useState(new Set())\n\n  const refresh = useCallback(() => {\n    setPalette((prev) =>\n      prev.map((c, i) => (locked.has(i) ? c : randomRGB(min)))\n    )\n  }, [min, locked])\n\n  const toggleLock = (i) => {\n    setLocked((prev) => {\n      const next = new Set(prev)\n      next.has(i) ? next.delete(i) : next.add(i)\n      return next\n    })\n  }\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 12,\n          alignItems: 'center',\n          marginBottom: 12,\n          flexWrap: 'wrap',\n        }}\n      >\n        <button\n          onClick={refresh}\n          style={{\n            padding: '6px 16px',\n            borderRadius: 6,\n            border: '1px solid #1890ff',\n            background: '#1890ff',\n            color: '#fff',\n            cursor: 'pointer',\n            fontSize: 13,\n          }}\n        >\n          \ud83c\udfb2 \u751f\u6210\u8c03\u8272\u76d8\n        </button>\n        <span style={{ fontSize: 13, color: '#666' }}>\u6700\u5c0f\u4eae\u5ea6</span>\n        <input\n          type=\"range\"\n          min={0}\n          max={200}\n          value={min}\n          onChange={(e) => setMin(+e.target.value)}\n          style={{ width: 100 }}\n        />\n        <code style={{ fontSize: 12 }}>{min}</code>\n        <span style={{ fontSize: 13, color: '#666' }}>\u5217\u6570</span>\n        {[4, 6, 8].map((n) => (\n          <button\n            key={n}\n            onClick={() => setCols(n)}\n            style={{\n              padding: '2px 8px',\n              borderRadius: 4,\n              cursor: 'pointer',\n              fontSize: 12,\n              border: '1px solid',\n              borderColor: n === cols ? '#1890ff' : '#d9d9d9',\n              background: n === cols ? '#e6f7ff' : '#fff',\n              color: n === cols ? '#1890ff' : '#666',\n            }}\n          >\n            {n}\n          </button>\n        ))}\n      </div>\n\n      <div\n        style={{\n          display: 'grid',\n          gridTemplateColumns: `repeat(${cols}, 1fr)`,\n          gap: 4,\n          borderRadius: 8,\n          overflow: 'hidden',\n        }}\n      >\n        {palette.map((hex, i) => {\n          const b = getBrightness(hex)\n          const isLocked = locked.has(i)\n          return (\n            <div\n              key={i}\n              style={{\n                height: 56,\n                background: hex,\n                position: 'relative',\n                display: 'flex',\n                flexDirection: 'column',\n                alignItems: 'center',\n                justifyContent: 'center',\n                cursor: 'pointer',\n                transition: 'all 0.2s',\n              }}\n            >\n              <span\n                onClick={() => toggleLock(i)}\n                style={{\n                  position: 'absolute',\n                  top: 2,\n                  right: 4,\n                  fontSize: 12,\n                  opacity: isLocked ? 1 : 0.3,\n                }}\n              >\n                {isLocked ? '\ud83d\udd12' : '\ud83d\udd13'}\n              </span>\n              <span\n                style={{\n                  fontSize: 10,\n                  fontFamily: 'monospace',\n                  fontWeight: 600,\n                  color: b > 128 ? '#333' : '#fff',\n                }}\n              >\n                {hex}\n              </span>\n            </div>\n          )\n        })}\n      </div>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {`randomRGB(${min})  // \u6bcf\u6b21\u8c03\u7528\u968f\u673a\u751f\u6210\uff0cmin=${min} \u63a7\u5236\u6700\u4f4e\u4eae\u5ea6\n// \u5f53\u524d\u8c03\u8272\u76d8\u793a\u4f8b\uff1a\n${palette\n  .slice(0, 4)\n  .map((c) => `// randomRGB(${min}) \u2192 '${c}'`)\n  .join('\\n')}`}\n      </pre>\n      <p style={{ color: '#999', fontSize: 12, marginTop: 8 }}>\n        \ud83d\udca1 \u70b9\u51fb \ud83d\udd13 \u9501\u5b9a\u989c\u8272\uff0c\u518d\u6b21\u751f\u6210\u65f6\u4fdd\u7559\u9501\u5b9a\u8272\n      </p>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'randomRGB-demo',
         },
@@ -44286,7 +44324,8 @@
                 a['default'].createElement(
                   'div',
                   { style: { fontSize: 14 } },
-                  '\u5f53\u524d\u5b58\u50a8\u503c: ',
+                  '\u5f53\u524d\u5b58\u50a8\u503c:',
+                  ' ',
                   a['default'].createElement(
                     'code',
                     null,
@@ -44305,12 +44344,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useEffect } from 'react'\nimport { storage } from '@fexd/tools'\n\nconst DEMO_KEY = '__fexd_tools_demo__'\n\nexport default () => {\n  const [input, setInput] = useState('')\n  const [stored, setStored] = useState(null)\n\n  useEffect(() => {\n    setStored(storage.get(DEMO_KEY))\n  }, [])\n\n  const handleSave = () => {\n    storage.set(DEMO_KEY, input)\n    setStored(storage.get(DEMO_KEY))\n  }\n\n  const handleClear = () => {\n    storage.remove(DEMO_KEY)\n    setStored(null)\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>\n        <input\n          value={input}\n          onChange={(e) => setInput(e.target.value)}\n          placeholder=\"\u8f93\u5165\u5185\u5bb9\u5b58\u5165 localStorage\"\n          style={{ padding: 4, flex: 1 }}\n        />\n        <button onClick={handleSave}>\u5b58\u50a8</button>\n        <button onClick={handleClear}>\u6e05\u9664</button>\n      </div>\n      <div style={{ fontSize: 14 }}>\n        \u5f53\u524d\u5b58\u50a8\u503c: <code>{stored !== null ? JSON.stringify(stored) : '(\u7a7a)'}</code>\n      </div>\n      <p style={{ color: '#999', fontSize: 12 }}>\u5237\u65b0\u9875\u9762\u540e\u6570\u636e\u4ecd\u5728</p>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useEffect } from 'react'\nimport { storage } from '@fexd/tools'\n\nconst DEMO_KEY = '__fexd_tools_demo__'\n\nexport default () => {\n  const [input, setInput] = useState('')\n  const [stored, setStored] = useState(null)\n\n  useEffect(() => {\n    setStored(storage.get(DEMO_KEY))\n  }, [])\n\n  const handleSave = () => {\n    storage.set(DEMO_KEY, input)\n    setStored(storage.get(DEMO_KEY))\n  }\n\n  const handleClear = () => {\n    storage.remove(DEMO_KEY)\n    setStored(null)\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>\n        <input\n          value={input}\n          onChange={(e) => setInput(e.target.value)}\n          placeholder=\"\u8f93\u5165\u5185\u5bb9\u5b58\u5165 localStorage\"\n          style={{ padding: 4, flex: 1 }}\n        />\n        <button onClick={handleSave}>\u5b58\u50a8</button>\n        <button onClick={handleClear}>\u6e05\u9664</button>\n      </div>\n      <div style={{ fontSize: 14 }}>\n        \u5f53\u524d\u5b58\u50a8\u503c:{' '}\n        <code>{stored !== null ? JSON.stringify(stored) : '(\u7a7a)'}</code>\n      </div>\n      <p style={{ color: '#999', fontSize: 12 }}>\u5237\u65b0\u9875\u9762\u540e\u6570\u636e\u4ecd\u5728</p>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'storage-demo',
         },
@@ -44570,12 +44609,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { toFixed } from '@fexd/tools'\n\nconst TRICKY = [\n  { label: '0.1+0.2', value: 0.1 + 0.2, note: '\u7ecf\u5178\u6d6e\u70b9\u7cbe\u5ea6' },\n  { label: '\u03c0', value: Math.PI, note: '\u5706\u5468\u7387' },\n  { label: '1/3', value: 1 / 3, note: '\u65e0\u9650\u5faa\u73af' },\n  { label: '2.005', value: 2.005, note: '\u539f\u751f toFixed \u9677\u9631' },\n  { label: '1.255', value: 1.255, note: '\u820d\u5165\u8fb9\u754c' },\n]\n\nexport default () => {\n  const [num, setNum] = useState(3.14159)\n  const [digits, setDigits] = useState(2)\n\n  const result = toFixed(num, digits)\n  const nativeResult = Number(num.toFixed(digits))\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 4, marginBottom: 12, flexWrap: 'wrap' }}>\n        {TRICKY.map((t) => (\n          <button key={t.label} onClick={() => setNum(t.value)} style={{\n            padding: '3px 10px', borderRadius: 4, border: '1px solid #d9d9d9',\n            background: '#fff', cursor: 'pointer', fontSize: 12,\n          }} title={t.note}>{t.label}</button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 16, flexWrap: 'wrap' }}>\n        <div>\n          <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\u6570\u5b57</div>\n          <input type=\"number\" step=\"any\" value={num} onChange={(e) => setNum(+e.target.value)} style={{\n            width: 150, padding: '6px 10px', borderRadius: 6, border: '1px solid #d9d9d9',\n            fontSize: 14, fontFamily: 'monospace',\n          }} />\n        </div>\n        <div>\n          <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\u5c0f\u6570\u4f4d ({digits})</div>\n          <input type=\"range\" min={0} max={10} value={digits} onChange={(e) => setDigits(+e.target.value)}\n            style={{ width: 120 }} />\n        </div>\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>\n        <div style={{\n          flex: 1, padding: 16, borderRadius: 8, textAlign: 'center',\n          background: '#f6ffed', border: '1px solid #b7eb8f',\n        }}>\n          <div style={{ fontSize: 11, color: '#999' }}>toFixed (\u672c\u5e93)</div>\n          <div style={{ fontSize: 24, fontWeight: 700, fontFamily: 'monospace', color: '#389e0d' }}>\n            {result}\n          </div>\n          <div style={{ fontSize: 11, color: '#999' }}>\u7c7b\u578b: {typeof result}</div>\n        </div>\n        <div style={{\n          flex: 1, padding: 16, borderRadius: 8, textAlign: 'center',\n          background: '#fafafa', border: '1px solid #e8e8e8',\n        }}>\n          <div style={{ fontSize: 11, color: '#999' }}>\u539f\u751f Number.toFixed</div>\n          <div style={{ fontSize: 24, fontWeight: 700, fontFamily: 'monospace', color: '#666' }}>\n            {nativeResult}\n          </div>\n          <div style={{ fontSize: 11, color: '#999' }}>\u7c7b\u578b: {typeof nativeResult}</div>\n        </div>\n      </div>\n\n      {result !== nativeResult && (\n        <div style={{\n          padding: '6px 12px', borderRadius: 6, background: '#fff7e6',\n          border: '1px solid #ffe58f', fontSize: 12, color: '#d48806',\n        }}>\n          \u26a0\ufe0f \u7ed3\u679c\u4e0d\u4e00\u81f4\uff01\u539f\u751f: {nativeResult} vs \u672c\u5e93: {result}\n        </div>\n      )}\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 8 }}>\n{`toFixed(${num}, ${digits})  // => ${result}  (number)\n// \u539f\u751f: Number((${num}).toFixed(${digits})) => ${nativeResult}`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { toFixed } from '@fexd/tools'\n\nconst TRICKY = [\n  { label: '0.1+0.2', value: 0.1 + 0.2, note: '\u7ecf\u5178\u6d6e\u70b9\u7cbe\u5ea6' },\n  { label: '\u03c0', value: Math.PI, note: '\u5706\u5468\u7387' },\n  { label: '1/3', value: 1 / 3, note: '\u65e0\u9650\u5faa\u73af' },\n  { label: '2.005', value: 2.005, note: '\u539f\u751f toFixed \u9677\u9631' },\n  { label: '1.255', value: 1.255, note: '\u820d\u5165\u8fb9\u754c' },\n]\n\nexport default () => {\n  const [num, setNum] = useState(3.14159)\n  const [digits, setDigits] = useState(2)\n\n  const result = toFixed(num, digits)\n  const nativeResult = Number(num.toFixed(digits))\n\n  return (\n    <div>\n      <div\n        style={{ display: 'flex', gap: 4, marginBottom: 12, flexWrap: 'wrap' }}\n      >\n        {TRICKY.map((t) => (\n          <button\n            key={t.label}\n            onClick={() => setNum(t.value)}\n            style={{\n              padding: '3px 10px',\n              borderRadius: 4,\n              border: '1px solid #d9d9d9',\n              background: '#fff',\n              cursor: 'pointer',\n              fontSize: 12,\n            }}\n            title={t.note}\n          >\n            {t.label}\n          </button>\n        ))}\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 16,\n          alignItems: 'center',\n          marginBottom: 16,\n          flexWrap: 'wrap',\n        }}\n      >\n        <div>\n          <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\n            \u6570\u5b57\n          </div>\n          <input\n            type=\"number\"\n            step=\"any\"\n            value={num}\n            onChange={(e) => setNum(+e.target.value)}\n            style={{\n              width: 150,\n              padding: '6px 10px',\n              borderRadius: 6,\n              border: '1px solid #d9d9d9',\n              fontSize: 14,\n              fontFamily: 'monospace',\n            }}\n          />\n        </div>\n        <div>\n          <div style={{ fontSize: 11, color: '#999', marginBottom: 2 }}>\n            \u5c0f\u6570\u4f4d ({digits})\n          </div>\n          <input\n            type=\"range\"\n            min={0}\n            max={10}\n            value={digits}\n            onChange={(e) => setDigits(+e.target.value)}\n            style={{ width: 120 }}\n          />\n        </div>\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>\n        <div\n          style={{\n            flex: 1,\n            padding: 16,\n            borderRadius: 8,\n            textAlign: 'center',\n            background: '#f6ffed',\n            border: '1px solid #b7eb8f',\n          }}\n        >\n          <div style={{ fontSize: 11, color: '#999' }}>toFixed (\u672c\u5e93)</div>\n          <div\n            style={{\n              fontSize: 24,\n              fontWeight: 700,\n              fontFamily: 'monospace',\n              color: '#389e0d',\n            }}\n          >\n            {result}\n          </div>\n          <div style={{ fontSize: 11, color: '#999' }}>\n            \u7c7b\u578b: {typeof result}\n          </div>\n        </div>\n        <div\n          style={{\n            flex: 1,\n            padding: 16,\n            borderRadius: 8,\n            textAlign: 'center',\n            background: '#fafafa',\n            border: '1px solid #e8e8e8',\n          }}\n        >\n          <div style={{ fontSize: 11, color: '#999' }}>\u539f\u751f Number.toFixed</div>\n          <div\n            style={{\n              fontSize: 24,\n              fontWeight: 700,\n              fontFamily: 'monospace',\n              color: '#666',\n            }}\n          >\n            {nativeResult}\n          </div>\n          <div style={{ fontSize: 11, color: '#999' }}>\n            \u7c7b\u578b: {typeof nativeResult}\n          </div>\n        </div>\n      </div>\n\n      {result !== nativeResult && (\n        <div\n          style={{\n            padding: '6px 12px',\n            borderRadius: 6,\n            background: '#fff7e6',\n            border: '1px solid #ffe58f',\n            fontSize: 12,\n            color: '#d48806',\n          }}\n        >\n          \u26a0\ufe0f \u7ed3\u679c\u4e0d\u4e00\u81f4\uff01\u539f\u751f: {nativeResult} vs \u672c\u5e93: {result}\n        </div>\n      )}\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 8,\n        }}\n      >\n        {`toFixed(${num}, ${digits})  // => ${result}  (number)\n// \u539f\u751f: Number((${num}).toFixed(${digits})) => ${nativeResult}`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'toFixed-demo',
         },
@@ -44617,7 +44656,8 @@
                         return o(!l)
                       },
                     }),
-                    ' bold'
+                    ' ',
+                    'bold'
                   ),
                   a['default'].createElement(
                     'label',
@@ -44629,7 +44669,8 @@
                         return s(!u)
                       },
                     }),
-                    ' italic'
+                    ' ',
+                    'italic'
                   ),
                   a['default'].createElement(
                     'label',
@@ -44641,7 +44682,8 @@
                         return p(!f)
                       },
                     }),
-                    ' underline'
+                    ' ',
+                    'underline'
                   )
                 ),
                 a['default'].createElement(
@@ -44681,12 +44723,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { classnames } from '@fexd/tools'\n\nexport default () => {\n  const [bold, setBold] = useState(false)\n  const [italic, setItalic] = useState(false)\n  const [underline, setUnderline] = useState(false)\n\n  const cls = classnames({\n    bold,\n    italic,\n    underline,\n  })\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>\n        <label><input type=\"checkbox\" checked={bold} onChange={() => setBold(!bold)} /> bold</label>\n        <label><input type=\"checkbox\" checked={italic} onChange={() => setItalic(!italic)} /> italic</label>\n        <label><input type=\"checkbox\" checked={underline} onChange={() => setUnderline(!underline)} /> underline</label>\n      </div>\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginBottom: 8 }}>\n{`classnames({ bold: ${bold}, italic: ${italic}, underline: ${underline} })\n// => '${cls}'`}\n      </pre>\n      <div style={{\n        fontWeight: bold ? 'bold' : 'normal',\n        fontStyle: italic ? 'italic' : 'normal',\n        textDecoration: underline ? 'underline' : 'none',\n        fontSize: 18,\n      }}>\n        Hello @fexd/tools\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { classnames } from '@fexd/tools'\n\nexport default () => {\n  const [bold, setBold] = useState(false)\n  const [italic, setItalic] = useState(false)\n  const [underline, setUnderline] = useState(false)\n\n  const cls = classnames({\n    bold,\n    italic,\n    underline,\n  })\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>\n        <label>\n          <input\n            type=\"checkbox\"\n            checked={bold}\n            onChange={() => setBold(!bold)}\n          />{' '}\n          bold\n        </label>\n        <label>\n          <input\n            type=\"checkbox\"\n            checked={italic}\n            onChange={() => setItalic(!italic)}\n          />{' '}\n          italic\n        </label>\n        <label>\n          <input\n            type=\"checkbox\"\n            checked={underline}\n            onChange={() => setUnderline(!underline)}\n          />{' '}\n          underline\n        </label>\n      </div>\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginBottom: 8,\n        }}\n      >\n        {`classnames({ bold: ${bold}, italic: ${italic}, underline: ${underline} })\n// => '${cls}'`}\n      </pre>\n      <div\n        style={{\n          fontWeight: bold ? 'bold' : 'normal',\n          fontStyle: italic ? 'italic' : 'normal',\n          textDecoration: underline ? 'underline' : 'none',\n          fontSize: 18,\n        }}\n      >\n        Hello @fexd/tools\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'classnames-demo',
         },
@@ -44761,12 +44803,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { copy } from '@fexd/tools'\n\nexport default () => {\n  const [copied, setCopied] = useState(false)\n  const text = 'Hello from @fexd/tools! \ud83c\udf89'\n\n  const handleCopy = () => {\n    copy(text)\n    setCopied(true)\n    setTimeout(() => setCopied(false), 2000)\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>\n        <code style={{ padding: '4px 8px', background: '#f5f5f5', borderRadius: 4 }}>{text}</code>\n        <button onClick={handleCopy} style={{ padding: '4px 12px' }}>\n          {copied ? '\u2713 \u5df2\u590d\u5236' : '\u590d\u5236'}\n        </button>\n      </div>\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginTop: 12 }}>\n{`copy('${text}')  // ${copied ? '\u2192 \u5df2\u5199\u5165\u526a\u8d34\u677f' : '\u70b9\u51fb\u6309\u94ae\u6267\u884c'}`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { copy } from '@fexd/tools'\n\nexport default () => {\n  const [copied, setCopied] = useState(false)\n  const text = 'Hello from @fexd/tools! \ud83c\udf89'\n\n  const handleCopy = () => {\n    copy(text)\n    setCopied(true)\n    setTimeout(() => setCopied(false), 2000)\n  }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>\n        <code\n          style={{ padding: '4px 8px', background: '#f5f5f5', borderRadius: 4 }}\n        >\n          {text}\n        </code>\n        <button onClick={handleCopy} style={{ padding: '4px 12px' }}>\n          {copied ? '\u2713 \u5df2\u590d\u5236' : '\u590d\u5236'}\n        </button>\n      </div>\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginTop: 12,\n        }}\n      >\n        {`copy('${text}')  // ${copied ? '\u2192 \u5df2\u5199\u5165\u526a\u8d34\u677f' : '\u70b9\u51fb\u6309\u94ae\u6267\u884c'}`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'copy-demo',
         },
@@ -45003,12 +45045,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useEffect, useRef, useState, useCallback } from 'react'\nimport { easing, Tween } from '@fexd/tools'\n\nconst SKIP = ['reverse', 'mirror', 'flicker', 'wobble', 'pulse', 'blink', 'fromTo', 'from', 'to', 'none', 'full']\nconst ALL_CURVES = Object.keys(easing).filter((k) => !SKIP.includes(k))\nconst SPEED_PRESETS = [\n  { label: '0.25x', value: 6000 },\n  { label: '0.5x', value: 3000 },\n  { label: '1x', value: 1500 },\n  { label: '2x', value: 750 },\n  { label: '3x', value: 500 },\n]\n\nconst getRange = (easeFn) => {\n  let min = 0, max = 1\n  for (let i = 0; i <= 200; i++) {\n    const v = easeFn(i / 200)\n    if (v < min) min = v\n    if (v > max) max = v\n  }\n  const margin = (max - min) * 0.12 || 0.05\n  return { min: min - margin, max: max + margin }\n}\n\nconst rangeCache = {}\nconst getCachedRange = (name, easeFn) => {\n  if (!rangeCache[name]) rangeCache[name] = getRange(easeFn)\n  return rangeCache[name]\n}\n\nconst drawFrame = (canvas, easeFn, progress, range) => {\n  const ctx = canvas.getContext('2d')\n  const w = canvas.width\n  const h = canvas.height\n  const padX = 8\n  const padY = 6\n  const pw = w - padX * 2\n  const ph = h - padY * 2\n  const { min, max } = range\n  const span = max - min\n\n  const valToY = (v) => padY + ((max - v) / span) * ph\n\n  ctx.clearRect(0, 0, w, h)\n\n  ctx.strokeStyle = '#f0f0f0'\n  ctx.lineWidth = 1\n  ctx.setLineDash([4, 4])\n  ;[0, 1].forEach((v) => {\n    const y = valToY(v)\n    if (y >= padY - 1 && y <= h - padY + 1) {\n      ctx.beginPath()\n      ctx.moveTo(padX, y)\n      ctx.lineTo(w - padX, y)\n      ctx.stroke()\n    }\n  })\n  ctx.setLineDash([])\n\n  ctx.strokeStyle = '#e8e8e8'\n  ctx.beginPath()\n  ctx.moveTo(padX, valToY(0))\n  ctx.lineTo(w - padX, valToY(1))\n  ctx.stroke()\n\n  ctx.strokeStyle = '#1890ff'\n  ctx.lineWidth = 2\n  ctx.beginPath()\n  for (let i = 0; i <= 80; i++) {\n    const t = i / 80\n    const x = padX + t * pw\n    const y = valToY(easeFn(t))\n    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y)\n  }\n  ctx.stroke()\n\n  if (progress >= 0) {\n    const dotX = padX + progress * pw\n    const dotY = valToY(easeFn(progress))\n    ctx.beginPath()\n    ctx.arc(dotX, dotY, 4, 0, Math.PI * 2)\n    ctx.fillStyle = '#ff4d4f'\n    ctx.fill()\n  }\n}\n\nconst CurveCard = ({ name, duration, playing }) => {\n  const ref = useRef(null)\n  const tweenRef = useRef(null)\n\n  useEffect(() => {\n    const fn = easing[name]\n    if (!ref.current || !fn) return\n    if (tweenRef.current) tweenRef.current.stop()\n\n    const range = getCachedRange(name, fn)\n    drawFrame(ref.current, fn, 0, range)\n\n    if (playing) {\n      const tween = new Tween({ duration, loop: true })\n        .on('update', (v) => drawFrame(ref.current, fn, v, range))\n        .start()\n      tweenRef.current = tween\n    }\n\n    return () => { if (tweenRef.current) tweenRef.current.stop() }\n  }, [name, duration, playing])\n\n  return (\n    <div style={{ textAlign: 'center' }}>\n      <canvas ref={ref} width={140} height={110} style={{ border: '1px solid #f0f0f0', borderRadius: 6 }} />\n      <div style={{ fontSize: 11, color: '#666', marginTop: 2 }}>{name}</div>\n    </div>\n  )\n}\n\nexport default () => {\n  const [speedIdx, setSpeedIdx] = useState(2)\n  const [playing, setPlaying] = useState(true)\n  const duration = SPEED_PRESETS[speedIdx].value\n\n  return (\n    <div>\n      <div style={{\n        display: 'flex', alignItems: 'center', gap: 12,\n        marginBottom: 16, padding: '8px 12px',\n        background: '#fafafa', borderRadius: 8, flexWrap: 'wrap',\n      }}>\n        <button\n          onClick={() => setPlaying((p) => !p)}\n          style={{\n            border: '1px solid #d9d9d9', borderRadius: 6,\n            padding: '4px 14px', cursor: 'pointer', fontSize: 14,\n            background: playing ? '#fff' : '#1890ff', color: playing ? '#333' : '#fff',\n          }}\n        >{playing ? '\u23f8 \u6682\u505c' : '\u25b6 \u64ad\u653e'}</button>\n\n        <span style={{ fontSize: 13, color: '#999' }}>\u901f\u5ea6</span>\n        {SPEED_PRESETS.map((p, i) => (\n          <button\n            key={p.label}\n            onClick={() => setSpeedIdx(i)}\n            style={{\n              border: '1px solid', borderRadius: 4,\n              borderColor: i === speedIdx ? '#1890ff' : '#d9d9d9',\n              background: i === speedIdx ? '#e6f7ff' : '#fff',\n              color: i === speedIdx ? '#1890ff' : '#666',\n              padding: '2px 10px', cursor: 'pointer', fontSize: 12,\n            }}\n          >{p.label}</button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>\n        {ALL_CURVES.map((name) => (\n          <CurveCard key={name} name={name} duration={duration} playing={playing} />\n        ))}\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useEffect, useRef, useState, useCallback } from 'react'\nimport { easing, Tween } from '@fexd/tools'\n\nconst SKIP = [\n  'reverse',\n  'mirror',\n  'flicker',\n  'wobble',\n  'pulse',\n  'blink',\n  'fromTo',\n  'from',\n  'to',\n  'none',\n  'full',\n]\nconst ALL_CURVES = Object.keys(easing).filter((k) => !SKIP.includes(k))\nconst SPEED_PRESETS = [\n  { label: '0.25x', value: 6000 },\n  { label: '0.5x', value: 3000 },\n  { label: '1x', value: 1500 },\n  { label: '2x', value: 750 },\n  { label: '3x', value: 500 },\n]\n\nconst getRange = (easeFn) => {\n  let min = 0,\n    max = 1\n  for (let i = 0; i <= 200; i++) {\n    const v = easeFn(i / 200)\n    if (v < min) min = v\n    if (v > max) max = v\n  }\n  const margin = (max - min) * 0.12 || 0.05\n  return { min: min - margin, max: max + margin }\n}\n\nconst rangeCache = {}\nconst getCachedRange = (name, easeFn) => {\n  if (!rangeCache[name]) rangeCache[name] = getRange(easeFn)\n  return rangeCache[name]\n}\n\nconst drawFrame = (canvas, easeFn, progress, range) => {\n  const ctx = canvas.getContext('2d')\n  const w = canvas.width\n  const h = canvas.height\n  const padX = 8\n  const padY = 6\n  const pw = w - padX * 2\n  const ph = h - padY * 2\n  const { min, max } = range\n  const span = max - min\n\n  const valToY = (v) => padY + ((max - v) / span) * ph\n\n  ctx.clearRect(0, 0, w, h)\n\n  ctx.strokeStyle = '#f0f0f0'\n  ctx.lineWidth = 1\n  ctx.setLineDash([4, 4])\n  ;[0, 1].forEach((v) => {\n    const y = valToY(v)\n    if (y >= padY - 1 && y <= h - padY + 1) {\n      ctx.beginPath()\n      ctx.moveTo(padX, y)\n      ctx.lineTo(w - padX, y)\n      ctx.stroke()\n    }\n  })\n  ctx.setLineDash([])\n\n  ctx.strokeStyle = '#e8e8e8'\n  ctx.beginPath()\n  ctx.moveTo(padX, valToY(0))\n  ctx.lineTo(w - padX, valToY(1))\n  ctx.stroke()\n\n  ctx.strokeStyle = '#1890ff'\n  ctx.lineWidth = 2\n  ctx.beginPath()\n  for (let i = 0; i <= 80; i++) {\n    const t = i / 80\n    const x = padX + t * pw\n    const y = valToY(easeFn(t))\n    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y)\n  }\n  ctx.stroke()\n\n  if (progress >= 0) {\n    const dotX = padX + progress * pw\n    const dotY = valToY(easeFn(progress))\n    ctx.beginPath()\n    ctx.arc(dotX, dotY, 4, 0, Math.PI * 2)\n    ctx.fillStyle = '#ff4d4f'\n    ctx.fill()\n  }\n}\n\nconst CurveCard = ({ name, duration, playing }) => {\n  const ref = useRef(null)\n  const tweenRef = useRef(null)\n\n  useEffect(() => {\n    const fn = easing[name]\n    if (!ref.current || !fn) return\n    if (tweenRef.current) tweenRef.current.stop()\n\n    const range = getCachedRange(name, fn)\n    drawFrame(ref.current, fn, 0, range)\n\n    if (playing) {\n      const tween = new Tween({ duration, loop: true })\n        .on('update', (v) => drawFrame(ref.current, fn, v, range))\n        .start()\n      tweenRef.current = tween\n    }\n\n    return () => {\n      if (tweenRef.current) tweenRef.current.stop()\n    }\n  }, [name, duration, playing])\n\n  return (\n    <div style={{ textAlign: 'center' }}>\n      <canvas\n        ref={ref}\n        width={140}\n        height={110}\n        style={{ border: '1px solid #f0f0f0', borderRadius: 6 }}\n      />\n      <div style={{ fontSize: 11, color: '#666', marginTop: 2 }}>{name}</div>\n    </div>\n  )\n}\n\nexport default () => {\n  const [speedIdx, setSpeedIdx] = useState(2)\n  const [playing, setPlaying] = useState(true)\n  const duration = SPEED_PRESETS[speedIdx].value\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          alignItems: 'center',\n          gap: 12,\n          marginBottom: 16,\n          padding: '8px 12px',\n          background: '#fafafa',\n          borderRadius: 8,\n          flexWrap: 'wrap',\n        }}\n      >\n        <button\n          onClick={() => setPlaying((p) => !p)}\n          style={{\n            border: '1px solid #d9d9d9',\n            borderRadius: 6,\n            padding: '4px 14px',\n            cursor: 'pointer',\n            fontSize: 14,\n            background: playing ? '#fff' : '#1890ff',\n            color: playing ? '#333' : '#fff',\n          }}\n        >\n          {playing ? '\u23f8 \u6682\u505c' : '\u25b6 \u64ad\u653e'}\n        </button>\n\n        <span style={{ fontSize: 13, color: '#999' }}>\u901f\u5ea6</span>\n        {SPEED_PRESETS.map((p, i) => (\n          <button\n            key={p.label}\n            onClick={() => setSpeedIdx(i)}\n            style={{\n              border: '1px solid',\n              borderRadius: 4,\n              borderColor: i === speedIdx ? '#1890ff' : '#d9d9d9',\n              background: i === speedIdx ? '#e6f7ff' : '#fff',\n              color: i === speedIdx ? '#1890ff' : '#666',\n              padding: '2px 10px',\n              cursor: 'pointer',\n              fontSize: 12,\n            }}\n          >\n            {p.label}\n          </button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>\n        {ALL_CURVES.map((name) => (\n          <CurveCard\n            key={name}\n            name={name}\n            duration={duration}\n            playing={playing}\n          />\n        ))}\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'easing-demo',
         },
@@ -45301,12 +45343,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef, useEffect } from 'react'\nimport { EventBus } from '@fexd/tools'\n\nconst EVENTS = ['\ud83d\udd14 \u901a\u77e5', '\ud83d\udcac \u6d88\u606f', '\u26a1 \u7cfb\u7edf', '\ud83c\udfaf \u81ea\u5b9a\u4e49']\nconst COLORS = { '\ud83d\udd14 \u901a\u77e5': '#fa8c16', '\ud83d\udcac \u6d88\u606f': '#1890ff', '\u26a1 \u7cfb\u7edf': '#52c41a', '\ud83c\udfaf \u81ea\u5b9a\u4e49': '#722ed1' }\n\nexport default () => {\n  const busRef = useRef(new EventBus())\n  const [subs, setSubs] = useState({})\n  const [logs, setLogs] = useState([])\n  const [payload, setPayload] = useState('Hello!')\n  const handlersRef = useRef({})\n  const idRef = useRef(0)\n\n  const addLog = (event, msg, type) => {\n    setLogs((p) => [{ id: ++idRef.current, event, msg, type, time: new Date().toLocaleTimeString() }, ...p].slice(0, 20))\n  }\n\n  const toggleSub = (event) => {\n    const bus = busRef.current\n    if (subs[event]) {\n      bus.off(event, handlersRef.current[event])\n      delete handlersRef.current[event]\n      setSubs((p) => { const n = { ...p }; delete n[event]; return n })\n      addLog(event, `\u53d6\u6d88\u8ba2\u9605 ${event}`, 'off')\n    } else {\n      const handler = (data) => addLog(event, `\u6536\u5230: ${data}`, 'receive')\n      handlersRef.current[event] = handler\n      bus.on(event, handler)\n      setSubs((p) => ({ ...p, [event]: true }))\n      addLog(event, `\u8ba2\u9605 ${event}`, 'on')\n    }\n  }\n\n  const emit = (event) => {\n    busRef.current.emit(event, payload)\n    addLog(event, `\u53d1\u9001: ${payload}`, 'emit')\n  }\n\n  const emitAll = () => EVENTS.forEach((e) => emit(e))\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12, flexWrap: 'wrap' }}>\n        {EVENTS.map((event) => (\n          <button key={event} onClick={() => toggleSub(event)} style={{\n            padding: '4px 14px', borderRadius: 6, cursor: 'pointer', fontSize: 13,\n            border: `2px solid ${subs[event] ? COLORS[event] : '#e8e8e8'}`,\n            background: subs[event] ? COLORS[event] + '15' : '#fafafa',\n            color: subs[event] ? COLORS[event] : '#999', transition: 'all 0.2s',\n          }}>\n            {subs[event] ? '\u2713 ' : '\u25cb '}{event}\n          </button>\n        ))}\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, marginBottom: 16, alignItems: 'center', flexWrap: 'wrap' }}>\n        <input value={payload} onChange={(e) => setPayload(e.target.value)}\n          placeholder=\"\u4e8b\u4ef6\u6570\u636e\" style={{\n            padding: '4px 10px', borderRadius: 6, border: '1px solid #d9d9d9',\n            fontSize: 13, width: 120,\n          }} />\n        {EVENTS.map((event) => (\n          <button key={event} onClick={() => emit(event)} style={{\n            padding: '3px 10px', borderRadius: 4, border: '1px solid #d9d9d9',\n            background: '#fff', cursor: 'pointer', fontSize: 12,\n          }}>emit {event.slice(0, 2)}</button>\n        ))}\n        <button onClick={emitAll} style={{\n          padding: '3px 10px', borderRadius: 4, border: '1px solid #1890ff',\n          background: '#1890ff', color: '#fff', cursor: 'pointer', fontSize: 12,\n        }}>\ud83d\udce2 \u5168\u90e8\u53d1\u9001</button>\n      </div>\n\n      <div style={{\n        borderRadius: 8, border: '1px solid #f0f0f0', maxHeight: 240,\n        overflowY: 'auto', background: '#fafafa',\n      }}>\n        {logs.length === 0 ? (\n          <div style={{ padding: 20, textAlign: 'center', color: '#ccc', fontSize: 13 }}>\n            \u5148\u8ba2\u9605\u4e8b\u4ef6 \u2192 \u518d\u53d1\u9001\u6570\u636e \u2192 \u67e5\u770b\u65e5\u5fd7\n          </div>\n        ) : logs.map((log) => (\n          <div key={log.id} style={{\n            padding: '6px 12px', borderBottom: '1px solid #f5f5f5',\n            display: 'flex', gap: 8, alignItems: 'center', fontSize: 13,\n          }}>\n            <span style={{ color: '#aaa', fontSize: 11, minWidth: 60 }}>{log.time}</span>\n            <span style={{\n              padding: '1px 6px', borderRadius: 3, fontSize: 11,\n              background: log.type === 'on' ? '#e6f7ff' : log.type === 'off' ? '#fff2e8' : log.type === 'emit' ? '#f6ffed' : '#f9f0ff',\n              color: log.type === 'on' ? '#1890ff' : log.type === 'off' ? '#fa8c16' : log.type === 'emit' ? '#52c41a' : '#722ed1',\n            }}>{log.type === 'on' ? 'SUB' : log.type === 'off' ? 'UNSUB' : log.type === 'emit' ? 'EMIT' : 'RECV'}</span>\n            <span style={{ color: COLORS[log.event], fontSize: 12 }}>{log.event}</span>\n            <span style={{ color: '#666' }}>{log.msg.split(': ').slice(1).join(': ')}</span>\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef, useEffect } from 'react'\nimport { EventBus } from '@fexd/tools'\n\nconst EVENTS = ['\ud83d\udd14 \u901a\u77e5', '\ud83d\udcac \u6d88\u606f', '\u26a1 \u7cfb\u7edf', '\ud83c\udfaf \u81ea\u5b9a\u4e49']\nconst COLORS = {\n  '\ud83d\udd14 \u901a\u77e5': '#fa8c16',\n  '\ud83d\udcac \u6d88\u606f': '#1890ff',\n  '\u26a1 \u7cfb\u7edf': '#52c41a',\n  '\ud83c\udfaf \u81ea\u5b9a\u4e49': '#722ed1',\n}\n\nexport default () => {\n  const busRef = useRef(new EventBus())\n  const [subs, setSubs] = useState({})\n  const [logs, setLogs] = useState([])\n  const [payload, setPayload] = useState('Hello!')\n  const handlersRef = useRef({})\n  const idRef = useRef(0)\n\n  const addLog = (event, msg, type) => {\n    setLogs((p) =>\n      [\n        {\n          id: ++idRef.current,\n          event,\n          msg,\n          type,\n          time: new Date().toLocaleTimeString(),\n        },\n        ...p,\n      ].slice(0, 20)\n    )\n  }\n\n  const toggleSub = (event) => {\n    const bus = busRef.current\n    if (subs[event]) {\n      bus.off(event, handlersRef.current[event])\n      delete handlersRef.current[event]\n      setSubs((p) => {\n        const n = { ...p }\n        delete n[event]\n        return n\n      })\n      addLog(event, `\u53d6\u6d88\u8ba2\u9605 ${event}`, 'off')\n    } else {\n      const handler = (data) => addLog(event, `\u6536\u5230: ${data}`, 'receive')\n      handlersRef.current[event] = handler\n      bus.on(event, handler)\n      setSubs((p) => ({ ...p, [event]: true }))\n      addLog(event, `\u8ba2\u9605 ${event}`, 'on')\n    }\n  }\n\n  const emit = (event) => {\n    busRef.current.emit(event, payload)\n    addLog(event, `\u53d1\u9001: ${payload}`, 'emit')\n  }\n\n  const emitAll = () => EVENTS.forEach((e) => emit(e))\n\n  return (\n    <div>\n      <div\n        style={{ display: 'flex', gap: 8, marginBottom: 12, flexWrap: 'wrap' }}\n      >\n        {EVENTS.map((event) => (\n          <button\n            key={event}\n            onClick={() => toggleSub(event)}\n            style={{\n              padding: '4px 14px',\n              borderRadius: 6,\n              cursor: 'pointer',\n              fontSize: 13,\n              border: `2px solid ${subs[event] ? COLORS[event] : '#e8e8e8'}`,\n              background: subs[event] ? COLORS[event] + '15' : '#fafafa',\n              color: subs[event] ? COLORS[event] : '#999',\n              transition: 'all 0.2s',\n            }}\n          >\n            {subs[event] ? '\u2713 ' : '\u25cb '}\n            {event}\n          </button>\n        ))}\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          marginBottom: 16,\n          alignItems: 'center',\n          flexWrap: 'wrap',\n        }}\n      >\n        <input\n          value={payload}\n          onChange={(e) => setPayload(e.target.value)}\n          placeholder=\"\u4e8b\u4ef6\u6570\u636e\"\n          style={{\n            padding: '4px 10px',\n            borderRadius: 6,\n            border: '1px solid #d9d9d9',\n            fontSize: 13,\n            width: 120,\n          }}\n        />\n        {EVENTS.map((event) => (\n          <button\n            key={event}\n            onClick={() => emit(event)}\n            style={{\n              padding: '3px 10px',\n              borderRadius: 4,\n              border: '1px solid #d9d9d9',\n              background: '#fff',\n              cursor: 'pointer',\n              fontSize: 12,\n            }}\n          >\n            emit {event.slice(0, 2)}\n          </button>\n        ))}\n        <button\n          onClick={emitAll}\n          style={{\n            padding: '3px 10px',\n            borderRadius: 4,\n            border: '1px solid #1890ff',\n            background: '#1890ff',\n            color: '#fff',\n            cursor: 'pointer',\n            fontSize: 12,\n          }}\n        >\n          \ud83d\udce2 \u5168\u90e8\u53d1\u9001\n        </button>\n      </div>\n\n      <div\n        style={{\n          borderRadius: 8,\n          border: '1px solid #f0f0f0',\n          maxHeight: 240,\n          overflowY: 'auto',\n          background: '#fafafa',\n        }}\n      >\n        {logs.length === 0 ? (\n          <div\n            style={{\n              padding: 20,\n              textAlign: 'center',\n              color: '#ccc',\n              fontSize: 13,\n            }}\n          >\n            \u5148\u8ba2\u9605\u4e8b\u4ef6 \u2192 \u518d\u53d1\u9001\u6570\u636e \u2192 \u67e5\u770b\u65e5\u5fd7\n          </div>\n        ) : (\n          logs.map((log) => (\n            <div\n              key={log.id}\n              style={{\n                padding: '6px 12px',\n                borderBottom: '1px solid #f5f5f5',\n                display: 'flex',\n                gap: 8,\n                alignItems: 'center',\n                fontSize: 13,\n              }}\n            >\n              <span style={{ color: '#aaa', fontSize: 11, minWidth: 60 }}>\n                {log.time}\n              </span>\n              <span\n                style={{\n                  padding: '1px 6px',\n                  borderRadius: 3,\n                  fontSize: 11,\n                  background:\n                    log.type === 'on'\n                      ? '#e6f7ff'\n                      : log.type === 'off'\n                      ? '#fff2e8'\n                      : log.type === 'emit'\n                      ? '#f6ffed'\n                      : '#f9f0ff',\n                  color:\n                    log.type === 'on'\n                      ? '#1890ff'\n                      : log.type === 'off'\n                      ? '#fa8c16'\n                      : log.type === 'emit'\n                      ? '#52c41a'\n                      : '#722ed1',\n                }}\n              >\n                {log.type === 'on'\n                  ? 'SUB'\n                  : log.type === 'off'\n                  ? 'UNSUB'\n                  : log.type === 'emit'\n                  ? 'EMIT'\n                  : 'RECV'}\n              </span>\n              <span style={{ color: COLORS[log.event], fontSize: 12 }}>\n                {log.event}\n              </span>\n              <span style={{ color: '#666' }}>\n                {log.msg.split(': ').slice(1).join(': ')}\n              </span>\n            </div>\n          ))\n        )}\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'EventBus-demo',
         },
@@ -45420,12 +45462,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { random } from '@fexd/tools'\n\nexport default () => {\n  const [result, setResult] = useState(null)\n  const [min, setMin] = useState(1)\n  const [max, setMax] = useState(100)\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 12 }}>\n        <input type=\"number\" value={min} onChange={(e) => setMin(Number(e.target.value))} style={{ width: 60, padding: 4 }} />\n        <span>~</span>\n        <input type=\"number\" value={max} onChange={(e) => setMax(Number(e.target.value))} style={{ width: 60, padding: 4 }} />\n        <button onClick={() => setResult(random(min, max))} style={{ padding: '4px 16px' }}>\u751f\u6210\u968f\u673a\u6574\u6570</button>\n        <button onClick={() => setResult(random(min, max, false))} style={{ padding: '4px 16px' }}>\u751f\u6210\u968f\u673a\u6d6e\u70b9</button>\n      </div>\n      {result !== null && (\n        <div style={{ fontSize: 32, fontWeight: 'bold', color: '#722ed1', marginBottom: 8 }}>{result}</div>\n      )}\n      {result !== null && (\n        <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555' }}>\n{`random(${min}, ${max}${Number.isInteger(result) ? '' : ', false'})  // => ${result}`}\n        </pre>\n      )}\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { random } from '@fexd/tools'\n\nexport default () => {\n  const [result, setResult] = useState(null)\n  const [min, setMin] = useState(1)\n  const [max, setMax] = useState(100)\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          marginBottom: 12,\n        }}\n      >\n        <input\n          type=\"number\"\n          value={min}\n          onChange={(e) => setMin(Number(e.target.value))}\n          style={{ width: 60, padding: 4 }}\n        />\n        <span>~</span>\n        <input\n          type=\"number\"\n          value={max}\n          onChange={(e) => setMax(Number(e.target.value))}\n          style={{ width: 60, padding: 4 }}\n        />\n        <button\n          onClick={() => setResult(random(min, max))}\n          style={{ padding: '4px 16px' }}\n        >\n          \u751f\u6210\u968f\u673a\u6574\u6570\n        </button>\n        <button\n          onClick={() => setResult(random(min, max, false))}\n          style={{ padding: '4px 16px' }}\n        >\n          \u751f\u6210\u968f\u673a\u6d6e\u70b9\n        </button>\n      </div>\n      {result !== null && (\n        <div\n          style={{\n            fontSize: 32,\n            fontWeight: 'bold',\n            color: '#722ed1',\n            marginBottom: 8,\n          }}\n        >\n          {result}\n        </div>\n      )}\n      {result !== null && (\n        <pre\n          style={{\n            background: '#f9f9f9',\n            padding: '8px 12px',\n            borderRadius: 6,\n            fontSize: 12,\n            color: '#555',\n          }}\n        >\n          {`random(${min}, ${max}${\n            Number.isInteger(result) ? '' : ', false'\n          })  // => ${result}`}\n        </pre>\n      )}\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'random-demo',
         },
@@ -45732,12 +45774,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef, useEffect } from 'react'\nimport { ScrollListener } from '@fexd/tools'\n\nexport default () => {\n  const containerRef = useRef(null)\n  const [scrollDistance, setScrollDistance] = useState(0)\n  const [endReached, setEndReached] = useState(false)\n  const [logs, setLogs] = useState([])\n  const [items, setItems] = useState(Array.from({ length: 20 }, (_, i) => `Item ${i + 1}`))\n  const [loading, setLoading] = useState(false)\n  const idRef = useRef(0)\n\n  const addLog = (msg) => {\n    setLogs((prev) => [{ id: ++idRef.current, msg, time: new Date().toLocaleTimeString() }, ...prev].slice(0, 10))\n  }\n\n  useEffect(() => {\n    if (!containerRef.current) return\n    const el = containerRef.current\n\n    const listener = new ScrollListener({\n      element: el,\n      distanceToReachEnd: 80,\n      onEndReached: (done) => {\n        addLog('onEndReached(done) \u2014 \u89e6\u5e95\u52a0\u8f7d')\n        setEndReached(true)\n        setLoading(true)\n        setTimeout(() => {\n          setItems((prev) => [\n            ...prev,\n            ...Array.from({ length: 5 }, (_, i) => `Item ${prev.length + i + 1}`),\n          ])\n          setLoading(false)\n          setEndReached(false)\n          done()\n          addLog('done() \u2014 \u89e3\u9501\uff0c\u53ef\u518d\u6b21\u89e6\u5e95')\n        }, 1000)\n      },\n      distanceEvents: [\n        {\n          distance: 100,\n          onGoingIn: () => addLog('distanceEvent(100).onGoingIn()'),\n          onGoingOut: () => addLog('distanceEvent(100).onGoingOut()'),\n        },\n        {\n          distance: 300,\n          onGoingIn: () => addLog('distanceEvent(300).onGoingIn()'),\n          onGoingOut: () => addLog('distanceEvent(300).onGoingOut()'),\n        },\n      ],\n      scrollHandler: (onScroll) => (e) => {\n        setScrollDistance(el.scrollTop)\n        onScroll(e)\n      },\n    })\n\n    return () => { listener.destroy() }\n  }, [])\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u6eda\u52a8\u5bb9\u5668\uff08\u5411\u4e0b\u6eda\u52a8\u89e6\u53d1\u4e8b\u4ef6\uff09</div>\n          <div ref={containerRef} style={{\n            height: 200, overflow: 'auto', border: '1px solid #e8e8e8',\n            borderRadius: 8, background: '#fafafa',\n          }}>\n            {items.map((item, i) => (\n              <div key={i} style={{\n                padding: '10px 16px', borderBottom: '1px solid #f0f0f0',\n                fontSize: 13, color: '#333',\n              }}>{item}</div>\n            ))}\n            {loading && (\n              <div style={{ padding: '12px 16px', fontSize: 12, color: '#1890ff', textAlign: 'center' }}>\n                \u23f3 \u52a0\u8f7d\u4e2d...\n              </div>\n            )}\n          </div>\n        </div>\n        <div style={{ flex: 1, minWidth: 200 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\u4e8b\u4ef6\u65e5\u5fd7</div>\n          <div style={{\n            height: 200, overflow: 'auto', border: '1px solid #f0f0f0',\n            borderRadius: 8, background: '#fff',\n          }}>\n            {logs.length === 0 ? (\n              <div style={{ padding: 12, fontSize: 12, color: '#ccc', textAlign: 'center' }}>\u6eda\u52a8\u5de6\u4fa7\u5bb9\u5668...</div>\n            ) : logs.map((log) => (\n              <div key={log.id} style={{ padding: '3px 8px', borderBottom: '1px solid #f9f9f9', fontSize: 11 }}>\n                <span style={{ color: '#bbb', marginRight: 6 }}>{log.time}</span>\n                {log.msg}\n              </div>\n            ))}\n          </div>\n        </div>\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 8 }}>\n        <div style={{ padding: '4px 12px', borderRadius: 4, background: '#e6f7ff', fontSize: 12 }}>\n          scrollDistance: <strong>{scrollDistance}px</strong>\n        </div>\n        <div style={{\n          padding: '4px 12px', borderRadius: 4, fontSize: 12,\n          background: endReached ? '#fff2f0' : '#f6ffed',\n        }}>\n          \u89e6\u5e95: <strong>{endReached ? '\u662f (\u9501\u5b9a\u4e2d)' : '\u5426'}</strong>\n        </div>\n        <div style={{ padding: '4px 12px', borderRadius: 4, background: '#f5f5f5', fontSize: 12 }}>\n          \u5217\u8868: <strong>{items.length}</strong> \u9879\n        </div>\n      </div>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 11, color: '#555' }}>\n{`new ScrollListener({\n  element: container,\n  distanceToReachEnd: 80,\n  onEndReached: (done) => { loadMore().then(() => done()) },\n  distanceEvents: [\n    { distance: 100, onGoingIn: ..., onGoingOut: ... },\n    { distance: 300, onGoingIn: ..., onGoingOut: ... },\n  ],\n}).init()`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef, useEffect } from 'react'\nimport { ScrollListener } from '@fexd/tools'\n\nexport default () => {\n  const containerRef = useRef(null)\n  const [scrollDistance, setScrollDistance] = useState(0)\n  const [endReached, setEndReached] = useState(false)\n  const [logs, setLogs] = useState([])\n  const [items, setItems] = useState(\n    Array.from({ length: 20 }, (_, i) => `Item ${i + 1}`)\n  )\n  const [loading, setLoading] = useState(false)\n  const idRef = useRef(0)\n\n  const addLog = (msg) => {\n    setLogs((prev) =>\n      [\n        { id: ++idRef.current, msg, time: new Date().toLocaleTimeString() },\n        ...prev,\n      ].slice(0, 10)\n    )\n  }\n\n  useEffect(() => {\n    if (!containerRef.current) return\n    const el = containerRef.current\n\n    const listener = new ScrollListener({\n      element: el,\n      distanceToReachEnd: 80,\n      onEndReached: (done) => {\n        addLog('onEndReached(done) \u2014 \u89e6\u5e95\u52a0\u8f7d')\n        setEndReached(true)\n        setLoading(true)\n        setTimeout(() => {\n          setItems((prev) => [\n            ...prev,\n            ...Array.from(\n              { length: 5 },\n              (_, i) => `Item ${prev.length + i + 1}`\n            ),\n          ])\n          setLoading(false)\n          setEndReached(false)\n          done()\n          addLog('done() \u2014 \u89e3\u9501\uff0c\u53ef\u518d\u6b21\u89e6\u5e95')\n        }, 1000)\n      },\n      distanceEvents: [\n        {\n          distance: 100,\n          onGoingIn: () => addLog('distanceEvent(100).onGoingIn()'),\n          onGoingOut: () => addLog('distanceEvent(100).onGoingOut()'),\n        },\n        {\n          distance: 300,\n          onGoingIn: () => addLog('distanceEvent(300).onGoingIn()'),\n          onGoingOut: () => addLog('distanceEvent(300).onGoingOut()'),\n        },\n      ],\n      scrollHandler: (onScroll) => (e) => {\n        setScrollDistance(el.scrollTop)\n        onScroll(e)\n      },\n    })\n\n    return () => {\n      listener.destroy()\n    }\n  }, [])\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>\n        <div style={{ flex: 1 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            \u6eda\u52a8\u5bb9\u5668\uff08\u5411\u4e0b\u6eda\u52a8\u89e6\u53d1\u4e8b\u4ef6\uff09\n          </div>\n          <div\n            ref={containerRef}\n            style={{\n              height: 200,\n              overflow: 'auto',\n              border: '1px solid #e8e8e8',\n              borderRadius: 8,\n              background: '#fafafa',\n            }}\n          >\n            {items.map((item, i) => (\n              <div\n                key={i}\n                style={{\n                  padding: '10px 16px',\n                  borderBottom: '1px solid #f0f0f0',\n                  fontSize: 13,\n                  color: '#333',\n                }}\n              >\n                {item}\n              </div>\n            ))}\n            {loading && (\n              <div\n                style={{\n                  padding: '12px 16px',\n                  fontSize: 12,\n                  color: '#1890ff',\n                  textAlign: 'center',\n                }}\n              >\n                \u23f3 \u52a0\u8f7d\u4e2d...\n              </div>\n            )}\n          </div>\n        </div>\n        <div style={{ flex: 1, minWidth: 200 }}>\n          <div style={{ fontSize: 12, color: '#999', marginBottom: 4 }}>\n            \u4e8b\u4ef6\u65e5\u5fd7\n          </div>\n          <div\n            style={{\n              height: 200,\n              overflow: 'auto',\n              border: '1px solid #f0f0f0',\n              borderRadius: 8,\n              background: '#fff',\n            }}\n          >\n            {logs.length === 0 ? (\n              <div\n                style={{\n                  padding: 12,\n                  fontSize: 12,\n                  color: '#ccc',\n                  textAlign: 'center',\n                }}\n              >\n                \u6eda\u52a8\u5de6\u4fa7\u5bb9\u5668...\n              </div>\n            ) : (\n              logs.map((log) => (\n                <div\n                  key={log.id}\n                  style={{\n                    padding: '3px 8px',\n                    borderBottom: '1px solid #f9f9f9',\n                    fontSize: 11,\n                  }}\n                >\n                  <span style={{ color: '#bbb', marginRight: 6 }}>\n                    {log.time}\n                  </span>\n                  {log.msg}\n                </div>\n              ))\n            )}\n          </div>\n        </div>\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 8 }}>\n        <div\n          style={{\n            padding: '4px 12px',\n            borderRadius: 4,\n            background: '#e6f7ff',\n            fontSize: 12,\n          }}\n        >\n          scrollDistance: <strong>{scrollDistance}px</strong>\n        </div>\n        <div\n          style={{\n            padding: '4px 12px',\n            borderRadius: 4,\n            fontSize: 12,\n            background: endReached ? '#fff2f0' : '#f6ffed',\n          }}\n        >\n          \u89e6\u5e95: <strong>{endReached ? '\u662f (\u9501\u5b9a\u4e2d)' : '\u5426'}</strong>\n        </div>\n        <div\n          style={{\n            padding: '4px 12px',\n            borderRadius: 4,\n            background: '#f5f5f5',\n            fontSize: 12,\n          }}\n        >\n          \u5217\u8868: <strong>{items.length}</strong> \u9879\n        </div>\n      </div>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 11,\n          color: '#555',\n        }}\n      >\n        {`new ScrollListener({\n  element: container,\n  distanceToReachEnd: 80,\n  onEndReached: (done) => { loadMore().then(() => done()) },\n  distanceEvents: [\n    { distance: 100, onGoingIn: ..., onGoingOut: ... },\n    { distance: 300, onGoingIn: ..., onGoingOut: ... },\n  ],\n}).init()`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'ScrollListener-demo',
         },
@@ -45789,7 +45831,7 @@
                 N = (0, r['default'])(_, 2),
                 L = N[0],
                 I = N[1],
-                C = (0, l.useCallback)(
+                j = (0, l.useCallback)(
                   function () {
                     try {
                       var e = (0, o.segment)(u, f, [g, k])
@@ -45800,7 +45842,7 @@
                   },
                   [u, f, g, k]
                 ),
-                j = A
+                C = A
                   ? A.reduce(function (e, t) {
                       return e + t
                     }, 0)
@@ -45884,7 +45926,7 @@
                 l['default'].createElement(
                   'button',
                   {
-                    onClick: C,
+                    onClick: j,
                     style: {
                       padding: '6px 20px',
                       borderRadius: 6,
@@ -45975,7 +46017,7 @@
                           }).join(', '),
                           ']  (sum = '
                         )
-                        .concat(j.toFixed(1), ')')
+                        .concat(C.toFixed(1), ')')
                     )
                   )
               )
@@ -45985,12 +46027,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useCallback } from 'react'\nimport { segment } from '@fexd/tools'\n\nconst BAR_COLORS = ['#1890ff', '#52c41a', '#fa8c16', '#722ed1', '#eb2f96', '#13c2c2', '#faad14', '#f5222d', '#2f54eb', '#a0d911']\n\nexport default () => {\n  const [length, setLength] = useState(100)\n  const [count, setCount] = useState(5)\n  const [min, setMin] = useState(10)\n  const [max, setMax] = useState(30)\n  const [result, setResult] = useState(null)\n  const [error, setError] = useState(null)\n\n  const generate = useCallback(() => {\n    try {\n      const r = segment(length, count, [min, max])\n      setResult(r)\n      setError(null)\n    } catch (e) { setError(e.message); setResult(null) }\n  }, [length, count, min, max])\n\n  const total = result ? result.reduce((s, v) => s + v, 0) : 0\n\n  return (\n    <div>\n      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 16px', marginBottom: 16 }}>\n        {[\n          { label: '\u603b\u957f\u5ea6 (length)', val: length, set: setLength, min: 1, max: 500 },\n          { label: '\u5206\u6bb5\u6570 (count)', val: count, set: setCount, min: 1, max: 10 },\n          { label: '\u6bb5\u6700\u5c0f\u503c (min)', val: min, set: setMin, min: 0, max: 100 },\n          { label: '\u6bb5\u6700\u5927\u503c (max)', val: max, set: setMax, min: 0, max: 200 },\n        ].map(({ label, val, set, ...range }) => (\n          <div key={label}>\n            <div style={{ fontSize: 12, color: '#999', marginBottom: 2 }}>\n              {label}: <strong>{val}</strong>\n            </div>\n            <input type=\"range\" {...range} value={val} onChange={(e) => set(+e.target.value)}\n              style={{ width: '100%' }} />\n          </div>\n        ))}\n      </div>\n\n      <button onClick={generate} style={{\n        padding: '6px 20px', borderRadius: 6, border: 'none',\n        background: '#1890ff', color: '#fff', cursor: 'pointer',\n        fontSize: 14, marginBottom: 16,\n      }}>\ud83c\udfb2 \u751f\u6210\u5206\u6bb5</button>\n\n      {error && (\n        <div style={{ padding: '8px 12px', borderRadius: 6, background: '#fff2f0', color: '#cf1322', fontSize: 13, marginBottom: 12 }}>\n          \u274c {error}\n        </div>\n      )}\n\n      {result && (\n        <>\n          <div style={{\n            display: 'flex', gap: 2, borderRadius: 8, overflow: 'hidden',\n            height: 56, marginBottom: 12,\n          }}>\n            {result.map((val, i) => (\n              <div key={i} style={{\n                flex: val, background: BAR_COLORS[i % BAR_COLORS.length],\n                display: 'flex', alignItems: 'center', justifyContent: 'center',\n                color: '#fff', fontSize: 13, fontWeight: 600, fontFamily: 'monospace',\n                transition: 'flex 0.3s', minWidth: 20,\n              }}>{val.toFixed(1)}</div>\n            ))}\n          </div>\n\n          <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555' }}>\n{`segment(${length}, ${count}, [${min}, ${max}])\n// => [${result.map((v) => v.toFixed(1)).join(', ')}]  (sum = ${total.toFixed(1)})`}\n          </pre>\n        </>\n      )}\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useCallback } from 'react'\nimport { segment } from '@fexd/tools'\n\nconst BAR_COLORS = [\n  '#1890ff',\n  '#52c41a',\n  '#fa8c16',\n  '#722ed1',\n  '#eb2f96',\n  '#13c2c2',\n  '#faad14',\n  '#f5222d',\n  '#2f54eb',\n  '#a0d911',\n]\n\nexport default () => {\n  const [length, setLength] = useState(100)\n  const [count, setCount] = useState(5)\n  const [min, setMin] = useState(10)\n  const [max, setMax] = useState(30)\n  const [result, setResult] = useState(null)\n  const [error, setError] = useState(null)\n\n  const generate = useCallback(() => {\n    try {\n      const r = segment(length, count, [min, max])\n      setResult(r)\n      setError(null)\n    } catch (e) {\n      setError(e.message)\n      setResult(null)\n    }\n  }, [length, count, min, max])\n\n  const total = result ? result.reduce((s, v) => s + v, 0) : 0\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'grid',\n          gridTemplateColumns: '1fr 1fr',\n          gap: '8px 16px',\n          marginBottom: 16,\n        }}\n      >\n        {[\n          {\n            label: '\u603b\u957f\u5ea6 (length)',\n            val: length,\n            set: setLength,\n            min: 1,\n            max: 500,\n          },\n          {\n            label: '\u5206\u6bb5\u6570 (count)',\n            val: count,\n            set: setCount,\n            min: 1,\n            max: 10,\n          },\n          { label: '\u6bb5\u6700\u5c0f\u503c (min)', val: min, set: setMin, min: 0, max: 100 },\n          { label: '\u6bb5\u6700\u5927\u503c (max)', val: max, set: setMax, min: 0, max: 200 },\n        ].map(({ label, val, set, ...range }) => (\n          <div key={label}>\n            <div style={{ fontSize: 12, color: '#999', marginBottom: 2 }}>\n              {label}: <strong>{val}</strong>\n            </div>\n            <input\n              type=\"range\"\n              {...range}\n              value={val}\n              onChange={(e) => set(+e.target.value)}\n              style={{ width: '100%' }}\n            />\n          </div>\n        ))}\n      </div>\n\n      <button\n        onClick={generate}\n        style={{\n          padding: '6px 20px',\n          borderRadius: 6,\n          border: 'none',\n          background: '#1890ff',\n          color: '#fff',\n          cursor: 'pointer',\n          fontSize: 14,\n          marginBottom: 16,\n        }}\n      >\n        \ud83c\udfb2 \u751f\u6210\u5206\u6bb5\n      </button>\n\n      {error && (\n        <div\n          style={{\n            padding: '8px 12px',\n            borderRadius: 6,\n            background: '#fff2f0',\n            color: '#cf1322',\n            fontSize: 13,\n            marginBottom: 12,\n          }}\n        >\n          \u274c {error}\n        </div>\n      )}\n\n      {result && (\n        <>\n          <div\n            style={{\n              display: 'flex',\n              gap: 2,\n              borderRadius: 8,\n              overflow: 'hidden',\n              height: 56,\n              marginBottom: 12,\n            }}\n          >\n            {result.map((val, i) => (\n              <div\n                key={i}\n                style={{\n                  flex: val,\n                  background: BAR_COLORS[i % BAR_COLORS.length],\n                  display: 'flex',\n                  alignItems: 'center',\n                  justifyContent: 'center',\n                  color: '#fff',\n                  fontSize: 13,\n                  fontWeight: 600,\n                  fontFamily: 'monospace',\n                  transition: 'flex 0.3s',\n                  minWidth: 20,\n                }}\n              >\n                {val.toFixed(1)}\n              </div>\n            ))}\n          </div>\n\n          <pre\n            style={{\n              background: '#f9f9f9',\n              padding: '8px 12px',\n              borderRadius: 6,\n              fontSize: 12,\n              color: '#555',\n            }}\n          >\n            {`segment(${length}, ${count}, [${min}, ${max}])\n// => [${result.map((v) => v.toFixed(1)).join(', ')}]  (sum = ${total.toFixed(\n              1\n            )})`}\n          </pre>\n        </>\n      )}\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'segment-demo',
         },
@@ -46167,7 +46209,7 @@
                 I = function () {
                   s([]), v(0), x(0)
                 },
-                C = {
+                j = {
                   padding: '6px 16px',
                   borderRadius: 6,
                   cursor: 'pointer',
@@ -46193,7 +46235,7 @@
                     {
                       onClick: N,
                       style: (0, n['default'])(
-                        (0, n['default'])({}, C),
+                        (0, n['default'])({}, j),
                         {},
                         {
                           background: '#1890ff',
@@ -46209,7 +46251,7 @@
                     {
                       onClick: L,
                       style: (0, n['default'])(
-                        (0, n['default'])({}, C),
+                        (0, n['default'])({}, j),
                         {},
                         {
                           background: '#722ed1',
@@ -46225,7 +46267,7 @@
                     {
                       onClick: I,
                       style: (0, n['default'])(
-                        (0, n['default'])({}, C),
+                        (0, n['default'])({}, j),
                         {},
                         { color: '#999' }
                       ),
@@ -46410,12 +46452,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef } from 'react'\nimport { singleflight, delay } from '@fexd/tools'\n\nexport default () => {\n  const [logs, setLogs] = useState([])\n  const [requesting, setRequesting] = useState(false)\n  const [reqCount, setReqCount] = useState(0)\n  const [actualCount, setActualCount] = useState(0)\n  const idRef = useRef(0)\n\n  const addLog = (msg, type = 'info') => {\n    setLogs((prev) => [{ id: ++idRef.current, msg, type, time: new Date().toLocaleTimeString() }, ...prev].slice(0, 20))\n  }\n\n  const [fetchData] = useState(() =>\n    singleflight(async () => {\n      setActualCount((c) => c + 1)\n      setRequesting(true)\n      addLog('\ud83d\ude80 \u5b9e\u9645\u53d1\u8d77\u8bf7\u6c42...', 'request')\n      await delay(2000)\n      const result = `\u6570\u636e #${Math.floor(Math.random() * 9000 + 1000)}`\n      addLog(`\u2705 \u8bf7\u6c42\u5b8c\u6210: ${result}`, 'success')\n      setRequesting(false)\n      return result\n    })\n  )\n\n  const callOnce = async () => {\n    setReqCount((c) => c + 1)\n    addLog('\ud83d\udcde \u8c03\u7528 fetchData()', 'call')\n    const result = await fetchData()\n    addLog(`\ud83d\udce6 \u62ff\u5230\u7ed3\u679c: ${result}`, 'result')\n  }\n\n  const callBurst = async () => {\n    addLog('\u26a1 \u540c\u65f6\u53d1\u8d77 5 \u6b21\u8c03\u7528', 'burst')\n    setReqCount((c) => c + 5)\n    const results = await Promise.all([\n      fetchData(), fetchData(), fetchData(), fetchData(), fetchData()\n    ])\n    addLog(`\ud83d\udce6 5 \u6b21\u8c03\u7528\u5168\u90e8\u62ff\u5230\u76f8\u540c\u7ed3\u679c: ${results[0]}`, 'result')\n  }\n\n  const reset = () => {\n    setLogs([])\n    setReqCount(0)\n    setActualCount(0)\n  }\n\n  const btnStyle = { padding: '6px 16px', borderRadius: 6, cursor: 'pointer', fontSize: 13, border: '1px solid #d9d9d9' }\n\n  return (\n    <div>\n      <div style={{ display: 'flex', gap: 8, marginBottom: 12, flexWrap: 'wrap', alignItems: 'center' }}>\n        <button onClick={callOnce} style={{ ...btnStyle, background: '#1890ff', color: '#fff', border: '1px solid #1890ff' }}>\n          \u8c03\u7528\u4e00\u6b21\n        </button>\n        <button onClick={callBurst} style={{ ...btnStyle, background: '#722ed1', color: '#fff', border: '1px solid #722ed1' }}>\n          \u5e76\u53d1 5 \u6b21\n        </button>\n        <button onClick={reset} style={{ ...btnStyle, color: '#999' }}>\ud83d\udd04 \u91cd\u7f6e</button>\n        {requesting && <span style={{ fontSize: 12, color: '#fa8c16' }}>\u23f3 \u8bf7\u6c42\u4e2d...</span>}\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>\n        <div style={{\n          flex: 1, padding: '8px 12px', borderRadius: 6, textAlign: 'center',\n          background: '#e6f7ff', border: '1px solid #91d5ff',\n        }}>\n          <div style={{ fontSize: 11, color: '#999' }}>\u8c03\u7528\u6b21\u6570</div>\n          <div style={{ fontSize: 20, fontWeight: 700, color: '#1890ff' }}>{reqCount}</div>\n        </div>\n        <div style={{\n          flex: 1, padding: '8px 12px', borderRadius: 6, textAlign: 'center',\n          background: '#f6ffed', border: '1px solid #b7eb8f',\n        }}>\n          <div style={{ fontSize: 11, color: '#999' }}>\u5b9e\u9645\u8bf7\u6c42\u6b21\u6570</div>\n          <div style={{ fontSize: 20, fontWeight: 700, color: '#52c41a' }}>{actualCount}</div>\n        </div>\n        <div style={{\n          flex: 1, padding: '8px 12px', borderRadius: 6, textAlign: 'center',\n          background: '#fff7e6', border: '1px solid #ffd591',\n        }}>\n          <div style={{ fontSize: 11, color: '#999' }}>\u8282\u7701\u8bf7\u6c42</div>\n          <div style={{ fontSize: 20, fontWeight: 700, color: '#fa8c16' }}>{reqCount - actualCount}</div>\n        </div>\n      </div>\n\n      <pre style={{ background: '#f9f9f9', padding: '8px 12px', borderRadius: 6, fontSize: 12, color: '#555', marginBottom: 12 }}>\n{`const fetchData = singleflight(async () => {\n  await delay(2000)\n  return result\n})\n// \u8c03\u7528 ${reqCount} \u6b21\uff0c\u5b9e\u9645\u53ea\u53d1\u8d77 ${actualCount} \u6b21\u8bf7\u6c42\n// \u8bf7\u6c42\u671f\u95f4\u7684\u5e76\u53d1\u8c03\u7528\u5171\u4eab\u540c\u4e00\u4e2a Promise`}\n      </pre>\n\n      <div style={{\n        borderRadius: 8, border: '1px solid #f0f0f0', maxHeight: 200,\n        overflowY: 'auto', background: '#fafafa',\n      }}>\n        {logs.length === 0 ? (\n          <div style={{ padding: 12, fontSize: 12, color: '#ccc', textAlign: 'center' }}>\n            \u70b9\u51fb\u6309\u94ae\u89e6\u53d1\u8c03\u7528...\n          </div>\n        ) : logs.map((log) => (\n          <div key={log.id} style={{\n            padding: '4px 12px', borderBottom: '1px solid #f5f5f5', fontSize: 12,\n            color: log.type === 'request' ? '#1890ff' : log.type === 'success' ? '#52c41a' :\n              log.type === 'burst' ? '#722ed1' : log.type === 'result' ? '#389e0d' : '#666',\n          }}>\n            <span style={{ color: '#bbb', marginRight: 8 }}>{log.time}</span>\n            {log.msg}\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef } from 'react'\nimport { singleflight, delay } from '@fexd/tools'\n\nexport default () => {\n  const [logs, setLogs] = useState([])\n  const [requesting, setRequesting] = useState(false)\n  const [reqCount, setReqCount] = useState(0)\n  const [actualCount, setActualCount] = useState(0)\n  const idRef = useRef(0)\n\n  const addLog = (msg, type = 'info') => {\n    setLogs((prev) =>\n      [\n        {\n          id: ++idRef.current,\n          msg,\n          type,\n          time: new Date().toLocaleTimeString(),\n        },\n        ...prev,\n      ].slice(0, 20)\n    )\n  }\n\n  const [fetchData] = useState(() =>\n    singleflight(async () => {\n      setActualCount((c) => c + 1)\n      setRequesting(true)\n      addLog('\ud83d\ude80 \u5b9e\u9645\u53d1\u8d77\u8bf7\u6c42...', 'request')\n      await delay(2000)\n      const result = `\u6570\u636e #${Math.floor(Math.random() * 9000 + 1000)}`\n      addLog(`\u2705 \u8bf7\u6c42\u5b8c\u6210: ${result}`, 'success')\n      setRequesting(false)\n      return result\n    })\n  )\n\n  const callOnce = async () => {\n    setReqCount((c) => c + 1)\n    addLog('\ud83d\udcde \u8c03\u7528 fetchData()', 'call')\n    const result = await fetchData()\n    addLog(`\ud83d\udce6 \u62ff\u5230\u7ed3\u679c: ${result}`, 'result')\n  }\n\n  const callBurst = async () => {\n    addLog('\u26a1 \u540c\u65f6\u53d1\u8d77 5 \u6b21\u8c03\u7528', 'burst')\n    setReqCount((c) => c + 5)\n    const results = await Promise.all([\n      fetchData(),\n      fetchData(),\n      fetchData(),\n      fetchData(),\n      fetchData(),\n    ])\n    addLog(`\ud83d\udce6 5 \u6b21\u8c03\u7528\u5168\u90e8\u62ff\u5230\u76f8\u540c\u7ed3\u679c: ${results[0]}`, 'result')\n  }\n\n  const reset = () => {\n    setLogs([])\n    setReqCount(0)\n    setActualCount(0)\n  }\n\n  const btnStyle = {\n    padding: '6px 16px',\n    borderRadius: 6,\n    cursor: 'pointer',\n    fontSize: 13,\n    border: '1px solid #d9d9d9',\n  }\n\n  return (\n    <div>\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          marginBottom: 12,\n          flexWrap: 'wrap',\n          alignItems: 'center',\n        }}\n      >\n        <button\n          onClick={callOnce}\n          style={{\n            ...btnStyle,\n            background: '#1890ff',\n            color: '#fff',\n            border: '1px solid #1890ff',\n          }}\n        >\n          \u8c03\u7528\u4e00\u6b21\n        </button>\n        <button\n          onClick={callBurst}\n          style={{\n            ...btnStyle,\n            background: '#722ed1',\n            color: '#fff',\n            border: '1px solid #722ed1',\n          }}\n        >\n          \u5e76\u53d1 5 \u6b21\n        </button>\n        <button onClick={reset} style={{ ...btnStyle, color: '#999' }}>\n          \ud83d\udd04 \u91cd\u7f6e\n        </button>\n        {requesting && (\n          <span style={{ fontSize: 12, color: '#fa8c16' }}>\u23f3 \u8bf7\u6c42\u4e2d...</span>\n        )}\n      </div>\n\n      <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>\n        <div\n          style={{\n            flex: 1,\n            padding: '8px 12px',\n            borderRadius: 6,\n            textAlign: 'center',\n            background: '#e6f7ff',\n            border: '1px solid #91d5ff',\n          }}\n        >\n          <div style={{ fontSize: 11, color: '#999' }}>\u8c03\u7528\u6b21\u6570</div>\n          <div style={{ fontSize: 20, fontWeight: 700, color: '#1890ff' }}>\n            {reqCount}\n          </div>\n        </div>\n        <div\n          style={{\n            flex: 1,\n            padding: '8px 12px',\n            borderRadius: 6,\n            textAlign: 'center',\n            background: '#f6ffed',\n            border: '1px solid #b7eb8f',\n          }}\n        >\n          <div style={{ fontSize: 11, color: '#999' }}>\u5b9e\u9645\u8bf7\u6c42\u6b21\u6570</div>\n          <div style={{ fontSize: 20, fontWeight: 700, color: '#52c41a' }}>\n            {actualCount}\n          </div>\n        </div>\n        <div\n          style={{\n            flex: 1,\n            padding: '8px 12px',\n            borderRadius: 6,\n            textAlign: 'center',\n            background: '#fff7e6',\n            border: '1px solid #ffd591',\n          }}\n        >\n          <div style={{ fontSize: 11, color: '#999' }}>\u8282\u7701\u8bf7\u6c42</div>\n          <div style={{ fontSize: 20, fontWeight: 700, color: '#fa8c16' }}>\n            {reqCount - actualCount}\n          </div>\n        </div>\n      </div>\n\n      <pre\n        style={{\n          background: '#f9f9f9',\n          padding: '8px 12px',\n          borderRadius: 6,\n          fontSize: 12,\n          color: '#555',\n          marginBottom: 12,\n        }}\n      >\n        {`const fetchData = singleflight(async () => {\n  await delay(2000)\n  return result\n})\n// \u8c03\u7528 ${reqCount} \u6b21\uff0c\u5b9e\u9645\u53ea\u53d1\u8d77 ${actualCount} \u6b21\u8bf7\u6c42\n// \u8bf7\u6c42\u671f\u95f4\u7684\u5e76\u53d1\u8c03\u7528\u5171\u4eab\u540c\u4e00\u4e2a Promise`}\n      </pre>\n\n      <div\n        style={{\n          borderRadius: 8,\n          border: '1px solid #f0f0f0',\n          maxHeight: 200,\n          overflowY: 'auto',\n          background: '#fafafa',\n        }}\n      >\n        {logs.length === 0 ? (\n          <div\n            style={{\n              padding: 12,\n              fontSize: 12,\n              color: '#ccc',\n              textAlign: 'center',\n            }}\n          >\n            \u70b9\u51fb\u6309\u94ae\u89e6\u53d1\u8c03\u7528...\n          </div>\n        ) : (\n          logs.map((log) => (\n            <div\n              key={log.id}\n              style={{\n                padding: '4px 12px',\n                borderBottom: '1px solid #f5f5f5',\n                fontSize: 12,\n                color:\n                  log.type === 'request'\n                    ? '#1890ff'\n                    : log.type === 'success'\n                    ? '#52c41a'\n                    : log.type === 'burst'\n                    ? '#722ed1'\n                    : log.type === 'result'\n                    ? '#389e0d'\n                    : '#666',\n              }}\n            >\n              <span style={{ color: '#bbb', marginRight: 8 }}>{log.time}</span>\n              {log.msg}\n            </div>\n          ))\n        )}\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'singleflight-demo',
         },
@@ -46468,12 +46510,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState } from 'react'\nimport { Tween, easing } from '@fexd/tools'\n\nconst TARGET = 996\n\nexport default () => {\n  const [num, setNum] = useState(0)\n\n  const [tween] = useState(() => {\n    return new Tween({\n      from: 0,\n      to: TARGET,\n      duration: 1200,\n    })\n      .on('update', (v) => setNum(Math.round(v)))\n      .start()\n  })\n\n  return (\n    <div>\n      <h2 style={{ fontSize: 48, margin: '16px 0', color: '#1890ff' }}>{num}</h2>\n      <button onClick={() => tween.restart()}>Restart</button>\n    </div>\n  )\n}",
+              jsx: "import React, { useState } from 'react'\nimport { Tween, easing } from '@fexd/tools'\n\nconst TARGET = 996\n\nexport default () => {\n  const [num, setNum] = useState(0)\n\n  const [tween] = useState(() => {\n    return new Tween({\n      from: 0,\n      to: TARGET,\n      duration: 1200,\n    })\n      .on('update', (v) => setNum(Math.round(v)))\n      .start()\n  })\n\n  return (\n    <div>\n      <h2 style={{ fontSize: 48, margin: '16px 0', color: '#1890ff' }}>\n        {num}\n      </h2>\n      <button onClick={() => tween.restart()}>Restart</button>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'Tween-demo',
         },
@@ -46556,11 +46598,11 @@
                     N.config({ ease: t }),
                     L.config({ ease: t })
                 }, []),
-                C = (0, a.useCallback)(function () {
+                j = (0, a.useCallback)(function () {
                   var e = (0, r.sample)(l)
                   I(e), A.restart()
                 }, []),
-                j = (0, a.useCallback)(
+                C = (0, a.useCallback)(
                   function () {
                     var e = !E
                     g(e), A.config({ loop: e })
@@ -46733,12 +46775,12 @@
                   { style: { display: 'flex', flexWrap: 'wrap', gap: 6 } },
                   a['default'].createElement(
                     'button',
-                    { style: o, onClick: C },
+                    { style: o, onClick: j },
                     'Random Easing'
                   ),
                   a['default'].createElement(
                     'button',
-                    { style: o, onClick: j },
+                    { style: o, onClick: C },
                     'Toggle Loop: ',
                     String(E)
                   )
@@ -46750,12 +46792,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef, useCallback } from 'react'\nimport { Tween, easing, sample } from '@fexd/tools'\n\nconst EASING_NAMES = Object.keys(easing).filter(\n  (k) => !['reverse', 'mirror', 'flicker', 'wobble', 'pulse', 'blink', 'fromTo', 'from', 'to', 'none', 'full'].includes(k)\n)\n\nconst btnStyle = { padding: '4px 12px', fontSize: 12, cursor: 'pointer', borderRadius: 4, border: '1px solid #d9d9d9' }\n\nexport default () => {\n  const progressRef = useRef(null)\n  const [currentEase, setCurrentEase] = useState('outCubic')\n  const [duration, setDuration] = useState(1200)\n  const [isLoop, setIsLoop] = useState(true)\n  const [progress, setProgress] = useState(0)\n\n  const [tweens] = useState(() => {\n    const x = new Tween({ from: 0, to: 300 })\n    const y = new Tween({ from: 0, to: -30, ease: easing.outBack })\n    const scale = new Tween({ from: 1, to: 2 })\n    const rotate = new Tween({ from: 0, to: 360 })\n\n    const main = new Tween({ duration: 1200, loop: true })\n      .on('update', (p) => {\n        setProgress(p)\n        if (progressRef.current) progressRef.current.value = p * 100\n      })\n\n    return { main, x, y, scale, rotate }\n  })\n\n  const tw = tweens.main\n  const { x, y, scale, rotate } = tweens\n\n  const updateEase = useCallback((name) => {\n    setCurrentEase(name)\n    const fn = easing[name] || easing.linear\n    x.config({ ease: fn })\n    scale.config({ ease: fn })\n    rotate.config({ ease: fn })\n  }, [])\n\n  const randomEasing = useCallback(() => {\n    const name = sample(EASING_NAMES)\n    updateEase(name)\n    tw.restart()\n  }, [])\n\n  const toggleLoop = useCallback(() => {\n    const next = !isLoop\n    setIsLoop(next)\n    tw.config({ loop: next })\n  }, [isLoop])\n\n  const faster = useCallback(() => {\n    const d = Math.max(200, duration - 200)\n    setDuration(d)\n    tw.config({ duration: d })\n  }, [duration])\n\n  const slower = useCallback(() => {\n    const d = duration + 200\n    setDuration(d)\n    tw.config({ duration: d })\n  }, [duration])\n\n  const xv = x.value(progress)\n  const yv = y.value(progress)\n  const sv = scale.value(progress)\n  const rv = rotate.value(progress)\n\n  return (\n    <div>\n      <div style={{ marginBottom: 8, fontSize: 13, color: '#666' }}>\n        <strong>{duration}ms</strong> / <strong>{currentEase}</strong>\n      </div>\n\n      <div style={{ marginBottom: 12 }}>\n        <input\n          ref={progressRef}\n          type=\"range\" defaultValue=\"0\" min=\"0\" max=\"100\"\n          style={{ width: '100%' }}\n          onInput={(e) => { tw.stop(); tw.progress(Number(e.target.value) / 100) }}\n          onMouseUp={() => tw.start()}\n        />\n      </div>\n\n      <div style={{\n        width: 36, height: 36, borderRadius: 6,\n        background: 'linear-gradient(135deg, #1890ff, #722ed1)',\n        transform: `translateX(${xv}px) translateY(${yv}px) scale(${sv}) rotate(${rv}deg)`,\n        margin: '16px 0 50px',\n        transition: 'none',\n      }} />\n\n      <pre style={{ background: '#f5f5f5', padding: 8, borderRadius: 4, fontSize: 11, color: '#690', margin: '0 0 12px' }}>\n{`translateX(${xv.toFixed(1)}px)  translateY(${yv.toFixed(1)}px)\nscale(${sv.toFixed(2)})  rotate(${rv.toFixed(1)}deg)`}\n      </pre>\n\n      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>\n        <button style={btnStyle} onClick={() => tw.start()}>Start</button>\n        <button style={btnStyle} onClick={() => tw.stop()}>Stop</button>\n        <button style={btnStyle} onClick={() => tw.reset()}>Reset</button>\n        <button style={btnStyle} onClick={() => tw.restart()}>Restart</button>\n      </div>\n      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>\n        <button style={btnStyle} onClick={faster}>Faster</button>\n        <button style={btnStyle} onClick={slower}>Slow down</button>\n        <button style={btnStyle} onClick={() => tw.reverse()}>Reverse</button>\n      </div>\n      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>\n        <button style={btnStyle} onClick={randomEasing}>Random Easing</button>\n        <button style={btnStyle} onClick={toggleLoop}>Toggle Loop: {String(isLoop)}</button>\n      </div>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef, useCallback } from 'react'\nimport { Tween, easing, sample } from '@fexd/tools'\n\nconst EASING_NAMES = Object.keys(easing).filter(\n  (k) =>\n    ![\n      'reverse',\n      'mirror',\n      'flicker',\n      'wobble',\n      'pulse',\n      'blink',\n      'fromTo',\n      'from',\n      'to',\n      'none',\n      'full',\n    ].includes(k)\n)\n\nconst btnStyle = {\n  padding: '4px 12px',\n  fontSize: 12,\n  cursor: 'pointer',\n  borderRadius: 4,\n  border: '1px solid #d9d9d9',\n}\n\nexport default () => {\n  const progressRef = useRef(null)\n  const [currentEase, setCurrentEase] = useState('outCubic')\n  const [duration, setDuration] = useState(1200)\n  const [isLoop, setIsLoop] = useState(true)\n  const [progress, setProgress] = useState(0)\n\n  const [tweens] = useState(() => {\n    const x = new Tween({ from: 0, to: 300 })\n    const y = new Tween({ from: 0, to: -30, ease: easing.outBack })\n    const scale = new Tween({ from: 1, to: 2 })\n    const rotate = new Tween({ from: 0, to: 360 })\n\n    const main = new Tween({ duration: 1200, loop: true }).on('update', (p) => {\n      setProgress(p)\n      if (progressRef.current) progressRef.current.value = p * 100\n    })\n\n    return { main, x, y, scale, rotate }\n  })\n\n  const tw = tweens.main\n  const { x, y, scale, rotate } = tweens\n\n  const updateEase = useCallback((name) => {\n    setCurrentEase(name)\n    const fn = easing[name] || easing.linear\n    x.config({ ease: fn })\n    scale.config({ ease: fn })\n    rotate.config({ ease: fn })\n  }, [])\n\n  const randomEasing = useCallback(() => {\n    const name = sample(EASING_NAMES)\n    updateEase(name)\n    tw.restart()\n  }, [])\n\n  const toggleLoop = useCallback(() => {\n    const next = !isLoop\n    setIsLoop(next)\n    tw.config({ loop: next })\n  }, [isLoop])\n\n  const faster = useCallback(() => {\n    const d = Math.max(200, duration - 200)\n    setDuration(d)\n    tw.config({ duration: d })\n  }, [duration])\n\n  const slower = useCallback(() => {\n    const d = duration + 200\n    setDuration(d)\n    tw.config({ duration: d })\n  }, [duration])\n\n  const xv = x.value(progress)\n  const yv = y.value(progress)\n  const sv = scale.value(progress)\n  const rv = rotate.value(progress)\n\n  return (\n    <div>\n      <div style={{ marginBottom: 8, fontSize: 13, color: '#666' }}>\n        <strong>{duration}ms</strong> / <strong>{currentEase}</strong>\n      </div>\n\n      <div style={{ marginBottom: 12 }}>\n        <input\n          ref={progressRef}\n          type=\"range\"\n          defaultValue=\"0\"\n          min=\"0\"\n          max=\"100\"\n          style={{ width: '100%' }}\n          onInput={(e) => {\n            tw.stop()\n            tw.progress(Number(e.target.value) / 100)\n          }}\n          onMouseUp={() => tw.start()}\n        />\n      </div>\n\n      <div\n        style={{\n          width: 36,\n          height: 36,\n          borderRadius: 6,\n          background: 'linear-gradient(135deg, #1890ff, #722ed1)',\n          transform: `translateX(${xv}px) translateY(${yv}px) scale(${sv}) rotate(${rv}deg)`,\n          margin: '16px 0 50px',\n          transition: 'none',\n        }}\n      />\n\n      <pre\n        style={{\n          background: '#f5f5f5',\n          padding: 8,\n          borderRadius: 4,\n          fontSize: 11,\n          color: '#690',\n          margin: '0 0 12px',\n        }}\n      >\n        {`translateX(${xv.toFixed(1)}px)  translateY(${yv.toFixed(1)}px)\nscale(${sv.toFixed(2)})  rotate(${rv.toFixed(1)}deg)`}\n      </pre>\n\n      <div\n        style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}\n      >\n        <button style={btnStyle} onClick={() => tw.start()}>\n          Start\n        </button>\n        <button style={btnStyle} onClick={() => tw.stop()}>\n          Stop\n        </button>\n        <button style={btnStyle} onClick={() => tw.reset()}>\n          Reset\n        </button>\n        <button style={btnStyle} onClick={() => tw.restart()}>\n          Restart\n        </button>\n      </div>\n      <div\n        style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}\n      >\n        <button style={btnStyle} onClick={faster}>\n          Faster\n        </button>\n        <button style={btnStyle} onClick={slower}>\n          Slow down\n        </button>\n        <button style={btnStyle} onClick={() => tw.reverse()}>\n          Reverse\n        </button>\n      </div>\n      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>\n        <button style={btnStyle} onClick={randomEasing}>\n          Random Easing\n        </button>\n        <button style={btnStyle} onClick={toggleLoop}>\n          Toggle Loop: {String(isLoop)}\n        </button>\n      </div>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'Tween-demo-1',
         },
@@ -46972,12 +47014,12 @@
         previewerProps: {
           sources: {
             _: {
-              jsx: "import React, { useState, useRef, useCallback } from 'react'\nimport { Tween, easing } from '@fexd/tools'\n\nconst SAMPLE_TEXT = '\u4f60\u597d\uff01\u6211\u662f AI \u52a9\u624b\u3002Tween \u53ef\u4ee5\u63a7\u5236\u6587\u5b57\u9010\u5b57\u663e\u793a\u7684\u8282\u594f\uff0c\u914d\u5408\u7f13\u52a8\u51fd\u6570\u8ba9\u6253\u5b57\u901f\u5ea6\u4ece\u5feb\u5230\u6162\uff0c\u6a21\u62df\u4eba\u7c7b\u601d\u8003\u540e\u4f5c\u7b54\u7684\u6548\u679c\u3002\u8fd9\u6bd4\u56fa\u5b9a\u95f4\u9694\u7684 setInterval \u66f4\u52a0\u81ea\u7136\u6d41\u7545\u3002'\n\nexport default () => {\n  const [text, setText] = useState('')\n  const [isTyping, setIsTyping] = useState(false)\n  const [easeName, setEaseName] = useState('outQuad')\n  const [duration, setDuration] = useState(2000)\n  const tweenRef = useRef(null)\n\n  const start = useCallback(() => {\n    tweenRef.current?.stop()\n    setText('')\n    setIsTyping(true)\n\n    const tween = new Tween({\n      from: 0,\n      to: SAMPLE_TEXT.length,\n      duration,\n      ease: easing[easeName] || easing.linear,\n    })\n      .on('update', (val) => {\n        setText(SAMPLE_TEXT.slice(0, Math.round(val)))\n      })\n      .on('end', () => setIsTyping(false))\n      .start()\n\n    tweenRef.current = tween\n  }, [easeName, duration])\n\n  const stop = () => { tweenRef.current?.stop(); setIsTyping(false) }\n\n  const btnStyle = { padding: '4px 12px', fontSize: 12, cursor: 'pointer', borderRadius: 4, border: '1px solid #d9d9d9' }\n\n  return (\n    <div>\n      <div style={{\n        minHeight: 80, padding: 16, borderRadius: 8, background: '#f6f8fa',\n        border: '1px solid #e8e8e8', marginBottom: 12, fontSize: 14, lineHeight: 1.8,\n      }}>\n        {text}\n        {isTyping && <span style={{ borderRight: '2px solid #1890ff', marginLeft: 2, animation: 'blink 1s steps(1) infinite' }} />}\n        {!text && !isTyping && <span style={{ color: '#bbb' }}>\u70b9\u51fb\u300c\u5f00\u59cb\u300d\u67e5\u770b\u6253\u5b57\u673a\u6548\u679c...</span>}\n      </div>\n\n      <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', marginBottom: 8 }}>\n        <button style={{ ...btnStyle, background: '#1890ff', color: '#fff', border: '1px solid #1890ff' }} onClick={start}>\n          {isTyping ? '\u91cd\u65b0\u5f00\u59cb' : '\u5f00\u59cb'}\n        </button>\n        <button style={btnStyle} onClick={stop} disabled={!isTyping}>\u505c\u6b62</button>\n        <select value={easeName} onChange={(e) => setEaseName(e.target.value)} style={{ padding: '3px 8px', borderRadius: 4, border: '1px solid #d9d9d9', fontSize: 12 }}>\n          <option value=\"linear\">linear\uff08\u5300\u901f\uff09</option>\n          <option value=\"outQuad\">outQuad\uff08\u5148\u5feb\u540e\u6162\uff09</option>\n          <option value=\"inQuad\">inQuad\uff08\u5148\u6162\u540e\u5feb\uff09</option>\n          <option value=\"inOutCubic\">inOutCubic\uff08\u6162-\u5feb-\u6162\uff09</option>\n          <option value=\"outExpo\">outExpo\uff08\u6025\u505c\uff09</option>\n        </select>\n        <span style={{ fontSize: 12, color: '#666' }}>{duration}ms</span>\n        <input type=\"range\" min={500} max={5000} step={100} value={duration} onChange={(e) => setDuration(+e.target.value)} style={{ width: 100 }} />\n      </div>\n\n      <pre style={{ background: '#f5f5f5', padding: 8, borderRadius: 4, fontSize: 11, color: '#690' }}>\n{`const tween = new Tween({\n  from: 0,\n  to: text.length,   // ${SAMPLE_TEXT.length} \u4e2a\u5b57\u7b26\n  duration: ${duration},\n  ease: easing.${easeName},\n})\ntween.on('update', (val) => {\n  displayText = fullText.slice(0, Math.round(val))\n})`}\n      </pre>\n    </div>\n  )\n}",
+              jsx: "import React, { useState, useRef, useCallback } from 'react'\nimport { Tween, easing } from '@fexd/tools'\n\nconst SAMPLE_TEXT =\n  '\u4f60\u597d\uff01\u6211\u662f AI \u52a9\u624b\u3002Tween \u53ef\u4ee5\u63a7\u5236\u6587\u5b57\u9010\u5b57\u663e\u793a\u7684\u8282\u594f\uff0c\u914d\u5408\u7f13\u52a8\u51fd\u6570\u8ba9\u6253\u5b57\u901f\u5ea6\u4ece\u5feb\u5230\u6162\uff0c\u6a21\u62df\u4eba\u7c7b\u601d\u8003\u540e\u4f5c\u7b54\u7684\u6548\u679c\u3002\u8fd9\u6bd4\u56fa\u5b9a\u95f4\u9694\u7684 setInterval \u66f4\u52a0\u81ea\u7136\u6d41\u7545\u3002'\n\nexport default () => {\n  const [text, setText] = useState('')\n  const [isTyping, setIsTyping] = useState(false)\n  const [easeName, setEaseName] = useState('outQuad')\n  const [duration, setDuration] = useState(2000)\n  const tweenRef = useRef(null)\n\n  const start = useCallback(() => {\n    tweenRef.current?.stop()\n    setText('')\n    setIsTyping(true)\n\n    const tween = new Tween({\n      from: 0,\n      to: SAMPLE_TEXT.length,\n      duration,\n      ease: easing[easeName] || easing.linear,\n    })\n      .on('update', (val) => {\n        setText(SAMPLE_TEXT.slice(0, Math.round(val)))\n      })\n      .on('end', () => setIsTyping(false))\n      .start()\n\n    tweenRef.current = tween\n  }, [easeName, duration])\n\n  const stop = () => {\n    tweenRef.current?.stop()\n    setIsTyping(false)\n  }\n\n  const btnStyle = {\n    padding: '4px 12px',\n    fontSize: 12,\n    cursor: 'pointer',\n    borderRadius: 4,\n    border: '1px solid #d9d9d9',\n  }\n\n  return (\n    <div>\n      <div\n        style={{\n          minHeight: 80,\n          padding: 16,\n          borderRadius: 8,\n          background: '#f6f8fa',\n          border: '1px solid #e8e8e8',\n          marginBottom: 12,\n          fontSize: 14,\n          lineHeight: 1.8,\n        }}\n      >\n        {text}\n        {isTyping && (\n          <span\n            style={{\n              borderRight: '2px solid #1890ff',\n              marginLeft: 2,\n              animation: 'blink 1s steps(1) infinite',\n            }}\n          />\n        )}\n        {!text && !isTyping && (\n          <span style={{ color: '#bbb' }}>\u70b9\u51fb\u300c\u5f00\u59cb\u300d\u67e5\u770b\u6253\u5b57\u673a\u6548\u679c...</span>\n        )}\n      </div>\n\n      <div\n        style={{\n          display: 'flex',\n          gap: 8,\n          alignItems: 'center',\n          flexWrap: 'wrap',\n          marginBottom: 8,\n        }}\n      >\n        <button\n          style={{\n            ...btnStyle,\n            background: '#1890ff',\n            color: '#fff',\n            border: '1px solid #1890ff',\n          }}\n          onClick={start}\n        >\n          {isTyping ? '\u91cd\u65b0\u5f00\u59cb' : '\u5f00\u59cb'}\n        </button>\n        <button style={btnStyle} onClick={stop} disabled={!isTyping}>\n          \u505c\u6b62\n        </button>\n        <select\n          value={easeName}\n          onChange={(e) => setEaseName(e.target.value)}\n          style={{\n            padding: '3px 8px',\n            borderRadius: 4,\n            border: '1px solid #d9d9d9',\n            fontSize: 12,\n          }}\n        >\n          <option value=\"linear\">linear\uff08\u5300\u901f\uff09</option>\n          <option value=\"outQuad\">outQuad\uff08\u5148\u5feb\u540e\u6162\uff09</option>\n          <option value=\"inQuad\">inQuad\uff08\u5148\u6162\u540e\u5feb\uff09</option>\n          <option value=\"inOutCubic\">inOutCubic\uff08\u6162-\u5feb-\u6162\uff09</option>\n          <option value=\"outExpo\">outExpo\uff08\u6025\u505c\uff09</option>\n        </select>\n        <span style={{ fontSize: 12, color: '#666' }}>{duration}ms</span>\n        <input\n          type=\"range\"\n          min={500}\n          max={5000}\n          step={100}\n          value={duration}\n          onChange={(e) => setDuration(+e.target.value)}\n          style={{ width: 100 }}\n        />\n      </div>\n\n      <pre\n        style={{\n          background: '#f5f5f5',\n          padding: 8,\n          borderRadius: 4,\n          fontSize: 11,\n          color: '#690',\n        }}\n      >\n        {`const tween = new Tween({\n  from: 0,\n  to: text.length,   // ${SAMPLE_TEXT.length} \u4e2a\u5b57\u7b26\n  duration: ${duration},\n  ease: easing.${easeName},\n})\ntween.on('update', (val) => {\n  displayText = fullText.slice(0, Math.round(val))\n})`}\n      </pre>\n    </div>\n  )\n}",
             },
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.1' },
+            '@fexd/tools': { version: '0.2.2' },
           },
           identifier: 'Tween-demo-2',
         },
@@ -48434,7 +48476,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isUndefined } from '@fexd/tools'\n\nisUndefined(undefined) // => true\nisUndefined(null)       // => false\nisUndefined(0)          // => false\nisUndefined('')         // => false",
+              code: "import { isUndefined } from '@fexd/tools'\n\nisUndefined(undefined) // => true\nisUndefined(null) // => false\nisUndefined(0) // => false\nisUndefined('') // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -48741,7 +48783,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isError } from '@fexd/tools'\n\nisError(new Error('oops'))          // => true\nisError(new TypeError('type'))     // => true\nisError(new RangeError('range'))   // => true\nisError('error message')           // => false\nisError({ message: 'err' })        // => false\nisError(null)                      // => false",
+              code: "import { isError } from '@fexd/tools'\n\nisError(new Error('oops')) // => true\nisError(new TypeError('type')) // => true\nisError(new RangeError('range')) // => true\nisError('error message') // => false\nisError({ message: 'err' }) // => false\nisError(null) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -49078,7 +49120,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { globalThis } from '@fexd/tools'\n\n// \u5728\u6d4f\u89c8\u5668\u4e2d\nglobalThis === window  // => true\n\n// \u8bbf\u95ee\u5168\u5c40\u53d8\u91cf\nglobalThis.myGlobalVar = 'hello'",
+              code: "import { globalThis } from '@fexd/tools'\n\n// \u5728\u6d4f\u89c8\u5668\u4e2d\nglobalThis === window // => true\n\n// \u8bbf\u95ee\u5168\u5c40\u53d8\u91cf\nglobalThis.myGlobalVar = 'hello'",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -49432,8 +49474,8 @@
     }
     var L = [],
       I = [],
-      C = 1,
-      j = null,
+      j = 1,
+      C = null,
       T = 3,
       R = !1,
       P = !1,
@@ -49461,28 +49503,28 @@
       var a = T
       try {
         for (
-          F(n), j = O(L);
-          null !== j && (!(j.expirationTime > n) || (e && !o()));
+          F(n), C = O(L);
+          null !== C && (!(C.expirationTime > n) || (e && !o()));
 
         ) {
-          var i = j.callback
+          var i = C.callback
           if (null !== i) {
-            ;(j.callback = null), (T = j.priorityLevel)
-            var c = i(j.expirationTime <= n)
+            ;(C.callback = null), (T = C.priorityLevel)
+            var c = i(C.expirationTime <= n)
             ;(n = t.unstable_now()),
-              'function' === typeof c ? (j.callback = c) : j === O(L) && _(L),
+              'function' === typeof c ? (C.callback = c) : C === O(L) && _(L),
               F(n)
           } else _(L)
-          j = O(L)
+          C = O(L)
         }
-        if (null !== j) var u = !0
+        if (null !== C) var u = !0
         else {
           var s = O(I)
           null !== s && r(z, s.startTime - n), (u = !1)
         }
         return u
       } finally {
-        ;(j = null), (T = a), (R = !1)
+        ;(C = null), (T = a), (R = !1)
       }
     }
     function D(e) {
@@ -49567,7 +49609,7 @@
         return (
           (o = c + o),
           (e = {
-            id: C++,
+            id: j++,
             callback: n,
             priorityLevel: e,
             startTime: c,
@@ -49587,12 +49629,12 @@
         F(e)
         var n = O(L)
         return (
-          (n !== j &&
-            null !== j &&
+          (n !== C &&
+            null !== C &&
             null !== n &&
             null !== n.callback &&
             n.startTime <= e &&
-            n.expirationTime < j.expirationTime) ||
+            n.expirationTime < C.expirationTime) ||
           o()
         )
       }),
@@ -49761,7 +49803,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { first } from '@fexd/tools'\n\nfirst([1, 2, 3])       // => 1\nfirst(['a', 'b'])      // => 'a'\nfirst({ x: 1, y: 2 }) // => 1\uff08\u53d6\u7b2c\u4e00\u4e2a\u952e\u7684\u503c\uff09\nfirst([])              // => undefined",
+              code: "import { first } from '@fexd/tools'\n\nfirst([1, 2, 3]) // => 1\nfirst(['a', 'b']) // => 'a'\nfirst({ x: 1, y: 2 }) // => 1\uff08\u53d6\u7b2c\u4e00\u4e2a\u952e\u7684\u503c\uff09\nfirst([]) // => undefined",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -50014,7 +50056,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { createCachedRequest } from '@fexd/tools'\n\nconst fetchUser = createCachedRequest(\n  (id: string) => fetch(`/api/user/${id}`).then(r => r.json()),\n  { cacheMinutes: 5 }\n)\n\n// \u7b2c\u4e00\u6b21\u8bf7\u6c42\uff1a\u53d1\u8d77\u7f51\u7edc\u8bf7\u6c42\nconst user1 = await fetchUser('123')\n\n// \u7b2c\u4e8c\u6b21\u8bf7\u6c42\uff085 \u5206\u949f\u5185\uff09\uff1a\u76f4\u63a5\u8fd4\u56de\u7f13\u5b58\nconst user2 = await fetchUser('123')\n\n// \u624b\u52a8\u6e05\u9664\u7f13\u5b58\nfetchUser.cache.clear()",
+              code: "import { createCachedRequest } from '@fexd/tools'\n\nconst fetchUser = createCachedRequest(\n  (id: string) => fetch(`/api/user/${id}`).then((r) => r.json()),\n  { cacheMinutes: 5 }\n)\n\n// \u7b2c\u4e00\u6b21\u8bf7\u6c42\uff1a\u53d1\u8d77\u7f51\u7edc\u8bf7\u6c42\nconst user1 = await fetchUser('123')\n\n// \u7b2c\u4e8c\u6b21\u8bf7\u6c42\uff085 \u5206\u949f\u5185\uff09\uff1a\u76f4\u63a5\u8fd4\u56de\u7f13\u5b58\nconst user2 = await fetchUser('123')\n\n// \u624b\u52a8\u6e05\u9664\u7f13\u5b58\nfetchUser.cache.clear()",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -50381,7 +50423,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isNumber } from '@fexd/tools'\n\nisNumber(123)     // => true\nisNumber(0)       // => true\nisNumber(-3.14)   // => true\nisNumber(NaN)      // => false\uff08NaN \u88ab\u6392\u9664\uff09\nisNumber('123')    // => false\nisNumber(null)     // => false",
+              code: "import { isNumber } from '@fexd/tools'\n\nisNumber(123) // => true\nisNumber(0) // => true\nisNumber(-3.14) // => true\nisNumber(NaN) // => false\uff08NaN \u88ab\u6392\u9664\uff09\nisNumber('123') // => false\nisNumber(null) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -50593,7 +50635,7 @@
                 '\u7c7b\u578b\u7b7e\u540d'
               ),
               r.a.createElement(i['a'], {
-                code: 'type EasingFunction = (position: number, ...args: any[]) => number\ninterface EasingFunctionMap { [key: string]: EasingFunction }\n\nconst easing: EasingFunctionMap',
+                code: 'type EasingFunction = (position: number, ...args: any[]) => number\ninterface EasingFunctionMap {\n  [key: string]: EasingFunction\n}\n\nconst easing: EasingFunctionMap',
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -50890,7 +50932,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { easing, Tween } from '@fexd/tools'\n\n// \u76f4\u63a5\u4f7f\u7528\u7f13\u52a8\u51fd\u6570\neasing.inQuad(0.5)     // => 0.25\neasing.outBounce(0.5)  // => 0.5\neasing.linear(0.5)     // => 0.5\n\n// \u914d\u5408 Tween \u52a8\u753b\nconst tween = new Tween({\n  from: 0,\n  to: 100,\n  duration: 1000,\n  ease: easing.outCubic,\n})\n\n// \u7279\u6b8a\u51fd\u6570\neasing.reverse(0.3, easing.inQuad)  // \u53cd\u8f6c\u7f13\u52a8\neasing.mirror(0.3, easing.linear)    // \u955c\u50cf\u7f13\u52a8\neasing.pulse(0.5, 3)                // \u8109\u51b2\u6548\u679c\neasing.spring(0.5)                  // \u5f39\u7c27\u6548\u679c",
+                code: "import { easing, Tween } from '@fexd/tools'\n\n// \u76f4\u63a5\u4f7f\u7528\u7f13\u52a8\u51fd\u6570\neasing.inQuad(0.5) // => 0.25\neasing.outBounce(0.5) // => 0.5\neasing.linear(0.5) // => 0.5\n\n// \u914d\u5408 Tween \u52a8\u753b\nconst tween = new Tween({\n  from: 0,\n  to: 100,\n  duration: 1000,\n  ease: easing.outCubic,\n})\n\n// \u7279\u6b8a\u51fd\u6570\neasing.reverse(0.3, easing.inQuad) // \u53cd\u8f6c\u7f13\u52a8\neasing.mirror(0.3, easing.linear) // \u955c\u50cf\u7f13\u52a8\neasing.pulse(0.5, 3) // \u8109\u51b2\u6548\u679c\neasing.spring(0.5) // \u5f39\u7c27\u6548\u679c",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -52037,8 +52079,8 @@
       ),
       L = null,
       I = null,
-      C = null
-    function j(e) {
+      j = null
+    function C(e) {
       if ((e = E(e))) {
         if ('function' !== typeof L) throw Error(o(280))
         var t = e.stateNode
@@ -52046,13 +52088,13 @@
       }
     }
     function T(e) {
-      I ? (C ? C.push(e) : (C = [e])) : (I = e)
+      I ? (j ? j.push(e) : (j = [e])) : (I = e)
     }
     function R() {
       if (I) {
         var e = I,
-          t = C
-        if (((C = I = null), j(e), t)) for (e = 0; e < t.length; e++) j(t[e])
+          t = j
+        if (((j = I = null), C(e), t)) for (e = 0; e < t.length; e++) C(t[e])
       }
     }
     function P(e, t) {
@@ -52066,7 +52108,7 @@
       B = !1,
       D = !1
     function W() {
-      ;(null === I && null === C) || (F(), R())
+      ;(null === I && null === j) || (F(), R())
     }
     function U(e, t, n) {
       if (D) return e(t, n)
@@ -52450,7 +52492,7 @@
     function Ie(e, t) {
       ;(t = t.checked), null != t && te(e, 'checked', t, !1)
     }
-    function Ce(e, t) {
+    function je(e, t) {
       Ie(e, t)
       var n = we(t.value),
         a = t.type
@@ -52467,7 +52509,7 @@
           null != t.defaultChecked &&
           (e.defaultChecked = !!t.defaultChecked)
     }
-    function je(e, t, n) {
+    function Ce(e, t, n) {
       if (t.hasOwnProperty('value') || t.hasOwnProperty('defaultValue')) {
         var a = t.type
         if (
@@ -52911,8 +52953,8 @@
       Nt = null,
       Lt = null,
       It = new Map(),
-      Ct = new Map(),
-      jt = [],
+      jt = new Map(),
+      Ct = [],
       Tt =
         'mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput close cancel copy cut paste click change contextmenu reset submit'.split(
           ' '
@@ -52959,7 +53001,7 @@
           break
         case 'gotpointercapture':
         case 'lostpointercapture':
-          Ct.delete(t.pointerId)
+          jt.delete(t.pointerId)
       }
     }
     function zt(e, t, n, a, r, l) {
@@ -52983,7 +53025,7 @@
         case 'gotpointercapture':
           return (
             (l = r.pointerId),
-            Ct.set(l, zt(Ct.get(l) || null, e, t, n, a, r)),
+            jt.set(l, zt(jt.get(l) || null, e, t, n, a, r)),
             !0
           )
       }
@@ -53039,7 +53081,7 @@
         null !== Nt && Wt(Nt) && (Nt = null),
         null !== Lt && Wt(Lt) && (Lt = null),
         It.forEach(Ut),
-        Ct.forEach(Ut)
+        jt.forEach(Ut)
     }
     function Gt(e, t) {
       e.blockedOn === t &&
@@ -53064,14 +53106,14 @@
           null !== Nt && Gt(Nt, e),
           null !== Lt && Gt(Lt, e),
           It.forEach(t),
-          Ct.forEach(t),
+          jt.forEach(t),
           n = 0;
-        n < jt.length;
+        n < Ct.length;
         n++
       )
-        (a = jt[n]), a.blockedOn === e && (a.blockedOn = null)
-      for (; 0 < jt.length && ((n = jt[0]), null === n.blockedOn); )
-        Dt(n), null === n.blockedOn && jt.shift()
+        (a = Ct[n]), a.blockedOn === e && (a.blockedOn = null)
+      for (; 0 < Ct.length && ((n = Ct[0]), null === n.blockedOn); )
+        Dt(n), null === n.blockedOn && Ct.shift()
     }
     var Ht = {},
       Vt = new Map(),
@@ -53454,7 +53496,7 @@
       Nn = '$!',
       Ln = null,
       In = null
-    function Cn(e, t) {
+    function jn(e, t) {
       switch (e) {
         case 'button':
         case 'input':
@@ -53464,7 +53506,7 @@
       }
       return !1
     }
-    function jn(e, t) {
+    function Cn(e, t) {
       return (
         'textarea' === e ||
         'option' === e ||
@@ -53922,11 +53964,11 @@
     function Ia(e) {
       pt(e)
     }
-    function Ca(e) {
+    function ja(e) {
       var t = qn(e)
       if (_e(t)) return e
     }
-    function ja(e, t) {
+    function Ca(e, t) {
       if ('change' === e) return t
     }
     var Ta = !1
@@ -53934,7 +53976,7 @@
       Na && (Na.detachEvent('onpropertychange', Pa), (La = Na = null))
     }
     function Pa(e) {
-      if ('value' === e.propertyName && Ca(La))
+      if ('value' === e.propertyName && ja(La))
         if (((e = _a(La, e, ht(e))), B)) pt(e)
         else {
           B = !0
@@ -53952,13 +53994,13 @@
     }
     function Fa(e) {
       if ('selectionchange' === e || 'keyup' === e || 'keydown' === e)
-        return Ca(La)
+        return ja(La)
     }
     function za(e, t) {
-      if ('click' === e) return Ca(t)
+      if ('click' === e) return ja(t)
     }
     function Ba(e, t) {
-      if ('input' === e || 'change' === e) return Ca(t)
+      if ('input' === e || 'change' === e) return ja(t)
     }
     N &&
       (Ta =
@@ -53969,7 +54011,7 @@
         extractEvents: function (e, t, n, a) {
           var r = t ? qn(t) : window,
             l = r.nodeName && r.nodeName.toLowerCase()
-          if ('select' === l || ('input' === l && 'file' === r.type)) var o = ja
+          if ('select' === l || ('input' === l && 'file' === r.type)) var o = Ca
           else if (Aa(r))
             if (Ta) o = Ba
             else {
@@ -54522,8 +54564,8 @@
     var Nr = {},
       Lr = { current: Nr },
       Ir = { current: !1 },
-      Cr = Nr
-    function jr(e, t) {
+      jr = Nr
+    function Cr(e, t) {
       var n = e.type.contextTypes
       if (!n) return Nr
       var a = e.stateNode
@@ -54563,7 +54605,7 @@
         (e =
           ((e = e.stateNode) && e.__reactInternalMemoizedMergedChildContext) ||
           Nr),
-        (Cr = Lr.current),
+        (jr = Lr.current),
         _r(Lr, e),
         _r(Ir, Ir.current),
         !0
@@ -54573,7 +54615,7 @@
       var a = e.stateNode
       if (!a) throw Error(o(169))
       n
-        ? ((e = Mr(e, t, Cr)),
+        ? ((e = Mr(e, t, jr)),
           (a.__reactInternalMemoizedMergedChildContext = e),
           Or(Ir),
           Or(Lr),
@@ -54898,8 +54940,8 @@
         }
     }
     var Il = ee.ReactCurrentBatchConfig,
-      Cl = new a.Component().refs
-    function jl(e, t, n, a) {
+      jl = new a.Component().refs
+    function Cl(e, t, n, a) {
       ;(t = e.memoizedState),
         (n = n(a, t)),
         (n = null === n || void 0 === n ? t : r({}, t, n)),
@@ -54963,9 +55005,9 @@
       return (
         'object' === typeof l && null !== l
           ? (l = kl(l))
-          : ((r = Tr(t) ? Cr : Lr.current),
+          : ((r = Tr(t) ? jr : Lr.current),
             (a = t.contextTypes),
-            (l = (a = null !== a && void 0 !== a) ? jr(e, r) : Nr)),
+            (l = (a = null !== a && void 0 !== a) ? Cr(e, r) : Nr)),
         (t = new t(n, l)),
         (e.memoizedState =
           null !== t.state && void 0 !== t.state ? t.state : null),
@@ -54989,16 +55031,16 @@
     }
     function Fl(e, t, n, a) {
       var r = e.stateNode
-      ;(r.props = n), (r.state = e.memoizedState), (r.refs = Cl), wl(e)
+      ;(r.props = n), (r.state = e.memoizedState), (r.refs = jl), wl(e)
       var l = t.contextType
       'object' === typeof l && null !== l
         ? (r.context = kl(l))
-        : ((l = Tr(t) ? Cr : Lr.current), (r.context = jr(e, l))),
+        : ((l = Tr(t) ? jr : Lr.current), (r.context = Cr(e, l))),
         Nl(e, n, r, a),
         (r.state = e.memoizedState),
         (l = t.getDerivedStateFromProps),
         'function' === typeof l &&
-          (jl(e, t, l, n), (r.state = e.memoizedState)),
+          (Cl(e, t, l, n), (r.state = e.memoizedState)),
         'function' === typeof t.getDerivedStateFromProps ||
           'function' === typeof r.getSnapshotBeforeUpdate ||
           ('function' !== typeof r.UNSAFE_componentWillMount &&
@@ -55032,7 +55074,7 @@
             ? t.ref
             : ((t = function (e) {
                 var t = a.refs
-                t === Cl && (t = a.refs = {}),
+                t === jl && (t = a.refs = {}),
                   null === e ? delete t[r] : (t[r] = e)
               }),
               (t._stringRef = r),
@@ -55682,7 +55724,7 @@
         ? a[0]
         : ((n.memoizedState = [e, t]), e)
     }
-    function Co(e, t) {
+    function jo(e, t) {
       var n = po()
       t = void 0 === t ? null : t
       var a = n.memoizedState
@@ -55690,7 +55732,7 @@
         ? a[0]
         : ((e = e()), (n.memoizedState = [e, t]), e)
     }
-    function jo(e, t, n) {
+    function Co(e, t, n) {
       var a = rl()
       ol(98 > a ? 98 : a, function () {
         e(!0)
@@ -55824,7 +55866,7 @@
         useTransition: function (e) {
           var t = vo(!1),
             n = t[0]
-          return (t = t[1]), [Lo(jo.bind(null, t, e), [t, e]), n]
+          return (t = t[1]), [Lo(Co.bind(null, t, e), [t, e]), n]
         },
       },
       Mo = {
@@ -55834,7 +55876,7 @@
         useEffect: So,
         useImperativeHandle: _o,
         useLayoutEffect: Ao,
-        useMemo: Co,
+        useMemo: jo,
         useReducer: Eo,
         useRef: yo,
         useState: function () {
@@ -55865,7 +55907,7 @@
         useTransition: function (e) {
           var t = Eo(ho),
             n = t[0]
-          return (t = t[1]), [Io(jo.bind(null, t, e), [t, e]), n]
+          return (t = t[1]), [Io(Co.bind(null, t, e), [t, e]), n]
         },
       },
       Fo = {
@@ -55875,7 +55917,7 @@
         useEffect: So,
         useImperativeHandle: _o,
         useLayoutEffect: Ao,
-        useMemo: Co,
+        useMemo: jo,
         useReducer: go,
         useRef: yo,
         useState: function () {
@@ -55906,7 +55948,7 @@
         useTransition: function (e) {
           var t = go(ho),
             n = t[0]
-          return (t = t[1]), [Io(jo.bind(null, t, e), [t, e]), n]
+          return (t = t[1]), [Io(Co.bind(null, t, e), [t, e]), n]
         },
       },
       zo = null,
@@ -55978,7 +56020,7 @@
       var t = e.type
       if (
         5 !== e.tag ||
-        ('head' !== t && 'body' !== t && !jn(t, e.memoizedProps))
+        ('head' !== t && 'body' !== t && !Cn(t, e.memoizedProps))
       )
         for (t = Bo; t; ) Wo(e, t), (t = Pn(t.nextSibling))
       if ((Go(e), 13 === e.tag)) {
@@ -56068,9 +56110,9 @@
         (t.effectTag |= 128)
     }
     function ei(e, t, n, a, r) {
-      var l = Tr(n) ? Cr : Lr.current
+      var l = Tr(n) ? jr : Lr.current
       return (
-        (l = jr(t, l)),
+        (l = Cr(t, l)),
         yl(t, r),
         (n = mo(e, t, n, a, l, r)),
         null === e || Xo
@@ -56100,7 +56142,7 @@
           u = n.contextType
         'object' === typeof u && null !== u
           ? (u = kl(u))
-          : ((u = Tr(n) ? Cr : Lr.current), (u = jr(t, u)))
+          : ((u = Tr(n) ? jr : Lr.current), (u = Cr(t, u)))
         var s = n.getDerivedStateFromProps,
           d =
             'function' === typeof s ||
@@ -56116,7 +56158,7 @@
           (c = t.memoizedState),
           i !== a || m !== c || Ir.current || xl
             ? ('function' === typeof s &&
-                (jl(t, n, s, a), (c = t.memoizedState)),
+                (Cl(t, n, s, a), (c = t.memoizedState)),
               (i = xl || Rl(t, n, i, a, m, c, u))
                 ? (d ||
                     ('function' !== typeof o.UNSAFE_componentWillMount &&
@@ -56146,7 +56188,7 @@
           (u = n.contextType),
           'object' === typeof u && null !== u
             ? (u = kl(u))
-            : ((u = Tr(n) ? Cr : Lr.current), (u = jr(t, u))),
+            : ((u = Tr(n) ? jr : Lr.current), (u = Cr(t, u))),
           (s = n.getDerivedStateFromProps),
           (d =
             'function' === typeof s ||
@@ -56161,7 +56203,7 @@
           (m = t.memoizedState),
           i !== a || c !== m || Ir.current || xl
             ? ('function' === typeof s &&
-                (jl(t, n, s, a), (m = t.memoizedState)),
+                (Cl(t, n, s, a), (m = t.memoizedState)),
               (s = xl || Rl(t, n, i, a, c, m, u))
                 ? (d ||
                     ('function' !== typeof o.UNSAFE_componentWillUpdate &&
@@ -56538,7 +56580,7 @@
                 }
               switch (l) {
                 case 'input':
-                  Oe(a), je(a, i, !0)
+                  Oe(a), Ce(a, i, !0)
                   break
                 case 'textarea':
                   Oe(a), De(a)
@@ -56639,7 +56681,7 @@
                 }
               switch (l) {
                 case 'input':
-                  Oe(e), je(e, a, !1)
+                  Oe(e), Ce(e, a, !1)
                   break
                 case 'textarea':
                   Oe(e), De(e)
@@ -56658,7 +56700,7 @@
                 default:
                   'function' === typeof u.onClick && (e.onclick = vn)
               }
-              Cn(l, a) && (t.effectTag |= 4)
+              jn(l, a) && (t.effectTag |= 4)
             }
             null !== t.ref && (t.effectTag |= 128)
           }
@@ -57083,7 +57125,7 @@
             void (
               null === t &&
               4 & n.effectTag &&
-              Cn(n.type, n.memoizedProps) &&
+              jn(n.type, n.memoizedProps) &&
               e.focus()
             )
           )
@@ -57147,7 +57189,7 @@
           ki(t)
           break
         case 4:
-          ji(e, t, n)
+          Ci(e, t, n)
       }
     }
     function _i(e) {
@@ -57215,7 +57257,7 @@
           break e
         }
       }
-      a ? Ii(e, n, t) : Ci(e, n, t)
+      a ? Ii(e, n, t) : ji(e, n, t)
     }
     function Ii(e, t, n) {
       var a = e.tag,
@@ -57237,17 +57279,17 @@
         for (Ii(e, t, n), e = e.sibling; null !== e; )
           Ii(e, t, n), (e = e.sibling)
     }
-    function Ci(e, t, n) {
+    function ji(e, t, n) {
       var a = e.tag,
         r = 5 === a || 6 === a
       if (r)
         (e = r ? e.stateNode : e.stateNode.instance),
           t ? n.insertBefore(e, t) : n.appendChild(e)
       else if (4 !== a && ((e = e.child), null !== e))
-        for (Ci(e, t, n), e = e.sibling; null !== e; )
-          Ci(e, t, n), (e = e.sibling)
+        for (ji(e, t, n), e = e.sibling; null !== e; )
+          ji(e, t, n), (e = e.sibling)
     }
-    function ji(e, t, n) {
+    function Ci(e, t, n) {
       for (var a, r, l = t, i = !1; ; ) {
         if (!i) {
           i = l.return
@@ -57347,7 +57389,7 @@
               }
               switch (e) {
                 case 'input':
-                  Ce(n, a)
+                  je(n, a)
                   break
                 case 'textarea':
                   Be(n, a)
@@ -57813,7 +57855,7 @@
           ul()
       }
     }
-    function Cc(e, t) {
+    function jc(e, t) {
       var n = Ji
       Ji |= 1
       try {
@@ -57822,7 +57864,7 @@
         ;(Ji = n), Ji === Ui && ul()
       }
     }
-    function jc(e, t) {
+    function Cc(e, t) {
       var n = Ji
       ;(Ji &= -2), (Ji |= qi)
       try {
@@ -58211,7 +58253,7 @@
                   Ti(dc.alternate, dc)
                   break
                 case 8:
-                  ;(s = dc), ji(i, s, c), _i(s)
+                  ;(s = dc), Ci(i, s, c), _i(s)
               }
               dc = dc.nextEffect
             }
@@ -58480,7 +58522,7 @@
             null !== e &&
               ((e.alternate = null), (t.alternate = null), (t.effectTag |= 2)),
             (e = t.pendingProps),
-            (r = jr(t, Lr.current)),
+            (r = Cr(t, Lr.current)),
             yl(t, n),
             (r = mo(null, t, a, e, r, n)),
             (t.effectTag |= 1),
@@ -58502,7 +58544,7 @@
               null !== r.state && void 0 !== r.state ? r.state : null),
               wl(t)
             var i = a.getDerivedStateFromProps
-            'function' === typeof i && jl(t, a, i, e),
+            'function' === typeof i && Cl(t, a, i, e),
               (r.updater = Tl),
               (t.stateNode = r),
               (r._reactInternalFiber = t),
@@ -58595,9 +58637,9 @@
             (r = t.pendingProps),
             (l = null !== e ? e.memoizedProps : null),
             (i = r.children),
-            jn(a, r)
+            Cn(a, r)
               ? (i = null)
-              : null !== l && jn(a, l) && (t.effectTag |= 16),
+              : null !== l && Cn(a, l) && (t.effectTag |= 16),
             Zo(e, t),
             4 & t.mode && 1 !== n && r.hidden
               ? ((t.expirationTime = t.childExpirationTime = 1), (t = null))
@@ -59081,7 +59123,7 @@
             c.call(e)
           }
         }
-        jc(function () {
+        Cc(function () {
           hu(t, o, e, r)
         })
       }
@@ -59132,7 +59174,7 @@
       (L = function (e, t, n) {
         switch (t) {
           case 'input':
-            if ((Ce(e, n), (t = n.name), 'radio' === n.type && null != t)) {
+            if ((je(e, n), (t = n.name), 'radio' === n.type && null != t)) {
               for (n = e; n.parentNode; ) n = n.parentNode
               for (
                 n = n.querySelectorAll(
@@ -59146,7 +59188,7 @@
                 if (a !== e && a.form === e.form) {
                   var r = Gn(a)
                   if (!r) throw Error(o(90))
-                  _e(a), Ce(a, r)
+                  _e(a), je(a, r)
                 }
               }
             }
@@ -59158,7 +59200,7 @@
             ;(t = n.value), null != t && Me(e, !!n.multiple, t, !1)
         }
       }),
-      (P = Cc),
+      (P = jc),
       (M = function (e, t, n, a, r) {
         var l = Ji
         Ji |= 4
@@ -59261,7 +59303,7 @@
         if (!yu(e)) throw Error(o(40))
         return (
           !!e._reactRootContainer &&
-          (jc(function () {
+          (Cc(function () {
             xu(null, null, e, !1, function () {
               ;(e._reactRootContainer = null), (e[Dn] = null)
             })
@@ -59269,7 +59311,7 @@
           !0)
         )
       }),
-      (t.unstable_batchedUpdates = Cc),
+      (t.unstable_batchedUpdates = jc),
       (t.unstable_createPortal = function (e, t) {
         return Su(
           e,
@@ -60089,7 +60131,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { flatten } from '@fexd/tools'\n\nflatten([1, [2, [3, [4]]]])       // => [1, 2, 3, 4]\uff08\u9ed8\u8ba4\u5b8c\u5168\u6241\u5e73\u5316\uff09\nflatten([1, [2, [3, [4]]]], 1)    // => [1, 2, [3, [4]]]\uff08\u53ea\u5c55\u5f00\u4e00\u5c42\uff09\nflatten([1, [2, [3, [4]]]], 2)    // => [1, 2, 3, [4]]\uff08\u5c55\u5f00\u4e24\u5c42\uff09\nflatten([1, 2, 3])               // => [1, 2, 3]\uff08\u65e0\u5d4c\u5957\u4e0d\u53d8\uff09",
+                code: "import { flatten } from '@fexd/tools'\n\nflatten([1, [2, [3, [4]]]]) // => [1, 2, 3, 4]\uff08\u9ed8\u8ba4\u5b8c\u5168\u6241\u5e73\u5316\uff09\nflatten([1, [2, [3, [4]]]], 1) // => [1, 2, [3, [4]]]\uff08\u53ea\u5c55\u5f00\u4e00\u5c42\uff09\nflatten([1, [2, [3, [4]]]], 2) // => [1, 2, 3, [4]]\uff08\u5c55\u5f00\u4e24\u5c42\uff09\nflatten([1, 2, 3]) // => [1, 2, 3]\uff08\u65e0\u5d4c\u5957\u4e0d\u53d8\uff09",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -60652,7 +60694,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { depsChanged } from '@fexd/tools'\n\ndepsChanged([1, 2, 3], [1, 2, 3])    // => false\uff08\u76f8\u540c\uff09\ndepsChanged([1, 2], [1, 2, 3])       // => true\uff08\u957f\u5ea6\u4e0d\u540c\uff09\ndepsChanged([1, 'a'], [1, 'b'])      // => true\uff08\u5143\u7d20\u4e0d\u540c\uff09\n\nconst obj = { a: 1 }\ndepsChanged([obj], [obj])            // => false\uff08\u540c\u4e00\u5f15\u7528\uff09\ndepsChanged([{ a: 1 }], [{ a: 1 }]) // => true\uff08\u4e0d\u540c\u5f15\u7528\uff09",
+              code: "import { depsChanged } from '@fexd/tools'\n\ndepsChanged([1, 2, 3], [1, 2, 3]) // => false\uff08\u76f8\u540c\uff09\ndepsChanged([1, 2], [1, 2, 3]) // => true\uff08\u957f\u5ea6\u4e0d\u540c\uff09\ndepsChanged([1, 'a'], [1, 'b']) // => true\uff08\u5143\u7d20\u4e0d\u540c\uff09\n\nconst obj = { a: 1 }\ndepsChanged([obj], [obj]) // => false\uff08\u540c\u4e00\u5f15\u7528\uff09\ndepsChanged([{ a: 1 }], [{ a: 1 }]) // => true\uff08\u4e0d\u540c\u5f15\u7528\uff09",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -60924,7 +60966,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { darkenColor } from '@fexd/tools'\n\ndarkenColor('#ffffff', 50)  // => '#7f7f7f'\uff08\u767d\u8272\u52a0\u6df1 50%\uff09\ndarkenColor('#ff0000', 20)  // => '#cc0000'\uff08\u7ea2\u8272\u52a0\u6df1 20%\uff09\ndarkenColor('#336699', 0)   // => '#336699'\uff08\u4e0d\u53d8\uff09",
+                code: "import { darkenColor } from '@fexd/tools'\n\ndarkenColor('#ffffff', 50) // => '#7f7f7f'\uff08\u767d\u8272\u52a0\u6df1 50%\uff09\ndarkenColor('#ff0000', 20) // => '#cc0000'\uff08\u7ea2\u8272\u52a0\u6df1 20%\uff09\ndarkenColor('#336699', 0) // => '#336699'\uff08\u4e0d\u53d8\uff09",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -61889,7 +61931,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isNumberString } from '@fexd/tools'\n\nisNumberString('123')        // => true\nisNumberString('-3.14')      // => true\nisNumberString('1.5e10')     // => true\nisNumberString('1E-7')       // => true\nisNumberString('abc')        // => false\nisNumberString('12.34.56')   // => false\nisNumberString('')           // => false\nisNumberString(123)          // => false",
+              code: "import { isNumberString } from '@fexd/tools'\n\nisNumberString('123') // => true\nisNumberString('-3.14') // => true\nisNumberString('1.5e10') // => true\nisNumberString('1E-7') // => true\nisNumberString('abc') // => false\nisNumberString('12.34.56') // => false\nisNumberString('') // => false\nisNumberString(123) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -62237,7 +62279,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { curry } from '@fexd/tools'\n\nconst add = curry((a, b, c) => a + b + c)\n\nadd(1)(2)(3)    // => 6\nadd(1, 2)(3)    // => 6\nadd(1)(2, 3)    // => 6\nadd(1, 2, 3)    // => 6",
+                code: "import { curry } from '@fexd/tools'\n\nconst add = curry((a, b, c) => a + b + c)\n\nadd(1)(2)(3) // => 6\nadd(1, 2)(3) // => 6\nadd(1)(2, 3) // => 6\nadd(1, 2, 3) // => 6",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -62635,7 +62677,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { get } from '@fexd/tools'\n\nconst obj = { a: { b: { c: 'hello' } } }\n\nget(obj, 'a.b.c')             // => 'hello'\nget(obj, 'a.b.d', 'default')  // => 'default'\uff08\u8def\u5f84\u4e0d\u5b58\u5728\uff0c\u8fd4\u56de\u9ed8\u8ba4\u503c\uff09\nget(obj, ['a', 'b', 'c'])     // => 'hello'\nget(obj, 'a.b')               // => { c: 'hello' }\nget(null, 'a.b')              // => undefined\uff08\u5b89\u5168\u8bbf\u95ee\uff0c\u4e0d\u62a5\u9519\uff09",
+                code: "import { get } from '@fexd/tools'\n\nconst obj = { a: { b: { c: 'hello' } } }\n\nget(obj, 'a.b.c') // => 'hello'\nget(obj, 'a.b.d', 'default') // => 'default'\uff08\u8def\u5f84\u4e0d\u5b58\u5728\uff0c\u8fd4\u56de\u9ed8\u8ba4\u503c\uff09\nget(obj, ['a', 'b', 'c']) // => 'hello'\nget(obj, 'a.b') // => { c: 'hello' }\nget(null, 'a.b') // => undefined\uff08\u5b89\u5168\u8bbf\u95ee\uff0c\u4e0d\u62a5\u9519\uff09",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -63153,11 +63195,11 @@
         var t = u(e)
         return 'DataView' === t || c(L, t)
       },
-      C = function (e) {
+      j = function (e) {
         return i(e) && c(L, u(e))
       },
-      j = function (e) {
-        if (C(e)) return e
+      C = function (e) {
+        if (j(e)) return e
         throw TypeError('Target is not a typed array')
       },
       T = function (e) {
@@ -63217,12 +63259,12 @@
     e.exports = {
       NATIVE_ARRAY_BUFFER_VIEWS: _,
       TYPED_ARRAY_TAG: N && O,
-      aTypedArray: j,
+      aTypedArray: C,
       aTypedArrayConstructor: T,
       exportTypedArrayMethod: R,
       exportTypedArrayStaticMethod: P,
       isView: I,
-      isTypedArray: C,
+      isTypedArray: j,
       TypedArray: k,
       TypedArrayPrototype: x,
     }
@@ -63879,7 +63921,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { createProxyGetter } from '@fexd/tools'\n\n// \u6240\u6709\u5c5e\u6027\u8bbf\u95ee\u8fd4\u56de\u5927\u5199\nconst proxy = createProxyGetter({ name: 'alice', age: 25 }, (value, prop) => {\n  return typeof value === 'string' ? value.toUpperCase() : value\n})\nproxy.name  // => 'ALICE'\nproxy.age   // => 25\n\n// valueHandler \u975e\u51fd\u6570\u65f6\uff0c\u5df2\u6709\u5c5e\u6027\u5168\u90e8\u8fd4\u56de\u8be5\u503c\nconst always = createProxyGetter({ a: 1, b: 2 }, 42)\nalways.a  // => 42\nalways.b  // => 42\nalways.c  // => undefined\uff08\u4e0d\u5b58\u5728\u7684\u5c5e\u6027\u76f4\u63a5\u8fd4\u56de undefined\uff0c\u4e0d\u7ecf\u8fc7 handler\uff09",
+              code: "import { createProxyGetter } from '@fexd/tools'\n\n// \u6240\u6709\u5c5e\u6027\u8bbf\u95ee\u8fd4\u56de\u5927\u5199\nconst proxy = createProxyGetter({ name: 'alice', age: 25 }, (value, prop) => {\n  return typeof value === 'string' ? value.toUpperCase() : value\n})\nproxy.name // => 'ALICE'\nproxy.age // => 25\n\n// valueHandler \u975e\u51fd\u6570\u65f6\uff0c\u5df2\u6709\u5c5e\u6027\u5168\u90e8\u8fd4\u56de\u8be5\u503c\nconst always = createProxyGetter({ a: 1, b: 2 }, 42)\nalways.a // => 42\nalways.b // => 42\nalways.c // => undefined\uff08\u4e0d\u5b58\u5728\u7684\u5c5e\u6027\u76f4\u63a5\u8fd4\u56de undefined\uff0c\u4e0d\u7ecf\u8fc7 handler\uff09",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -64138,7 +64180,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { hexToRgb } from '@fexd/tools'\n\n// 6 \u4f4d\u6807\u51c6\u683c\u5f0f\nhexToRgb('#ff0000')     // => { r: 255, g: 0, b: 0 }\nhexToRgb('#1890ff')     // => { r: 24, g: 144, b: 255 }\n\n// 3 \u4f4d\u7b80\u5199\nhexToRgb('#fff')        // => { r: 255, g: 255, b: 255 }\nhexToRgb('#ABC')        // => { r: 170, g: 187, b: 204 }\n\n// 8 \u4f4d\u5e26 alpha\uff08CSS Color Level 4\uff09\nhexToRgb('#ff000080')   // => { r: 255, g: 0, b: 0, a: 0.5 }\nhexToRgb('#1890ffcc')   // => { r: 24, g: 144, b: 255, a: 0.8 }\n\n// 4 \u4f4d\u7b80\u5199\u5e26 alpha\nhexToRgb('#f00f')       // => { r: 255, g: 0, b: 0, a: 1 }\nhexToRgb('#0000')       // => { r: 0, g: 0, b: 0, a: 0 }",
+                code: "import { hexToRgb } from '@fexd/tools'\n\n// 6 \u4f4d\u6807\u51c6\u683c\u5f0f\nhexToRgb('#ff0000') // => { r: 255, g: 0, b: 0 }\nhexToRgb('#1890ff') // => { r: 24, g: 144, b: 255 }\n\n// 3 \u4f4d\u7b80\u5199\nhexToRgb('#fff') // => { r: 255, g: 255, b: 255 }\nhexToRgb('#ABC') // => { r: 170, g: 187, b: 204 }\n\n// 8 \u4f4d\u5e26 alpha\uff08CSS Color Level 4\uff09\nhexToRgb('#ff000080') // => { r: 255, g: 0, b: 0, a: 0.5 }\nhexToRgb('#1890ffcc') // => { r: 24, g: 144, b: 255, a: 0.8 }\n\n// 4 \u4f4d\u7b80\u5199\u5e26 alpha\nhexToRgb('#f00f') // => { r: 255, g: 0, b: 0, a: 1 }\nhexToRgb('#0000') // => { r: 0, g: 0, b: 0, a: 0 }",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -64431,7 +64473,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isReactElementLike } from '@fexd/tools'\nimport React from 'react'\n\nisReactElementLike(<div />)                      // => true\nisReactElementLike(React.createElement('span'))  // => true\nisReactElementLike(React.memo(() => null))       // => true\nisReactElementLike(React.forwardRef(() => null)) // => true\n\nisReactElementLike({ type: 'div' })              // => false\uff08\u65e0 $$typeof\uff09\nisReactElementLike(null)                         // => false\nisReactElementLike('hello')                      // => false",
+              code: "import { isReactElementLike } from '@fexd/tools'\nimport React from 'react'\n\nisReactElementLike(<div />) // => true\nisReactElementLike(React.createElement('span')) // => true\nisReactElementLike(React.memo(() => null)) // => true\nisReactElementLike(React.forwardRef(() => null)) // => true\n\nisReactElementLike({ type: 'div' }) // => false\uff08\u65e0 $$typeof\uff09\nisReactElementLike(null) // => false\nisReactElementLike('hello') // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -64705,7 +64747,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isNull } from '@fexd/tools'\n\nisNull(null)       // => true\nisNull(undefined)  // => false\nisNull(0)          // => false\nisNull('')         // => false",
+              code: "import { isNull } from '@fexd/tools'\n\nisNull(null) // => true\nisNull(undefined) // => false\nisNull(0) // => false\nisNull('') // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -65019,7 +65061,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { randomRGB } from '@fexd/tools'\n\nrandomRGB()     // => '#a3f2c1'\uff08\u968f\u673a\uff09\nrandomRGB(128)  // => '#e4d8f0'\uff08\u8f83\u4eae\u7684\u989c\u8272\uff09",
+                code: "import { randomRGB } from '@fexd/tools'\n\nrandomRGB() // => '#a3f2c1'\uff08\u968f\u673a\uff09\nrandomRGB(128) // => '#e4d8f0'\uff08\u8f83\u4eae\u7684\u989c\u8272\uff09",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -65272,7 +65314,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { sample } from '@fexd/tools'\n\nsample([1, 2, 3, 4])     // => \u968f\u673a\u8fd4\u56de\u5176\u4e2d\u4e00\u4e2a\u5143\u7d20\nsample(['a', 'b', 'c'])  // => 'a' \u6216 'b' \u6216 'c'\nsample([])               // => undefined",
+                code: "import { sample } from '@fexd/tools'\n\nsample([1, 2, 3, 4]) // => \u968f\u673a\u8fd4\u56de\u5176\u4e2d\u4e00\u4e2a\u5143\u7d20\nsample(['a', 'b', 'c']) // => 'a' \u6216 'b' \u6216 'c'\nsample([]) // => undefined",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -65678,11 +65720,11 @@
         t
       )
     }
-    function C(e) {
+    function j(e) {
       return e && e.__esModule ? e['default'] : e
     }
-    function j(e, t) {
-      return Object(i['createElement'])(C(e), t)
+    function C(e, t) {
+      return Object(i['createElement'])(j(e), t)
     }
     function T(e, t) {
       var n = Object.assign(
@@ -65691,7 +65733,7 @@
             loading: null,
             delay: 200,
             timeout: null,
-            render: j,
+            render: C,
             webpack: null,
             modules: null,
           },
@@ -66276,7 +66318,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { preloadImage } from '@fexd/tools'\n\n// \u9884\u52a0\u8f7d\u56fe\u7247\npreloadImage([\n  '/images/hero.jpg',\n  '/images/background.jpg',\n  '/images/icon.svg',\n])",
+              code: "import { preloadImage } from '@fexd/tools'\n\n// \u9884\u52a0\u8f7d\u56fe\u7247\npreloadImage(['/images/hero.jpg', '/images/background.jpg', '/images/icon.svg'])",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -66591,7 +66633,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isExist } from '@fexd/tools'\n\nisExist(0)          // => true\nisExist('')         // => true\nisExist(false)      // => true\uff08falsy \u503c\u4e5f\u662f\"\u5b58\u5728\"\u7684\uff09\nisExist(null)       // => false\nisExist(undefined)  // => false",
+              code: "import { isExist } from '@fexd/tools'\n\nisExist(0) // => true\nisExist('') // => true\nisExist(false) // => true\uff08falsy \u503c\u4e5f\u662f\"\u5b58\u5728\"\u7684\uff09\nisExist(null) // => false\nisExist(undefined) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -66828,7 +66870,7 @@
               '\u7c7b\u578b\u7b7e\u540d'
             ),
             r.a.createElement(o['a'], {
-              code: "interface Obj2FormdataOptions {\n  indices?: boolean          // \u6570\u7ec4\u4f7f\u7528 [0] \u800c\u975e []\uff0c\u9ed8\u8ba4 false\n  nullsAsUndefined?: boolean // null \u8df3\u8fc7\u800c\u975e\u8ffd\u52a0\u7a7a\u5b57\u7b26\u4e32\uff0c\u9ed8\u8ba4 false\n  booleansAsIntegers?: boolean // true/false \u2192 '1'/'0'\uff0c\u9ed8\u8ba4 false\n}\n\nfunction obj2formdata(obj: Record<string, any>, options?: Obj2FormdataOptions): FormData",
+              code: "interface Obj2FormdataOptions {\n  indices?: boolean // \u6570\u7ec4\u4f7f\u7528 [0] \u800c\u975e []\uff0c\u9ed8\u8ba4 false\n  nullsAsUndefined?: boolean // null \u8df3\u8fc7\u800c\u975e\u8ffd\u52a0\u7a7a\u5b57\u7b26\u4e32\uff0c\u9ed8\u8ba4 false\n  booleansAsIntegers?: boolean // true/false \u2192 '1'/'0'\uff0c\u9ed8\u8ba4 false\n}\n\nfunction obj2formdata(\n  obj: Record<string, any>,\n  options?: Obj2FormdataOptions\n): FormData",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -67000,7 +67042,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { obj2formdata } from '@fexd/tools'\n\n// \u7b80\u5355\u5bf9\u8c61\nconst fd = obj2formdata({ name: 'Alice', age: 25 })\nfd.get('name')  // => 'Alice'\nfd.get('age')   // => '25'\n\n// \u5d4c\u5957\u5bf9\u8c61 \u2192 key[subkey] \u683c\u5f0f\nobj2formdata({ user: { name: 'Bob', role: 'admin' } })\n// user[name] = 'Bob', user[role] = 'admin'\n\n// \u6570\u7ec4 \u2192 key[] \u683c\u5f0f\nobj2formdata({ tags: ['js', 'ts'] })\n// tags[] = 'js', tags[] = 'ts'\n\n// \u6570\u7ec4 + indices \u9009\u9879 \u2192 key[0] \u683c\u5f0f\nobj2formdata({ tags: ['js', 'ts'] }, { indices: true })\n// tags[0] = 'js', tags[1] = 'ts'\n\n// File/Blob \u76f4\u63a5\u8ffd\u52a0\nobj2formdata({ avatar: file, name: 'test' })\n\n// Date \u2192 ISO \u5b57\u7b26\u4e32\nobj2formdata({ created: new Date() })\n// created = '2024-01-15T10:30:00.000Z'\n\n// null \u5904\u7406\nobj2formdata({ a: null })                             // a = ''\nobj2formdata({ a: null }, { nullsAsUndefined: true }) // (\u8df3\u8fc7)\n\n// undefined \u603b\u662f\u88ab\u8df3\u8fc7\nobj2formdata({ a: undefined, b: 'ok' })  // \u53ea\u6709 b = 'ok'",
+              code: "import { obj2formdata } from '@fexd/tools'\n\n// \u7b80\u5355\u5bf9\u8c61\nconst fd = obj2formdata({ name: 'Alice', age: 25 })\nfd.get('name') // => 'Alice'\nfd.get('age') // => '25'\n\n// \u5d4c\u5957\u5bf9\u8c61 \u2192 key[subkey] \u683c\u5f0f\nobj2formdata({ user: { name: 'Bob', role: 'admin' } })\n// user[name] = 'Bob', user[role] = 'admin'\n\n// \u6570\u7ec4 \u2192 key[] \u683c\u5f0f\nobj2formdata({ tags: ['js', 'ts'] })\n// tags[] = 'js', tags[] = 'ts'\n\n// \u6570\u7ec4 + indices \u9009\u9879 \u2192 key[0] \u683c\u5f0f\nobj2formdata({ tags: ['js', 'ts'] }, { indices: true })\n// tags[0] = 'js', tags[1] = 'ts'\n\n// File/Blob \u76f4\u63a5\u8ffd\u52a0\nobj2formdata({ avatar: file, name: 'test' })\n\n// Date \u2192 ISO \u5b57\u7b26\u4e32\nobj2formdata({ created: new Date() })\n// created = '2024-01-15T10:30:00.000Z'\n\n// null \u5904\u7406\nobj2formdata({ a: null }) // a = ''\nobj2formdata({ a: null }, { nullsAsUndefined: true }) // (\u8df3\u8fc7)\n\n// undefined \u603b\u662f\u88ab\u8df3\u8fc7\nobj2formdata({ a: undefined, b: 'ok' }) // \u53ea\u6709 b = 'ok'",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -69274,14 +69316,14 @@
                       O--, (S = e.slice(w, L)), (A.index -= w)
                     } else if (((A = l(k, 0, S, g)), !A)) continue
                     _ = A.index
-                    var C = A[0],
-                      j = S.slice(0, _),
-                      T = S.slice(_ + C.length),
+                    var j = A[0],
+                      C = S.slice(0, _),
+                      T = S.slice(_ + j.length),
                       R = w + S.length
                     d && R > d.reach && (d.reach = R)
                     var P = x.prev
-                    j && ((P = c(t, P, j)), (w += j.length)), u(t, P, O)
-                    var M = new r(m, E ? a.tokenize(C, E) : C, b, C)
+                    C && ((P = c(t, P, C)), (w += C.length)), u(t, P, O)
+                    var M = new r(m, E ? a.tokenize(j, E) : j, b, j)
                     if (((x = c(t, P, M)), T && c(t, x, T), O > 1)) {
                       var F = { cause: m + ',' + p, reach: R }
                       o(e, t, n, x.prev, w, F),
@@ -72841,7 +72883,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { storage } from '@fexd/tools'\n\n// localStorage\nstorage.set('user', { name: 'Alice', age: 25 })\nstorage.get('user')    // => { name: 'Alice', age: 25 }\nstorage.remove('user')\nstorage.get('user')    // => undefined\n\n// sessionStorage\nstorage.setSession('token', 'abc123')\nstorage.getSession('token')  // => 'abc123'\nstorage.removeSession('token')",
+                code: "import { storage } from '@fexd/tools'\n\n// localStorage\nstorage.set('user', { name: 'Alice', age: 25 })\nstorage.get('user') // => { name: 'Alice', age: 25 }\nstorage.remove('user')\nstorage.get('user') // => undefined\n\n// sessionStorage\nstorage.setSession('token', 'abc123')\nstorage.getSession('token') // => 'abc123'\nstorage.removeSession('token')",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -73089,7 +73131,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { expandScientificNumberString } from '@fexd/tools'\n\n// \u6b63\u6307\u6570 \u2014 \u5c55\u5f00\u4e3a\u5927\u6570\nexpandScientificNumberString('1e20')     // => '100000000000000000000'\nexpandScientificNumberString('1.5e10')   // => '15000000000'\n\n// \u8d1f\u6307\u6570 \u2014 \u5c55\u5f00\u4e3a\u5c0f\u6570\nexpandScientificNumberString('1e-7')     // => '0.0000001'\nexpandScientificNumberString('3.14e-5')  // => '0.0000314'\n\n// \u8d1f\u6570\nexpandScientificNumberString('-2.5e3')   // => '-2500'\nexpandScientificNumberString('-1e-10')   // => '-0.0000000001'\n\n// \u975e\u79d1\u5b66\u8ba1\u6570\u6cd5 \u2014 \u539f\u6837\u8fd4\u56de\nexpandScientificNumberString('12345')    // => '12345'\nexpandScientificNumberString('3.14')     // => '3.14'",
+              code: "import { expandScientificNumberString } from '@fexd/tools'\n\n// \u6b63\u6307\u6570 \u2014 \u5c55\u5f00\u4e3a\u5927\u6570\nexpandScientificNumberString('1e20') // => '100000000000000000000'\nexpandScientificNumberString('1.5e10') // => '15000000000'\n\n// \u8d1f\u6307\u6570 \u2014 \u5c55\u5f00\u4e3a\u5c0f\u6570\nexpandScientificNumberString('1e-7') // => '0.0000001'\nexpandScientificNumberString('3.14e-5') // => '0.0000314'\n\n// \u8d1f\u6570\nexpandScientificNumberString('-2.5e3') // => '-2500'\nexpandScientificNumberString('-1e-10') // => '-0.0000000001'\n\n// \u975e\u79d1\u5b66\u8ba1\u6570\u6cd5 \u2014 \u539f\u6837\u8fd4\u56de\nexpandScientificNumberString('12345') // => '12345'\nexpandScientificNumberString('3.14') // => '3.14'",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -73442,7 +73484,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { getBrightness } from '@fexd/tools'\n\ngetBrightness('#ffffff')  // => 255\uff08\u7eaf\u767d\uff09\ngetBrightness('#000000')  // => 0\uff08\u7eaf\u9ed1\uff09\ngetBrightness('#ff0000')  // => 76.245\uff08\u7ea2\u8272\uff09\n\n// \u5e38\u7528\u4e8e\u5224\u65ad\u6587\u5b57\u5e94\u4f7f\u7528\u6df1\u8272\u8fd8\u662f\u6d45\u8272\nconst textColor = getBrightness(bgColor) > 128 ? '#000' : '#fff'",
+                code: "import { getBrightness } from '@fexd/tools'\n\ngetBrightness('#ffffff') // => 255\uff08\u7eaf\u767d\uff09\ngetBrightness('#000000') // => 0\uff08\u7eaf\u9ed1\uff09\ngetBrightness('#ff0000') // => 76.245\uff08\u7ea2\u8272\uff09\n\n// \u5e38\u7528\u4e8e\u5224\u65ad\u6587\u5b57\u5e94\u4f7f\u7528\u6df1\u8272\u8fd8\u662f\u6d45\u8272\nconst textColor = getBrightness(bgColor) > 128 ? '#000' : '#fff'",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -73766,7 +73808,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { deepMapItem } from '@fexd/tools'\n\n// \u6240\u6709\u5b57\u7b26\u4e32\u8f6c\u5927\u5199\ndeepMapItem({ name: 'alice', info: { city: 'beijing' } }, {\n  handleItem: (item) => typeof item === 'string' ? item.toUpperCase() : item,\n})\n// => { name: 'ALICE', info: { city: 'BEIJING' } }\n\n// \u6570\u7ec4\u4e5f\u652f\u6301\ndeepMapItem([1, [2, [3]]], {\n  handleItem: (item) => typeof item === 'number' ? item * 2 : item,\n})\n// => [2, [4, [6]]]",
+              code: "import { deepMapItem } from '@fexd/tools'\n\n// \u6240\u6709\u5b57\u7b26\u4e32\u8f6c\u5927\u5199\ndeepMapItem(\n  { name: 'alice', info: { city: 'beijing' } },\n  {\n    handleItem: (item) =>\n      typeof item === 'string' ? item.toUpperCase() : item,\n  }\n)\n// => { name: 'ALICE', info: { city: 'BEIJING' } }\n\n// \u6570\u7ec4\u4e5f\u652f\u6301\ndeepMapItem([1, [2, [3]]], {\n  handleItem: (item) => (typeof item === 'number' ? item * 2 : item),\n})\n// => [2, [4, [6]]]",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -74098,17 +74140,17 @@
               var N = String(w[0]),
                 L = d(m(i(w.index), f.length), 0),
                 I = [],
-                C = 1;
-              C < w.length;
-              C++
+                j = 1;
+              j < w.length;
+              j++
             )
-              I.push(E(w[C]))
-            var j = w.groups
+              I.push(E(w[j]))
+            var C = w.groups
             if (p) {
               var T = [N].concat(I, L, f)
-              void 0 !== j && T.push(j)
+              void 0 !== C && T.push(C)
               var R = String(a.apply(void 0, T))
-            } else R = y(N, f, L, I, j, a)
+            } else R = y(N, f, L, I, C, a)
             L >= O && ((A += f.slice(O, L) + R), (O = L + N.length))
           }
           return A + f.slice(O)
@@ -74639,7 +74681,7 @@
                 lang: 'ts',
               }),
               r.a.createElement(i['a'], {
-                code: "// \u94fe\u5f0f\u8c03\u7528\nconst bus2 = new EventBus<'start' | 'stop'>()\nbus2.on('start', () => console.log('started'))\n    .on('stop', () => console.log('stopped'))\n    .emit('start')",
+                code: "// \u94fe\u5f0f\u8c03\u7528\nconst bus2 = new EventBus<'start' | 'stop'>()\nbus2\n  .on('start', () => console.log('started'))\n  .on('stop', () => console.log('stopped'))\n  .emit('start')",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -75196,7 +75238,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isBigNumber } from '@fexd/tools'\n\n// \u5b89\u5168\u8303\u56f4\u5185\nisBigNumber('123')                    // => false\nisBigNumber('9007199254740991')       // => false\uff08MAX_SAFE_INTEGER\uff09\n\n// \u8d85\u51fa\u5b89\u5168\u8303\u56f4\nisBigNumber('9007199254740992')       // => true\uff08\u8d85\u51fa\u5b89\u5168\u6574\u6570\uff09\nisBigNumber('99999999999999999')      // => true\nisBigNumber('1e20')                   // => true\nisBigNumber('1e5')                    // => false\n\n// \u975e\u6570\u5b57\u5b57\u7b26\u4e32\nisBigNumber('hello')                  // => false\nisBigNumber(123)                      // => false\uff08\u975e\u5b57\u7b26\u4e32\u7c7b\u578b\uff09",
+              code: "import { isBigNumber } from '@fexd/tools'\n\n// \u5b89\u5168\u8303\u56f4\u5185\nisBigNumber('123') // => false\nisBigNumber('9007199254740991') // => false\uff08MAX_SAFE_INTEGER\uff09\n\n// \u8d85\u51fa\u5b89\u5168\u8303\u56f4\nisBigNumber('9007199254740992') // => true\uff08\u8d85\u51fa\u5b89\u5168\u6574\u6570\uff09\nisBigNumber('99999999999999999') // => true\nisBigNumber('1e20') // => true\nisBigNumber('1e5') // => false\n\n// \u975e\u6570\u5b57\u5b57\u7b26\u4e32\nisBigNumber('hello') // => false\nisBigNumber(123) // => false\uff08\u975e\u5b57\u7b26\u4e32\u7c7b\u578b\uff09",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -75602,7 +75644,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { uniqueId } from '@fexd/tools'\n\nuniqueId()        // => '_1_1716400000000_123456'\nuniqueId('item')  // => 'item_2_1716400000001_654321'\nuniqueId('item')  // => 'item_3_1716400000002_789012'",
+              code: "import { uniqueId } from '@fexd/tools'\n\nuniqueId() // => '_1_1716400000000_123456'\nuniqueId('item') // => 'item_2_1716400000001_654321'\nuniqueId('item') // => 'item_3_1716400000002_789012'",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -76348,7 +76390,7 @@
       }
     n('/0hc')
     function N(e, t) {
-      return T(e) || j(e, t) || I(e, t) || L()
+      return T(e) || C(e, t) || I(e, t) || L()
     }
     function L() {
       throw new TypeError(
@@ -76357,7 +76399,7 @@
     }
     function I(e, t) {
       if (e) {
-        if ('string' === typeof e) return C(e, t)
+        if ('string' === typeof e) return j(e, t)
         var n = Object.prototype.toString.call(e).slice(8, -1)
         return (
           'Object' === n && e.constructor && (n = e.constructor.name),
@@ -76365,17 +76407,17 @@
             ? Array.from(e)
             : 'Arguments' === n ||
               /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
-            ? C(e, t)
+            ? j(e, t)
             : void 0
         )
       }
     }
-    function C(e, t) {
+    function j(e, t) {
       ;(null == t || t > e.length) && (t = e.length)
       for (var n = 0, a = new Array(t); n < t; n++) a[n] = e[n]
       return a
     }
-    function j(e, t) {
+    function C(e, t) {
       var n =
         null == e
           ? null
@@ -76677,11 +76719,11 @@
           N = A[1],
           L = 'site' === d,
           I = L && f.hero,
-          C = L && f.features,
-          j = !1 !== f.sidemenu && !I && !C && !f.gapless,
+          j = L && f.features,
+          C = !1 !== f.sidemenu && !I && !j && !f.gapless,
           T =
             !I &&
-            !C &&
+            !j &&
             Boolean(
               null === (t = f.slugs) || void 0 === t ? void 0 : t.length
             ) &&
@@ -76703,7 +76745,7 @@
           {
             className: '__dumi-default-layout',
             'data-route': i.pathname,
-            'data-show-sidemenu': String(j),
+            'data-show-sidemenu': String(C),
             'data-show-slugs': String(T),
             'data-site-mode': L,
             'data-gapless': String(!!f.gapless),
@@ -76742,13 +76784,13 @@
               className: '__dumi-default-layout-toc',
             }),
           I && U(f.hero),
-          C && q(f.features),
+          j && q(f.features),
           r.a.createElement(
             'div',
             { className: '__dumi-default-layout-content' },
             o,
             !I &&
-              !C &&
+              !j &&
               f.filePath &&
               !f.gapless &&
               r.a.createElement(
@@ -76777,7 +76819,7 @@
                   z
                 )
               ),
-            (I || C) &&
+            (I || j) &&
               f.footer &&
               r.a.createElement('div', {
                 className: '__dumi-default-layout-footer',
@@ -77335,7 +77377,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isFunction } from '@fexd/tools'\n\nisFunction(() => {})          // => true\nisFunction(function() {})     // => true\nisFunction(123)               // => false\nisFunction('hello')           // => false\nisFunction(null)              // => false",
+              code: "import { isFunction } from '@fexd/tools'\n\nisFunction(() => {}) // => true\nisFunction(function () {}) // => true\nisFunction(123) // => false\nisFunction('hello') // => false\nisFunction(null) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -77690,8 +77732,8 @@
       return void 0 === e.state && -1 === navigator.userAgent.indexOf('CriOS')
     }
     var I = 'popstate',
-      C = 'hashchange'
-    function j() {
+      j = 'hashchange'
+    function C() {
       try {
         return window.history.state || {}
       } catch (e) {
@@ -77735,7 +77777,7 @@
         L(e) || P(h(e.state))
       }
       function T() {
-        P(h(j()))
+        P(h(C()))
       }
       var R = !1
       function P(e) {
@@ -77756,7 +77798,7 @@
         var r = n - a
         r && ((R = !0), U(r))
       }
-      var F = h(j()),
+      var F = h(C()),
         z = [F.key]
       function B(e) {
         return m + y(e)
@@ -77814,10 +77856,10 @@
         ;($ += e),
           1 === $ && 1 === e
             ? (window.addEventListener(I, N),
-              r && window.addEventListener(C, T))
+              r && window.addEventListener(j, T))
             : 0 === $ &&
               (window.removeEventListener(I, N),
-              r && window.removeEventListener(C, T))
+              r && window.removeEventListener(j, T))
       }
       var V = !1
       function X(e) {
@@ -77943,9 +77985,9 @@
         var r = n - a
         r && ((b = !0), G(r))
       }
-      var C = F(),
-        j = s(C)
-      C !== j && B(j)
+      var j = F(),
+        C = s(j)
+      j !== C && B(C)
       var T = m(),
         D = [y(T)]
       function W(e) {
@@ -78130,7 +78172,7 @@
   },
   q3YX: function (e) {
     e.exports = JSON.parse(
-      '{"menus":{"en-US":{"*":[{"path":"/","title":"@fexd/tools","meta":{}}],"/\u5f00\u53d1\u8005":[{"path":"/\u5f00\u53d1\u8005/cli","title":"CLI - \u547d\u4ee4\u884c\u5de5\u5177","meta":{"order":1}},{"path":"/\u5f00\u53d1\u8005/ai-skills","title":"AI Skills","meta":{"order":2}},{"path":"/\u5f00\u53d1\u8005/bundle-size","title":"\u5bfc\u51fa\u4f53\u79ef","meta":{"order":3}}],"/\u6587\u6863":[{"title":"\u5f03\u7528","meta":{"order":99,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f03\u7528/comb-judge","title":"CombJudge","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/get-formatter","title":"getFormatter","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/sas","title":"SAS","meta":{}}]},{"title":"\u5f02\u6b65\u4e0e\u51fd\u6570","path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570","meta":{},"children":[{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catch-promise","title":"catchPromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/curry","title":"curry","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/debounce","title":"debounce","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/delay","title":"delay","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/enhance-promise","title":"enhancePromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/identity","title":"identity","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/lock","title":"lock","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/memoize","title":"memoize","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/next-tick","title":"nextTick","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/pipe","title":"pipe","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/promise-guess","title":"promiseGuess","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/run","title":"run","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/throttle","title":"throttle","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/value","title":"value","meta":{}}]},{"title":"\u6570\u636e\u64cd\u4f5c","path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c","meta":{},"children":[{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/combination-matcher","title":"CombinationMatcher","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/compact-object","title":"compactObject","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-map-item","title":"deepMapItem","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-merge","title":"deepMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deps-changed","title":"depsChanged","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/diff-array","title":"diffArray","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/difference","title":"difference","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/first","title":"first","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/flatten","title":"flatten","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/get","title":"get","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/group-by","title":"groupBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/i18n","title":"I18n","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/intersection","title":"intersection","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/last","title":"last","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/merge","title":"merge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick","title":"pick","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick-by","title":"pickBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/reactivity","title":"reactive / computed / watch","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/sample","title":"sample","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/set","title":"set","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/shallow-merge","title":"shallowMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/uniq-by-key","title":"uniqByKey","meta":{}}]},{"title":"\u683c\u5f0f\u5316","path":"/\u6587\u6863/\u683c\u5f0f\u5316","meta":{},"children":[{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/capitalize","title":"capitalize","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/clamp","title":"clamp","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/create-separator-formatter","title":"createSeparatorFormatter","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/darken-color","title":"darkenColor","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/expand-scientific-number-string","title":"expandScientificNumberString","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/get-brightness","title":"getBrightness","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/hex-to-rgb","title":"hexToRgb","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/qs","title":"qs","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/random-rgb","title":"randomRGB","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/safe-stringify","title":"safeStringify","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/storage","title":"storage","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/to-fixed","title":"toFixed","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/url","title":"url","meta":{}}]},{"title":"\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","meta":{},"children":[{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/classnames","title":"classnames","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/copy","title":"copy","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-cached-request","title":"createCachedRequest","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-proxy-getter","title":"createProxyGetter","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/default-frame-process","title":"defaultProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/easing","title":"easing","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/event-bus","title":"EventBus","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/file2base64","title":"file2base64","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/formdata2obj","title":"formdata2obj","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/frame-process","title":"FrameProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/global-this","title":"globalThis","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/obj2formdata","title":"obj2formdata","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/preload-image","title":"preloadImage","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/random","title":"random","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/scroll-listener","title":"ScrollListener","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/segment","title":"segment","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/singleflight","title":"singleflight","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/source","title":"source","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/tween","title":"Tween","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/unique-id","title":"uniqueId","meta":{}}]},{"title":"\u7c7b\u578b\u5224\u65ad","path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad","meta":{},"children":[{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-android","title":"isAndroid","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-array","title":"isArray","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-big-number","title":"isBigNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-boolean","title":"isBoolean","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-date","title":"isDate","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-desktop","title":"isDesktop","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-empty","title":"isEmpty","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-error","title":"isError","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-exist","title":"isExist","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-finite","title":"isFinite","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-function","title":"isFunction","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-integer","title":"isInteger","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-ios","title":"isIOS","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-iterable","title":"isIterable","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-mobile","title":"isMobile","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-na-n","title":"isNaN","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-nil","title":"isNil","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-null","title":"isNull","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number","title":"isNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number-string","title":"isNumberString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-object","title":"isObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-plain-object","title":"isPlainObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-promise-like","title":"isPromiseLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-react-element-like","title":"isReactElementLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-reg-exp","title":"isRegExp","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-string","title":"isString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-symbol","title":"isSymbol","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-undefined","title":"isUndefined","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-wkwebview","title":"isWKWebview","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{"en-US":[{"title":"\u6587\u6863","path":"/\u6587\u6863"},{"title":"\u5f00\u53d1\u8005","path":"/\u5f00\u53d1\u8005"},{"title":"v0.2.1"}]},"title":"Fexd Tools","logo":"/tools/logo.png","mode":"site","repository":{"url":"https://github.com/fexd-team/tools","branch":"master"},"theme":{},"exportStatic":{}}'
+      '{"menus":{"en-US":{"*":[{"path":"/","title":"@fexd/tools","meta":{}}],"/\u5f00\u53d1\u8005":[{"path":"/\u5f00\u53d1\u8005/cli","title":"CLI - \u547d\u4ee4\u884c\u5de5\u5177","meta":{"order":1}},{"path":"/\u5f00\u53d1\u8005/ai-skills","title":"AI Skills","meta":{"order":2}},{"path":"/\u5f00\u53d1\u8005/bundle-size","title":"\u5bfc\u51fa\u4f53\u79ef","meta":{"order":3}}],"/\u6587\u6863":[{"title":"\u5f03\u7528","meta":{"order":99,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f03\u7528/comb-judge","title":"CombJudge","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/get-formatter","title":"getFormatter","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/sas","title":"SAS","meta":{}}]},{"title":"\u5f02\u6b65\u4e0e\u51fd\u6570","path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570","meta":{},"children":[{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catch-promise","title":"catchPromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/curry","title":"curry","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/debounce","title":"debounce","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/delay","title":"delay","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/enhance-promise","title":"enhancePromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/identity","title":"identity","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/lock","title":"lock","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/memoize","title":"memoize","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/next-tick","title":"nextTick","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/pipe","title":"pipe","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/promise-guess","title":"promiseGuess","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/run","title":"run","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/throttle","title":"throttle","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/value","title":"value","meta":{}}]},{"title":"\u6570\u636e\u64cd\u4f5c","path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c","meta":{},"children":[{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/combination-matcher","title":"CombinationMatcher","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/compact-object","title":"compactObject","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-map-item","title":"deepMapItem","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-merge","title":"deepMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deps-changed","title":"depsChanged","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/diff-array","title":"diffArray","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/difference","title":"difference","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/first","title":"first","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/flatten","title":"flatten","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/get","title":"get","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/group-by","title":"groupBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/i18n","title":"I18n","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/intersection","title":"intersection","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/last","title":"last","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/merge","title":"merge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick","title":"pick","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick-by","title":"pickBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/reactivity","title":"reactive / computed / watch","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/sample","title":"sample","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/set","title":"set","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/shallow-merge","title":"shallowMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/uniq-by-key","title":"uniqByKey","meta":{}}]},{"title":"\u683c\u5f0f\u5316","path":"/\u6587\u6863/\u683c\u5f0f\u5316","meta":{},"children":[{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/capitalize","title":"capitalize","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/clamp","title":"clamp","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/create-separator-formatter","title":"createSeparatorFormatter","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/darken-color","title":"darkenColor","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/expand-scientific-number-string","title":"expandScientificNumberString","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/get-brightness","title":"getBrightness","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/hex-to-rgb","title":"hexToRgb","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/qs","title":"qs","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/random-rgb","title":"randomRGB","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/safe-stringify","title":"safeStringify","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/storage","title":"storage","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/to-fixed","title":"toFixed","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/url","title":"url","meta":{}}]},{"title":"\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","meta":{},"children":[{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/classnames","title":"classnames","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/copy","title":"copy","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-cached-request","title":"createCachedRequest","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-proxy-getter","title":"createProxyGetter","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/default-frame-process","title":"defaultProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/easing","title":"easing","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/event-bus","title":"EventBus","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/file2base64","title":"file2base64","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/formdata2obj","title":"formdata2obj","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/frame-process","title":"FrameProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/global-this","title":"globalThis","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/obj2formdata","title":"obj2formdata","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/preload-image","title":"preloadImage","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/random","title":"random","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/scroll-listener","title":"ScrollListener","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/segment","title":"segment","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/singleflight","title":"singleflight","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/source","title":"source","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/tween","title":"Tween","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/unique-id","title":"uniqueId","meta":{}}]},{"title":"\u7c7b\u578b\u5224\u65ad","path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad","meta":{},"children":[{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-android","title":"isAndroid","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-array","title":"isArray","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-big-number","title":"isBigNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-boolean","title":"isBoolean","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-date","title":"isDate","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-desktop","title":"isDesktop","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-empty","title":"isEmpty","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-error","title":"isError","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-exist","title":"isExist","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-finite","title":"isFinite","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-function","title":"isFunction","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-integer","title":"isInteger","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-ios","title":"isIOS","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-iterable","title":"isIterable","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-mobile","title":"isMobile","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-na-n","title":"isNaN","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-nil","title":"isNil","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-null","title":"isNull","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number","title":"isNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number-string","title":"isNumberString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-object","title":"isObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-plain-object","title":"isPlainObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-promise-like","title":"isPromiseLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-react-element-like","title":"isReactElementLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-reg-exp","title":"isRegExp","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-string","title":"isString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-symbol","title":"isSymbol","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-undefined","title":"isUndefined","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-wkwebview","title":"isWKWebview","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{"en-US":[{"title":"\u6587\u6863","path":"/\u6587\u6863"},{"title":"\u5f00\u53d1\u8005","path":"/\u5f00\u53d1\u8005"},{"title":"v0.2.2"}]},"title":"Fexd Tools","logo":"/tools/logo.png","mode":"site","repository":{"url":"https://github.com/fexd-team/tools","branch":"master"},"theme":{},"exportStatic":{}}'
     )
   },
   q3wE: function (e, t, n) {
@@ -78432,7 +78474,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { pipe } from '@fexd/tools'\n\nconst add1 = (n) => n + 1\nconst mul2 = (n) => n * 2\nconst sub3 = (n) => n - 3\n\nconst calc = pipe(add1, mul2, sub3)\n\ncalc(5)  // => (5 + 1) * 2 - 3 = 9\n\n// \u7b49\u540c\u4e8e\nsub3(mul2(add1(5)))  // => 9",
+                code: "import { pipe } from '@fexd/tools'\n\nconst add1 = (n) => n + 1\nconst mul2 = (n) => n * 2\nconst sub3 = (n) => n - 3\n\nconst calc = pipe(add1, mul2, sub3)\n\ncalc(5) // => (5 + 1) * 2 - 3 = 9\n\n// \u7b49\u540c\u4e8e\nsub3(mul2(add1(5))) // => 9",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -78637,7 +78679,7 @@
                 '\u7c7b\u578b\u7b7e\u540d'
               ),
               r.a.createElement(i['a'], {
-                code: "interface ScrollListenerConfig {\n  element: HTMLBaseElement\n  scrollHandler?: Function\n  getScrollDistance?: Function\n  distanceToReachEnd?: number     // default: 100\n  onEndReached?: Function\n  distanceEvents?: DistanceEventType[]\n  direction?: 'vertical' | 'horizontal'  // default: 'vertical'\n}\n\nclass ScrollListener {\n  constructor(config: ScrollListenerConfig)\n  init(): this\n  destroy(): null\n}",
+                code: "interface ScrollListenerConfig {\n  element: HTMLBaseElement\n  scrollHandler?: Function\n  getScrollDistance?: Function\n  distanceToReachEnd?: number // default: 100\n  onEndReached?: Function\n  distanceEvents?: DistanceEventType[]\n  direction?: 'vertical' | 'horizontal' // default: 'vertical'\n}\n\nclass ScrollListener {\n  constructor(config: ScrollListenerConfig)\n  init(): this\n  destroy(): null\n}",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -79035,7 +79077,7 @@
                 ' \u5728\u79bb\u5f00\u65f6\u89e6\u53d1\u3002\u4e24\u8005\u53ef\u914d\u5408\u5b9e\u73b0\u8fdb\u5165/\u79bb\u5f00\u65f6\u7684\u5bf9\u79f0\u903b\u8f91\u3002'
               ),
               r.a.createElement(i['a'], {
-                code: "import { ScrollListener } from '@fexd/tools'\n\nconst container = document.getElementById('scroll-container')\n\n// onGoingIn / onGoingOut \u914d\u5408\uff1a\u6eda\u52a8\u8d8a\u8fc7\u56fa\u5b9a\u9608\u503c\u65f6\u5207\u6362\u6837\u5f0f\nconst listener = new ScrollListener({\n  element: container,\n  distanceEvents: [\n    {\n      distance: 300,\n      onGoingIn: () => header.classList.add('sticky'),\n      onGoingOut: () => header.classList.remove('sticky'),\n    },\n    {\n      distance: 600,\n      onGoingIn: () => nav.classList.add('compact'),\n      onGoingOut: () => nav.classList.remove('compact'),\n    },\n  ],\n})\n\n// dynamic: true \u2014 \u8ddd\u79bb\u9608\u503c\u968f\u5185\u5bb9\u9ad8\u5ea6\u53d8\u5316\uff0c\u6bcf\u5e27\u91cd\u65b0\u8ba1\u7b97\nconst listenerWithDynamic = new ScrollListener({\n  element: container,\n  distanceEvents: [\n    {\n      dynamic: true,\n      distance: () =>\n        container.scrollHeight - container.offsetHeight - 200,\n      onGoingIn: () => backToTop.classList.remove('visible'),\n      onGoingOut: () => backToTop.classList.add('visible'),\n    },\n  ],\n})",
+                code: "import { ScrollListener } from '@fexd/tools'\n\nconst container = document.getElementById('scroll-container')\n\n// onGoingIn / onGoingOut \u914d\u5408\uff1a\u6eda\u52a8\u8d8a\u8fc7\u56fa\u5b9a\u9608\u503c\u65f6\u5207\u6362\u6837\u5f0f\nconst listener = new ScrollListener({\n  element: container,\n  distanceEvents: [\n    {\n      distance: 300,\n      onGoingIn: () => header.classList.add('sticky'),\n      onGoingOut: () => header.classList.remove('sticky'),\n    },\n    {\n      distance: 600,\n      onGoingIn: () => nav.classList.add('compact'),\n      onGoingOut: () => nav.classList.remove('compact'),\n    },\n  ],\n})\n\n// dynamic: true \u2014 \u8ddd\u79bb\u9608\u503c\u968f\u5185\u5bb9\u9ad8\u5ea6\u53d8\u5316\uff0c\u6bcf\u5e27\u91cd\u65b0\u8ba1\u7b97\nconst listenerWithDynamic = new ScrollListener({\n  element: container,\n  distanceEvents: [\n    {\n      dynamic: true,\n      distance: () => container.scrollHeight - container.offsetHeight - 200,\n      onGoingIn: () => backToTop.classList.remove('visible'),\n      onGoingOut: () => backToTop.classList.add('visible'),\n    },\n  ],\n})",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -80196,7 +80238,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { singleflight, delay } from '@fexd/tools'\n\n// \u6a21\u62df\u8017\u65f6\u8bf7\u6c42\nconst fetchData = singleflight(async () => {\n  await delay(2000)\n  return { data: 'hello' }\n})\n\n// \u540c\u65f6\u53d1\u8d77\u591a\u6b21\u8bf7\u6c42\uff0c\u53ea\u6267\u884c\u4e00\u6b21\nconst [r1, r2, r3] = await Promise.all([\n  fetchData(),\n  fetchData(),  // \u590d\u7528\u540c\u4e00 Promise\n  fetchData(),  // \u590d\u7528\u540c\u4e00 Promise\n])\n// r1 === r2 === r3\uff0c\u53ea\u4ea7\u751f\u4e00\u6b21\u5b9e\u9645\u7f51\u7edc\u8bf7\u6c42\n\n// \u8bf7\u6c42\u5b8c\u6210\u540e\u518d\u6b21\u8c03\u7528\u4f1a\u91cd\u65b0\u53d1\u8d77\nconst r4 = await fetchData()  // \u65b0\u7684\u8bf7\u6c42",
+                code: "import { singleflight, delay } from '@fexd/tools'\n\n// \u6a21\u62df\u8017\u65f6\u8bf7\u6c42\nconst fetchData = singleflight(async () => {\n  await delay(2000)\n  return { data: 'hello' }\n})\n\n// \u540c\u65f6\u53d1\u8d77\u591a\u6b21\u8bf7\u6c42\uff0c\u53ea\u6267\u884c\u4e00\u6b21\nconst [r1, r2, r3] = await Promise.all([\n  fetchData(),\n  fetchData(), // \u590d\u7528\u540c\u4e00 Promise\n  fetchData(), // \u590d\u7528\u540c\u4e00 Promise\n])\n// r1 === r2 === r3\uff0c\u53ea\u4ea7\u751f\u4e00\u6b21\u5b9e\u9645\u7f51\u7edc\u8bf7\u6c42\n\n// \u8bf7\u6c42\u5b8c\u6210\u540e\u518d\u6b21\u8c03\u7528\u4f1a\u91cd\u65b0\u53d1\u8d77\nconst r4 = await fetchData() // \u65b0\u7684\u8bf7\u6c42",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -80230,7 +80272,7 @@
                 '1. \u7528\u6237\u4fe1\u606f\u83b7\u53d6\uff08\u591a\u7ec4\u4ef6\u5171\u4eab\uff09'
               ),
               r.a.createElement(i['a'], {
-                code: "// \u591a\u4e2a\u7ec4\u4ef6\u540c\u65f6\u9700\u8981\u7528\u6237\u4fe1\u606f\uff0c\u4f46\u53ea\u60f3\u8bf7\u6c42\u4e00\u6b21\nconst getUser = singleflight(() => fetch('/api/user').then(r => r.json()))\n\n// ComponentA \u4e2d\nconst user = await getUser()\n\n// ComponentB \u4e2d\uff08\u540c\u65f6\u523b\u8c03\u7528\uff0c\u5171\u4eab\u8bf7\u6c42\uff09\nconst user = await getUser()",
+                code: "// \u591a\u4e2a\u7ec4\u4ef6\u540c\u65f6\u9700\u8981\u7528\u6237\u4fe1\u606f\uff0c\u4f46\u53ea\u60f3\u8bf7\u6c42\u4e00\u6b21\nconst getUser = singleflight(() => fetch('/api/user').then((r) => r.json()))\n\n// ComponentA \u4e2d\nconst user = await getUser()\n\n// ComponentB \u4e2d\uff08\u540c\u65f6\u523b\u8c03\u7528\uff0c\u5171\u4eab\u8bf7\u6c42\uff09\nconst user = await getUser()",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -80248,7 +80290,7 @@
                 '2. \u914d\u7f6e\u521d\u59cb\u5316'
               ),
               r.a.createElement(i['a'], {
-                code: "const loadConfig = singleflight(async () => {\n  const res = await fetch('/api/config')\n  return res.json()\n})\n\n// \u5e94\u7528\u542f\u52a8\u65f6\u591a\u5904\u540c\u65f6\u8c03\u7528\nawait Promise.all([\n  initModuleA(loadConfig),   // \u5185\u90e8 await loadConfig()\n  initModuleB(loadConfig),   // \u5171\u4eab\u540c\u4e00\u8bf7\u6c42\n  initModuleC(loadConfig),\n])",
+                code: "const loadConfig = singleflight(async () => {\n  const res = await fetch('/api/config')\n  return res.json()\n})\n\n// \u5e94\u7528\u542f\u52a8\u65f6\u591a\u5904\u540c\u65f6\u8c03\u7528\nawait Promise.all([\n  initModuleA(loadConfig), // \u5185\u90e8 await loadConfig()\n  initModuleB(loadConfig), // \u5171\u4eab\u540c\u4e00\u8bf7\u6c42\n  initModuleC(loadConfig),\n])",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -80266,7 +80308,7 @@
                 '3. \u4e0e lock \u7684\u533a\u522b'
               ),
               r.a.createElement(i['a'], {
-                code: '// lock: \u9996\u6b21\u6267\u884c\u540e\u6c38\u4e45\u9501\u5b9a\uff0c\u540e\u7eed\u8fd4\u56de\u7f13\u5b58\u7ed3\u679c\uff08\u4e0d\u518d\u8bf7\u6c42\uff09\nconst lockedFn = lock(fetchData)\nawait lockedFn()  // \u6267\u884c\nawait lockedFn()  // \u9501\u5b9a\uff0c\u8fd4\u56de\u7f13\u5b58\n\n// singleflight: \u8bf7\u6c42\u6267\u884c\u4e2d\u5408\u5e76\uff0c\u5b8c\u6210\u540e\u81ea\u52a8\u89e3\u9501\uff08\u53ef\u91cd\u65b0\u8bf7\u6c42\uff09\nconst sf = singleflight(fetchData)\nawait sf()  // \u6267\u884c\nawait sf()  // \u82e5\u4e0a\u6b21\u5df2\u5b8c\u6210 \u2192 \u91cd\u65b0\u6267\u884c',
+                code: '// lock: \u9996\u6b21\u6267\u884c\u540e\u6c38\u4e45\u9501\u5b9a\uff0c\u540e\u7eed\u8fd4\u56de\u7f13\u5b58\u7ed3\u679c\uff08\u4e0d\u518d\u8bf7\u6c42\uff09\nconst lockedFn = lock(fetchData)\nawait lockedFn() // \u6267\u884c\nawait lockedFn() // \u9501\u5b9a\uff0c\u8fd4\u56de\u7f13\u5b58\n\n// singleflight: \u8bf7\u6c42\u6267\u884c\u4e2d\u5408\u5e76\uff0c\u5b8c\u6210\u540e\u81ea\u52a8\u89e3\u9501\uff08\u53ef\u91cd\u65b0\u8bf7\u6c42\uff09\nconst sf = singleflight(fetchData)\nawait sf() // \u6267\u884c\nawait sf() // \u82e5\u4e0a\u6b21\u5df2\u5b8c\u6210 \u2192 \u91cd\u65b0\u6267\u884c',
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -80778,7 +80820,7 @@
               exact: !0,
               meta: {
                 filePath: 'documents/index.md',
-                updatedTime: 1779787609e3,
+                updatedTime: 1779852364e3,
                 sidemenu: !1,
                 slugs: [
                   { depth: 1, value: '@fexd/tools', heading: 'fexdtools' },
@@ -81004,7 +81046,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catchPromise.md',
-                updatedTime: 1779851696695,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'catchPromise', heading: 'catchpromise' },
                   {
@@ -81133,7 +81175,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/curry.md',
-                updatedTime: 1779851010443,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'curry', heading: 'curry' },
                   {
@@ -81178,7 +81220,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/debounce.md',
-                updatedTime: 1779847626673,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'debounce', heading: 'debounce' },
                   {
@@ -81224,7 +81266,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/delay.md',
-                updatedTime: 1779847626705,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'delay', heading: 'delay' },
                   {
@@ -81269,7 +81311,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/enhancePromise.md',
-                updatedTime: 1779847626626,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -81308,7 +81350,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/identity.md',
-                updatedTime: 1779847626673,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'identity', heading: 'identity' },
                   {
@@ -81341,7 +81383,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/lock.md',
-                updatedTime: 1779851010446,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'lock', heading: 'lock' },
                   {
@@ -81387,7 +81429,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/memoize.md',
-                updatedTime: 1779847626705,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'memoize', heading: 'memoize' },
                   {
@@ -81432,7 +81474,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/nextTick.md',
-                updatedTime: 1779847626626,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'nextTick', heading: 'nexttick' },
                   {
@@ -81465,7 +81507,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/pipe.md',
-                updatedTime: 1779851010449,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'pipe', heading: 'pipe' },
                   {
@@ -81510,7 +81552,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/promiseGuess.md',
-                updatedTime: 1779847626603,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'promiseGuess', heading: 'promiseguess' },
                   {
@@ -81544,7 +81586,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/run.md',
-                updatedTime: 1779376156421,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'run', heading: 'run' },
                   {
@@ -81578,7 +81620,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/throttle.md',
-                updatedTime: 1779851710974,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'throttle', heading: 'throttle' },
                   {
@@ -81623,7 +81665,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/value.md',
-                updatedTime: 1779851704876,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'value', heading: 'value' },
                   {
@@ -81656,7 +81698,7 @@
               exact: !0,
               meta: {
                 filePath: 'documents/\u6587\u6863/\u5f03\u7528/CombJudge.md',
-                updatedTime: 1779850954848,
+                updatedTime: 1779852364e3,
                 group: {
                   title: '\u5f03\u7528',
                   order: 99,
@@ -81675,7 +81717,7 @@
               exact: !0,
               meta: {
                 filePath: 'documents/\u6587\u6863/\u5f03\u7528/getFormatter.md',
-                updatedTime: 1779850949255,
+                updatedTime: 1779852364e3,
                 group: {
                   title: '\u5f03\u7528',
                   order: 99,
@@ -81696,7 +81738,7 @@
               exact: !0,
               meta: {
                 filePath: 'documents/\u6587\u6863/\u5f03\u7528/SAS.md',
-                updatedTime: 1779850952286,
+                updatedTime: 1779852364e3,
                 group: {
                   title: '\u5f03\u7528',
                   order: 99,
@@ -81716,7 +81758,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/CombinationMatcher.md',
-                updatedTime: 1779851558570,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -81759,7 +81801,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/compactObject.md',
-                updatedTime: 1779851010478,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -81797,7 +81839,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deepMapItem.md',
-                updatedTime: 1779847626673,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'deepMapItem', heading: 'deepmapitem' },
                   {
@@ -81831,7 +81873,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deepMerge.md',
-                updatedTime: 1779847626720,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'deepMerge', heading: 'deepmerge' },
                   {
@@ -81901,7 +81943,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/depsChanged.md',
-                updatedTime: 1779847626691,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'depsChanged', heading: 'depschanged' },
                   {
@@ -81935,7 +81977,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/diffArray.md',
-                updatedTime: 1779847626705,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'diffArray', heading: 'diffarray' },
                   {
@@ -81980,7 +82022,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/difference.md',
-                updatedTime: 1779847626558,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'difference', heading: 'difference' },
                   {
@@ -82020,7 +82062,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/first.md',
-                updatedTime: 1779847626603,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'first', heading: 'first' },
                   {
@@ -82054,7 +82096,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/flatten.md',
-                updatedTime: 1779851010484,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'flatten', heading: 'flatten' },
                   {
@@ -82099,7 +82141,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/get.md',
-                updatedTime: 1779851010486,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'get', heading: 'get' },
                   {
@@ -82144,7 +82186,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/groupBy.md',
-                updatedTime: 1779851010487,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'groupBy', heading: 'groupby' },
                   {
@@ -82189,7 +82231,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/I18n.md',
-                updatedTime: 1779851010489,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'I18n', heading: 'i18n' },
                   {
@@ -82306,7 +82348,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/intersection.md',
-                updatedTime: 1779847626720,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'intersection', heading: 'intersection' },
                   {
@@ -82340,7 +82382,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/last.md',
-                updatedTime: 1779847626512,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'last', heading: 'last' },
                   {
@@ -82374,7 +82416,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/merge.md',
-                updatedTime: 1779851010492,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'merge', heading: 'merge' },
                   {
@@ -82463,7 +82505,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick.md',
-                updatedTime: 1779851010493,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'pick', heading: 'pick' },
                   {
@@ -82508,7 +82550,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pickBy.md',
-                updatedTime: 1779851010494,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'pickBy', heading: 'pickby' },
                   {
@@ -82542,7 +82584,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/reactivity.md',
-                updatedTime: 1779851010496,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -82583,7 +82625,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/sample.md',
-                updatedTime: 1779851010497,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'sample', heading: 'sample' },
                   {
@@ -82623,7 +82665,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/set.md',
-                updatedTime: 1779376146730,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'set', heading: 'set' },
                   {
@@ -82657,7 +82699,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/shallowMerge.md',
-                updatedTime: 1779847626604,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'shallowMerge', heading: 'shallowmerge' },
                   {
@@ -82691,7 +82733,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/uniqByKey.md',
-                updatedTime: 1779847626704,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'uniqByKey', heading: 'uniqbykey' },
                   {
@@ -82736,7 +82778,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/capitalize.md',
-                updatedTime: 1779851566119,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'capitalize', heading: 'capitalize' },
                   {
@@ -82769,7 +82811,7 @@
               exact: !0,
               meta: {
                 filePath: 'documents/\u6587\u6863/\u683c\u5f0f\u5316/clamp.md',
-                updatedTime: 1779847626604,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'clamp', heading: 'clamp' },
                   {
@@ -82814,7 +82856,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/createSeparatorFormatter.md',
-                updatedTime: 1779851010504,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -82858,7 +82900,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/darkenColor.md',
-                updatedTime: 1779847626705,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'darkenColor', heading: 'darkencolor' },
                   {
@@ -82898,7 +82940,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/expandScientificNumberString.md',
-                updatedTime: 1779851010506,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -82936,7 +82978,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/getBrightness.md',
-                updatedTime: 1779847626538,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -82980,7 +83022,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/hexToRgb.md',
-                updatedTime: 1779847626603,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'hexToRgb', heading: 'hextorgb' },
                   {
@@ -83019,7 +83061,7 @@
               exact: !0,
               meta: {
                 filePath: 'documents/\u6587\u6863/\u683c\u5f0f\u5316/qs.md',
-                updatedTime: 1779851010507,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'qs', heading: 'qs' },
                   {
@@ -83063,7 +83105,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/randomRGB.md',
-                updatedTime: 1779851010508,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'randomRGB', heading: 'randomrgb' },
                   {
@@ -83103,7 +83145,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/safeStringify.md',
-                updatedTime: 1779851010509,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -83141,7 +83183,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/storage.md',
-                updatedTime: 1779847626538,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'storage', heading: 'storage' },
                   {
@@ -83194,7 +83236,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u683c\u5f0f\u5316/toFixed.md',
-                updatedTime: 1779847626538,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'toFixed', heading: 'tofixed' },
                   {
@@ -83233,7 +83275,7 @@
               exact: !0,
               meta: {
                 filePath: 'documents/\u6587\u6863/\u683c\u5f0f\u5316/url.md',
-                updatedTime: 1779851010511,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'url', heading: 'url' },
                   {
@@ -83266,7 +83308,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/classnames.md',
-                updatedTime: 1779851494251,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'classnames', heading: 'classnames' },
                   {
@@ -83304,7 +83346,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/copy.md',
-                updatedTime: 1779847626604,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'copy', heading: 'copy' },
                   {
@@ -83349,7 +83391,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/createCachedRequest.md',
-                updatedTime: 1779851010454,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -83387,7 +83429,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/createProxyGetter.md',
-                updatedTime: 1779851010455,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -83425,7 +83467,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/defaultFrameProcess.md',
-                updatedTime: 1779847626540,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -83452,7 +83494,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/easing.md',
-                updatedTime: 1779851010457,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'easing', heading: 'easing' },
                   {
@@ -83496,7 +83538,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/EventBus.md',
-                updatedTime: 1779851010458,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'EventBus', heading: 'eventbus' },
                   {
@@ -83536,7 +83578,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/file2base64.md',
-                updatedTime: 1779851010459,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'file2base64', heading: 'file2base64' },
                   {
@@ -83570,7 +83612,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/formdata2obj.md',
-                updatedTime: 1779847626520,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'formdata2obj', heading: 'formdata2obj' },
                   {
@@ -83604,7 +83646,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/FrameProcess.md',
-                updatedTime: 1779851010460,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'FrameProcess', heading: 'frameprocess' },
                   {
@@ -83638,7 +83680,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/globalThis.md',
-                updatedTime: 1779851010462,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'globalThis', heading: 'globalthis' },
                   {
@@ -83671,7 +83713,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/obj2formdata.md',
-                updatedTime: 1779847626587,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'obj2formdata', heading: 'obj2formdata' },
                   {
@@ -83705,7 +83747,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/preloadImage.md',
-                updatedTime: 1779847626544,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'preloadImage', heading: 'preloadimage' },
                   {
@@ -83739,7 +83781,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/random.md',
-                updatedTime: 1779847626673,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'random', heading: 'random' },
                   {
@@ -83784,7 +83826,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/ScrollListener.md',
-                updatedTime: 1779851010470,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -83838,7 +83880,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/segment.md',
-                updatedTime: 1779851010472,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'segment', heading: 'segment' },
                   {
@@ -83883,7 +83925,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/singleflight.md',
-                updatedTime: 1779851010473,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'singleflight', heading: 'singleflight' },
                   {
@@ -83945,7 +83987,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/source.md',
-                updatedTime: 1779376265614,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'source', heading: 'source' },
                   {
@@ -83983,7 +84025,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/Tween.md',
-                updatedTime: 1779851010475,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'Tween', heading: 'tween' },
                   {
@@ -84043,7 +84085,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/uniqueId.md',
-                updatedTime: 1779851010476,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'uniqueId', heading: 'uniqueid' },
                   {
@@ -84077,7 +84119,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isAndroid.md',
-                updatedTime: 1779851569352,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isAndroid', heading: 'isandroid' },
                   {
@@ -84111,7 +84153,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isArray.md',
-                updatedTime: 1779847626720,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isArray', heading: 'isarray' },
                   {
@@ -84145,7 +84187,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isBigNumber.md',
-                updatedTime: 1779851010514,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isBigNumber', heading: 'isbignumber' },
                   {
@@ -84184,7 +84226,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isBoolean.md',
-                updatedTime: 1779847626720,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isBoolean', heading: 'isboolean' },
                   {
@@ -84218,7 +84260,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isDate.md',
-                updatedTime: 1779847626604,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isDate', heading: 'isdate' },
                   {
@@ -84252,7 +84294,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isDesktop.md',
-                updatedTime: 1779847626510,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isDesktop', heading: 'isdesktop' },
                   {
@@ -84286,7 +84328,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isEmpty.md',
-                updatedTime: 1779847626720,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isEmpty', heading: 'isempty' },
                   {
@@ -84325,7 +84367,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isError.md',
-                updatedTime: 1779851010517,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isError', heading: 'iserror' },
                   {
@@ -84364,7 +84406,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isExist.md',
-                updatedTime: 1779375961650,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isExist', heading: 'isexist' },
                   {
@@ -84398,7 +84440,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isFinite.md',
-                updatedTime: 1779847626555,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isFinite', heading: 'isfinite' },
                   {
@@ -84432,7 +84474,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isFunction.md',
-                updatedTime: 1779847626665,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isFunction', heading: 'isfunction' },
                   {
@@ -84466,7 +84508,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isInteger.md',
-                updatedTime: 1779847626544,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isInteger', heading: 'isinteger' },
                   {
@@ -84500,7 +84542,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isIOS.md',
-                updatedTime: 1779847626587,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isIOS', heading: 'isios' },
                   {
@@ -84534,7 +84576,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isIterable.md',
-                updatedTime: 1779847626528,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isIterable', heading: 'isiterable' },
                   {
@@ -84568,7 +84610,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isMobile.md',
-                updatedTime: 1779375984524,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isMobile', heading: 'ismobile' },
                   {
@@ -84602,7 +84644,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isNaN.md',
-                updatedTime: 1779375958529,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isNaN', heading: 'isnan' },
                   {
@@ -84636,7 +84678,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isNil.md',
-                updatedTime: 1779847626604,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isNil', heading: 'isnil' },
                   {
@@ -84670,7 +84712,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isNull.md',
-                updatedTime: 1779847626587,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isNull', heading: 'isnull' },
                   {
@@ -84704,7 +84746,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isNumber.md',
-                updatedTime: 1779375946169,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isNumber', heading: 'isnumber' },
                   {
@@ -84738,7 +84780,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isNumberString.md',
-                updatedTime: 1779851010522,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -84781,7 +84823,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isObject.md',
-                updatedTime: 1779847626673,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isObject', heading: 'isobject' },
                   {
@@ -84815,7 +84857,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isPlainObject.md',
-                updatedTime: 1779847626555,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -84853,7 +84895,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isPromiseLike.md',
-                updatedTime: 1779851010524,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -84891,7 +84933,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isReactElementLike.md',
-                updatedTime: 1779851010526,
+                updatedTime: 1779852364e3,
                 slugs: [
                   {
                     depth: 1,
@@ -84929,7 +84971,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isRegExp.md',
-                updatedTime: 1779847626538,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isRegExp', heading: 'isregexp' },
                   {
@@ -84963,7 +85005,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isString.md',
-                updatedTime: 1779847626538,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isString', heading: 'isstring' },
                   {
@@ -84997,7 +85039,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isSymbol.md',
-                updatedTime: 1779847626626,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isSymbol', heading: 'issymbol' },
                   {
@@ -85031,7 +85073,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isUndefined.md',
-                updatedTime: 1779847626673,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isUndefined', heading: 'isundefined' },
                   {
@@ -85065,7 +85107,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/isWKWebview.md',
-                updatedTime: 1779847626690,
+                updatedTime: 1779852364e3,
                 slugs: [
                   { depth: 1, value: 'isWKWebview', heading: 'iswkwebview' },
                   {
@@ -85406,7 +85448,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { value } from '@fexd/tools'\n\nvalue(undefined, null, 'hello')   // => null\uff08null \u4e0d\u7b49\u4e8e undefined\uff09\nvalue(undefined, 0, 'hello')     // => 0\uff080 \u4e0d\u7b49\u4e8e undefined\uff09\nvalue(undefined, undefined, 42)  // => 42\nvalue(() => 'computed')          // => 'computed'\uff08\u51fd\u6570\u4f1a\u88ab\u8c03\u7528\uff09",
+              code: "import { value } from '@fexd/tools'\n\nvalue(undefined, null, 'hello') // => null\uff08null \u4e0d\u7b49\u4e8e undefined\uff09\nvalue(undefined, 0, 'hello') // => 0\uff080 \u4e0d\u7b49\u4e8e undefined\uff09\nvalue(undefined, undefined, 42) // => 42\nvalue(() => 'computed') // => 'computed'\uff08\u51fd\u6570\u4f1a\u88ab\u8c03\u7528\uff09",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -85942,7 +85984,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { promiseGuess } from '@fexd/tools'\n\n// \u540c\u6b65\u51fd\u6570\nconst syncFn = promiseGuess(\n  (x) => x * 2,\n  (err, result) => result + 1\n)\nsyncFn(3)  // => 7\uff08(3 * 2) + 1\uff09\n\n// \u5f02\u6b65\u51fd\u6570\nconst asyncFn = promiseGuess(\n  async (x) => x * 2,\n  (err, result) => result + 1\n)\nawait asyncFn(3)  // => 7\n\n// \u9519\u8bef\u5904\u7406\nconst fn = promiseGuess(\n  async () => { throw new Error('fail') },\n  (err, result) => err ? 'error' : result\n)\nawait fn()  // => 'error'",
+              code: "import { promiseGuess } from '@fexd/tools'\n\n// \u540c\u6b65\u51fd\u6570\nconst syncFn = promiseGuess(\n  (x) => x * 2,\n  (err, result) => result + 1\n)\nsyncFn(3) // => 7\uff08(3 * 2) + 1\uff09\n\n// \u5f02\u6b65\u51fd\u6570\nconst asyncFn = promiseGuess(\n  async (x) => x * 2,\n  (err, result) => result + 1\n)\nawait asyncFn(3) // => 7\n\n// \u9519\u8bef\u5904\u7406\nconst fn = promiseGuess(\n  async () => {\n    throw new Error('fail')\n  },\n  (err, result) => (err ? 'error' : result)\n)\nawait fn() // => 'error'",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -86397,7 +86439,7 @@
                 '\u4ee3\u7801\u7528\u6cd5'
               ),
               r.a.createElement(i['a'], {
-                code: "import { random } from '@fexd/tools'\n\nrandom(1, 10)       // => 1~9 \u4e4b\u95f4\u7684\u968f\u673a\u6574\u6570\uff08\u4e0d\u542b 10\uff09\nrandom(1, 10, true) // => 1~9 \u4e4b\u95f4\u7684\u968f\u673a\u6574\u6570\nrandom(0, 1, false)  // => 0~1 \u4e4b\u95f4\u7684\u968f\u673a\u6d6e\u70b9\u6570",
+                code: "import { random } from '@fexd/tools'\n\nrandom(1, 10) // => 1~9 \u4e4b\u95f4\u7684\u968f\u673a\u6574\u6570\uff08\u4e0d\u542b 10\uff09\nrandom(1, 10, true) // => 1~9 \u4e4b\u95f4\u7684\u968f\u673a\u6574\u6570\nrandom(0, 1, false) // => 0~1 \u4e4b\u95f4\u7684\u968f\u673a\u6d6e\u70b9\u6570",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -86633,7 +86675,7 @@
         S,
         A,
         O = function (e) {
-          if (e === f && C) return C
+          if (e === f && j) return j
           if (!h && e in L) return L[e]
           switch (e) {
             case g:
@@ -86657,11 +86699,11 @@
         N = !1,
         L = e.prototype,
         I = L[E] || L['@@iterator'] || (f && L[f]),
-        C = (!h && I) || O(f),
-        j = ('Array' == t && L.entries) || I
+        j = (!h && I) || O(f),
+        C = ('Array' == t && L.entries) || I
       if (
-        (j &&
-          ((w = l(j.call(new e()))),
+        (C &&
+          ((w = l(C.call(new e()))),
           p !== Object.prototype &&
             w.next &&
             (d ||
@@ -86673,14 +86715,14 @@
           I &&
           I.name !== v &&
           ((N = !0),
-          (C = function () {
+          (j = function () {
             return I.call(this)
           })),
-        (d && !x) || L[E] === C || c(L, E, C),
-        (m[t] = C),
+        (d && !x) || L[E] === j || c(L, E, j),
+        (m[t] = j),
         f)
       )
-        if (((S = { values: O(v), keys: k ? C : O(g), entries: O(b) }), x))
+        if (((S = { values: O(v), keys: k ? j : O(g), entries: O(b) }), x))
           for (A in S) (h || N || !(A in L)) && u(L, A, S[A])
         else a({ target: t, proto: !0, forced: h || N }, S)
       return S
@@ -87060,7 +87102,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { reactive, computed, watch } from '@fexd/tools'\n\nconst state = reactive({ count: 0, name: 'Alice' })\n\n// \u8ba1\u7b97\u5c5e\u6027\nconst doubled = computed(() => state.count * 2)\ndoubled.value  // => 0\n\n// \u76d1\u542c\u53d8\u5316\nconst stop = watch(\n  () => state.count,\n  (val) => console.log('count changed:', val)\n)\n\nstate.count = 5\n// \u63a7\u5236\u53f0\u8f93\u51fa: 'count changed: 5'\ndoubled.value  // => 10\n\n// \u505c\u6b62\u76d1\u542c\nstop()",
+                code: "import { reactive, computed, watch } from '@fexd/tools'\n\nconst state = reactive({ count: 0, name: 'Alice' })\n\n// \u8ba1\u7b97\u5c5e\u6027\nconst doubled = computed(() => state.count * 2)\ndoubled.value // => 0\n\n// \u76d1\u542c\u53d8\u5316\nconst stop = watch(\n  () => state.count,\n  (val) => console.log('count changed:', val)\n)\n\nstate.count = 5\n// \u63a7\u5236\u53f0\u8f93\u51fa: 'count changed: 5'\ndoubled.value // => 10\n\n// \u505c\u6b62\u76d1\u542c\nstop()",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -87319,8 +87361,8 @@
       N = 'enter',
       L = 'leave',
       I = 'none',
-      C = 'prepare',
-      j = 'start',
+      j = 'prepare',
+      C = 'start',
       T = 'active',
       R = 'end',
       P = n('21Yw'),
@@ -87356,7 +87398,7 @@
       },
       z = Object(m['a'])() ? i['useLayoutEffect'] : i['useEffect'],
       B = z,
-      D = [C, j, T, R],
+      D = [j, C, T, R],
       W = !1,
       U = !0
     function q(e) {
@@ -87372,7 +87414,7 @@
           s = u[0],
           d = u[1]
         function m() {
-          o(C, !0)
+          o(j, !0)
         }
         return (
           B(
@@ -87493,24 +87535,24 @@
               case _:
                 return (
                   (e = {}),
-                  Object(a['a'])(e, C, E),
-                  Object(a['a'])(e, j, b),
+                  Object(a['a'])(e, j, E),
+                  Object(a['a'])(e, C, b),
                   Object(a['a'])(e, T, x),
                   e
                 )
               case N:
                 return (
                   (t = {}),
-                  Object(a['a'])(t, C, g),
-                  Object(a['a'])(t, j, y),
+                  Object(a['a'])(t, j, g),
+                  Object(a['a'])(t, C, y),
                   Object(a['a'])(t, T, w),
                   t
                 )
               case L:
                 return (
                   (n = {}),
-                  Object(a['a'])(n, C, v),
-                  Object(a['a'])(n, j, k),
+                  Object(a['a'])(n, j, v),
+                  Object(a['a'])(n, C, k),
                   Object(a['a'])(n, T, S),
                   n
                 )
@@ -87521,8 +87563,8 @@
           [K]
         ),
         se = G(K, function (e) {
-          if (e === C) {
-            var t = ue[C]
+          if (e === j) {
+            var t = ue[j]
             return t ? t(ae()) : W
           }
           var n
@@ -87585,7 +87627,7 @@
       )
       var Ee = Z
       return (
-        ue[C] && fe === j && (Ee = Object(r['a'])({ transition: 'none' }, Ee)),
+        ue[j] && fe === C && (Ee = Object(r['a'])({ transition: 'none' }, Ee)),
         [K, fe, Ee, null !== D && void 0 !== D ? D : t]
       )
     }
@@ -87659,11 +87701,11 @@
         if (h)
           if (_ !== O && n(e)) {
             var F, z
-            N === C
+            N === j
               ? (z = 'prepare')
               : q(N)
               ? (z = 'active')
-              : N === j && (z = 'start'),
+              : N === C && (z = 'start'),
               (R = h(
                 Object(r['a'])(
                   Object(r['a'])({}, M),
@@ -87987,7 +88029,7 @@
               '\u7c7b\u578b\u7b7e\u540d'
             ),
             r.a.createElement(o['a'], {
-              code: 'class FrameProcess {\n  constructor(config?: { maxTaskCount?: number })\n  start(frame: Function): Function  // \u8fd4\u56de\u53d6\u6d88\u51fd\u6570\n  once(frame: Function): void\n}\n\n// \u9ed8\u8ba4\u5bfc\u51fa\u7c7b\uff0c\u540c\u65f6\u5bfc\u51fa\u9884\u521b\u5efa\u7684\u5355\u4f8b\nexport const defaultProcess: FrameProcess\nexport default FrameProcess',
+              code: 'class FrameProcess {\n  constructor(config?: { maxTaskCount?: number })\n  start(frame: Function): Function // \u8fd4\u56de\u53d6\u6d88\u51fd\u6570\n  once(frame: Function): void\n}\n\n// \u9ed8\u8ba4\u5bfc\u51fa\u7c7b\uff0c\u540c\u65f6\u5bfc\u51fa\u9884\u521b\u5efa\u7684\u5355\u4f8b\nexport const defaultProcess: FrameProcess\nexport default FrameProcess',
               lang: 'ts',
             }),
             r.a.createElement(
@@ -88061,7 +88103,7 @@
               'frame \u56de\u8c03\u53c2\u6570'
             ),
             r.a.createElement(o['a'], {
-              code: '{\n  runningTime: number  // \u603b\u8fd0\u884c\u65f6\u95f4\n  startTime: number    // \u4efb\u52a1\u5f00\u59cb\u65f6\u95f4\u6233\n  frameTime: number    // \u5f53\u524d\u5e27\u65f6\u95f4\n}',
+              code: '{\n  runningTime: number // \u603b\u8fd0\u884c\u65f6\u95f4\n  startTime: number // \u4efb\u52a1\u5f00\u59cb\u65f6\u95f4\u6233\n  frameTime: number // \u5f53\u524d\u5e27\u65f6\u95f4\n}',
               lang: 'ts',
             }),
             r.a.createElement(
@@ -88075,7 +88117,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { FrameProcess } from '@fexd/tools'\n\n// \u4f7f\u7528\u9884\u521b\u5efa\u7684\u5355\u4f8b\u5b9e\u4f8b\nconst stop = FrameProcess.defaultProcess.start(({ runningTime }) => {\n  element.style.transform = `translateX(${runningTime * 0.1}px)`\n})\n\n// \u53d6\u6d88\u52a8\u753b\nstop()\n\n// \u6267\u884c\u4e00\u6b21\u5e27\u4efb\u52a1\nFrameProcess.defaultProcess.once(({ frameTime }) => {\n  console.log('frame time:', frameTime)\n})\n\n// \u4e5f\u53ef\u4ee5\u521b\u5efa\u72ec\u7acb\u5b9e\u4f8b\nconst process = new FrameProcess({ maxTaskCount: 10 })\nprocess.start(({ runningTime }) => { /* ... */ })",
+              code: "import { FrameProcess } from '@fexd/tools'\n\n// \u4f7f\u7528\u9884\u521b\u5efa\u7684\u5355\u4f8b\u5b9e\u4f8b\nconst stop = FrameProcess.defaultProcess.start(({ runningTime }) => {\n  element.style.transform = `translateX(${runningTime * 0.1}px)`\n})\n\n// \u53d6\u6d88\u52a8\u753b\nstop()\n\n// \u6267\u884c\u4e00\u6b21\u5e27\u4efb\u52a1\nFrameProcess.defaultProcess.once(({ frameTime }) => {\n  console.log('frame time:', frameTime)\n})\n\n// \u4e5f\u53ef\u4ee5\u521b\u5efa\u72ec\u7acb\u5b9e\u4f8b\nconst process = new FrameProcess({ maxTaskCount: 10 })\nprocess.start(({ runningTime }) => {\n  /* ... */\n})",
               lang: 'ts',
             }),
             r.a.createElement(
@@ -91366,8 +91408,8 @@
       N = a[w],
       L = N,
       I = a[S],
-      C = I && I[A],
-      j = Object.prototype,
+      j = I && I[A],
+      C = Object.prototype,
       T = a.RangeError,
       R = f.pack,
       P = f.unpack,
@@ -91435,14 +91477,14 @@
           ($ = V[X++]) in L || o(L, $, N[$])
         H.constructor = L
       }
-      h && p(C) !== j && h(C, j)
+      h && p(j) !== C && h(j, C)
       var K = new I(new L(2)),
-        Q = C.setInt8
+        Q = j.setInt8
       K.setInt8(0, 2147483648),
         K.setInt8(1, 2147483649),
         (!K.getInt8(0) && K.getInt8(1)) ||
           i(
-            C,
+            j,
             {
               setInt8: function (e, t) {
                 Q.call(this, e, (t << 24) >> 24)
@@ -91649,7 +91691,7 @@
                 '\u7c7b\u578b\u7b7e\u540d'
               ),
               r.a.createElement(i['a'], {
-                code: "import { Tween } from '@fexd/tools'\n\ninterface TweenConfig {\n  from?: number       // default: 0\n  to?: number         // default: 1\n  duration?: number   // default: 1000\n  ease?: EasingFunction  // default: (pos) => pos (linear)\n  loop?: boolean      // default: false\n}\n\ntype TweenEventTypes = 'start' | 'stop' | 'reverse' | 'update' | 'end'\n\nclass Tween {\n  constructor(config?: TweenConfig)\n  on(event: TweenEventTypes, listener: Function): this\n  off(event: TweenEventTypes, listener?: Function): this\n  config(config: TweenConfig): this\n  start(): this\n  stop(): this\n  restart(): this\n  reset(): this\n  reverse(): this\n  progress(progress: number): this\n  value(progress?: number): number\n  isEnded(progress?: number): boolean\n}",
+                code: "import { Tween } from '@fexd/tools'\n\ninterface TweenConfig {\n  from?: number // default: 0\n  to?: number // default: 1\n  duration?: number // default: 1000\n  ease?: EasingFunction // default: (pos) => pos (linear)\n  loop?: boolean // default: false\n}\n\ntype TweenEventTypes = 'start' | 'stop' | 'reverse' | 'update' | 'end'\n\nclass Tween {\n  constructor(config?: TweenConfig)\n  on(event: TweenEventTypes, listener: Function): this\n  off(event: TweenEventTypes, listener?: Function): this\n  config(config: TweenConfig): this\n  start(): this\n  stop(): this\n  restart(): this\n  reset(): this\n  reverse(): this\n  progress(progress: number): this\n  value(progress?: number): number\n  isEnded(progress?: number): boolean\n}",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -92157,7 +92199,7 @@
                 '\u793a\u4f8b'
               ),
               r.a.createElement(i['a'], {
-                code: "import { Tween, easing } from '@fexd/tools'\n\n// \u57fa\u672c\u52a8\u753b\nconst tween = new Tween({\n  from: 0,\n  to: 100,\n  duration: 500,\n  ease: easing.outCubic,\n})\n\ntween.on('update', (value) => {\n  element.style.opacity = value / 100\n})\n\ntween.on('end', () => {\n  console.log('animation done')\n})\n\ntween.start()\n\n// \u52a8\u6001\u8bbe\u7f6e\u8fdb\u5ea6\ntween.progress(0.5)  // \u8df3\u5230 50%\ntween.value()        // => \u5f53\u524d\u7f13\u52a8\u503c\ntween.isEnded()      // => false",
+                code: "import { Tween, easing } from '@fexd/tools'\n\n// \u57fa\u672c\u52a8\u753b\nconst tween = new Tween({\n  from: 0,\n  to: 100,\n  duration: 500,\n  ease: easing.outCubic,\n})\n\ntween.on('update', (value) => {\n  element.style.opacity = value / 100\n})\n\ntween.on('end', () => {\n  console.log('animation done')\n})\n\ntween.start()\n\n// \u52a8\u6001\u8bbe\u7f6e\u8fdb\u5ea6\ntween.progress(0.5) // \u8df3\u5230 50%\ntween.value() // => \u5f53\u524d\u7f13\u52a8\u503c\ntween.isEnded() // => false",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -92620,7 +92662,7 @@
               '\u793a\u4f8b'
             ),
             r.a.createElement(o['a'], {
-              code: "import { isRegExp } from '@fexd/tools'\n\nisRegExp(/abc/)           // => true\nisRegExp(new RegExp('a')) // => true\nisRegExp('abc')           // => false\nisRegExp({})              // => false",
+              code: "import { isRegExp } from '@fexd/tools'\n\nisRegExp(/abc/) // => true\nisRegExp(new RegExp('a')) // => true\nisRegExp('abc') // => false\nisRegExp({}) // => false",
               lang: 'ts',
             }),
             r.a.createElement(
