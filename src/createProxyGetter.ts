@@ -13,12 +13,15 @@ export default function createProxyGetter(
   try {
     return new Proxy(target, {
       get: (obj, prop) => {
-        if (prop in obj) {
-          return isFunction(valueHandler)
-            ? valueHandler(obj?.[prop], prop)
-            : valueHandler
+        if (
+          typeof prop === 'symbol' ||
+          !Object.prototype.hasOwnProperty.call(obj, prop)
+        ) {
+          return Reflect.get(obj, prop)
         }
-        return undefined
+        return isFunction(valueHandler)
+          ? valueHandler(obj[prop], prop)
+          : valueHandler
       },
     })
   } catch (error) {

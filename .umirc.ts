@@ -6,10 +6,16 @@ export default {
   logo: process.env.NODE_ENV === 'production' ? '/tools/logo.png' : '/logo.png',
   outputPath: 'docs',
   publicPath: process.env.NODE_ENV === 'production' ? '/tools/' : '/',
-  history: { type: 'hash' },
+  base: process.env.NODE_ENV === 'production' ? '/tools/' : '/',
+  history: { type: 'browser' },
+  exportStatic: {},
   resolve: {
     includes: ['documents', 'src'],
     excludes: ['src/tests'],
   },
-  navs: [null, { title: `v${version}` }],
+  navs: [
+    { title: '文档', path: '/文档' },
+    { title: '开发者', path: '/开发者' },
+    { title: `v${version}` },
+  ],
 }

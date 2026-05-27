@@ -1,6 +1,6 @@
 import isObject from './isObject'
 import isArray from './isArray'
-import isReactValidElement from './isReactValidElement'
+import isReactElementLike from './isReactElementLike'
 
 /**
  * 判断值是否为纯对象
@@ -8,7 +8,7 @@ import isReactValidElement from './isReactValidElement'
  * @returns 如果是纯对象返回 true
  */
 const isPlainObject = (value: any): boolean => {
-  if (!isObject(value) || isArray(value) || isReactValidElement(value))
+  if (!isObject(value) || isArray(value) || isReactElementLike(value))
     return false
   const proto = Object.getPrototypeOf(value)
   return proto === Object.prototype || proto === null

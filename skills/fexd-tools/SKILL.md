@@ -23,20 +23,20 @@ metadata:
 
 按任务场景选择对应文档：
 
-| 场景 | 应读文件 |
-| --- | --- |
-| 查有哪些工具函数 | [catalog.md](catalog.md) |
-| deepMerge 简单深度合并 | [references/deepMerge.md](references/deepMerge.md) |
-| merge 高级深度合并 | [references/merge.md](references/merge.md) |
-| I18n 国际化 | [references/I18n.md](references/I18n.md) |
-| reactive/computed/watch 响应式 | [references/reactivity.md](references/reactivity.md) |
-| CombinationMatcher SKU 属性筛选（旧名 CombJudge） | [references/CombinationMatcher.md](references/CombinationMatcher.md) |
-| EventBus 事件总线 | [references/EventBus.md](references/EventBus.md) |
-| 颜色工具 (darken/brightness/random) | [references/darkenColor.md](references/darkenColor.md) / [references/getBrightness.md](references/getBrightness.md) / [references/randomRGB.md](references/randomRGB.md) |
-| 数据操作 (get/set/pick/groupBy...) | [catalog.md](catalog.md) → 对应参考文档链接 |
-| 函数工具 (pipe/curry/memoize/lock) | [catalog.md](catalog.md) → 对应参考文档链接 |
-| 其他工具函数 API | [catalog.md](catalog.md) → 对应分类 |
-| 源码探索 | `node_modules/@fexd/tools/src/` |
+| 场景                                              | 应读文件                                                                                                                                                                 |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 查有哪些工具函数                                  | [catalog.md](catalog.md)                                                                                                                                                 |
+| deepMerge 简单深度合并                            | [references/deepMerge.md](references/deepMerge.md)                                                                                                                       |
+| merge 高级深度合并                                | [references/merge.md](references/merge.md)                                                                                                                               |
+| I18n 国际化                                       | [references/I18n.md](references/I18n.md)                                                                                                                                 |
+| reactive/computed/watch 响应式                    | [references/reactivity.md](references/reactivity.md)                                                                                                                     |
+| CombinationMatcher SKU 属性筛选（旧名 CombJudge） | [references/CombinationMatcher.md](references/CombinationMatcher.md)                                                                                                     |
+| EventBus 事件总线                                 | [references/EventBus.md](references/EventBus.md)                                                                                                                         |
+| 颜色工具 (darken/brightness/random)               | [references/darkenColor.md](references/darkenColor.md) / [references/getBrightness.md](references/getBrightness.md) / [references/randomRGB.md](references/randomRGB.md) |
+| 数据操作 (get/set/pick/groupBy...)                | [catalog.md](catalog.md) → 对应参考文档链接                                                                                                                              |
+| 函数工具 (pipe/curry/memoize/lock)                | [catalog.md](catalog.md) → 对应参考文档链接                                                                                                                              |
+| 其他工具函数 API                                  | [catalog.md](catalog.md) → 对应分类                                                                                                                                      |
+| 源码探索                                          | `node_modules/@fexd/tools/src/`                                                                                                                                          |
 
 ## Import 规范
 
@@ -48,19 +48,19 @@ import { I18n, deepMerge, get, set, debounce, catchPromise } from '@fexd/tools'
 
 ## 核心工具分类
 
-| 分类 | 代表函数 | 用途 |
-| --- | --- | --- |
-| 国际化 | `I18n` | 多语言翻译、资源加载、格式化 |
-| 深度合并 | `deepMerge`, `merge` | `deepMerge` 变参合并多个对象；`merge` 高级双参合并，支持 supplement/override、路径策略、数组策略、clone、customMerge |
-| 类型判断 | `isObject`, `isArray`, `isFunction`, `isString`, `isNumber`, `isBoolean`, `isDate`, `isUndefined`, `isNull`, `isExist`, `isMobile`, `isAndroid`, `isIOS`, `isDesktop`, `isPromiseLike`, `isBigNumber`, `isNumberString` | 运行时类型检查与平台判断 |
-| 数据操作 | `get`, `set`, `pick`, `pickBy`, `groupBy`, `intersection`, `difference`, `flatten`, `first`, `last`, `uniqByKey`, `sample` | 对象/数组/路径读写 |
-| 字符串/数字 | `capitalize`, `clamp`, `expandScientificNumberString`, `isNumberString` | 字符串变换、数值安全操作 |
-| 异步流程 | `catchPromise`, `enhancePromise`, `delay`, `memoize`, `promiseGuess`, `nextTick`, `run`, `value` | Promise 包装、缓存、调度 |
-| URL | `url`, `qs` | URL 解析与 QueryString 序列化 |
-| 存储 | `storage` | localStorage 安全封装 |
-| 事件 | `EventBus`, `ScrollListener` | 发布订阅、滚动监听 |
-| 动画 | `easing`, `Tween`, `FrameProcess` | 缓动函数、补间动画、帧循环 |
-| 其他 | `copy`, `classnames`, `curry`, `lock`, `random`, `pipe`, `source`, `formdata2obj`, `obj2formdata`, `diffArray` | 剪贴板、CSS 类名、函数式工具 |
+| 分类        | 代表函数                                                                                                                                                                                                                                      | 用途                                                                                                                 |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| 国际化      | `I18n`                                                                                                                                                                                                                                        | 多语言翻译、资源加载、格式化                                                                                         |
+| 深度合并    | `deepMerge`, `merge`                                                                                                                                                                                                                          | `deepMerge` 变参合并多个对象；`merge` 高级双参合并，支持 supplement/override、路径策略、数组策略、clone、customMerge |
+| 类型判断    | `isObject`, `isArray`, `isFunction`, `isString`, `isNumber`, `isBoolean`, `isDate`, `isUndefined`, `isNull`, `isExist`, `isMobile`, `isAndroid`, `isIOS`, `isDesktop`, `isPromiseLike`, `isBigNumber`, `isNumberString`, `isReactElementLike` | 运行时类型检查与平台判断                                                                                             |
+| 数据操作    | `get`, `set`, `pick`, `pickBy`, `groupBy`, `intersection`, `difference`, `flatten`, `first`, `last`, `uniqByKey`, `sample`, `compactObject`, `deepMapItem`, `depsChanged`                                                                     | 对象/数组/路径读写                                                                                                   |
+| 字符串/数字 | `capitalize`, `clamp`, `expandScientificNumberString`, `isNumberString`                                                                                                                                                                       | 字符串变换、数值安全操作                                                                                             |
+| 异步流程    | `catchPromise`, `enhancePromise`, `delay`, `memoize`, `promiseGuess`, `nextTick`, `run`, `value`                                                                                                                                              | Promise 包装、缓存、调度                                                                                             |
+| URL         | `url`, `qs`                                                                                                                                                                                                                                   | URL 解析与 QueryString 序列化                                                                                        |
+| 存储        | `storage`                                                                                                                                                                                                                                     | localStorage 安全封装                                                                                                |
+| 事件        | `EventBus`, `ScrollListener`                                                                                                                                                                                                                  | 发布订阅、滚动监听                                                                                                   |
+| 动画        | `easing`, `Tween`, `FrameProcess`                                                                                                                                                                                                             | 缓动函数、补间动画、帧循环                                                                                           |
+| 其他        | `copy`, `classnames`, `curry`, `lock`, `random`, `pipe`, `source`, `formdata2obj`, `obj2formdata`, `diffArray`, `safeStringify`, `file2base64`                                                                                                | 剪贴板、CSS 类名、函数式工具、序列化                                                                                 |
 
 ## 推荐实践
 

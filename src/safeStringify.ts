@@ -1,4 +1,4 @@
-import isReactValidElement from './isReactValidElement'
+import isReactElementLike from './isReactElementLike'
 
 /**
  * 安全 JSON 序列化，处理循环引用与 React 元素
@@ -9,7 +9,7 @@ const safeStringify = (object: any) => {
   const ancestors: any[] = []
 
   return JSON.stringify(object, function (key, value) {
-    if (isReactValidElement(value)) {
+    if (isReactElementLike(value)) {
       return undefined
     }
 
