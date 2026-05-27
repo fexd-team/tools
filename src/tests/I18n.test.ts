@@ -1553,6 +1553,153 @@ describe('I18n', () => {
     })
   })
 
+  describe('applyConfig - defaultApplyMode', () => {
+    test('defaultApplyMode=supplement 时 applyConfig 默认使用补充模式', async () => {
+      const i18n = new I18n({
+        types: {
+          default: {
+            resources: { 'zh-CN': { hello: '你好', world: '世界' } },
+          },
+        },
+        defaultType: 'default',
+        defaultApplyMode: 'supplement',
+      })
+
+      await I18n.applyLanguage('zh-CN')
+
+      await i18n.applyConfig({
+        types: {
+          default: {
+            resources: { 'zh-CN': { hello: '您好', newKey: '新值' } },
+          },
+        },
+        defaultType: 'custom',
+      })
+
+      expect(i18n.config.types.default.resources['zh-CN'].hello).toBe('你好')
+      expect(i18n.config.types.default.resources['zh-CN'].newKey).toBe('新值')
+      expect(i18n.config.defaultType).toBe('default')
+    })
+
+    test('显式传入 mode 应覆盖 defaultApplyMode', async () => {
+      const i18n = new I18n({
+        types: {
+          default: {
+            resources: { 'zh-CN': { hello: '你好' } },
+          },
+        },
+        defaultApplyMode: 'supplement',
+      })
+
+      await I18n.applyLanguage('zh-CN')
+
+      await i18n.applyConfig(
+        {
+          types: {
+            default: {
+              resources: { 'zh-CN': { hello: '您好' } },
+            },
+          },
+        },
+        { mode: 'override' }
+      )
+
+      expect(i18n.config.types.default.resources['zh-CN'].hello).toBe('您好')
+    })
+
+    test('未设置 defaultApplyMode 时仍默认 override', async () => {
+      const i18n = new I18n({
+        types: {
+          default: {
+            resources: { 'zh-CN': { hello: '你好' } },
+          },
+        },
+      })
+
+      await I18n.applyLanguage('zh-CN')
+
+      await i18n.applyConfig({
+        types: {
+          default: {
+            resources: { 'zh-CN': { hello: '您好' } },
+          },
+        },
+      })
+
+      expect(i18n.config.types.default.resources['zh-CN'].hello).toBe('您好')
+    })
+
+    test('defaultApplyMode=supplement 配合 priority 正常工作', async () => {
+      const i18n = new I18n({
+        types: { default: { resources: {} } },
+        defaultApplyMode: 'supplement',
+      })
+
+      await I18n.applyLanguage('en-US')
+
+      await i18n.applyConfig(
+        { types: { default: { resources: { 'en-US': { key: 'low' } } } } },
+        { priority: 1 }
+      )
+
+      await i18n.applyConfig(
+        { types: { default: { resources: { 'en-US': { key: 'high' } } } } },
+        { priority: 5 }
+      )
+
+      expect(i18n.t('key')).toBe('high')
+    })
+
+    test('defaultApplyMode=supplement 不传任何 options 时生效', async () => {
+      const i18n = new I18n({
+        types: {
+          default: {
+            resources: { 'zh-CN': { existing: '已有值' } },
+          },
+        },
+        defaultApplyMode: 'supplement',
+      })
+
+      await I18n.applyLanguage('zh-CN')
+
+      await i18n.applyConfig({
+        types: {
+          default: {
+            resources: { 'zh-CN': { existing: '新值', added: '补充值' } },
+          },
+        },
+      })
+
+      expect(i18n.config.types.default.resources['zh-CN'].existing).toBe(
+        '已有值'
+      )
+      expect(i18n.config.types.default.resources['zh-CN'].added).toBe('补充值')
+    })
+
+    test('defaultApplyMode=override 与不设置效果一致', async () => {
+      const i18n = new I18n({
+        types: {
+          default: {
+            resources: { 'zh-CN': { hello: '你好' } },
+          },
+        },
+        defaultApplyMode: 'override',
+      })
+
+      await I18n.applyLanguage('zh-CN')
+
+      await i18n.applyConfig({
+        types: {
+          default: {
+            resources: { 'zh-CN': { hello: '您好' } },
+          },
+        },
+      })
+
+      expect(i18n.config.types.default.resources['zh-CN'].hello).toBe('您好')
+    })
+  })
+
   describe('异步资源加载失败处理', () => {
     test('loader 抛异常时 applyLanguage 不应崩溃', async () => {
       const i18n = new I18n({

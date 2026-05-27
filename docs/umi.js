@@ -1365,7 +1365,7 @@
         return _e
       }),
       n.d(t, 'Tween', function () {
-        return Ce
+        return je
       }),
       n.d(t, '__', function () {
         return Re
@@ -1437,7 +1437,7 @@
         return Nt
       }),
       n.d(t, 'isError', function () {
-        return Ct
+        return jt
       }),
       n.d(t, 'isExist', function () {
         return ae
@@ -1587,7 +1587,7 @@
         return Ln
       }),
       n.d(t, 'safeStringify', function () {
-        return jn
+        return Cn
       }),
       n.d(t, 'uniqueId', function () {
         return ga
@@ -2092,7 +2092,7 @@
           (this.maxTaskCount = n)
       }
     }
-    class j {
+    class C {
       constructor() {
         var e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}
@@ -2123,9 +2123,9 @@
         this.maxTaskCount = t
       }
     }
-    j.defaultProcess = new j()
-    var C = j.defaultProcess,
-      T = j,
+    C.defaultProcess = new C()
+    var j = C.defaultProcess,
+      T = C,
       R = n('DBVu'),
       P = n('J9RX'),
       M = n('GAyR'),
@@ -2360,6 +2360,9 @@
                           ((r = null !== a && void 0 !== a ? a : {}),
                           (l = r.priority),
                           (o = Object(P['default'])(r, ce)),
+                          void 0 === o.mode &&
+                            t.config.defaultApplyMode &&
+                            (o.mode = t.config.defaultApplyMode),
                           void 0 !== l &&
                           0 !== l &&
                           'supplement' ===
@@ -2368,22 +2371,22 @@
                             : te(t.config, n, o),
                           !t.language)
                         ) {
-                          e.next = 6
+                          e.next = 7
                           break
                         }
-                        return (e.next = 5), t.applyLanguage(t.language)
-                      case 5:
-                        return e.abrupt('return', e.sent)
+                        return (e.next = 6), t.applyLanguage(t.language)
                       case 6:
+                        return e.abrupt('return', e.sent)
+                      case 7:
                         if (!me.language) {
-                          e.next = 11
+                          e.next = 12
                           break
                         }
-                        return (e.next = 9), t.applyLanguage(me.language)
-                      case 9:
-                        e.next = 12
+                        return (e.next = 10), t.applyLanguage(me.language)
+                      case 10:
+                        e.next = 13
                         break
-                      case 11:
+                      case 12:
                         return e.abrupt(
                           'return',
                           new Promise((e) => {
@@ -2419,7 +2422,7 @@
                             )
                           })
                         )
-                      case 12:
+                      case 13:
                       case 'end':
                         return e.stop()
                     }
@@ -3044,26 +3047,26 @@
           )
       },
       Ie = Le,
-      je = { from: 0, to: 1, duration: 1e3, ease: (e) => e, loop: !1 }
-    class Ce {
+      Ce = { from: 0, to: 1, duration: 1e3, ease: (e) => e, loop: !1 }
+    class je {
       constructor() {
         var e = this,
           t =
-            arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : je
+            arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : Ce
         ;(this.stopRunningFrame = void 0),
           (this.bus = new w()),
-          (this.state = { reversed: !1, progress: 0, stoped: !0, config: je }),
+          (this.state = { reversed: !1, progress: 0, stoped: !0, config: Ce }),
           (this.on = (e, t) => (this.bus.on(e, t), this)),
           (this.off = (e, t) => (this.bus.off(e, t), this)),
           (this.config = function () {
             var t =
               arguments.length > 0 && void 0 !== arguments[0]
                 ? arguments[0]
-                : je
+                : Ce
             return (
               (e.state.config = Object(b['default'])(
                 Object(b['default'])(
-                  Object(b['default'])({}, je),
+                  Object(b['default'])({}, Ce),
                   e.state.config
                 ),
                 Ie(t, ae)
@@ -3076,7 +3079,7 @@
             ;(this.state.stoped = !1), this.bus.emit('start')
             var e = Date.now()
             return (
-              (this.stopRunningFrame = C.start((t) => {
+              (this.stopRunningFrame = j.start((t) => {
                 var n = t.frameTime,
                   a = (n - e) / Ne(this.state.config.duration, 16),
                   r = this.state.reversed ? -1 : 1
@@ -3138,7 +3141,7 @@
           this.config(t)
       }
     }
-    Ce.DEFAULT_CONFIG = je
+    je.DEFAULT_CONFIG = Ce
     var Te = (e, t) =>
         function () {
           for (var n = arguments.length, a = new Array(n), r = 0; r < n; r++)
@@ -3412,11 +3415,11 @@
         .map((e) => N['a'][e])
         .filter((e) => !Object(x['a'])(e)),
       It = (e) => Lt.some((t) => e instanceof t),
-      jt = (e) =>
+      Ct = (e) =>
         e instanceof Error ||
         !!It(e) ||
         '[object Error]' === Object.prototype.toString.call(e),
-      Ct = jt,
+      jt = Ct,
       Tt =
         'function' === typeof Number.isFinite
           ? Number.isFinite
@@ -3654,18 +3657,18 @@
           }
         })
       },
-      jn = In,
-      Cn = !0,
+      Cn = In,
+      jn = !0,
       Tn = '__testSupportive__',
       Rn = N['a'].localStorage
-    ae(Rn) || (Cn = !1)
+    ae(Rn) || (jn = !1)
     try {
       Rn.setItem(Tn, '__testSupportive__'), Rn.removeItem(Tn)
     } catch (cr) {
-      Cn = !1
+      jn = !1
     }
     function Pn(e) {
-      return Cn ? e : () => console.warn('Storage unsupported')
+      return jn ? e : () => console.warn('Storage unsupported')
     }
     var Mn = (e) =>
         Pn((t) => {
@@ -3685,7 +3688,7 @@
         Pn((t, n) => {
           var a
           try {
-            a = jn(n)
+            a = Cn(n)
           } catch (cr) {
             console.error('[ERROR storage.set --\x3e safeStringify]', cr),
               (a = n)
@@ -4069,15 +4072,15 @@
           .concat(e.toString(16).padStart(2, '0'))
           .concat(t.toString(16).padStart(2, '0'))
           .concat(n.toString(16).padStart(2, '0')),
-      ja = (e, t) => Math.max(0, Math.min(255, Math.floor(e * (1 - t / 100)))),
-      Ca = (e, t) => {
+      Ca = (e, t) => Math.max(0, Math.min(255, Math.floor(e * (1 - t / 100)))),
+      ja = (e, t) => {
         var n = La(e),
           a = n.r,
           r = n.g,
           l = n.b
-        return (a = ja(a, t)), (r = ja(r, t)), (l = ja(l, t)), Ia(a, r, l)
+        return (a = Ca(a, t)), (r = Ca(r, t)), (l = Ca(l, t)), Ia(a, r, l)
       },
-      Ta = Ca,
+      Ta = ja,
       Ra = (e) => {
         var t = La(e),
           n = t.r,
@@ -5271,7 +5274,7 @@
       var t = e.route,
         n = e.opts,
         a = e.props,
-        r = C(
+        r = j(
           d(d({}, n), {}, { routes: t.routes || [], rootRoutes: n.rootRoutes }),
           { location: a.location }
         ),
@@ -5293,7 +5296,7 @@
       }
       return r
     }
-    function j(e) {
+    function C(e) {
       var t,
         n,
         a,
@@ -5333,7 +5336,7 @@
             })
           ))
     }
-    function C(e) {
+    function j(e) {
       var t =
         arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}
       return e.routes
@@ -5341,7 +5344,7 @@
             _,
             t,
             e.routes.map(function (t, n) {
-              return j({
+              return C({
                 route: t,
                 index: n,
                 opts: d(d({}, e), {}, { rootRoutes: e.rootRoutes || e.routes }),
@@ -5384,7 +5387,7 @@
           },
           [t]
         ),
-        u['default'].createElement(r.Router, { history: t }, C(n))
+        u['default'].createElement(r.Router, { history: t }, j(n))
       )
     }
     function P(e) {
@@ -5499,7 +5502,7 @@
           : o.hydrate(t, n, a)
         : o.render(t, n, a)
     }
-    ;(t.renderClient = z), (t.renderRoutes = C)
+    ;(t.renderClient = z), (t.renderRoutes = j)
   },
   '0bwR': function (e, t, n) {
     'use strict'
@@ -9622,11 +9625,11 @@
         t
       )
     }
-    function j(e) {
+    function C(e) {
       return e && e.__esModule ? e['default'] : e
     }
-    function C(e, t) {
-      return Object(i['createElement'])(j(e), t)
+    function j(e, t) {
+      return Object(i['createElement'])(C(e), t)
     }
     function T(e, t) {
       var n = Object.assign(
@@ -9635,7 +9638,7 @@
             loading: null,
             delay: 200,
             timeout: null,
-            render: C,
+            render: j,
             webpack: null,
             modules: null,
           },
@@ -10827,11 +10830,11 @@
         })
       )
     }
-    var j = /\/+/g,
-      C = []
+    var C = /\/+/g,
+      j = []
     function T(e, t, n, a) {
-      if (C.length) {
-        var r = C.pop()
+      if (j.length) {
+        var r = j.pop()
         return (
           (r.result = e),
           (r.keyPrefix = t),
@@ -10849,7 +10852,7 @@
         (e.func = null),
         (e.context = null),
         (e.count = 0),
-        10 > C.length && C.push(e)
+        10 > j.length && j.push(e)
     }
     function P(e, t, n, a) {
       var r = typeof e
@@ -10926,14 +10929,14 @@
                 r +
                   (!e.key || (t && t.key === e.key)
                     ? ''
-                    : ('' + e.key).replace(j, '$&/') + '/') +
+                    : ('' + e.key).replace(C, '$&/') + '/') +
                   n
               )),
             a.push(e))
     }
     function D(e, t, n, a, r) {
       var l = ''
-      null != n && (l = ('' + n).replace(j, '$&/') + '/'),
+      null != n && (l = ('' + n).replace(C, '$&/') + '/'),
         (t = T(t, l, a, r)),
         M(e, B, t),
         R(t)
@@ -13188,10 +13191,10 @@
       N = s.getterFor(A),
       L = s.getterFor(O),
       I = /\+/g,
-      j = Array(4),
-      C = function (e) {
+      C = Array(4),
+      j = function (e) {
         return (
-          j[e - 1] || (j[e - 1] = RegExp('((?:%[\\da-f]{2}){' + e + '})', 'gi'))
+          C[e - 1] || (C[e - 1] = RegExp('((?:%[\\da-f]{2}){' + e + '})', 'gi'))
         )
       },
       T = function (e) {
@@ -13207,7 +13210,7 @@
         try {
           return decodeURIComponent(t)
         } catch (a) {
-          while (n) t = t.replace(C(n--), T)
+          while (n) t = t.replace(j(n--), T)
           return t
         }
       },
@@ -13887,15 +13890,15 @@
     }
     var L = {},
       I = 1e4,
-      j = 0
-    function C(e, t) {
+      C = 0
+    function j(e, t) {
       var n = '' + t.end + t.strict + t.sensitive,
         a = L[n] || (L[n] = {})
       if (a[e]) return a[e]
       var r = [],
         l = d()(e, r, t),
         o = { regexp: l, keys: r }
-      return j < I && ((a[e] = o), j++), o
+      return C < I && ((a[e] = o), C++), o
     }
     function T(e, t) {
       void 0 === t && (t = {}),
@@ -13912,7 +13915,7 @@
       return s.reduce(function (t, n) {
         if (!n && '' !== n) return null
         if (t) return t
-        var a = C(n, { end: l, strict: i, sensitive: u }),
+        var a = j(n, { end: l, strict: i, sensitive: u }),
           r = a.regexp,
           o = a.keys,
           c = r.exec(e)
@@ -14389,6 +14392,708 @@
       { assign: r }
     )
   },
+  CA2P: function (e, t, n) {
+    'use strict'
+    n.r(t)
+    var a = n('nNWW'),
+      r = n.n(a),
+      l = n('Gdey'),
+      o = n('l4Xg'),
+      i = n('nDXD'),
+      c = r.a.memo((e) => {
+        e.demos
+        return r.a.createElement(
+          r.a.Fragment,
+          null,
+          r.a.createElement(
+            'div',
+            { className: 'markdown' },
+            r.a.createElement(
+              'h2',
+              {
+                id: '-ai-skills--\u8ba9-ai-\u7f16\u8f91\u5668\u7406\u89e3-fexdtools',
+              },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#-ai-skills--\u8ba9-ai-\u7f16\u8f91\u5668\u7406\u89e3-fexdtools',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\ud83e\udd16 AI Skills \u2014\u2014 \u8ba9 AI \u7f16\u8f91\u5668\u7406\u89e3 @fexd/tools'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement('code', null, '@fexd/tools'),
+              ' \u968f npm \u5305\u53d1\u5e03\u4e86\u5b8c\u6574\u7684 ',
+              r.a.createElement('strong', null, 'AI Agent Skills'),
+              ' \u6587\u6863\u3002\u5b89\u88c5\u540e\uff0c\u53ef\u4ee5\u901a\u8fc7\u5185\u7f6e CLI \u4e00\u952e\u628a\u8fd9\u4e9b\u6587\u6863\u6ce8\u518c\u5230 Cursor\u3001Codex\u3001Claude Code\u3001OpenCode \u7b49\u5e38\u89c1 AI Agent \u7684 skills \u76ee\u5f55\uff0c\u8ba9 AI \u5728\u5199\u4ee3\u7801\u65f6\u4f18\u5148\u8bfb\u53d6\u5de5\u5177\u51fd\u6570\u7684\u771f\u5b9e\u7528\u6cd5\u3002'
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '-\u53d1\u5e03\u4e86\u4ec0\u4e48' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#-\u53d1\u5e03\u4e86\u4ec0\u4e48',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\ud83d\udce6 \u53d1\u5e03\u4e86\u4ec0\u4e48\uff1f'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement('code', null, 'npm install @fexd/tools'),
+              ' \u540e\uff0c',
+              r.a.createElement('code', null, 'node_modules'),
+              ' \u4e2d\u5305\u542b\u4ee5\u4e0b AI \u6587\u6863\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'node_modules/@fexd/tools/\n\u251c\u2500\u2500 AGENTS.md                         # AI \u4e0a\u4e0b\u6587\u5165\u53e3\n\u251c\u2500\u2500 cli/                              # fexd-tools \u547d\u4ee4\u884c\u5de5\u5177\n\u2514\u2500\u2500 skills/\n    \u2514\u2500\u2500 fexd-tools/\n        \u251c\u2500\u2500 SKILL.md                  # \u4e3b\u5165\u53e3\uff1a\u4efb\u52a1\u8def\u7531 + \u67b6\u6784\u901f\u89c8\n        \u251c\u2500\u2500 catalog.md                # \u5de5\u5177\u51fd\u6570\u5206\u7c7b\u76ee\u5f55\n        \u2514\u2500\u2500 references/               # \u51fd\u6570\u8be6\u7ec6\u6587\u6863\n            \u251c\u2500\u2500 deepMerge.md\n            \u251c\u2500\u2500 I18n.md\n            \u251c\u2500\u2500 EventBus.md\n            \u251c\u2500\u2500 CombinationMatcher.md\n            \u251c\u2500\u2500 darkenColor.md\n            \u2514\u2500\u2500 ... (22 \u4e2a\u6587\u6863)',
+              lang: 'text',
+            }),
+            r.a.createElement(
+              'h3',
+              {
+                id: '-\u63a8\u8350\u4f7f\u7528\u5185\u7f6e-cli-\u81ea\u52a8\u914d\u7f6e',
+              },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#-\u63a8\u8350\u4f7f\u7528\u5185\u7f6e-cli-\u81ea\u52a8\u914d\u7f6e',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\ud83d\ude80 \u63a8\u8350\uff1a\u4f7f\u7528\u5185\u7f6e CLI \u81ea\u52a8\u914d\u7f6e'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'fexd-tools skills install',
+              lang: 'bash',
+            }),
+            r.a.createElement(
+              'p',
+              null,
+              '\u5728\u6d88\u8d39\u9879\u76ee\u91cc\u5efa\u8bae\u52a0\u4e00\u4e2a\u811a\u672c\uff0c\u56e2\u961f\u6210\u5458\u5b89\u88c5\u4f9d\u8d56\u540e\u624b\u52a8\u8dd1\u4e00\u6b21\u5373\u53ef\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: '{\n  "scripts": {\n    "prepare:skills": "fexd-tools skills install"\n  }\n}',
+              lang: 'json',
+            }),
+            r.a.createElement('p', null, '\u7136\u540e\u6267\u884c\uff1a'),
+            r.a.createElement(o['a'], {
+              code: 'npm run prepare:skills',
+              lang: 'bash',
+            }),
+            r.a.createElement(
+              'p',
+              null,
+              '\u9ed8\u8ba4\u4f1a\u628a ',
+              r.a.createElement('code', null, 'fexd-tools'),
+              ' skill \u5b89\u88c5\u5230\u5e38\u89c1 agent \u7684\u9879\u76ee\u7ea7\u76ee\u5f55\uff0c\u5e76\u81ea\u52a8\u628a\u8fd9\u4e9b\u94fe\u63a5\u5199\u5165 ',
+              r.a.createElement('code', null, '.gitignore'),
+              '\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: '.cursor/skills/fexd-tools       # Cursor \u9879\u76ee\u76ee\u5f55\n.agents/skills/fexd-tools       # Codex / OpenCode \u901a\u7528\u9879\u76ee\u76ee\u5f55\n.claude/skills/fexd-tools       # Claude Code \u9879\u76ee\u76ee\u5f55',
+              lang: 'text',
+            }),
+            r.a.createElement(
+              'p',
+              null,
+              '\u8fd9\u4e9b\u76ee\u5f55\u9ed8\u8ba4\u90fd\u662f\u6307\u5411 ',
+              r.a.createElement(
+                'code',
+                null,
+                'node_modules/@fexd/tools/skills/fexd-tools'
+              ),
+              ' \u7684\u94fe\u63a5\u3002\u66f4\u65b0 ',
+              r.a.createElement('code', null, '@fexd/tools'),
+              ' \u540e\uff0cskill \u5185\u5bb9\u4f1a\u968f ',
+              r.a.createElement('code', null, 'node_modules'),
+              ' \u81ea\u52a8\u66f4\u65b0\u3002'
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u6307\u5b9a-agent' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u6307\u5b9a-agent',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u6307\u5b9a Agent'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u53ea\u60f3\u914d\u7f6e\u67d0\u51e0\u4e2a agent \u65f6\uff0c\u4f7f\u7528 ',
+              r.a.createElement('code', null, '--agents'),
+              '\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'fexd-tools skills install --agents cursor\nfexd-tools skills install --agents cursor,claude-code,opencode',
+              lang: 'bash',
+            }),
+            r.a.createElement('p', null, '\u53ef\u9009\u503c\uff1a'),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, 'agent'),
+                  r.a.createElement(
+                    'th',
+                    null,
+                    'project \u5b89\u88c5\u4f4d\u7f6e'
+                  )
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'cursor')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '.cursor/skills/fexd-tools')
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'codex')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '.agents/skills/fexd-tools')
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'claude-code')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '.claude/skills/fexd-tools')
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'opencode')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement(
+                      'code',
+                      null,
+                      '.opencode/skills/fexd-tools'
+                    )
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'common')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u4ee5\u4e0a\u5e38\u89c1 agent \u7684\u96c6\u5408\uff0c\u9ed8\u8ba4\u503c'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u5b89\u88c5\u5230\u5168\u5c40\u76ee\u5f55' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u5b89\u88c5\u5230\u5168\u5c40\u76ee\u5f55',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u5b89\u88c5\u5230\u5168\u5c40\u76ee\u5f55'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u9ed8\u8ba4\u53ea\u5199\u9879\u76ee\u76ee\u5f55\uff0c\u4e0d\u4f1a\u4fee\u6539\u7528\u6237\u73af\u5883\u3002\u9700\u8981\u7ed9\u67d0\u4e2a\u5de5\u5177\u914d\u7f6e\u5168\u5c40 skill \u65f6\uff0c\u663e\u5f0f\u6307\u5b9a ',
+              r.a.createElement('code', null, '--scope global'),
+              '\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'fexd-tools skills install --agents codex --scope global\nfexd-tools skills install --agents claude-code --scope global',
+              lang: 'bash',
+            }),
+            r.a.createElement(
+              'p',
+              null,
+              '\u5982\u9700\u9879\u76ee\u76ee\u5f55\u548c\u5168\u5c40\u76ee\u5f55\u90fd\u5b89\u88c5\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'fexd-tools skills install --scope both',
+              lang: 'bash',
+            }),
+            r.a.createElement(
+              'h3',
+              { id: '\u5e38\u7528\u53c2\u6570' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u5e38\u7528\u53c2\u6570',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u5e38\u7528\u53c2\u6570'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u53c2\u6570'),
+                  r.a.createElement('th', null, '\u4f5c\u7528')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '--agents <list>')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u6307\u5b9a agent\uff0c\u652f\u6301 ',
+                    r.a.createElement(
+                      'code',
+                      null,
+                      'common,cursor,codex,claude-code,opencode'
+                    )
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '--scope <scope>')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u5b89\u88c5\u8303\u56f4\uff0c\u652f\u6301 ',
+                    r.a.createElement('code', null, 'project,global,both'),
+                    '\uff0c\u9ed8\u8ba4 ',
+                    r.a.createElement('code', null, 'project')
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '--cwd <path>')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u6307\u5b9a\u6d88\u8d39\u9879\u76ee\u76ee\u5f55\uff0c\u9002\u5408 monorepo \u6216\u811a\u672c\u4ece\u5b50\u76ee\u5f55\u6267\u884c'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '--copy')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u76f4\u63a5\u590d\u5236 skill \u76ee\u5f55\uff0c\u4e0d\u521b\u5efa\u94fe\u63a5'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '--force')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u76ee\u6807\u5df2\u5b58\u5728\u666e\u901a\u6587\u4ef6/\u76ee\u5f55\u65f6\u5f3a\u5236\u8986\u76d6'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '--dry-run')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u53ea\u6253\u5370\u5b89\u88c5\u8ba1\u5212\uff0c\u4e0d\u5199\u6587\u4ef6'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, '--no-gitignore')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u4e0d\u81ea\u52a8\u66f4\u65b0 ',
+                    r.a.createElement('code', null, '.gitignore')
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u5148\u9884\u89c8\u5b89\u88c5\u8ba1\u5212\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'fexd-tools skills install --dry-run',
+              lang: 'bash',
+            }),
+            r.a.createElement(
+              'p',
+              null,
+              'Windows \u73af\u5883\u5982\u679c\u94fe\u63a5\u6743\u9650\u53d7\u9650\uff0c\u53ef\u4ee5\u4f7f\u7528\u590d\u5236\u6a21\u5f0f\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'fexd-tools skills install --copy',
+              lang: 'bash',
+            }),
+            r.a.createElement(
+              'h3',
+              { id: '\u5907\u9009\u4f7f\u7528-skills-npm' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u5907\u9009\u4f7f\u7528-skills-npm',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u5907\u9009\uff1a\u4f7f\u7528 skills-npm'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u5982\u679c\u4f60\u7684\u9879\u76ee\u5e0c\u671b\u7edf\u4e00\u626b\u63cf\u591a\u4e2a npm \u5305\u91cc\u7684 skills\uff0c\u800c\u4e0d\u53ea\u662f ',
+              r.a.createElement('code', null, '@fexd/tools'),
+              '\uff0c\u53ef\u4ee5\u4f7f\u7528 ',
+              r.a.createElement(
+                l['Link'],
+                { to: 'https://github.com/nicepkg/skills-npm' },
+                'skills-npm'
+              ),
+              '\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'pnpm add -D skills-npm',
+              lang: 'bash',
+            }),
+            r.a.createElement(o['a'], {
+              code: '{\n  "scripts": {\n    "prepare": "skills-npm"\n  }\n}',
+              lang: 'json',
+            }),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement('code', null, 'skills-npm'),
+              ' \u9002\u5408\u505a\u901a\u7528\u53d1\u73b0\uff1b',
+              r.a.createElement('code', null, 'fexd-tools skills install'),
+              ' \u5219\u53ea\u5904\u7406\u672c\u5de5\u5177\u5e93\uff0c\u4f9d\u8d56\u66f4\u5c11\u3001\u8bca\u65ad\u66f4\u660e\u786e\u3002'
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '-\u624b\u52a8\u521b\u5efa\u7b26\u53f7\u94fe\u63a5' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#-\u624b\u52a8\u521b\u5efa\u7b26\u53f7\u94fe\u63a5',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\ud83d\udd17 \u624b\u52a8\u521b\u5efa\u7b26\u53f7\u94fe\u63a5'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u5982\u679c\u4e0d\u60f3\u901a\u8fc7 CLI\uff0c\u4e5f\u53ef\u4ee5\u624b\u52a8\u521b\u5efa\u94fe\u63a5\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: '# macOS / Linux\nmkdir -p .agents/skills\nln -s ../../node_modules/@fexd/tools/skills/fexd-tools .agents/skills/fexd-tools\n\n# Windows\nmklink /J .agents\\skills\\fexd-tools node_modules\\@fexd\\tools\\skills\\fexd-tools',
+              lang: 'bash',
+            }),
+            r.a.createElement(
+              'p',
+              null,
+              '\u8bb0\u5f97\u5728 ',
+              r.a.createElement('code', null, '.gitignore'),
+              ' \u4e2d\u5ffd\u7565\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: '.agents/skills/fexd-tools',
+              lang: 'gitignore',
+            }),
+            r.a.createElement(
+              'h3',
+              { id: '-\u914d\u7f6e\u5b8c\u6210\u540e' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#-\u914d\u7f6e\u5b8c\u6210\u540e',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\ud83d\udcac \u914d\u7f6e\u5b8c\u6210\u540e'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u5728 AI \u7f16\u8f91\u5668\u4e2d\u7528\u81ea\u7136\u8bed\u8a00\u63d0\u95ee\u5373\u53ef\uff0cAI \u4f1a\u81ea\u52a8\u52a0\u8f7d\u5bf9\u5e94\u7684\u5de5\u5177\u6587\u6863\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: '\ud83d\udc64 "\u7528 merge \u5408\u5e76\u4e24\u4e2a\u914d\u7f6e\u5bf9\u8c61\uff0c\u53ea\u8865\u7f3a\u4e0d\u8986\u76d6"\n\ud83e\udd16 \u2192 \u8bfb\u53d6 references/merge.md\uff0c\u7ed9\u51fa { mode: \'supplement\' } \u914d\u7f6e\u793a\u4f8b\n\n\ud83d\udc64 "\u505a\u4e00\u4e2a\u591a\u8bed\u8a00\u5207\u6362\u65b9\u6848"\n\ud83e\udd16 \u2192 \u8bfb\u53d6 references/I18n.md\uff0c\u7ed9\u51fa I18n \u521d\u59cb\u5316\u548c t() \u4f7f\u7528\u65b9\u5f0f\n\n\ud83d\udc64 "\u5982\u4f55\u7ed9\u989c\u8272\u52a0\u6df1 20%\uff1f"\n\ud83e\udd16 \u2192 \u8bfb\u53d6 references/darkenColor.md\uff0c\u7ed9\u51fa darkenColor(\'#1890ff\', 20)\n\n\ud83d\udc64 "\u8fd9\u4e2a\u5e93\u6709\u54ea\u4e9b\u5de5\u5177\u51fd\u6570\uff1f"\n\ud83e\udd16 \u2192 \u8bfb\u53d6 catalog.md\uff0c\u5217\u51fa\u5b8c\u6574\u5206\u7c7b\u6e05\u5355',
+              lang: 'text',
+            }),
+            r.a.createElement(
+              'h3',
+              { id: '-\u5e38\u89c1\u95ee\u9898' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#-\u5e38\u89c1\u95ee\u9898',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u2753 \u5e38\u89c1\u95ee\u9898'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement(
+                'strong',
+                null,
+                '\u6267\u884c\u547d\u4ee4\u540e AI \u6ca1\u6709\u52a0\u8f7d skill\uff1f'
+              )
+            ),
+            r.a.createElement(
+              'blockquote',
+              null,
+              r.a.createElement(
+                'p',
+                null,
+                '\u5148\u786e\u8ba4\u76ee\u6807\u76ee\u5f55\u4e0b\u5b58\u5728 ',
+                r.a.createElement('code', null, 'fexd-tools/SKILL.md'),
+                '\uff0c\u7136\u540e\u91cd\u542f\u5bf9\u5e94 AI \u7f16\u8f91\u5668\u6216\u65b0\u5f00\u4e00\u4e2a\u4f1a\u8bdd\u3002\u90e8\u5206\u5de5\u5177\u53ea\u5728\u542f\u52a8\u65f6\u626b\u63cf skills\u3002'
+              )
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement(
+                'strong',
+                null,
+                '\u66f4\u65b0 @fexd/tools \u540e\u6587\u6863\u6ca1\u53d8\uff1f'
+              )
+            ),
+            r.a.createElement(
+              'blockquote',
+              null,
+              r.a.createElement(
+                'p',
+                null,
+                '\u9ed8\u8ba4\u5b89\u88c5\u65b9\u5f0f\u4f7f\u7528\u94fe\u63a5\uff0c\u66f4\u65b0\u4f9d\u8d56\u540e\u5185\u5bb9\u4f1a\u8ddf\u968f ',
+                r.a.createElement('code', null, 'node_modules'),
+                ' \u66f4\u65b0\u3002\u5982\u679c\u4f7f\u7528\u4e86 ',
+                r.a.createElement('code', null, '--copy'),
+                '\uff0c\u9700\u8981\u91cd\u65b0\u6267\u884c ',
+                r.a.createElement(
+                  'code',
+                  null,
+                  'fexd-tools skills install --copy --force'
+                ),
+                '\u3002'
+              )
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement(
+                'strong',
+                null,
+                'monorepo \u600e\u4e48\u914d\u7f6e\uff1f'
+              )
+            ),
+            r.a.createElement(
+              'blockquote',
+              null,
+              r.a.createElement(
+                'p',
+                null,
+                '\u5728 workspace \u6839\u76ee\u5f55\u8fd0\u884c ',
+                r.a.createElement('code', null, 'fexd-tools skills install'),
+                '\u3002\u5982\u679c\u811a\u672c\u4ece\u5b50\u76ee\u5f55\u6267\u884c\uff0c\u53ef\u4ee5\u52a0 ',
+                r.a.createElement('code', null, '--cwd <workspace-root>'),
+                ' \u660e\u786e\u6307\u5b9a\u6839\u76ee\u5f55\u3002'
+              )
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement(
+                'strong',
+                null,
+                '\u4e3a\u4ec0\u4e48\u9ed8\u8ba4\u4e0d\u5b89\u88c5\u5168\u5c40\u76ee\u5f55\uff1f'
+              )
+            ),
+            r.a.createElement(
+              'blockquote',
+              null,
+              r.a.createElement(
+                'p',
+                null,
+                '\u9879\u76ee\u7ea7\u76ee\u5f55\u66f4\u9002\u5408\u56e2\u961f\u5171\u4eab\uff0c\u4e5f\u4e0d\u4f1a\u6539\u52a8\u7528\u6237\u73af\u5883\u3002\u5982\u679c\u9700\u8981\u7528\u6237\u7ea7 skill\uff0c\u53ef\u4ee5\u663e\u5f0f\u6267\u884c ',
+                r.a.createElement(
+                  'code',
+                  null,
+                  'fexd-tools skills install --scope global'
+                ),
+                '\u3002'
+              )
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement(
+                'strong',
+                null,
+                '\u652f\u6301\u54ea\u4e9b AI \u7f16\u8f91\u5668\uff1f'
+              )
+            ),
+            r.a.createElement(
+              'blockquote',
+              null,
+              r.a.createElement(
+                'p',
+                null,
+                '\u5185\u7f6e CLI \u652f\u6301 Cursor\u3001Codex\u3001Claude Code\u3001OpenCode\u3002\u5176\u4ed6\u5de5\u5177\u5982\u679c\u517c\u5bb9 ',
+                r.a.createElement('code', null, '.agents/skills'),
+                ' \u6216\u76f8\u5e94\u7684 skills \u76ee\u5f55\u7ea6\u5b9a\uff0c\u4e5f\u53ef\u4ee5\u901a\u8fc7\u624b\u52a8\u94fe\u63a5\u63a5\u5165\u3002'
+              )
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u66f4\u591a CLI \u547d\u4ee4\u8be6\u89c1 ',
+              r.a.createElement(
+                l['Link'],
+                { to: './cli' },
+                'CLI \u547d\u4ee4\u884c\u5de5\u5177'
+              ),
+              '\u3002'
+            )
+          )
+        )
+      })
+    t['default'] = (e) => {
+      var t = r.a.useContext(l['context']),
+        n = t.demos
+      return (
+        r.a.useEffect(() => {
+          var t
+          null !== e &&
+            void 0 !== e &&
+            null !== (t = e.location) &&
+            void 0 !== t &&
+            t.hash &&
+            l['AnchorLink'].scrollToAnchor(
+              decodeURIComponent(e.location.hash.slice(1))
+            )
+        }, []),
+        r.a.createElement(c, { demos: n })
+      )
+    }
+  },
   CBsr: function (e, t, n) {
     'use strict'
     e.exports = function () {
@@ -14463,10 +15168,10 @@
       N = n('8d12'),
       L = n('86T+'),
       I = n('uJNS'),
-      j = n('RzMS'),
-      C = n('3Hes'),
+      C = n('RzMS'),
+      j = n('3Hes'),
       T = n('tDGd'),
-      R = C('species'),
+      R = j('species'),
       P = 'Promise',
       M = I.get,
       F = I.set,
@@ -14487,7 +15192,7 @@
       J = 2,
       Z = 1,
       ee = 2,
-      te = j(P, function () {
+      te = C(P, function () {
         var e = y(B) !== String(B)
         if (!e) {
           if (66 === T) return !0
@@ -15988,8 +16693,8 @@
       N = 'Invalid host',
       L = 'Invalid port',
       I = /[A-Za-z]/,
-      j = /[\d+-.A-Za-z]/,
-      C = /\d/,
+      C = /[\d+-.A-Za-z]/,
+      j = /\d/,
       T = /^(0x|0X)/,
       R = /^[0-7]+$/,
       P = /^\d+$/,
@@ -16084,8 +16789,8 @@
                   if (!('.' == m() && a < 4)) return
                   d++
                 }
-                if (!C.test(m())) return
-                while (C.test(m())) {
+                if (!j.test(m())) return
+                while (j.test(m())) {
                   if (((l = parseInt(m(), 10)), null === r)) r = l
                   else {
                     if (0 == r) return
@@ -16258,7 +16963,7 @@
               ;(m += o.toLowerCase()), (u = ie)
               break
             case ie:
-              if (o && (j.test(o) || '+' == o || '-' == o || '.' == o))
+              if (o && (C.test(o) || '+' == o || '-' == o || '.' == o))
                 m += o.toLowerCase()
               else {
                 if (':' != o) {
@@ -16425,7 +17130,7 @@
               }
               break
             case ve:
-              if (!C.test(o)) {
+              if (!j.test(o)) {
                 if (
                   o == a ||
                   '/' == o ||
@@ -16583,8 +17288,8 @@
           }),
           l ||
             ((a.href = Ie.call(a)),
-            (a.origin = je.call(a)),
-            (a.protocol = Ce.call(a)),
+            (a.origin = Ce.call(a)),
+            (a.protocol = je.call(a)),
             (a.username = Te.call(a)),
             (a.password = Re.call(a)),
             (a.host = Pe.call(a)),
@@ -16620,7 +17325,7 @@
           u
         )
       },
-      je = function () {
+      Ce = function () {
         var e = w(this),
           t = e.scheme,
           n = e.port
@@ -16634,7 +17339,7 @@
           ? t + '://' + $(e.host) + (null !== n ? ':' + n : '')
           : 'null'
       },
-      Ce = function () {
+      je = function () {
         return w(this).scheme + ':'
       },
       Te = function () {
@@ -16686,8 +17391,8 @@
             if (a) throw TypeError(a)
             k(t.searchParams).updateSearchParams(t.query)
           }),
-          origin: Ue(je),
-          protocol: Ue(Ce, function (e) {
+          origin: Ue(Ce),
+          protocol: Ue(je, function (e) {
             var t = w(this)
             _e(t, String(e) + ':', oe)
           }),
@@ -18020,8 +18725,8 @@
       N = n('aRba'),
       L = _.get,
       I = _.set,
-      j = A.f,
-      C = O.f,
+      C = A.f,
+      j = O.f,
       T = Math.round,
       R = r.RangeError,
       P = c.ArrayBuffer,
@@ -18042,7 +18747,7 @@
         return r
       },
       H = function (e, t) {
-        j(e, t, {
+        C(e, t, {
           get: function () {
             return L(this)[t]
           },
@@ -18060,7 +18765,7 @@
         return U(e) && 'symbol' != typeof t && t in e && String(+t) == String(t)
       },
       K = function (e, t) {
-        return X(e, (t = h(t, !0))) ? s(2, e[t]) : C(e, t)
+        return X(e, (t = h(t, !0))) ? s(2, e[t]) : j(e, t)
       },
       Q = function (e, t, n) {
         return !(X(e, (t = h(t, !0))) && v(n) && E(n, 'value')) ||
@@ -18069,7 +18774,7 @@
           n.configurable ||
           (E(n, 'writable') && !n.writable) ||
           (E(n, 'enumerable') && !n.enumerable)
-          ? j(e, t, n)
+          ? C(e, t, n)
           : ((e[t] = n.value), e)
       }
     l
@@ -18102,8 +18807,8 @@
               n && (a = (a = T(a)) < 0 ? 0 : a > 255 ? 255 : 255 & a),
                 r.view[s](t * l + r.byteOffset, a, !0)
             },
-            C = function (e, t) {
-              j(e, t, {
+            j = function (e, t) {
+              C(e, t, {
                 get: function () {
                   return O(this, t)
                 },
@@ -18166,7 +18871,7 @@
                   length: c,
                   view: new M(r),
                 })
-                while (s < c) C(e, s++)
+                while (s < c) j(e, s++)
               })),
               y && y(E, B),
               (g = E.prototype = b(D))),
@@ -18599,8 +19304,8 @@
       N = n('uF/W'),
       L = n('WAeE'),
       I = n('8i6t'),
-      j = n('Y3cF'),
-      C = n('KgcE'),
+      C = n('Y3cF'),
+      j = n('KgcE'),
       T = n('3Hes'),
       R = n('2Roc'),
       P = n('KZF9'),
@@ -18710,7 +19415,7 @@
           n = []
         return (
           z(t, function (e) {
-            d(J, e) || d(j, e) || n.push(e)
+            d(J, e) || d(C, e) || n.push(e)
           }),
           n
         )
@@ -18734,7 +19439,7 @@
               arguments.length && void 0 !== arguments[0]
                 ? String(arguments[0])
                 : void 0,
-            t = C(e),
+            t = j(e),
             n = function (e) {
               this === $ && n.call(Z, e),
                 d(this, B) && d(this[B], t) && (this[B][t] = !1),
@@ -18746,7 +19451,7 @@
           return G(this).tag
         }),
         N(H, 'withoutSetter', function (e) {
-          return oe(C(e), e)
+          return oe(j(e), e)
         }),
         (O.f = de),
         (A.f = ce),
@@ -18851,7 +19556,7 @@
         }
       )
     }
-    H[W][U] || _(H[W], U, H[W].valueOf), M(H, D), (j[B] = !0)
+    H[W][U] || _(H[W], U, H[W].valueOf), M(H, D), (C[B] = !0)
   },
   GhqR: function (e, t, n) {
     'use strict'
@@ -18945,7 +19650,7 @@
                 '\u5b9e\u4f8b\u914d\u7f6e'
               ),
               r.a.createElement(i['a'], {
-                code: "interface I18nConfig {\n  types?: Record<\n    string,\n    {\n      resources?: Record<any, any> | false // \u7ffb\u8bd1\u8d44\u6e90\uff0cfalse \u8868\u793a\u4e0d\u4f7f\u7528\n      format?: any // \u81ea\u5b9a\u4e49\u683c\u5f0f\u5316\u51fd\u6570\u6216\u6309\u8bed\u8a00\u6620\u5c04\n    }\n  >\n  splitByDot?: boolean | 'auto' // \u70b9\u5206\u5272\u6a21\u5f0f\uff1a'auto'(\u9ed8\u8ba4)\u3001true\u3001false\n  defaultType?: string // \u9ed8\u8ba4\u7c7b\u578b\uff0c\u9ed8\u8ba4 'default'\n  fallback?: I18n[] | Record<any, any> // \u7ffb\u8bd1\u56de\u9000\n  translateFallback?: ((keys: any, options: any) => any) | any // \u7ffb\u8bd1\u56de\u9000\u51fd\u6570\n}",
+                code: "interface I18nConfig {\n  types?: Record<\n    string,\n    {\n      resources?: Record<any, any> | false // \u7ffb\u8bd1\u8d44\u6e90\uff0cfalse \u8868\u793a\u4e0d\u4f7f\u7528\n      format?: any // \u81ea\u5b9a\u4e49\u683c\u5f0f\u5316\u51fd\u6570\u6216\u6309\u8bed\u8a00\u6620\u5c04\n    }\n  >\n  splitByDot?: boolean | 'auto' // \u70b9\u5206\u5272\u6a21\u5f0f\uff1a'auto'(\u9ed8\u8ba4)\u3001true\u3001false\n  defaultType?: string // \u9ed8\u8ba4\u7c7b\u578b\uff0c\u9ed8\u8ba4 'default'\n  fallback?: I18n[] | Record<any, any> // \u7ffb\u8bd1\u56de\u9000\n  translateFallback?: ((keys: any, options: any) => any) | any // \u7ffb\u8bd1\u56de\u9000\u51fd\u6570\n  defaultApplyMode?: 'override' | 'supplement' // applyConfig \u7684\u9ed8\u8ba4\u5408\u5e76\u6a21\u5f0f\n}",
                 lang: 'ts',
               }),
               r.a.createElement(
@@ -19460,6 +20165,116 @@
                 lang: 'ts',
               }),
               r.a.createElement(
+                'h3',
+                { id: 'defaultapplymode-\u9ed8\u8ba4\u5408\u5e76\u6a21\u5f0f' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#defaultapplymode-\u9ed8\u8ba4\u5408\u5e76\u6a21\u5f0f',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                'defaultApplyMode \u9ed8\u8ba4\u5408\u5e76\u6a21\u5f0f'
+              ),
+              r.a.createElement(
+                'p',
+                null,
+                '\u901a\u8fc7 ',
+                r.a.createElement('code', null, 'defaultApplyMode'),
+                ' \u914d\u7f6e ',
+                r.a.createElement('code', null, 'applyConfig'),
+                ' \u7684\u9ed8\u8ba4\u5408\u5e76\u6a21\u5f0f\uff0c\u7701\u53bb\u6bcf\u6b21\u8c03\u7528\u65f6\u663e\u5f0f\u4f20\u5165 ',
+                r.a.createElement('code', null, 'mode'),
+                ' \u7684\u9ebb\u70e6\u3002'
+              ),
+              r.a.createElement(i['a'], {
+                code: "// \u521b\u5efa\u65f6\u914d\u7f6e\u9ed8\u8ba4\u4f7f\u7528\u8865\u5145\u6a21\u5f0f\nconst i18n = new I18n({\n  types: {\n    default: { resources: { 'zh-CN': { hello: '\u4f60\u597d' } } },\n  },\n  defaultApplyMode: 'supplement',\n})\n\n// \u4e4b\u540e applyConfig \u65e0\u9700\u6bcf\u6b21\u4f20 mode\uff0c\u81ea\u52a8\u4f7f\u7528\u8865\u5145\u6a21\u5f0f\nawait i18n.applyConfig({\n  types: { default: { resources: { 'zh-CN': { hello: '\u60a8\u597d', world: '\u4e16\u754c' } } } },\n})\n// hello \u4fdd\u6301 '\u4f60\u597d'\uff08\u4e0d\u8986\u76d6\uff09\uff0cworld \u8865\u5145\u4e3a '\u4e16\u754c'\n\n// \u4ecd\u53ef\u663e\u5f0f\u8986\u76d6\u9ed8\u8ba4\u884c\u4e3a\nawait i18n.applyConfig(overrideConfig, { mode: 'override' })",
+                lang: 'ts',
+              }),
+              r.a.createElement(
+                c['a'],
+                null,
+                r.a.createElement(
+                  'thead',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'th',
+                      null,
+                      r.a.createElement('code', null, 'defaultApplyMode')
+                    ),
+                    r.a.createElement('th', null, '\u884c\u4e3a')
+                  )
+                ),
+                r.a.createElement(
+                  'tbody',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u4e0d\u8bbe\u7f6e\uff08\u9ed8\u8ba4\uff09'
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'applyConfig'),
+                      ' \u9ed8\u8ba4 ',
+                      r.a.createElement('code', null, 'override'),
+                      ' \u6a21\u5f0f'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, "'supplement'")
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'applyConfig'),
+                      ' \u9ed8\u8ba4 ',
+                      r.a.createElement('code', null, 'supplement'),
+                      ' \u6a21\u5f0f'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, "'override'")
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u4e0e\u4e0d\u8bbe\u7f6e\u7b49\u6548'
+                    )
+                  )
+                )
+              ),
+              r.a.createElement(
+                'p',
+                null,
+                '\u8c03\u7528 ',
+                r.a.createElement('code', null, 'applyConfig'),
+                ' \u65f6\u663e\u5f0f\u4f20\u5165\u7684 ',
+                r.a.createElement('code', null, 'mode'),
+                ' \u59cb\u7ec8\u4f18\u5148\u4e8e ',
+                r.a.createElement('code', null, 'defaultApplyMode'),
+                '\u3002'
+              ),
+              r.a.createElement(
                 'h2',
                 { id: 'fallback-\u7ffb\u8bd1\u94fe' },
                 r.a.createElement(
@@ -19794,6 +20609,10 @@
                     { to: '../data/merge' },
                     'merge'
                   ),
+                  '\u3002\u663e\u5f0f\u4f20\u5165\u7684 ',
+                  r.a.createElement('code', null, 'mode'),
+                  ' \u4f1a\u8986\u76d6 ',
+                  r.a.createElement('code', null, 'defaultApplyMode'),
                   '\u3002'
                 ),
                 r.a.createElement(
@@ -21616,250 +22435,6 @@
       r = a['__core-js_shared__']
     e.exports = r
   },
-  IFBs: function (e, t, n) {
-    'use strict'
-    n.r(t)
-    var a = n('G3cz'),
-      r = n('iojd'),
-      l = n('nNWW'),
-      o = n.n(l),
-      i = n('SIGe'),
-      c = [
-        { max: 0.05, cls: 'low-1' },
-        { max: 0.15, cls: 'low-2' },
-        { max: 0.25, cls: 'med-1' },
-        { max: 0.4, cls: 'med-2' },
-        { max: 0.5, cls: 'med-3' },
-        { max: 0.7, cls: 'high-1' },
-        { max: 1.01, cls: 'high-2' },
-      ]
-    function u(e) {
-      return (c.find((t) => e < t.max) || c[6]).cls
-    }
-    function s(e) {
-      return e < 1024
-        ? { size: e, unit: 'B' }
-        : e < 1048576
-        ? { size: e / 1024, unit: 'kB' }
-        : { size: e / 1048576, unit: 'MB' }
-    }
-    function d(e) {
-      var t = e.value,
-        n = s(t),
-        a = n.size,
-        r = n.unit
-      return o.a.createElement(
-        'span',
-        { className: 'eas__pill-size' },
-        a < 10 ? a.toFixed(1) : Math.round(a),
-        o.a.createElement('span', { className: 'eas__pill-size-unit' }, r)
-      )
-    }
-    t['default'] = () => {
-      var e = Object(l['useState'])(null),
-        t = Object(r['default'])(e, 2),
-        n = t[0],
-        c = t[1],
-        m = Object(l['useState'])(''),
-        f = Object(r['default'])(m, 2),
-        p = f[0],
-        h = f[1],
-        E = Object(l['useState'])('esm'),
-        g = Object(r['default'])(E, 2),
-        v = g[0],
-        b = g[1]
-      Object(l['useEffect'])(() => {
-        var e = window.location.href.includes('/tools/') ? '/tools/' : '/'
-        fetch(''.concat(e, 'size.json'))
-          .then((e) => e.json())
-          .then(c)
-          .catch(() => {})
-      }, [])
-      var y = Object(l['useMemo'])(() => {
-          if (!n) return { items: [], maxGzip: 1, totalGzip: 0, groups: {} }
-          var e = p.toLowerCase(),
-            t = (n[v] || [])
-              .filter((e) => !e.name.endsWith('/index'))
-              .map((e) => {
-                var t = e.name.replace(/@fexd\/tools\/(es|lib)\//, '')
-                return Object(a['default'])(
-                  Object(a['default'])({}, e),
-                  {},
-                  { shortName: t }
-                )
-              })
-              .filter((t) => !e || t.shortName.toLowerCase().includes(e))
-              .sort((e, t) => t.rawGzip - e.rawGzip),
-            r = Math.max(...t.map((e) => e.rawGzip), 1),
-            l = t.reduce((e, t) => e + t.rawGzip, 0),
-            o = Object(i['a'])((e) => {
-              var t, n
-              return null === (t = e.shortName[0]) ||
-                void 0 === t ||
-                null === (n = t.toUpperCase) ||
-                void 0 === n
-                ? void 0
-                : n.call(t)
-            }, t)
-          return { items: t, maxGzip: r, totalGzip: l, groups: o }
-        }, [n, p, v]),
-        k = y.items,
-        x = y.maxGzip,
-        w = y.totalGzip,
-        S = y.groups
-      if (!n)
-        return o.a.createElement(
-          'div',
-          { className: 'eas__loading' },
-          '\u52a0\u8f7d\u4f53\u79ef\u6570\u636e\u4e2d...'
-        )
-      var A = s(w),
-        O = k.length > 20
-      return o.a.createElement(
-        'div',
-        { className: 'eas' },
-        o.a.createElement(
-          'h1',
-          { className: 'eas__title' },
-          '@fexd/tools',
-          o.a.createElement(
-            'span',
-            { className: 'eas__title-badge' },
-            v.toUpperCase()
-          )
-        ),
-        o.a.createElement(
-          'div',
-          { className: 'eas__topbar' },
-          o.a.createElement(
-            'div',
-            { className: 'eas__total' },
-            '\u603b\u5305\u4f53\u79ef\uff1a',
-            o.a.createElement(
-              'span',
-              { className: 'eas__total-value' },
-              A.size.toFixed(1),
-              o.a.createElement(
-                'span',
-                { className: 'eas__pill-size-unit' },
-                A.unit
-              )
-            ),
-            o.a.createElement(
-              'span',
-              { className: 'eas__total-count' },
-              k.length,
-              ' \u4e2a\u5bfc\u51fa'
-            )
-          ),
-          o.a.createElement(
-            'div',
-            { className: 'eas__controls' },
-            o.a.createElement(
-              'div',
-              { className: 'eas__filter-wrap' },
-              o.a.createElement('input', {
-                placeholder: 'Filter exports...',
-                className: 'eas__filter-input',
-                type: 'text',
-                value: p,
-                onChange: (e) => h(e.target.value),
-              }),
-              o.a.createElement(
-                'svg',
-                {
-                  className: 'eas__filter-icon',
-                  width: '90',
-                  height: '90',
-                  viewBox: '0 0 90 90',
-                  xmlns: 'http://www.w3.org/2000/svg',
-                },
-                o.a.createElement('path', {
-                  d: 'M89.32 86.5L64.25 61.4C77.2 47 76.75 24.72 62.87 10.87 55.93 3.92 46.7.1 36.87.1s-19.06 3.82-26 10.77C3.92 17.8.1 27.05.1 36.87s3.82 19.06 10.77 26c6.94 6.95 16.18 10.77 26 10.77 9.15 0 17.8-3.32 24.55-9.4l25.08 25.1c.38.4.9.57 1.4.57.52 0 1.03-.2 1.42-.56.78-.78.78-2.05 0-2.83zM36.87 69.63c-8.75 0-16.98-3.4-23.17-9.6-6.2-6.2-9.6-14.42-9.6-23.17 0-8.75 3.4-16.98 9.6-23.17 6.2-6.2 14.42-9.6 23.17-9.6 8.75 0 16.98 3.4 23.18 9.6 12.77 12.75 12.77 33.55 0 46.33-6.2 6.2-14.43 9.6-23.18 9.6z',
-                })
-              )
-            ),
-            o.a.createElement(
-              'div',
-              { className: 'eas__format-toggle' },
-              ['esm', 'cjs'].map((e) =>
-                o.a.createElement(
-                  'button',
-                  {
-                    key: e,
-                    className: 'eas__format-btn '.concat(
-                      v === e ? 'eas__format-btn--active' : ''
-                    ),
-                    onClick: () => b(e),
-                  },
-                  e.toUpperCase()
-                )
-              )
-            )
-          )
-        ),
-        o.a.createElement(
-          'ul',
-          { className: 'eas__list' },
-          Object.entries(S)
-            .sort((e, t) => {
-              var n = Object(r['default'])(e, 1),
-                a = n[0],
-                l = Object(r['default'])(t, 1),
-                o = l[0]
-              return a.localeCompare(o)
-            })
-            .map((e) => {
-              var t = Object(r['default'])(e, 2),
-                n = t[0],
-                a = t[1]
-              return o.a.createElement(
-                'div',
-                { key: n, className: 'eas__letter-group' },
-                O &&
-                  o.a.createElement(
-                    'h3',
-                    { className: 'eas__letter-heading' },
-                    n
-                  ),
-                a.map((e) => {
-                  var t = e.rawGzip / x
-                  return o.a.createElement(
-                    'li',
-                    { key: e.shortName, className: 'eas__pill' },
-                    o.a.createElement('div', {
-                      className: 'eas__pill-fill eas__pill-fill--'.concat(u(t)),
-                      style: {
-                        transform: 'scaleX('.concat(Math.min(t, 1), ')'),
-                      },
-                    }),
-                    o.a.createElement(
-                      'div',
-                      { className: 'eas__pill-name' },
-                      e.shortName
-                    ),
-                    o.a.createElement(d, { value: e.rawGzip })
-                  )
-                })
-              )
-            })
-        ),
-        0 === k.length &&
-          o.a.createElement(
-            'div',
-            { className: 'eas__empty' },
-            '\u65e0\u5339\u914d\u7ed3\u679c'
-          ),
-        o.a.createElement(
-          'div',
-          { className: 'eas__footer' },
-          '\u6570\u636e\u6765\u6e90\uff1a',
-          o.a.createElement('code', null, 'npm run size'),
-          ' \xb7 webpack \u72ec\u7acb\u6253\u5305 + gzip \xb7 \u4e0d\u542b\u5171\u4eab\u4f9d\u8d56\u53bb\u91cd'
-        )
-      )
-    }
-  },
   IVtQ: function (e, t, n) {
     'use strict'
     n.r(t)
@@ -22115,7 +22690,7 @@
       N = '[object Uint16Array]',
       L = '[object Uint32Array]',
       I = {}
-    function j(e) {
+    function C(e) {
       return l(e) && r(e.length) && !!I[a(e)]
     }
     ;(I[k] = I[x] = I[w] = I[S] = I[A] = I[O] = I[_] = I[N] = I[L] = !0),
@@ -22135,7 +22710,7 @@
         I[g] =
         I[v] =
           !1),
-      (e.exports = j)
+      (e.exports = C)
   },
   J1zz: function (e, t, n) {
     'use strict'
@@ -22822,8 +23397,8 @@
         ]
       )
     }
-    var j = { width: 0, height: 0, left: 0, top: 0, right: 0 }
-    function C(e, t, n, r, l) {
+    var C = { width: 0, height: 0, left: 0, top: 0, right: 0 }
+    function j(e, t, n, r, l) {
       var o,
         i,
         c,
@@ -22843,14 +23418,14 @@
           function () {
             if (!u.length) return [0, 0]
             for (var t = u.length, n = t, a = 0; a < t; a += 1) {
-              var r = e.get(u[a].key) || j
+              var r = e.get(u[a].key) || C
               if (r[i] + r[o] > c + h) {
                 n = a - 1
                 break
               }
             }
             for (var l = 0, s = t - 1; s >= 0; s -= 1) {
-              var d = e.get(u[s].key) || j
+              var d = e.get(u[s].key) || C
               if (d[i] < c) {
                 l = s + 1
                 break
@@ -23059,26 +23634,26 @@
         N = e.itemComponent,
         L = e.onVisibleChange,
         I = Object(u['a'])(e, X),
-        j = W(),
-        C = 'full' === v,
-        T = j(null),
+        C = W(),
+        j = 'full' === v,
+        T = C(null),
         R = Object(i['a'])(T, 2),
         P = R[0],
         M = R[1],
         F = P || 0,
-        z = j(new Map()),
+        z = C(new Map()),
         B = Object(i['a'])(z, 2),
         U = B[0],
         q = B[1],
-        G = j(0),
+        G = C(0),
         $ = Object(i['a'])(G, 2),
         H = $[0],
         V = $[1],
-        Z = j(0),
+        Z = C(0),
         ee = Object(i['a'])(Z, 2),
         te = ee[0],
         ne = ee[1],
-        ae = j(0),
+        ae = C(0),
         re = Object(i['a'])(ae, 2),
         le = re[0],
         oe = re[1],
@@ -23092,7 +23667,7 @@
         pe = me[1],
         he = a['useMemo'](
           function () {
-            return null === fe && C ? Number.MAX_SAFE_INTEGER : fe || 0
+            return null === fe && j ? Number.MAX_SAFE_INTEGER : fe || 0
           },
           [fe, P]
         ),
@@ -23112,7 +23687,7 @@
             return (
               we
                 ? (e =
-                    null === P && C ? c : c.slice(0, Math.min(c.length, F / E)))
+                    null === P && j ? c : c.slice(0, Math.min(c.length, F / E)))
                 : 'number' === typeof k && (e = c.slice(0, k)),
               e
             )
@@ -23151,10 +23726,10 @@
           n || (be(e < c.length - 1), null === L || void 0 === L || L(e)),
           void 0 !== t && se(t))
       }
-      function je(e, t) {
+      function Ce(e, t) {
         M(t.clientWidth)
       }
-      function Ce(e, t) {
+      function je(e, t) {
         q(function (n) {
           var a = new Map(n)
           return null === t ? a['delete'](e) : a.set(e, t), a
@@ -23178,7 +23753,7 @@
             if (!t) return void Ie(0, null)
             for (var a = 0; a < t; a += 1) {
               var r = Pe(a)
-              if ((C && (r = r || 0), void 0 === r)) {
+              if ((j && (r = r || 0), void 0 === r)) {
                 Ie(a - 1, void 0, !0)
                 break
               }
@@ -23218,7 +23793,7 @@
                       order: t,
                       item: e,
                       itemKey: n,
-                      registerSize: Ce,
+                      registerSize: je,
                       display: t <= he,
                     }
                   ),
@@ -23236,7 +23811,7 @@
                   item: e,
                   renderItem: Le,
                   itemKey: n,
-                  registerSize: Ce,
+                  registerSize: je,
                   display: t <= he,
                 })
               )
@@ -23286,7 +23861,7 @@
         xe &&
           (qe = a['createElement'](
             w['a'],
-            { onResize: je, disabled: !we },
+            { onResize: Ce, disabled: !we },
             qe
           )),
         qe
@@ -23433,8 +24008,8 @@
         'onKeyDown',
         'onFocus',
       ],
-      je = ['active'],
-      Ce = (function (e) {
+      Ce = ['active'],
+      je = (function (e) {
         Object(le['a'])(n, e)
         var t = Object(oe['a'])(n)
         function n() {
@@ -23496,9 +24071,9 @@
           N = w.overflowDisabled,
           L = w.itemIcon,
           I = w.selectedKeys,
-          j = w.onActive,
-          C = a['useContext'](Ne),
-          T = C._internalRenderMenuItem,
+          C = w.onActive,
+          j = a['useContext'](Ne),
+          T = j._internalRenderMenuItem,
           R = ''.concat(S, '-item'),
           P = a['useRef'](),
           M = a['useRef'](),
@@ -23515,7 +24090,7 @@
           D = d || L,
           W = fe(i, F, h, E),
           U = W.active,
-          q = Object(u['a'])(W, je),
+          q = Object(u['a'])(W, Ce),
           G = I.includes(i),
           $ = ge(z.length),
           H = function (e) {
@@ -23533,12 +24108,12 @@
             }
           },
           X = function (e) {
-            j(i), null === b || void 0 === b || b(e)
+            C(i), null === b || void 0 === b || b(e)
           },
           K = {}
         'option' === e.role && (K['aria-selected'] = G)
         var Q = a['createElement'](
-          Ce,
+          je,
           Object(l['a'])(
             {
               ref: P,
@@ -24020,14 +24595,14 @@
     function It(e) {
       return Lt(e)
     }
-    function jt(e) {
+    function Ct(e) {
       return Lt(e, !0)
     }
-    function Ct(e) {
+    function jt(e) {
       var t = Nt(e),
         n = e.ownerDocument,
         a = n.defaultView || n.parentWindow
-      return (t.left += It(a)), (t.top += jt(a)), t
+      return (t.left += It(a)), (t.top += Ct(a)), t
     }
     function Tt(e) {
       return null !== e && void 0 !== e && e == e.window
@@ -24095,12 +24670,12 @@
         c = Gt(o)
       'left' !== l && (a = 999), 'top' !== o && (r = 999)
       var u = '',
-        s = Ct(e)
+        s = jt(e)
       ;('left' in t || 'top' in t) && ((u = bt(e) || ''), gt(e, 'none')),
         'left' in t && ((e.style[i] = ''), (e.style[l] = ''.concat(a, 'px'))),
         'top' in t && ((e.style[c] = ''), (e.style[o] = ''.concat(r, 'px'))),
         Ot(e)
-      var d = Ct(e),
+      var d = jt(e),
         m = {}
       for (var f in t)
         if (t.hasOwnProperty(f)) {
@@ -24120,7 +24695,7 @@
       _t(e, g)
     }
     function Ht(e, t) {
-      var n = Ct(e),
+      var n = jt(e),
         a = yt(e),
         r = { x: a.x, y: a.y }
       'left' in t && (r.x = a.x + t.left - n.left),
@@ -24129,7 +24704,7 @@
     }
     function Vt(e, t, n) {
       if (n.ignoreShake) {
-        var a = Ct(e),
+        var a = jt(e),
           r = a.left.toFixed(0),
           l = a.top.toFixed(0),
           o = t.left.toFixed(0),
@@ -24276,7 +24851,7 @@
       },
       getDocument: Rt,
       offset: function (e, t, n) {
-        if ('undefined' === typeof t) return Ct(e)
+        if ('undefined' === typeof t) return jt(e)
         Vt(e, t, n || {})
       },
       isWindow: Tt,
@@ -24296,7 +24871,7 @@
         return It(e)
       },
       getWindowScrollTop: function (e) {
-        return jt(e)
+        return Ct(e)
       },
       merge: function () {
         for (var e = {}, t = 0; t < arguments.length; t++)
@@ -24586,8 +25161,8 @@
       return _n(e, d, st(st({}, n), {}, { points: f }), m)
     }
     ;(Ln.__getOffsetParent = dn), (Ln.__getVisibleRectForElement = pn)
-    var jn = n('rDMZ'),
-      Cn = n.n(jn),
+    var Cn = n('rDMZ'),
+      jn = n.n(Cn),
       Tn = n('QQXB')
     function Rn(e, t) {
       return (
@@ -24723,7 +25298,7 @@
             (k.current.cancel = Mn(f.current, v))),
             (m.current.element === e &&
               Rn(m.current.point, t) &&
-              Cn()(m.current.align, o)) ||
+              jn()(m.current.align, o)) ||
               (v(),
               y.current.element !== e &&
                 (y.current.cancel(),
@@ -24808,7 +25383,7 @@
       function d(e, t, n, a) {
         var l = t && t.prototype instanceof v ? t : v,
           o = Object.create(l.prototype),
-          i = new j(a || [])
+          i = new C(a || [])
         return r(o, '_invoke', { value: _(e, n, i) }), o
       }
       function m(e, t, n) {
@@ -24832,7 +25407,7 @@
         return this
       })
       var x = Object.getPrototypeOf,
-        w = x && x(x(C([])))
+        w = x && x(x(j([])))
       w && w !== n && a.call(w, o) && (k = w)
       var S = (y.prototype = v.prototype = Object.create(k))
       function A(e) {
@@ -24959,12 +25534,12 @@
         var t = e.completion || {}
         ;(t.type = 'normal'), delete t.arg, (e.completion = t)
       }
-      function j(e) {
+      function C(e) {
         ;(this.tryEntries = [{ tryLoc: 'root' }]),
           e.forEach(L, this),
           this.reset(!0)
       }
-      function C(t) {
+      function j(t) {
         if (t || '' === t) {
           var n = t[o]
           if (n) return n.call(t)
@@ -25042,9 +25617,9 @@
             }
           )
         }),
-        (t.values = C),
-        (j.prototype = {
-          constructor: j,
+        (t.values = j),
+        (C.prototype = {
+          constructor: C,
           reset: function (t) {
             if (
               ((this.prev = 0),
@@ -25163,7 +25738,7 @@
           },
           delegateYield: function (t, n, a) {
             return (
-              (this.delegate = { iterator: C(t), resultName: n, nextLoc: a }),
+              (this.delegate = { iterator: j(t), resultName: n, nextLoc: a }),
               'next' === this.method && (this.arg = e),
               g
             )
@@ -25323,8 +25898,8 @@
           N = Object(a['useRef'])(),
           L = Object(a['useState'])(),
           I = Object(i['a'])(L, 2),
-          j = I[0],
-          C = I[1],
+          C = I[0],
+          j = I[1],
           T = Kn(f),
           R = Object(i['a'])(T, 2),
           P = R[0],
@@ -25350,7 +25925,7 @@
         }
         function K(e, t) {
           var n = y(t)
-          j !== n && C(n),
+          C !== n && j(n),
             $(function (e) {
               return e + 1
             }),
@@ -25439,7 +26014,7 @@
             function (e, t) {
               var n = e.className,
                 l = e.style,
-                i = m()(r, o, j, n)
+                i = m()(r, o, C, n)
               return a['createElement'](
                 qn,
                 {
@@ -26274,10 +26849,10 @@
         N = Object(i['a'])(_, 2),
         L = N[0],
         I = N[1],
-        j = g
+        C = g
           ? Object(s['a'])(Object(s['a'])({}, fa), y)
           : Object(s['a'])(Object(s['a'])({}, ma), y),
-        C = ha[f],
+        j = ha[f],
         T = pa(f, A, O),
         R = Object(s['a'])(
           Object(s['a'])({}, T),
@@ -26315,8 +26890,8 @@
             ),
             stretch: 'horizontal' === f ? 'minWidth' : null,
             getPopupContainer: E,
-            builtinPlacements: j,
-            popupPlacement: C,
+            builtinPlacements: C,
+            popupPlacement: j,
             popupVisible: L,
             popup: l,
             popupAlign: u && { offset: u },
@@ -26435,8 +27010,8 @@
           N = a['useContext'](se),
           L = N.prefixCls,
           I = N.mode,
-          j = N.openKeys,
-          C = N.disabled,
+          C = N.openKeys,
+          j = N.disabled,
           T = N.overflowDisabled,
           R = N.activeKey,
           P = N.selectedKeys,
@@ -26451,12 +27026,12 @@
           G = q.isSubPathKey,
           $ = xe(),
           H = ''.concat(L, '-submenu'),
-          V = C || f,
+          V = j || f,
           X = a['useRef'](),
           K = a['useRef']()
         var Q = E || M,
           Y = g || F,
-          J = j.includes(d),
+          J = C.includes(d),
           Z = !T && J,
           ee = G(P, d),
           te = fe(d, V, S, A),
@@ -26535,18 +27110,18 @@
         if (
           ('inline' !== I && (Ie.current = $.length > 1 ? 'vertical' : I), !T)
         ) {
-          var je = Ie.current
+          var Ce = Ie.current
           Le = a['createElement'](
             Ea,
             {
-              mode: je,
+              mode: Ce,
               prefixCls: H,
               visible: !p && Z && 'inline' !== I,
               popupClassName: v,
               popupOffset: b,
               popup: a['createElement'](
                 me,
-                { mode: 'horizontal' === je ? 'vertical' : je },
+                { mode: 'horizontal' === Ce ? 'vertical' : Ce },
                 a['createElement'](Ge, { id: _e, ref: K }, h)
               ),
               disabled: V,
@@ -26555,7 +27130,7 @@
             Le
           )
         }
-        var Ce = a['createElement'](
+        var je = a['createElement'](
           ne.Item,
           Object(l['a'])({ role: 'none' }, O, {
             component: 'li',
@@ -26579,7 +27154,7 @@
         )
         return (
           U &&
-            (Ce = U(Ce, e, { selected: ee, active: ve, open: Z, disabled: V })),
+            (je = U(je, e, { selected: ee, active: ve, open: Z, disabled: V })),
           a['createElement'](
             me,
             {
@@ -26588,7 +27163,7 @@
               itemIcon: Q,
               expandIcon: Y,
             },
-            Ce
+            je
           )
         )
       }
@@ -26649,8 +27224,8 @@
       Na = O['a'].ENTER,
       La = O['a'].ESC,
       Ia = O['a'].HOME,
-      ja = O['a'].END,
-      Ca = [Oa, _a, Sa, Aa]
+      Ca = O['a'].END,
+      ja = [Oa, _a, Sa, Aa]
     function Ta(e, t, n, a) {
       var r,
         l,
@@ -26754,7 +27329,7 @@
         }, []),
         function (a) {
           var p = a.which
-          if ([].concat(Ca, [Na, La, Ia, ja]).includes(p)) {
+          if ([].concat(ja, [Na, La, Ia, Ca]).includes(p)) {
             var h,
               E,
               g,
@@ -26776,8 +27351,8 @@
               y = Pa(b, h),
               k = g.get(y),
               w = Ta(e, 1 === i(k, !0).length, n, p)
-            if (!w && p !== Ia && p !== ja) return
-            ;(Ca.includes(p) || [Ia, ja].includes(p)) && a.preventDefault()
+            if (!w && p !== Ia && p !== Ca) return
+            ;(ja.includes(p) || [Ia, Ca].includes(p)) && a.preventDefault()
             var S = function (e) {
               if (e) {
                 var t = e,
@@ -26793,14 +27368,14 @@
                   }))
               }
             }
-            if ([Ia, ja].includes(p) || w.sibling || !y) {
+            if ([Ia, Ca].includes(p) || w.sibling || !y) {
               var A, O
               A = y && 'inline' !== e ? Ra(y) : l.current
               var _ = Ma(A, h)
               ;(O =
                 p === Ia
                   ? _[0]
-                  : p === ja
+                  : p === Ca
                   ? _[_.length - 1]
                   : Fa(A, h, y, w.offset)),
                 S(O)
@@ -26998,8 +27573,8 @@
           N = e.disabledOverflow,
           L = e.subMenuOpenDelay,
           I = void 0 === L ? 0.1 : L,
-          j = e.subMenuCloseDelay,
-          C = void 0 === j ? 0.1 : j,
+          C = e.subMenuCloseDelay,
+          j = void 0 === C ? 0.1 : C,
           T = e.forceSubMenuRender,
           P = e.defaultOpenKeys,
           M = e.openKeys,
@@ -27056,9 +27631,9 @@
           ),
           Le = Object(i['a'])(_e, 2),
           Ie = Le[0],
-          je = Le[1],
-          Ce = a['useState'](0),
-          Te = Object(i['a'])(Ce, 2),
+          Ce = Le[1],
+          je = a['useState'](0),
+          Te = Object(i['a'])(je, 2),
           Re = Te[0],
           Me = Te[1],
           Fe = Re >= pe.length - 1 || 'horizontal' !== Ie || N,
@@ -27272,7 +27847,7 @@
                   ''.concat(d, '-').concat(Ie),
                   h,
                   ((r = {}),
-                  Object(o['a'])(r, ''.concat(d, '-inline-collapsed'), je),
+                  Object(o['a'])(r, ''.concat(d, '-inline-collapsed'), Ce),
                   Object(o['a'])(r, ''.concat(d, '-rtl'), Oe),
                   r),
                   f
@@ -27335,7 +27910,7 @@
                 selectedKeys: ht,
                 inlineIndent: X,
                 subMenuOpenDelay: I,
-                subMenuCloseDelay: C,
+                subMenuCloseDelay: j,
                 forceSubMenuRender: T,
                 builtinPlacements: Z,
                 triggerSubMenuAction: J,
@@ -27565,16 +28140,16 @@
         N = Object(u['a'])(e, mr),
         L = a['useState'](),
         I = Object(i['a'])(L, 2),
-        j = I[0],
-        C = I[1],
-        T = 'visible' in e ? S : j,
+        C = I[0],
+        j = I[1],
+        T = 'visible' in e ? S : C,
         R = a['useRef'](null)
       a['useImperativeHandle'](t, function () {
         return R.current
       }),
         dr({
           visible: T,
-          setTriggerVisible: C,
+          setTriggerVisible: j,
           triggerRef: R,
           onVisibleChange: e.onVisibleChange,
           autoFocus: _,
@@ -27586,11 +28161,11 @@
         },
         M = function (t) {
           var n = e.onOverlayClick
-          C(!1), n && n(t)
+          j(!1), n && n(t)
         },
         F = function (t) {
           var n = e.onVisibleChange
-          C(t), 'function' === typeof n && n(t)
+          j(t), 'function' === typeof n && n(t)
         },
         z = function () {
           var e = P()
@@ -27708,10 +28283,10 @@
         N = Object(a['useState'])(null),
         L = Object(i['a'])(N, 2),
         I = L[0],
-        j = L[1],
-        C = ''.concat(r, '-more-popup'),
+        C = L[1],
+        j = ''.concat(r, '-more-popup'),
         T = ''.concat(n, '-dropdown'),
-        R = null !== I ? ''.concat(C, '-').concat(I) : null,
+        R = null !== I ? ''.concat(j, '-').concat(I) : null,
         P = null === c || void 0 === c ? void 0 : c.dropdownAriaLabel
       function M(e, t) {
         e.preventDefault(),
@@ -27727,7 +28302,7 @@
             y(t, n), _(!1)
           },
           prefixCls: ''.concat(T, '-menu'),
-          id: C,
+          id: j,
           tabIndex: -1,
           role: 'listbox',
           'aria-activedescendant': R,
@@ -27740,7 +28315,7 @@
             Pe,
             {
               key: e.key,
-              id: ''.concat(C, '-').concat(e.key),
+              id: ''.concat(j, '-').concat(e.key),
               role: 'option',
               'aria-controls': r && ''.concat(r, '-panel-').concat(e.key),
               disabled: e.disabled,
@@ -27779,7 +28354,7 @@
         ) {
           n = (n + e + a) % a
           var o = t[n]
-          if (!o.disabled) return void j(o.key)
+          if (!o.disabled) return void C(o.key)
         }
       }
       function B(e) {
@@ -27813,7 +28388,7 @@
       ),
         Object(a['useEffect'])(
           function () {
-            A || j(null)
+            A || C(null)
           },
           [A]
         )
@@ -27845,7 +28420,7 @@
                   tabIndex: -1,
                   'aria-hidden': 'true',
                   'aria-haspopup': 'listbox',
-                  'aria-controls': C,
+                  'aria-controls': j,
                   id: ''.concat(r, '-more'),
                   'aria-expanded': A,
                   onKeyDown: B,
@@ -28035,7 +28610,7 @@
         O = e.tabPosition,
         _ = e.tabBarGutter,
         L = e.children,
-        j = e.onTabClick,
+        C = e.onTabClick,
         T = e.onTabScroll,
         R = Object(a['useRef'])(),
         P = Object(a['useRef'])(),
@@ -28099,10 +28674,10 @@
           : ((_e = Math.min(0, ie - Z)), (Ne = 0))
         : ((_e = Math.min(0, de - ae)), (Ne = 0))
       var Ie = Object(a['useRef'])(),
-        je = Object(a['useState'])(),
-        Ce = Object(i['a'])(je, 2),
-        Te = Ce[0],
-        Re = Ce[1]
+        Ce = Object(a['useState'])(),
+        je = Object(i['a'])(Ce, 2),
+        Te = je[0],
+        Re = je[1]
       function Pe() {
         Re(Date.now())
       }
@@ -28162,7 +28737,7 @@
           },
           [Te]
         )
-      var ze = C(
+      var ze = j(
           Ae,
           { width: ie, height: de, left: $, top: K },
           { width: Z, height: ae },
@@ -28192,7 +28767,7 @@
               null === y || void 0 === y ? void 0 : y.removeAriaLabel,
             ref: D(n),
             onClick: function (e) {
-              j(n, e)
+              C(n, e)
             },
             onRemove: function () {
               W(n)
@@ -28408,7 +28983,7 @@
       )
     }
     var Ir = a['forwardRef'](Lr)
-    function jr(e) {
+    function Cr(e) {
       var t = e.id,
         n = e.activeKey,
         r = e.animated,
@@ -28456,7 +29031,7 @@
         )
       )
     }
-    function Cr(e) {
+    function jr(e) {
       var t = e.prefixCls,
         n = e.forceRender,
         r = e.className,
@@ -28567,8 +29142,8 @@
         N = e.tabBarStyle,
         L = e.tabBarExtraContent,
         I = e.locale,
-        j = e.moreIcon,
-        C = e.moreTransitionName,
+        C = e.moreIcon,
+        j = e.moreTransitionName,
         T = e.destroyInactiveTabPane,
         R = e.renderTabBar,
         P = e.onChange,
@@ -28661,8 +29236,8 @@
           {
             editable: x,
             locale: I,
-            moreIcon: j,
-            moreTransitionName: C,
+            moreIcon: C,
+            moreTransitionName: j,
             tabBarGutter: _,
             onTabClick: oe,
             onTabScroll: F,
@@ -28699,7 +29274,7 @@
             ),
             ie,
             a['createElement'](
-              jr,
+              Cr,
               Object(l['a'])({ destroyInactiveTabPane: T }, ce, { animated: r })
             )
           )
@@ -28707,7 +29282,7 @@
       )
     }
     var Fr = a['forwardRef'](Mr)
-    Fr.TabPane = Cr
+    Fr.TabPane = jr
     var zr = Fr,
       Br = zr,
       Dr = n('YRe6'),
@@ -28829,9 +29404,9 @@
         N = Object(a['useState'])(Yr(O, u.sources[O])),
         L = $r(N, 2),
         I = L[0],
-        j = L[1],
-        C = Object(a['useState'])(Boolean(u.defaultShowCode)),
-        T = $r(C, 2),
+        C = L[1],
+        j = Object(a['useState'])(Boolean(u.defaultShowCode)),
+        T = $r(j, 2),
         R = T[0],
         P = T[1],
         M = Object(a['useState'])(Math.random()),
@@ -28852,7 +29427,7 @@
               }
             : H
       function X(e) {
-        _(e), j(Yr(e, u.sources[e]))
+        _(e), C(Yr(e, u.sources[e]))
       }
       return (
         Object(a['useEffect'])(
@@ -29047,7 +29622,7 @@
                     onChange: X,
                   },
                   Object.keys(u.sources).map(function (e) {
-                    return r.a.createElement(Cr, {
+                    return r.a.createElement(jr, {
                       tab: '_' === e ? 'index.'.concat(Yr(e, u.sources[e])) : e,
                       key: e,
                     })
@@ -29811,708 +30386,6 @@
                   '\u5728 @fexd/tools \u5185\u90e8\u63d0\u4f9b\uff0c\u907f\u514d\u9879\u76ee\u989d\u5916\u5b89\u88c5\u4f9d\u8d56\u3002'
                 )
               )
-            )
-          )
-        )
-      })
-    t['default'] = (e) => {
-      var t = r.a.useContext(l['context']),
-        n = t.demos
-      return (
-        r.a.useEffect(() => {
-          var t
-          null !== e &&
-            void 0 !== e &&
-            null !== (t = e.location) &&
-            void 0 !== t &&
-            t.hash &&
-            l['AnchorLink'].scrollToAnchor(
-              decodeURIComponent(e.location.hash.slice(1))
-            )
-        }, []),
-        r.a.createElement(c, { demos: n })
-      )
-    }
-  },
-  'Ks/r': function (e, t, n) {
-    'use strict'
-    n.r(t)
-    var a = n('nNWW'),
-      r = n.n(a),
-      l = n('Gdey'),
-      o = n('l4Xg'),
-      i = n('nDXD'),
-      c = r.a.memo((e) => {
-        e.demos
-        return r.a.createElement(
-          r.a.Fragment,
-          null,
-          r.a.createElement(
-            'div',
-            { className: 'markdown' },
-            r.a.createElement(
-              'h2',
-              {
-                id: '-ai-skills--\u8ba9-ai-\u7f16\u8f91\u5668\u7406\u89e3-fexdtools',
-              },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#-ai-skills--\u8ba9-ai-\u7f16\u8f91\u5668\u7406\u89e3-fexdtools',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\ud83e\udd16 AI Skills \u2014\u2014 \u8ba9 AI \u7f16\u8f91\u5668\u7406\u89e3 @fexd/tools'
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              r.a.createElement('code', null, '@fexd/tools'),
-              ' \u968f npm \u5305\u53d1\u5e03\u4e86\u5b8c\u6574\u7684 ',
-              r.a.createElement('strong', null, 'AI Agent Skills'),
-              ' \u6587\u6863\u3002\u5b89\u88c5\u540e\uff0c\u53ef\u4ee5\u901a\u8fc7\u5185\u7f6e CLI \u4e00\u952e\u628a\u8fd9\u4e9b\u6587\u6863\u6ce8\u518c\u5230 Cursor\u3001Codex\u3001Claude Code\u3001OpenCode \u7b49\u5e38\u89c1 AI Agent \u7684 skills \u76ee\u5f55\uff0c\u8ba9 AI \u5728\u5199\u4ee3\u7801\u65f6\u4f18\u5148\u8bfb\u53d6\u5de5\u5177\u51fd\u6570\u7684\u771f\u5b9e\u7528\u6cd5\u3002'
-            ),
-            r.a.createElement(
-              'h3',
-              { id: '-\u53d1\u5e03\u4e86\u4ec0\u4e48' },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#-\u53d1\u5e03\u4e86\u4ec0\u4e48',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\ud83d\udce6 \u53d1\u5e03\u4e86\u4ec0\u4e48\uff1f'
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              r.a.createElement('code', null, 'npm install @fexd/tools'),
-              ' \u540e\uff0c',
-              r.a.createElement('code', null, 'node_modules'),
-              ' \u4e2d\u5305\u542b\u4ee5\u4e0b AI \u6587\u6863\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: 'node_modules/@fexd/tools/\n\u251c\u2500\u2500 AGENTS.md                         # AI \u4e0a\u4e0b\u6587\u5165\u53e3\n\u251c\u2500\u2500 cli/                              # fexd-tools \u547d\u4ee4\u884c\u5de5\u5177\n\u2514\u2500\u2500 skills/\n    \u2514\u2500\u2500 fexd-tools/\n        \u251c\u2500\u2500 SKILL.md                  # \u4e3b\u5165\u53e3\uff1a\u4efb\u52a1\u8def\u7531 + \u67b6\u6784\u901f\u89c8\n        \u251c\u2500\u2500 catalog.md                # \u5de5\u5177\u51fd\u6570\u5206\u7c7b\u76ee\u5f55\n        \u2514\u2500\u2500 references/               # \u51fd\u6570\u8be6\u7ec6\u6587\u6863\n            \u251c\u2500\u2500 deepMerge.md\n            \u251c\u2500\u2500 I18n.md\n            \u251c\u2500\u2500 EventBus.md\n            \u251c\u2500\u2500 CombinationMatcher.md\n            \u251c\u2500\u2500 darkenColor.md\n            \u2514\u2500\u2500 ... (22 \u4e2a\u6587\u6863)',
-              lang: 'text',
-            }),
-            r.a.createElement(
-              'h3',
-              {
-                id: '-\u63a8\u8350\u4f7f\u7528\u5185\u7f6e-cli-\u81ea\u52a8\u914d\u7f6e',
-              },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#-\u63a8\u8350\u4f7f\u7528\u5185\u7f6e-cli-\u81ea\u52a8\u914d\u7f6e',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\ud83d\ude80 \u63a8\u8350\uff1a\u4f7f\u7528\u5185\u7f6e CLI \u81ea\u52a8\u914d\u7f6e'
-            ),
-            r.a.createElement(o['a'], {
-              code: 'fexd-tools skills install',
-              lang: 'bash',
-            }),
-            r.a.createElement(
-              'p',
-              null,
-              '\u5728\u6d88\u8d39\u9879\u76ee\u91cc\u5efa\u8bae\u52a0\u4e00\u4e2a\u811a\u672c\uff0c\u56e2\u961f\u6210\u5458\u5b89\u88c5\u4f9d\u8d56\u540e\u624b\u52a8\u8dd1\u4e00\u6b21\u5373\u53ef\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: '{\n  "scripts": {\n    "prepare:skills": "fexd-tools skills install"\n  }\n}',
-              lang: 'json',
-            }),
-            r.a.createElement('p', null, '\u7136\u540e\u6267\u884c\uff1a'),
-            r.a.createElement(o['a'], {
-              code: 'npm run prepare:skills',
-              lang: 'bash',
-            }),
-            r.a.createElement(
-              'p',
-              null,
-              '\u9ed8\u8ba4\u4f1a\u628a ',
-              r.a.createElement('code', null, 'fexd-tools'),
-              ' skill \u5b89\u88c5\u5230\u5e38\u89c1 agent \u7684\u9879\u76ee\u7ea7\u76ee\u5f55\uff0c\u5e76\u81ea\u52a8\u628a\u8fd9\u4e9b\u94fe\u63a5\u5199\u5165 ',
-              r.a.createElement('code', null, '.gitignore'),
-              '\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: '.cursor/skills/fexd-tools       # Cursor \u9879\u76ee\u76ee\u5f55\n.agents/skills/fexd-tools       # Codex / OpenCode \u901a\u7528\u9879\u76ee\u76ee\u5f55\n.claude/skills/fexd-tools       # Claude Code \u9879\u76ee\u76ee\u5f55',
-              lang: 'text',
-            }),
-            r.a.createElement(
-              'p',
-              null,
-              '\u8fd9\u4e9b\u76ee\u5f55\u9ed8\u8ba4\u90fd\u662f\u6307\u5411 ',
-              r.a.createElement(
-                'code',
-                null,
-                'node_modules/@fexd/tools/skills/fexd-tools'
-              ),
-              ' \u7684\u94fe\u63a5\u3002\u66f4\u65b0 ',
-              r.a.createElement('code', null, '@fexd/tools'),
-              ' \u540e\uff0cskill \u5185\u5bb9\u4f1a\u968f ',
-              r.a.createElement('code', null, 'node_modules'),
-              ' \u81ea\u52a8\u66f4\u65b0\u3002'
-            ),
-            r.a.createElement(
-              'h3',
-              { id: '\u6307\u5b9a-agent' },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#\u6307\u5b9a-agent',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\u6307\u5b9a Agent'
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              '\u53ea\u60f3\u914d\u7f6e\u67d0\u51e0\u4e2a agent \u65f6\uff0c\u4f7f\u7528 ',
-              r.a.createElement('code', null, '--agents'),
-              '\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: 'fexd-tools skills install --agents cursor\nfexd-tools skills install --agents cursor,claude-code,opencode',
-              lang: 'bash',
-            }),
-            r.a.createElement('p', null, '\u53ef\u9009\u503c\uff1a'),
-            r.a.createElement(
-              i['a'],
-              null,
-              r.a.createElement(
-                'thead',
-                null,
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement('th', null, 'agent'),
-                  r.a.createElement(
-                    'th',
-                    null,
-                    'project \u5b89\u88c5\u4f4d\u7f6e'
-                  )
-                )
-              ),
-              r.a.createElement(
-                'tbody',
-                null,
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, 'cursor')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '.cursor/skills/fexd-tools')
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, 'codex')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '.agents/skills/fexd-tools')
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, 'claude-code')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '.claude/skills/fexd-tools')
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, 'opencode')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement(
-                      'code',
-                      null,
-                      '.opencode/skills/fexd-tools'
-                    )
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, 'common')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    '\u4ee5\u4e0a\u5e38\u89c1 agent \u7684\u96c6\u5408\uff0c\u9ed8\u8ba4\u503c'
-                  )
-                )
-              )
-            ),
-            r.a.createElement(
-              'h3',
-              { id: '\u5b89\u88c5\u5230\u5168\u5c40\u76ee\u5f55' },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#\u5b89\u88c5\u5230\u5168\u5c40\u76ee\u5f55',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\u5b89\u88c5\u5230\u5168\u5c40\u76ee\u5f55'
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              '\u9ed8\u8ba4\u53ea\u5199\u9879\u76ee\u76ee\u5f55\uff0c\u4e0d\u4f1a\u4fee\u6539\u7528\u6237\u73af\u5883\u3002\u9700\u8981\u7ed9\u67d0\u4e2a\u5de5\u5177\u914d\u7f6e\u5168\u5c40 skill \u65f6\uff0c\u663e\u5f0f\u6307\u5b9a ',
-              r.a.createElement('code', null, '--scope global'),
-              '\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: 'fexd-tools skills install --agents codex --scope global\nfexd-tools skills install --agents claude-code --scope global',
-              lang: 'bash',
-            }),
-            r.a.createElement(
-              'p',
-              null,
-              '\u5982\u9700\u9879\u76ee\u76ee\u5f55\u548c\u5168\u5c40\u76ee\u5f55\u90fd\u5b89\u88c5\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: 'fexd-tools skills install --scope both',
-              lang: 'bash',
-            }),
-            r.a.createElement(
-              'h3',
-              { id: '\u5e38\u7528\u53c2\u6570' },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#\u5e38\u7528\u53c2\u6570',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\u5e38\u7528\u53c2\u6570'
-            ),
-            r.a.createElement(
-              i['a'],
-              null,
-              r.a.createElement(
-                'thead',
-                null,
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement('th', null, '\u53c2\u6570'),
-                  r.a.createElement('th', null, '\u4f5c\u7528')
-                )
-              ),
-              r.a.createElement(
-                'tbody',
-                null,
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '--agents <list>')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    '\u6307\u5b9a agent\uff0c\u652f\u6301 ',
-                    r.a.createElement(
-                      'code',
-                      null,
-                      'common,cursor,codex,claude-code,opencode'
-                    )
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '--scope <scope>')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    '\u5b89\u88c5\u8303\u56f4\uff0c\u652f\u6301 ',
-                    r.a.createElement('code', null, 'project,global,both'),
-                    '\uff0c\u9ed8\u8ba4 ',
-                    r.a.createElement('code', null, 'project')
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '--cwd <path>')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    '\u6307\u5b9a\u6d88\u8d39\u9879\u76ee\u76ee\u5f55\uff0c\u9002\u5408 monorepo \u6216\u811a\u672c\u4ece\u5b50\u76ee\u5f55\u6267\u884c'
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '--copy')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    '\u76f4\u63a5\u590d\u5236 skill \u76ee\u5f55\uff0c\u4e0d\u521b\u5efa\u94fe\u63a5'
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '--force')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    '\u76ee\u6807\u5df2\u5b58\u5728\u666e\u901a\u6587\u4ef6/\u76ee\u5f55\u65f6\u5f3a\u5236\u8986\u76d6'
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '--dry-run')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    '\u53ea\u6253\u5370\u5b89\u88c5\u8ba1\u5212\uff0c\u4e0d\u5199\u6587\u4ef6'
-                  )
-                ),
-                r.a.createElement(
-                  'tr',
-                  null,
-                  r.a.createElement(
-                    'td',
-                    null,
-                    r.a.createElement('code', null, '--no-gitignore')
-                  ),
-                  r.a.createElement(
-                    'td',
-                    null,
-                    '\u4e0d\u81ea\u52a8\u66f4\u65b0 ',
-                    r.a.createElement('code', null, '.gitignore')
-                  )
-                )
-              )
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              '\u5148\u9884\u89c8\u5b89\u88c5\u8ba1\u5212\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: 'fexd-tools skills install --dry-run',
-              lang: 'bash',
-            }),
-            r.a.createElement(
-              'p',
-              null,
-              'Windows \u73af\u5883\u5982\u679c\u94fe\u63a5\u6743\u9650\u53d7\u9650\uff0c\u53ef\u4ee5\u4f7f\u7528\u590d\u5236\u6a21\u5f0f\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: 'fexd-tools skills install --copy',
-              lang: 'bash',
-            }),
-            r.a.createElement(
-              'h3',
-              { id: '\u5907\u9009\u4f7f\u7528-skills-npm' },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#\u5907\u9009\u4f7f\u7528-skills-npm',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\u5907\u9009\uff1a\u4f7f\u7528 skills-npm'
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              '\u5982\u679c\u4f60\u7684\u9879\u76ee\u5e0c\u671b\u7edf\u4e00\u626b\u63cf\u591a\u4e2a npm \u5305\u91cc\u7684 skills\uff0c\u800c\u4e0d\u53ea\u662f ',
-              r.a.createElement('code', null, '@fexd/tools'),
-              '\uff0c\u53ef\u4ee5\u4f7f\u7528 ',
-              r.a.createElement(
-                l['Link'],
-                { to: 'https://github.com/nicepkg/skills-npm' },
-                'skills-npm'
-              ),
-              '\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: 'pnpm add -D skills-npm',
-              lang: 'bash',
-            }),
-            r.a.createElement(o['a'], {
-              code: '{\n  "scripts": {\n    "prepare": "skills-npm"\n  }\n}',
-              lang: 'json',
-            }),
-            r.a.createElement(
-              'p',
-              null,
-              r.a.createElement('code', null, 'skills-npm'),
-              ' \u9002\u5408\u505a\u901a\u7528\u53d1\u73b0\uff1b',
-              r.a.createElement('code', null, 'fexd-tools skills install'),
-              ' \u5219\u53ea\u5904\u7406\u672c\u5de5\u5177\u5e93\uff0c\u4f9d\u8d56\u66f4\u5c11\u3001\u8bca\u65ad\u66f4\u660e\u786e\u3002'
-            ),
-            r.a.createElement(
-              'h3',
-              { id: '-\u624b\u52a8\u521b\u5efa\u7b26\u53f7\u94fe\u63a5' },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#-\u624b\u52a8\u521b\u5efa\u7b26\u53f7\u94fe\u63a5',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\ud83d\udd17 \u624b\u52a8\u521b\u5efa\u7b26\u53f7\u94fe\u63a5'
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              '\u5982\u679c\u4e0d\u60f3\u901a\u8fc7 CLI\uff0c\u4e5f\u53ef\u4ee5\u624b\u52a8\u521b\u5efa\u94fe\u63a5\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: '# macOS / Linux\nmkdir -p .agents/skills\nln -s ../../node_modules/@fexd/tools/skills/fexd-tools .agents/skills/fexd-tools\n\n# Windows\nmklink /J .agents\\skills\\fexd-tools node_modules\\@fexd\\tools\\skills\\fexd-tools',
-              lang: 'bash',
-            }),
-            r.a.createElement(
-              'p',
-              null,
-              '\u8bb0\u5f97\u5728 ',
-              r.a.createElement('code', null, '.gitignore'),
-              ' \u4e2d\u5ffd\u7565\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: '.agents/skills/fexd-tools',
-              lang: 'gitignore',
-            }),
-            r.a.createElement(
-              'h3',
-              { id: '-\u914d\u7f6e\u5b8c\u6210\u540e' },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#-\u914d\u7f6e\u5b8c\u6210\u540e',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\ud83d\udcac \u914d\u7f6e\u5b8c\u6210\u540e'
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              '\u5728 AI \u7f16\u8f91\u5668\u4e2d\u7528\u81ea\u7136\u8bed\u8a00\u63d0\u95ee\u5373\u53ef\uff0cAI \u4f1a\u81ea\u52a8\u52a0\u8f7d\u5bf9\u5e94\u7684\u5de5\u5177\u6587\u6863\uff1a'
-            ),
-            r.a.createElement(o['a'], {
-              code: '\ud83d\udc64 "\u7528 merge \u5408\u5e76\u4e24\u4e2a\u914d\u7f6e\u5bf9\u8c61\uff0c\u53ea\u8865\u7f3a\u4e0d\u8986\u76d6"\n\ud83e\udd16 \u2192 \u8bfb\u53d6 references/merge.md\uff0c\u7ed9\u51fa { mode: \'supplement\' } \u914d\u7f6e\u793a\u4f8b\n\n\ud83d\udc64 "\u505a\u4e00\u4e2a\u591a\u8bed\u8a00\u5207\u6362\u65b9\u6848"\n\ud83e\udd16 \u2192 \u8bfb\u53d6 references/I18n.md\uff0c\u7ed9\u51fa I18n \u521d\u59cb\u5316\u548c t() \u4f7f\u7528\u65b9\u5f0f\n\n\ud83d\udc64 "\u5982\u4f55\u7ed9\u989c\u8272\u52a0\u6df1 20%\uff1f"\n\ud83e\udd16 \u2192 \u8bfb\u53d6 references/darkenColor.md\uff0c\u7ed9\u51fa darkenColor(\'#1890ff\', 20)\n\n\ud83d\udc64 "\u8fd9\u4e2a\u5e93\u6709\u54ea\u4e9b\u5de5\u5177\u51fd\u6570\uff1f"\n\ud83e\udd16 \u2192 \u8bfb\u53d6 catalog.md\uff0c\u5217\u51fa\u5b8c\u6574\u5206\u7c7b\u6e05\u5355',
-              lang: 'text',
-            }),
-            r.a.createElement(
-              'h3',
-              { id: '-\u5e38\u89c1\u95ee\u9898' },
-              r.a.createElement(
-                l['AnchorLink'],
-                {
-                  to: '#-\u5e38\u89c1\u95ee\u9898',
-                  'aria-hidden': 'true',
-                  tabIndex: -1,
-                },
-                r.a.createElement('span', { className: 'icon icon-link' })
-              ),
-              '\u2753 \u5e38\u89c1\u95ee\u9898'
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              r.a.createElement(
-                'strong',
-                null,
-                '\u6267\u884c\u547d\u4ee4\u540e AI \u6ca1\u6709\u52a0\u8f7d skill\uff1f'
-              )
-            ),
-            r.a.createElement(
-              'blockquote',
-              null,
-              r.a.createElement(
-                'p',
-                null,
-                '\u5148\u786e\u8ba4\u76ee\u6807\u76ee\u5f55\u4e0b\u5b58\u5728 ',
-                r.a.createElement('code', null, 'fexd-tools/SKILL.md'),
-                '\uff0c\u7136\u540e\u91cd\u542f\u5bf9\u5e94 AI \u7f16\u8f91\u5668\u6216\u65b0\u5f00\u4e00\u4e2a\u4f1a\u8bdd\u3002\u90e8\u5206\u5de5\u5177\u53ea\u5728\u542f\u52a8\u65f6\u626b\u63cf skills\u3002'
-              )
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              r.a.createElement(
-                'strong',
-                null,
-                '\u66f4\u65b0 @fexd/tools \u540e\u6587\u6863\u6ca1\u53d8\uff1f'
-              )
-            ),
-            r.a.createElement(
-              'blockquote',
-              null,
-              r.a.createElement(
-                'p',
-                null,
-                '\u9ed8\u8ba4\u5b89\u88c5\u65b9\u5f0f\u4f7f\u7528\u94fe\u63a5\uff0c\u66f4\u65b0\u4f9d\u8d56\u540e\u5185\u5bb9\u4f1a\u8ddf\u968f ',
-                r.a.createElement('code', null, 'node_modules'),
-                ' \u66f4\u65b0\u3002\u5982\u679c\u4f7f\u7528\u4e86 ',
-                r.a.createElement('code', null, '--copy'),
-                '\uff0c\u9700\u8981\u91cd\u65b0\u6267\u884c ',
-                r.a.createElement(
-                  'code',
-                  null,
-                  'fexd-tools skills install --copy --force'
-                ),
-                '\u3002'
-              )
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              r.a.createElement(
-                'strong',
-                null,
-                'monorepo \u600e\u4e48\u914d\u7f6e\uff1f'
-              )
-            ),
-            r.a.createElement(
-              'blockquote',
-              null,
-              r.a.createElement(
-                'p',
-                null,
-                '\u5728 workspace \u6839\u76ee\u5f55\u8fd0\u884c ',
-                r.a.createElement('code', null, 'fexd-tools skills install'),
-                '\u3002\u5982\u679c\u811a\u672c\u4ece\u5b50\u76ee\u5f55\u6267\u884c\uff0c\u53ef\u4ee5\u52a0 ',
-                r.a.createElement('code', null, '--cwd <workspace-root>'),
-                ' \u660e\u786e\u6307\u5b9a\u6839\u76ee\u5f55\u3002'
-              )
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              r.a.createElement(
-                'strong',
-                null,
-                '\u4e3a\u4ec0\u4e48\u9ed8\u8ba4\u4e0d\u5b89\u88c5\u5168\u5c40\u76ee\u5f55\uff1f'
-              )
-            ),
-            r.a.createElement(
-              'blockquote',
-              null,
-              r.a.createElement(
-                'p',
-                null,
-                '\u9879\u76ee\u7ea7\u76ee\u5f55\u66f4\u9002\u5408\u56e2\u961f\u5171\u4eab\uff0c\u4e5f\u4e0d\u4f1a\u6539\u52a8\u7528\u6237\u73af\u5883\u3002\u5982\u679c\u9700\u8981\u7528\u6237\u7ea7 skill\uff0c\u53ef\u4ee5\u663e\u5f0f\u6267\u884c ',
-                r.a.createElement(
-                  'code',
-                  null,
-                  'fexd-tools skills install --scope global'
-                ),
-                '\u3002'
-              )
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              r.a.createElement(
-                'strong',
-                null,
-                '\u652f\u6301\u54ea\u4e9b AI \u7f16\u8f91\u5668\uff1f'
-              )
-            ),
-            r.a.createElement(
-              'blockquote',
-              null,
-              r.a.createElement(
-                'p',
-                null,
-                '\u5185\u7f6e CLI \u652f\u6301 Cursor\u3001Codex\u3001Claude Code\u3001OpenCode\u3002\u5176\u4ed6\u5de5\u5177\u5982\u679c\u517c\u5bb9 ',
-                r.a.createElement('code', null, '.agents/skills'),
-                ' \u6216\u76f8\u5e94\u7684 skills \u76ee\u5f55\u7ea6\u5b9a\uff0c\u4e5f\u53ef\u4ee5\u901a\u8fc7\u624b\u52a8\u94fe\u63a5\u63a5\u5165\u3002'
-              )
-            ),
-            r.a.createElement(
-              'p',
-              null,
-              '\u66f4\u591a CLI \u547d\u4ee4\u8be6\u89c1 ',
-              r.a.createElement(
-                l['Link'],
-                { to: './cli' },
-                'CLI \u547d\u4ee4\u884c\u5de5\u5177'
-              ),
-              '\u3002'
             )
           )
         )
@@ -34123,36 +33996,6 @@
     var a = n('KZF9')
     a('dispose')
   },
-  Pysx: function (e, t, n) {
-    'use strict'
-    n.r(t)
-    var a = n('nNWW'),
-      r = n.n(a),
-      l = n('Gdey'),
-      o = r.a.memo((e) => {
-        e.demos
-        var t = n('IFBs').default
-        return r.a.createElement(r.a.Fragment, null, r.a.createElement(t, null))
-      })
-    t['default'] = (e) => {
-      var t = r.a.useContext(l['context']),
-        n = t.demos
-      return (
-        r.a.useEffect(() => {
-          var t
-          null !== e &&
-            void 0 !== e &&
-            null !== (t = e.location) &&
-            void 0 !== t &&
-            t.hash &&
-            l['AnchorLink'].scrollToAnchor(
-              decodeURIComponent(e.location.hash.slice(1))
-            )
-        }, []),
-        r.a.createElement(o, { demos: n })
-      )
-    }
-  },
   Q1Am: function (e, t, n) {
     'use strict'
     function a(e, t) {
@@ -36505,10 +36348,10 @@
               })
             : null,
           I = !!(E ? E(L, n) : L),
-          j = I ? y(p, i) : p,
-          C = I ? Object(c['a'])({}, S, {}, f) : S,
+          C = I ? y(p, i) : p,
+          j = I ? Object(c['a'])({}, S, {}, f) : S,
           T = Object(c['a'])(
-            { 'aria-current': (I && r) || null, className: j, style: C, to: l },
+            { 'aria-current': (I && r) || null, className: C, style: j, to: l },
             _
           )
         return (
@@ -36969,6 +36812,36 @@
   },
   RHHP: function (e, t, n) {
     n('QlVd')
+  },
+  RQPP: function (e, t, n) {
+    'use strict'
+    n.r(t)
+    var a = n('nNWW'),
+      r = n.n(a),
+      l = n('Gdey'),
+      o = r.a.memo((e) => {
+        e.demos
+        var t = n('k5M5').default
+        return r.a.createElement(r.a.Fragment, null, r.a.createElement(t, null))
+      })
+    t['default'] = (e) => {
+      var t = r.a.useContext(l['context']),
+        n = t.demos
+      return (
+        r.a.useEffect(() => {
+          var t
+          null !== e &&
+            void 0 !== e &&
+            null !== (t = e.location) &&
+            void 0 !== t &&
+            t.hash &&
+            l['AnchorLink'].scrollToAnchor(
+              decodeURIComponent(e.location.hash.slice(1))
+            )
+        }, []),
+        r.a.createElement(o, { demos: n })
+      )
+    }
   },
   RSL4: function (e, t, n) {
     n('QZNO')
@@ -37522,7 +37395,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'curry-demo',
         },
@@ -37618,7 +37491,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'debounce-demo',
         },
@@ -37762,7 +37635,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'delay-demo',
         },
@@ -38028,7 +37901,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'lock-demo',
         },
@@ -38332,7 +38205,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'memoize-demo',
         },
@@ -38674,7 +38547,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'pipe-demo',
         },
@@ -38770,7 +38643,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'throttle-demo',
         },
@@ -39014,7 +38887,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'CombinationMatcher-demo',
         },
@@ -39223,7 +39096,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'deepMerge-demo',
         },
@@ -39516,7 +39389,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'diffArray-demo',
         },
@@ -39829,7 +39702,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'difference-demo',
         },
@@ -40092,7 +39965,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'flatten-demo',
         },
@@ -40518,7 +40391,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'get-demo',
         },
@@ -40765,7 +40638,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'groupBy-demo',
         },
@@ -41075,7 +40948,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'I18n-demo',
         },
@@ -41486,7 +41359,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'merge-demo',
         },
@@ -41774,7 +41647,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'pick-demo',
         },
@@ -42209,7 +42082,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'reactivity-demo',
         },
@@ -42518,7 +42391,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'sample-demo',
         },
@@ -42709,7 +42582,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'uniqByKey-demo',
         },
@@ -42957,7 +42830,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'clamp-demo',
         },
@@ -43182,7 +43055,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'createSeparatorFormatter-demo',
         },
@@ -43496,7 +43369,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'darkenColor-demo',
         },
@@ -43725,7 +43598,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'getBrightness-demo',
         },
@@ -43921,7 +43794,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'hexToRgb-demo',
         },
@@ -44024,7 +43897,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'qs-demo',
         },
@@ -44264,7 +44137,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'randomRGB-demo',
         },
@@ -44349,7 +44222,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'storage-demo',
         },
@@ -44614,7 +44487,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'toFixed-demo',
         },
@@ -44728,7 +44601,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'classnames-demo',
         },
@@ -44808,7 +44681,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'copy-demo',
         },
@@ -45050,7 +44923,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'easing-demo',
         },
@@ -45348,7 +45221,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'EventBus-demo',
         },
@@ -45467,7 +45340,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'random-demo',
         },
@@ -45779,7 +45652,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'ScrollListener-demo',
         },
@@ -45831,7 +45704,7 @@
                 N = (0, r['default'])(_, 2),
                 L = N[0],
                 I = N[1],
-                j = (0, l.useCallback)(
+                C = (0, l.useCallback)(
                   function () {
                     try {
                       var e = (0, o.segment)(u, f, [g, k])
@@ -45842,7 +45715,7 @@
                   },
                   [u, f, g, k]
                 ),
-                C = A
+                j = A
                   ? A.reduce(function (e, t) {
                       return e + t
                     }, 0)
@@ -45926,7 +45799,7 @@
                 l['default'].createElement(
                   'button',
                   {
-                    onClick: j,
+                    onClick: C,
                     style: {
                       padding: '6px 20px',
                       borderRadius: 6,
@@ -46017,7 +45890,7 @@
                           }).join(', '),
                           ']  (sum = '
                         )
-                        .concat(C.toFixed(1), ')')
+                        .concat(j.toFixed(1), ')')
                     )
                   )
               )
@@ -46032,7 +45905,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'segment-demo',
         },
@@ -46209,7 +46082,7 @@
                 I = function () {
                   s([]), v(0), x(0)
                 },
-                j = {
+                C = {
                   padding: '6px 16px',
                   borderRadius: 6,
                   cursor: 'pointer',
@@ -46235,7 +46108,7 @@
                     {
                       onClick: N,
                       style: (0, n['default'])(
-                        (0, n['default'])({}, j),
+                        (0, n['default'])({}, C),
                         {},
                         {
                           background: '#1890ff',
@@ -46251,7 +46124,7 @@
                     {
                       onClick: L,
                       style: (0, n['default'])(
-                        (0, n['default'])({}, j),
+                        (0, n['default'])({}, C),
                         {},
                         {
                           background: '#722ed1',
@@ -46267,7 +46140,7 @@
                     {
                       onClick: I,
                       style: (0, n['default'])(
-                        (0, n['default'])({}, j),
+                        (0, n['default'])({}, C),
                         {},
                         { color: '#999' }
                       ),
@@ -46457,7 +46330,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'singleflight-demo',
         },
@@ -46515,7 +46388,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'Tween-demo',
         },
@@ -46598,11 +46471,11 @@
                     N.config({ ease: t }),
                     L.config({ ease: t })
                 }, []),
-                j = (0, a.useCallback)(function () {
+                C = (0, a.useCallback)(function () {
                   var e = (0, r.sample)(l)
                   I(e), A.restart()
                 }, []),
-                C = (0, a.useCallback)(
+                j = (0, a.useCallback)(
                   function () {
                     var e = !E
                     g(e), A.config({ loop: e })
@@ -46775,12 +46648,12 @@
                   { style: { display: 'flex', flexWrap: 'wrap', gap: 6 } },
                   a['default'].createElement(
                     'button',
-                    { style: o, onClick: j },
+                    { style: o, onClick: C },
                     'Random Easing'
                   ),
                   a['default'].createElement(
                     'button',
-                    { style: o, onClick: C },
+                    { style: o, onClick: j },
                     'Toggle Loop: ',
                     String(E)
                   )
@@ -46797,7 +46670,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'Tween-demo-1',
         },
@@ -47019,7 +46892,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.2' },
+            '@fexd/tools': { version: '0.2.3' },
           },
           identifier: 'Tween-demo-2',
         },
@@ -49474,8 +49347,8 @@
     }
     var L = [],
       I = [],
-      j = 1,
-      C = null,
+      C = 1,
+      j = null,
       T = 3,
       R = !1,
       P = !1,
@@ -49503,28 +49376,28 @@
       var a = T
       try {
         for (
-          F(n), C = O(L);
-          null !== C && (!(C.expirationTime > n) || (e && !o()));
+          F(n), j = O(L);
+          null !== j && (!(j.expirationTime > n) || (e && !o()));
 
         ) {
-          var i = C.callback
+          var i = j.callback
           if (null !== i) {
-            ;(C.callback = null), (T = C.priorityLevel)
-            var c = i(C.expirationTime <= n)
+            ;(j.callback = null), (T = j.priorityLevel)
+            var c = i(j.expirationTime <= n)
             ;(n = t.unstable_now()),
-              'function' === typeof c ? (C.callback = c) : C === O(L) && _(L),
+              'function' === typeof c ? (j.callback = c) : j === O(L) && _(L),
               F(n)
           } else _(L)
-          C = O(L)
+          j = O(L)
         }
-        if (null !== C) var u = !0
+        if (null !== j) var u = !0
         else {
           var s = O(I)
           null !== s && r(z, s.startTime - n), (u = !1)
         }
         return u
       } finally {
-        ;(C = null), (T = a), (R = !1)
+        ;(j = null), (T = a), (R = !1)
       }
     }
     function D(e) {
@@ -49609,7 +49482,7 @@
         return (
           (o = c + o),
           (e = {
-            id: j++,
+            id: C++,
             callback: n,
             priorityLevel: e,
             startTime: c,
@@ -49629,12 +49502,12 @@
         F(e)
         var n = O(L)
         return (
-          (n !== C &&
-            null !== C &&
+          (n !== j &&
+            null !== j &&
             null !== n &&
             null !== n.callback &&
             n.startTime <= e &&
-            n.expirationTime < C.expirationTime) ||
+            n.expirationTime < j.expirationTime) ||
           o()
         )
       }),
@@ -52079,8 +51952,8 @@
       ),
       L = null,
       I = null,
-      j = null
-    function C(e) {
+      C = null
+    function j(e) {
       if ((e = E(e))) {
         if ('function' !== typeof L) throw Error(o(280))
         var t = e.stateNode
@@ -52088,13 +51961,13 @@
       }
     }
     function T(e) {
-      I ? (j ? j.push(e) : (j = [e])) : (I = e)
+      I ? (C ? C.push(e) : (C = [e])) : (I = e)
     }
     function R() {
       if (I) {
         var e = I,
-          t = j
-        if (((j = I = null), C(e), t)) for (e = 0; e < t.length; e++) C(t[e])
+          t = C
+        if (((C = I = null), j(e), t)) for (e = 0; e < t.length; e++) j(t[e])
       }
     }
     function P(e, t) {
@@ -52108,7 +51981,7 @@
       B = !1,
       D = !1
     function W() {
-      ;(null === I && null === j) || (F(), R())
+      ;(null === I && null === C) || (F(), R())
     }
     function U(e, t, n) {
       if (D) return e(t, n)
@@ -52492,7 +52365,7 @@
     function Ie(e, t) {
       ;(t = t.checked), null != t && te(e, 'checked', t, !1)
     }
-    function je(e, t) {
+    function Ce(e, t) {
       Ie(e, t)
       var n = we(t.value),
         a = t.type
@@ -52509,7 +52382,7 @@
           null != t.defaultChecked &&
           (e.defaultChecked = !!t.defaultChecked)
     }
-    function Ce(e, t, n) {
+    function je(e, t, n) {
       if (t.hasOwnProperty('value') || t.hasOwnProperty('defaultValue')) {
         var a = t.type
         if (
@@ -52953,8 +52826,8 @@
       Nt = null,
       Lt = null,
       It = new Map(),
-      jt = new Map(),
-      Ct = [],
+      Ct = new Map(),
+      jt = [],
       Tt =
         'mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput close cancel copy cut paste click change contextmenu reset submit'.split(
           ' '
@@ -53001,7 +52874,7 @@
           break
         case 'gotpointercapture':
         case 'lostpointercapture':
-          jt.delete(t.pointerId)
+          Ct.delete(t.pointerId)
       }
     }
     function zt(e, t, n, a, r, l) {
@@ -53025,7 +52898,7 @@
         case 'gotpointercapture':
           return (
             (l = r.pointerId),
-            jt.set(l, zt(jt.get(l) || null, e, t, n, a, r)),
+            Ct.set(l, zt(Ct.get(l) || null, e, t, n, a, r)),
             !0
           )
       }
@@ -53081,7 +52954,7 @@
         null !== Nt && Wt(Nt) && (Nt = null),
         null !== Lt && Wt(Lt) && (Lt = null),
         It.forEach(Ut),
-        jt.forEach(Ut)
+        Ct.forEach(Ut)
     }
     function Gt(e, t) {
       e.blockedOn === t &&
@@ -53106,14 +52979,14 @@
           null !== Nt && Gt(Nt, e),
           null !== Lt && Gt(Lt, e),
           It.forEach(t),
-          jt.forEach(t),
+          Ct.forEach(t),
           n = 0;
-        n < Ct.length;
+        n < jt.length;
         n++
       )
-        (a = Ct[n]), a.blockedOn === e && (a.blockedOn = null)
-      for (; 0 < Ct.length && ((n = Ct[0]), null === n.blockedOn); )
-        Dt(n), null === n.blockedOn && Ct.shift()
+        (a = jt[n]), a.blockedOn === e && (a.blockedOn = null)
+      for (; 0 < jt.length && ((n = jt[0]), null === n.blockedOn); )
+        Dt(n), null === n.blockedOn && jt.shift()
     }
     var Ht = {},
       Vt = new Map(),
@@ -53496,7 +53369,7 @@
       Nn = '$!',
       Ln = null,
       In = null
-    function jn(e, t) {
+    function Cn(e, t) {
       switch (e) {
         case 'button':
         case 'input':
@@ -53506,7 +53379,7 @@
       }
       return !1
     }
-    function Cn(e, t) {
+    function jn(e, t) {
       return (
         'textarea' === e ||
         'option' === e ||
@@ -53964,11 +53837,11 @@
     function Ia(e) {
       pt(e)
     }
-    function ja(e) {
+    function Ca(e) {
       var t = qn(e)
       if (_e(t)) return e
     }
-    function Ca(e, t) {
+    function ja(e, t) {
       if ('change' === e) return t
     }
     var Ta = !1
@@ -53976,7 +53849,7 @@
       Na && (Na.detachEvent('onpropertychange', Pa), (La = Na = null))
     }
     function Pa(e) {
-      if ('value' === e.propertyName && ja(La))
+      if ('value' === e.propertyName && Ca(La))
         if (((e = _a(La, e, ht(e))), B)) pt(e)
         else {
           B = !0
@@ -53994,13 +53867,13 @@
     }
     function Fa(e) {
       if ('selectionchange' === e || 'keyup' === e || 'keydown' === e)
-        return ja(La)
+        return Ca(La)
     }
     function za(e, t) {
-      if ('click' === e) return ja(t)
+      if ('click' === e) return Ca(t)
     }
     function Ba(e, t) {
-      if ('input' === e || 'change' === e) return ja(t)
+      if ('input' === e || 'change' === e) return Ca(t)
     }
     N &&
       (Ta =
@@ -54011,7 +53884,7 @@
         extractEvents: function (e, t, n, a) {
           var r = t ? qn(t) : window,
             l = r.nodeName && r.nodeName.toLowerCase()
-          if ('select' === l || ('input' === l && 'file' === r.type)) var o = Ca
+          if ('select' === l || ('input' === l && 'file' === r.type)) var o = ja
           else if (Aa(r))
             if (Ta) o = Ba
             else {
@@ -54564,8 +54437,8 @@
     var Nr = {},
       Lr = { current: Nr },
       Ir = { current: !1 },
-      jr = Nr
-    function Cr(e, t) {
+      Cr = Nr
+    function jr(e, t) {
       var n = e.type.contextTypes
       if (!n) return Nr
       var a = e.stateNode
@@ -54605,7 +54478,7 @@
         (e =
           ((e = e.stateNode) && e.__reactInternalMemoizedMergedChildContext) ||
           Nr),
-        (jr = Lr.current),
+        (Cr = Lr.current),
         _r(Lr, e),
         _r(Ir, Ir.current),
         !0
@@ -54615,7 +54488,7 @@
       var a = e.stateNode
       if (!a) throw Error(o(169))
       n
-        ? ((e = Mr(e, t, jr)),
+        ? ((e = Mr(e, t, Cr)),
           (a.__reactInternalMemoizedMergedChildContext = e),
           Or(Ir),
           Or(Lr),
@@ -54940,8 +54813,8 @@
         }
     }
     var Il = ee.ReactCurrentBatchConfig,
-      jl = new a.Component().refs
-    function Cl(e, t, n, a) {
+      Cl = new a.Component().refs
+    function jl(e, t, n, a) {
       ;(t = e.memoizedState),
         (n = n(a, t)),
         (n = null === n || void 0 === n ? t : r({}, t, n)),
@@ -55005,9 +54878,9 @@
       return (
         'object' === typeof l && null !== l
           ? (l = kl(l))
-          : ((r = Tr(t) ? jr : Lr.current),
+          : ((r = Tr(t) ? Cr : Lr.current),
             (a = t.contextTypes),
-            (l = (a = null !== a && void 0 !== a) ? Cr(e, r) : Nr)),
+            (l = (a = null !== a && void 0 !== a) ? jr(e, r) : Nr)),
         (t = new t(n, l)),
         (e.memoizedState =
           null !== t.state && void 0 !== t.state ? t.state : null),
@@ -55031,16 +54904,16 @@
     }
     function Fl(e, t, n, a) {
       var r = e.stateNode
-      ;(r.props = n), (r.state = e.memoizedState), (r.refs = jl), wl(e)
+      ;(r.props = n), (r.state = e.memoizedState), (r.refs = Cl), wl(e)
       var l = t.contextType
       'object' === typeof l && null !== l
         ? (r.context = kl(l))
-        : ((l = Tr(t) ? jr : Lr.current), (r.context = Cr(e, l))),
+        : ((l = Tr(t) ? Cr : Lr.current), (r.context = jr(e, l))),
         Nl(e, n, r, a),
         (r.state = e.memoizedState),
         (l = t.getDerivedStateFromProps),
         'function' === typeof l &&
-          (Cl(e, t, l, n), (r.state = e.memoizedState)),
+          (jl(e, t, l, n), (r.state = e.memoizedState)),
         'function' === typeof t.getDerivedStateFromProps ||
           'function' === typeof r.getSnapshotBeforeUpdate ||
           ('function' !== typeof r.UNSAFE_componentWillMount &&
@@ -55074,7 +54947,7 @@
             ? t.ref
             : ((t = function (e) {
                 var t = a.refs
-                t === jl && (t = a.refs = {}),
+                t === Cl && (t = a.refs = {}),
                   null === e ? delete t[r] : (t[r] = e)
               }),
               (t._stringRef = r),
@@ -55724,7 +55597,7 @@
         ? a[0]
         : ((n.memoizedState = [e, t]), e)
     }
-    function jo(e, t) {
+    function Co(e, t) {
       var n = po()
       t = void 0 === t ? null : t
       var a = n.memoizedState
@@ -55732,7 +55605,7 @@
         ? a[0]
         : ((e = e()), (n.memoizedState = [e, t]), e)
     }
-    function Co(e, t, n) {
+    function jo(e, t, n) {
       var a = rl()
       ol(98 > a ? 98 : a, function () {
         e(!0)
@@ -55866,7 +55739,7 @@
         useTransition: function (e) {
           var t = vo(!1),
             n = t[0]
-          return (t = t[1]), [Lo(Co.bind(null, t, e), [t, e]), n]
+          return (t = t[1]), [Lo(jo.bind(null, t, e), [t, e]), n]
         },
       },
       Mo = {
@@ -55876,7 +55749,7 @@
         useEffect: So,
         useImperativeHandle: _o,
         useLayoutEffect: Ao,
-        useMemo: jo,
+        useMemo: Co,
         useReducer: Eo,
         useRef: yo,
         useState: function () {
@@ -55907,7 +55780,7 @@
         useTransition: function (e) {
           var t = Eo(ho),
             n = t[0]
-          return (t = t[1]), [Io(Co.bind(null, t, e), [t, e]), n]
+          return (t = t[1]), [Io(jo.bind(null, t, e), [t, e]), n]
         },
       },
       Fo = {
@@ -55917,7 +55790,7 @@
         useEffect: So,
         useImperativeHandle: _o,
         useLayoutEffect: Ao,
-        useMemo: jo,
+        useMemo: Co,
         useReducer: go,
         useRef: yo,
         useState: function () {
@@ -55948,7 +55821,7 @@
         useTransition: function (e) {
           var t = go(ho),
             n = t[0]
-          return (t = t[1]), [Io(Co.bind(null, t, e), [t, e]), n]
+          return (t = t[1]), [Io(jo.bind(null, t, e), [t, e]), n]
         },
       },
       zo = null,
@@ -56020,7 +55893,7 @@
       var t = e.type
       if (
         5 !== e.tag ||
-        ('head' !== t && 'body' !== t && !Cn(t, e.memoizedProps))
+        ('head' !== t && 'body' !== t && !jn(t, e.memoizedProps))
       )
         for (t = Bo; t; ) Wo(e, t), (t = Pn(t.nextSibling))
       if ((Go(e), 13 === e.tag)) {
@@ -56110,9 +55983,9 @@
         (t.effectTag |= 128)
     }
     function ei(e, t, n, a, r) {
-      var l = Tr(n) ? jr : Lr.current
+      var l = Tr(n) ? Cr : Lr.current
       return (
-        (l = Cr(t, l)),
+        (l = jr(t, l)),
         yl(t, r),
         (n = mo(e, t, n, a, l, r)),
         null === e || Xo
@@ -56142,7 +56015,7 @@
           u = n.contextType
         'object' === typeof u && null !== u
           ? (u = kl(u))
-          : ((u = Tr(n) ? jr : Lr.current), (u = Cr(t, u)))
+          : ((u = Tr(n) ? Cr : Lr.current), (u = jr(t, u)))
         var s = n.getDerivedStateFromProps,
           d =
             'function' === typeof s ||
@@ -56158,7 +56031,7 @@
           (c = t.memoizedState),
           i !== a || m !== c || Ir.current || xl
             ? ('function' === typeof s &&
-                (Cl(t, n, s, a), (c = t.memoizedState)),
+                (jl(t, n, s, a), (c = t.memoizedState)),
               (i = xl || Rl(t, n, i, a, m, c, u))
                 ? (d ||
                     ('function' !== typeof o.UNSAFE_componentWillMount &&
@@ -56188,7 +56061,7 @@
           (u = n.contextType),
           'object' === typeof u && null !== u
             ? (u = kl(u))
-            : ((u = Tr(n) ? jr : Lr.current), (u = Cr(t, u))),
+            : ((u = Tr(n) ? Cr : Lr.current), (u = jr(t, u))),
           (s = n.getDerivedStateFromProps),
           (d =
             'function' === typeof s ||
@@ -56203,7 +56076,7 @@
           (m = t.memoizedState),
           i !== a || c !== m || Ir.current || xl
             ? ('function' === typeof s &&
-                (Cl(t, n, s, a), (m = t.memoizedState)),
+                (jl(t, n, s, a), (m = t.memoizedState)),
               (s = xl || Rl(t, n, i, a, c, m, u))
                 ? (d ||
                     ('function' !== typeof o.UNSAFE_componentWillUpdate &&
@@ -56580,7 +56453,7 @@
                 }
               switch (l) {
                 case 'input':
-                  Oe(a), Ce(a, i, !0)
+                  Oe(a), je(a, i, !0)
                   break
                 case 'textarea':
                   Oe(a), De(a)
@@ -56681,7 +56554,7 @@
                 }
               switch (l) {
                 case 'input':
-                  Oe(e), Ce(e, a, !1)
+                  Oe(e), je(e, a, !1)
                   break
                 case 'textarea':
                   Oe(e), De(e)
@@ -56700,7 +56573,7 @@
                 default:
                   'function' === typeof u.onClick && (e.onclick = vn)
               }
-              jn(l, a) && (t.effectTag |= 4)
+              Cn(l, a) && (t.effectTag |= 4)
             }
             null !== t.ref && (t.effectTag |= 128)
           }
@@ -57125,7 +56998,7 @@
             void (
               null === t &&
               4 & n.effectTag &&
-              jn(n.type, n.memoizedProps) &&
+              Cn(n.type, n.memoizedProps) &&
               e.focus()
             )
           )
@@ -57189,7 +57062,7 @@
           ki(t)
           break
         case 4:
-          Ci(e, t, n)
+          ji(e, t, n)
       }
     }
     function _i(e) {
@@ -57257,7 +57130,7 @@
           break e
         }
       }
-      a ? Ii(e, n, t) : ji(e, n, t)
+      a ? Ii(e, n, t) : Ci(e, n, t)
     }
     function Ii(e, t, n) {
       var a = e.tag,
@@ -57279,17 +57152,17 @@
         for (Ii(e, t, n), e = e.sibling; null !== e; )
           Ii(e, t, n), (e = e.sibling)
     }
-    function ji(e, t, n) {
+    function Ci(e, t, n) {
       var a = e.tag,
         r = 5 === a || 6 === a
       if (r)
         (e = r ? e.stateNode : e.stateNode.instance),
           t ? n.insertBefore(e, t) : n.appendChild(e)
       else if (4 !== a && ((e = e.child), null !== e))
-        for (ji(e, t, n), e = e.sibling; null !== e; )
-          ji(e, t, n), (e = e.sibling)
+        for (Ci(e, t, n), e = e.sibling; null !== e; )
+          Ci(e, t, n), (e = e.sibling)
     }
-    function Ci(e, t, n) {
+    function ji(e, t, n) {
       for (var a, r, l = t, i = !1; ; ) {
         if (!i) {
           i = l.return
@@ -57389,7 +57262,7 @@
               }
               switch (e) {
                 case 'input':
-                  je(n, a)
+                  Ce(n, a)
                   break
                 case 'textarea':
                   Be(n, a)
@@ -57855,7 +57728,7 @@
           ul()
       }
     }
-    function jc(e, t) {
+    function Cc(e, t) {
       var n = Ji
       Ji |= 1
       try {
@@ -57864,7 +57737,7 @@
         ;(Ji = n), Ji === Ui && ul()
       }
     }
-    function Cc(e, t) {
+    function jc(e, t) {
       var n = Ji
       ;(Ji &= -2), (Ji |= qi)
       try {
@@ -58253,7 +58126,7 @@
                   Ti(dc.alternate, dc)
                   break
                 case 8:
-                  ;(s = dc), Ci(i, s, c), _i(s)
+                  ;(s = dc), ji(i, s, c), _i(s)
               }
               dc = dc.nextEffect
             }
@@ -58522,7 +58395,7 @@
             null !== e &&
               ((e.alternate = null), (t.alternate = null), (t.effectTag |= 2)),
             (e = t.pendingProps),
-            (r = Cr(t, Lr.current)),
+            (r = jr(t, Lr.current)),
             yl(t, n),
             (r = mo(null, t, a, e, r, n)),
             (t.effectTag |= 1),
@@ -58544,7 +58417,7 @@
               null !== r.state && void 0 !== r.state ? r.state : null),
               wl(t)
             var i = a.getDerivedStateFromProps
-            'function' === typeof i && Cl(t, a, i, e),
+            'function' === typeof i && jl(t, a, i, e),
               (r.updater = Tl),
               (t.stateNode = r),
               (r._reactInternalFiber = t),
@@ -58637,9 +58510,9 @@
             (r = t.pendingProps),
             (l = null !== e ? e.memoizedProps : null),
             (i = r.children),
-            Cn(a, r)
+            jn(a, r)
               ? (i = null)
-              : null !== l && Cn(a, l) && (t.effectTag |= 16),
+              : null !== l && jn(a, l) && (t.effectTag |= 16),
             Zo(e, t),
             4 & t.mode && 1 !== n && r.hidden
               ? ((t.expirationTime = t.childExpirationTime = 1), (t = null))
@@ -59123,7 +58996,7 @@
             c.call(e)
           }
         }
-        Cc(function () {
+        jc(function () {
           hu(t, o, e, r)
         })
       }
@@ -59174,7 +59047,7 @@
       (L = function (e, t, n) {
         switch (t) {
           case 'input':
-            if ((je(e, n), (t = n.name), 'radio' === n.type && null != t)) {
+            if ((Ce(e, n), (t = n.name), 'radio' === n.type && null != t)) {
               for (n = e; n.parentNode; ) n = n.parentNode
               for (
                 n = n.querySelectorAll(
@@ -59188,7 +59061,7 @@
                 if (a !== e && a.form === e.form) {
                   var r = Gn(a)
                   if (!r) throw Error(o(90))
-                  _e(a), je(a, r)
+                  _e(a), Ce(a, r)
                 }
               }
             }
@@ -59200,7 +59073,7 @@
             ;(t = n.value), null != t && Me(e, !!n.multiple, t, !1)
         }
       }),
-      (P = jc),
+      (P = Cc),
       (M = function (e, t, n, a, r) {
         var l = Ji
         Ji |= 4
@@ -59303,7 +59176,7 @@
         if (!yu(e)) throw Error(o(40))
         return (
           !!e._reactRootContainer &&
-          (Cc(function () {
+          (jc(function () {
             xu(null, null, e, !1, function () {
               ;(e._reactRootContainer = null), (e[Dn] = null)
             })
@@ -59311,7 +59184,7 @@
           !0)
         )
       }),
-      (t.unstable_batchedUpdates = jc),
+      (t.unstable_batchedUpdates = Cc),
       (t.unstable_createPortal = function (e, t) {
         return Su(
           e,
@@ -63195,11 +63068,11 @@
         var t = u(e)
         return 'DataView' === t || c(L, t)
       },
-      j = function (e) {
+      C = function (e) {
         return i(e) && c(L, u(e))
       },
-      C = function (e) {
-        if (j(e)) return e
+      j = function (e) {
+        if (C(e)) return e
         throw TypeError('Target is not a typed array')
       },
       T = function (e) {
@@ -63259,12 +63132,12 @@
     e.exports = {
       NATIVE_ARRAY_BUFFER_VIEWS: _,
       TYPED_ARRAY_TAG: N && O,
-      aTypedArray: C,
+      aTypedArray: j,
       aTypedArrayConstructor: T,
       exportTypedArrayMethod: R,
       exportTypedArrayStaticMethod: P,
       isView: I,
-      isTypedArray: j,
+      isTypedArray: C,
       TypedArray: k,
       TypedArrayPrototype: x,
     }
@@ -65720,11 +65593,11 @@
         t
       )
     }
-    function j(e) {
+    function C(e) {
       return e && e.__esModule ? e['default'] : e
     }
-    function C(e, t) {
-      return Object(i['createElement'])(j(e), t)
+    function j(e, t) {
+      return Object(i['createElement'])(C(e), t)
     }
     function T(e, t) {
       var n = Object.assign(
@@ -65733,7 +65606,7 @@
             loading: null,
             delay: 200,
             timeout: null,
-            render: C,
+            render: j,
             webpack: null,
             modules: null,
           },
@@ -67701,6 +67574,250 @@
         }, [])
     }
   },
+  k5M5: function (e, t, n) {
+    'use strict'
+    n.r(t)
+    var a = n('G3cz'),
+      r = n('iojd'),
+      l = n('nNWW'),
+      o = n.n(l),
+      i = n('SIGe'),
+      c = [
+        { max: 0.05, cls: 'low-1' },
+        { max: 0.15, cls: 'low-2' },
+        { max: 0.25, cls: 'med-1' },
+        { max: 0.4, cls: 'med-2' },
+        { max: 0.5, cls: 'med-3' },
+        { max: 0.7, cls: 'high-1' },
+        { max: 1.01, cls: 'high-2' },
+      ]
+    function u(e) {
+      return (c.find((t) => e < t.max) || c[6]).cls
+    }
+    function s(e) {
+      return e < 1024
+        ? { size: e, unit: 'B' }
+        : e < 1048576
+        ? { size: e / 1024, unit: 'kB' }
+        : { size: e / 1048576, unit: 'MB' }
+    }
+    function d(e) {
+      var t = e.value,
+        n = s(t),
+        a = n.size,
+        r = n.unit
+      return o.a.createElement(
+        'span',
+        { className: 'eas__pill-size' },
+        a < 10 ? a.toFixed(1) : Math.round(a),
+        o.a.createElement('span', { className: 'eas__pill-size-unit' }, r)
+      )
+    }
+    t['default'] = () => {
+      var e = Object(l['useState'])(null),
+        t = Object(r['default'])(e, 2),
+        n = t[0],
+        c = t[1],
+        m = Object(l['useState'])(''),
+        f = Object(r['default'])(m, 2),
+        p = f[0],
+        h = f[1],
+        E = Object(l['useState'])('esm'),
+        g = Object(r['default'])(E, 2),
+        v = g[0],
+        b = g[1]
+      Object(l['useEffect'])(() => {
+        var e = window.location.href.includes('/tools/') ? '/tools/' : '/'
+        fetch(''.concat(e, 'size.json'))
+          .then((e) => e.json())
+          .then(c)
+          .catch(() => {})
+      }, [])
+      var y = Object(l['useMemo'])(() => {
+          if (!n) return { items: [], maxGzip: 1, totalGzip: 0, groups: {} }
+          var e = p.toLowerCase(),
+            t = (n[v] || [])
+              .filter((e) => !e.name.endsWith('/index'))
+              .map((e) => {
+                var t = e.name.replace(/@fexd\/tools\/(es|lib)\//, '')
+                return Object(a['default'])(
+                  Object(a['default'])({}, e),
+                  {},
+                  { shortName: t }
+                )
+              })
+              .filter((t) => !e || t.shortName.toLowerCase().includes(e))
+              .sort((e, t) => t.rawGzip - e.rawGzip),
+            r = Math.max(...t.map((e) => e.rawGzip), 1),
+            l = t.reduce((e, t) => e + t.rawGzip, 0),
+            o = Object(i['a'])((e) => {
+              var t, n
+              return null === (t = e.shortName[0]) ||
+                void 0 === t ||
+                null === (n = t.toUpperCase) ||
+                void 0 === n
+                ? void 0
+                : n.call(t)
+            }, t)
+          return { items: t, maxGzip: r, totalGzip: l, groups: o }
+        }, [n, p, v]),
+        k = y.items,
+        x = y.maxGzip,
+        w = y.totalGzip,
+        S = y.groups
+      if (!n)
+        return o.a.createElement(
+          'div',
+          { className: 'eas__loading' },
+          '\u52a0\u8f7d\u4f53\u79ef\u6570\u636e\u4e2d...'
+        )
+      var A = s(w),
+        O = k.length > 20
+      return o.a.createElement(
+        'div',
+        { className: 'eas' },
+        o.a.createElement(
+          'h1',
+          { className: 'eas__title' },
+          '@fexd/tools',
+          o.a.createElement(
+            'span',
+            { className: 'eas__title-badge' },
+            v.toUpperCase()
+          )
+        ),
+        o.a.createElement(
+          'div',
+          { className: 'eas__topbar' },
+          o.a.createElement(
+            'div',
+            { className: 'eas__total' },
+            '\u603b\u5305\u4f53\u79ef\uff1a',
+            o.a.createElement(
+              'span',
+              { className: 'eas__total-value' },
+              A.size.toFixed(1),
+              o.a.createElement(
+                'span',
+                { className: 'eas__pill-size-unit' },
+                A.unit
+              )
+            ),
+            o.a.createElement(
+              'span',
+              { className: 'eas__total-count' },
+              k.length,
+              ' \u4e2a\u5bfc\u51fa'
+            )
+          ),
+          o.a.createElement(
+            'div',
+            { className: 'eas__controls' },
+            o.a.createElement(
+              'div',
+              { className: 'eas__filter-wrap' },
+              o.a.createElement('input', {
+                placeholder: 'Filter exports...',
+                className: 'eas__filter-input',
+                type: 'text',
+                value: p,
+                onChange: (e) => h(e.target.value),
+              }),
+              o.a.createElement(
+                'svg',
+                {
+                  className: 'eas__filter-icon',
+                  width: '90',
+                  height: '90',
+                  viewBox: '0 0 90 90',
+                  xmlns: 'http://www.w3.org/2000/svg',
+                },
+                o.a.createElement('path', {
+                  d: 'M89.32 86.5L64.25 61.4C77.2 47 76.75 24.72 62.87 10.87 55.93 3.92 46.7.1 36.87.1s-19.06 3.82-26 10.77C3.92 17.8.1 27.05.1 36.87s3.82 19.06 10.77 26c6.94 6.95 16.18 10.77 26 10.77 9.15 0 17.8-3.32 24.55-9.4l25.08 25.1c.38.4.9.57 1.4.57.52 0 1.03-.2 1.42-.56.78-.78.78-2.05 0-2.83zM36.87 69.63c-8.75 0-16.98-3.4-23.17-9.6-6.2-6.2-9.6-14.42-9.6-23.17 0-8.75 3.4-16.98 9.6-23.17 6.2-6.2 14.42-9.6 23.17-9.6 8.75 0 16.98 3.4 23.18 9.6 12.77 12.75 12.77 33.55 0 46.33-6.2 6.2-14.43 9.6-23.18 9.6z',
+                })
+              )
+            ),
+            o.a.createElement(
+              'div',
+              { className: 'eas__format-toggle' },
+              ['esm', 'cjs'].map((e) =>
+                o.a.createElement(
+                  'button',
+                  {
+                    key: e,
+                    className: 'eas__format-btn '.concat(
+                      v === e ? 'eas__format-btn--active' : ''
+                    ),
+                    onClick: () => b(e),
+                  },
+                  e.toUpperCase()
+                )
+              )
+            )
+          )
+        ),
+        o.a.createElement(
+          'ul',
+          { className: 'eas__list' },
+          Object.entries(S)
+            .sort((e, t) => {
+              var n = Object(r['default'])(e, 1),
+                a = n[0],
+                l = Object(r['default'])(t, 1),
+                o = l[0]
+              return a.localeCompare(o)
+            })
+            .map((e) => {
+              var t = Object(r['default'])(e, 2),
+                n = t[0],
+                a = t[1]
+              return o.a.createElement(
+                'div',
+                { key: n, className: 'eas__letter-group' },
+                O &&
+                  o.a.createElement(
+                    'h3',
+                    { className: 'eas__letter-heading' },
+                    n
+                  ),
+                a.map((e) => {
+                  var t = e.rawGzip / x
+                  return o.a.createElement(
+                    'li',
+                    { key: e.shortName, className: 'eas__pill' },
+                    o.a.createElement('div', {
+                      className: 'eas__pill-fill eas__pill-fill--'.concat(u(t)),
+                      style: {
+                        transform: 'scaleX('.concat(Math.min(t, 1), ')'),
+                      },
+                    }),
+                    o.a.createElement(
+                      'div',
+                      { className: 'eas__pill-name' },
+                      e.shortName
+                    ),
+                    o.a.createElement(d, { value: e.rawGzip })
+                  )
+                })
+              )
+            })
+        ),
+        0 === k.length &&
+          o.a.createElement(
+            'div',
+            { className: 'eas__empty' },
+            '\u65e0\u5339\u914d\u7ed3\u679c'
+          ),
+        o.a.createElement(
+          'div',
+          { className: 'eas__footer' },
+          '\u6570\u636e\u6765\u6e90\uff1a',
+          o.a.createElement('code', null, 'npm run size'),
+          ' \xb7 webpack \u72ec\u7acb\u6253\u5305 + gzip \xb7 \u4e0d\u542b\u5171\u4eab\u4f9d\u8d56\u53bb\u91cd'
+        )
+      )
+    }
+  },
   kMjI: function (e, t, n) {
     var a = n('5yEw'),
       r = n('uF/W'),
@@ -68276,684 +68393,6 @@
       { parseFloat: r }
     )
   },
-  kfnV: function (e, t, n) {
-    'use strict'
-    n.r(t)
-    var a = n('nNWW'),
-      r = n.n(a),
-      l = n('Gdey'),
-      o = n('JsrE'),
-      i = n('l4Xg'),
-      c = n('nDXD'),
-      u = r.a.memo((e) => {
-        var t = e.demos,
-          n = t['cli-demo'].component
-        return r.a.createElement(
-          r.a.Fragment,
-          null,
-          r.a.createElement(
-            r.a.Fragment,
-            null,
-            r.a.createElement(
-              'div',
-              { className: 'markdown' },
-              r.a.createElement(
-                'h1',
-                { id: 'cli-\u547d\u4ee4\u884c\u5de5\u5177' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#cli-\u547d\u4ee4\u884c\u5de5\u5177',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                'CLI \u547d\u4ee4\u884c\u5de5\u5177'
-              ),
-              r.a.createElement(
-                'p',
-                null,
-                r.a.createElement('code', null, '@fexd/tools'),
-                ' \u5185\u7f6e\u4e86 ',
-                r.a.createElement('code', null, 'fexd-tools'),
-                ' \u547d\u4ee4\uff0c\u5b89\u88c5\u540e\u5373\u53ef\u5728\u9879\u76ee\u4e2d\u5feb\u901f\u67e5\u6587\u6863\u3001\u641c\u7d22\u5de5\u5177\u51fd\u6570\u7528\u6cd5\u3001\u6ce8\u518c AI Skills\u3002'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools help',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                '\u5728 npm scripts \u4e2d\u53ef\u4ee5\u76f4\u63a5\u4f7f\u7528\uff1a'
-              ),
-              r.a.createElement(i['a'], {
-                code: '{\n  "scripts": {\n    "tools:list": "fexd-tools list",\n    "tools:skills": "fexd-tools skills install"\n  }\n}',
-                lang: 'json',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                '\u5982\u679c\u4e34\u65f6\u6267\u884c\uff0c\u4e5f\u53ef\u4ee5\u4f7f\u7528\u5305\u7ba1\u7406\u5668\u7684 exec \u547d\u4ee4\uff1a'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'npm exec fexd-tools -- list\npnpm exec fexd-tools docs deepMerge\nyarn fexd-tools search "\u5408\u5e76"',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'h2',
-                { id: '\u5217\u51fa\u5de5\u5177\u51fd\u6570' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#\u5217\u51fa\u5de5\u5177\u51fd\u6570',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                '\u5217\u51fa\u5de5\u5177\u51fd\u6570'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools list',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                '\u8f93\u51fa\u6240\u6709\u5de5\u5177\u51fd\u6570\u7684\u5206\u7c7b\u6e05\u5355\uff0c\u5e76\u6807\u8bb0\u54ea\u4e9b\u6761\u76ee\u6709\u8be6\u7ec6\u6587\u6863\uff08\u25cf \u6709\u6587\u6863 / \u25cb \u65e0\u6587\u6863\uff09\u3002'
-              ),
-              r.a.createElement(
-                'h3',
-                { id: '\u4ea4\u4e92\u6f14\u793a' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#\u4ea4\u4e92\u6f14\u793a',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                '\u4ea4\u4e92\u6f14\u793a'
-              )
-            ),
-            r.a.createElement(
-              o['default'],
-              t['cli-demo'].previewerProps,
-              r.a.createElement(n, null)
-            ),
-            r.a.createElement(
-              'div',
-              { className: 'markdown' },
-              r.a.createElement(
-                'h2',
-                { id: '\u67e5\u770b\u6587\u6863' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#\u67e5\u770b\u6587\u6863',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                '\u67e5\u770b\u6587\u6863'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools docs deepMerge\nfexd-tools docs I18n\nfexd-tools docs catalog',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                r.a.createElement('code', null, 'docs'),
-                ' \u4f1a\u8bfb\u53d6 npm \u5305\u5185\u7f6e\u7684 skill references \u6587\u6863\uff0c\u9002\u5408\u5728\u7ec8\u7aef\u91cc\u5feb\u901f\u67e5 API \u7b7e\u540d\u3001\u53c2\u6570\u548c\u793a\u4f8b\u3002'
-              ),
-              r.a.createElement(
-                'p',
-                null,
-                '\u4e5f\u53ef\u4ee5\u76f4\u63a5\u628a\u6587\u6863\u540d\u4f5c\u4e3a\u547d\u4ee4\uff1a'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools deepMerge',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'h2',
-                { id: '\u641c\u7d22\u6587\u6863' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#\u641c\u7d22\u6587\u6863',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                '\u641c\u7d22\u6587\u6863'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools search "\u5408\u5e76"\nfexd-tools search "I18n template"\nfexd-tools search "\u54cd\u5e94\u5f0f"',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                r.a.createElement('code', null, 'search'),
-                ' \u5728\u5185\u7f6e skill \u6587\u6863\u548c references \u4e2d\u5168\u6587\u641c\u7d22\uff0c\u8f93\u51fa\u547d\u4e2d\u7684\u6587\u4ef6\u548c\u884c\u53f7\u3002'
-              ),
-              r.a.createElement(
-                'h2',
-                { id: '\u5b89\u88c5-ai-skills' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#\u5b89\u88c5-ai-skills',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                '\u5b89\u88c5 AI Skills'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools skills install',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                '\u9ed8\u8ba4\u5b89\u88c5\u5230\u5e38\u89c1 agent \u7684\u9879\u76ee\u7ea7\u76ee\u5f55\uff1a'
-              ),
-              r.a.createElement(i['a'], {
-                code: '.cursor/skills/fexd-tools       # Cursor\n.agents/skills/fexd-tools       # Codex / OpenCode\n.claude/skills/fexd-tools       # Claude Code',
-                lang: 'text',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                '\u8fd9\u4e9b\u76ee\u5f55\u9ed8\u8ba4\u94fe\u63a5\u5230\uff1a'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'node_modules/@fexd/tools/skills/fexd-tools',
-                lang: 'text',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                '\u5b89\u88c5\u540e\u4f1a\u81ea\u52a8\u628a\u9879\u76ee\u7ea7 skill \u76ee\u5f55\u5199\u5165 ',
-                r.a.createElement('code', null, '.gitignore'),
-                '\u3002'
-              ),
-              r.a.createElement(
-                'h3',
-                { id: '\u9884\u89c8\u5b89\u88c5\u8ba1\u5212' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#\u9884\u89c8\u5b89\u88c5\u8ba1\u5212',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                '\u9884\u89c8\u5b89\u88c5\u8ba1\u5212'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools skills install --dry-run\nfexd-tools skills install --agents codex,opencode --dry-run',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                '\u5f53\u591a\u4e2a agent \u4f7f\u7528\u540c\u4e00\u4e2a\u76ee\u5f55\u65f6\uff0cCLI \u4f1a\u5408\u5e76\u5c55\u793a\u3002'
-              ),
-              r.a.createElement(
-                'h3',
-                { id: '\u6307\u5b9a-agent' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#\u6307\u5b9a-agent',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                '\u6307\u5b9a agent'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools skills install --agents cursor\nfexd-tools skills install --agents cursor,claude-code,opencode\nfexd-tools skills install --agents codex --scope global',
-                lang: 'bash',
-              }),
-              r.a.createElement('p', null, '\u652f\u6301\u7684 agent\uff1a'),
-              r.a.createElement(
-                c['a'],
-                null,
-                r.a.createElement(
-                  'thead',
-                  null,
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement('th', null, 'agent'),
-                    r.a.createElement('th', null, '\u8bf4\u660e')
-                  )
-                ),
-                r.a.createElement(
-                  'tbody',
-                  null,
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'common')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      '\u5e38\u89c1 agent \u96c6\u5408\uff0c\u9ed8\u8ba4\u503c'
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'cursor')
-                    ),
-                    r.a.createElement('td', null, 'Cursor')
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'codex')
-                    ),
-                    r.a.createElement('td', null, 'Codex')
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'claude-code')
-                    ),
-                    r.a.createElement('td', null, 'Claude Code')
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'opencode')
-                    ),
-                    r.a.createElement('td', null, 'OpenCode')
-                  )
-                )
-              ),
-              r.a.createElement(
-                'h3',
-                { id: '\u5b89\u88c5\u8303\u56f4' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#\u5b89\u88c5\u8303\u56f4',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                '\u5b89\u88c5\u8303\u56f4'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools skills install --scope project\nfexd-tools skills install --scope global\nfexd-tools skills install --scope both',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                c['a'],
-                null,
-                r.a.createElement(
-                  'thead',
-                  null,
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement('th', null, 'scope'),
-                    r.a.createElement('th', null, '\u8bf4\u660e')
-                  )
-                ),
-                r.a.createElement(
-                  'tbody',
-                  null,
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'project')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      '\u5b89\u88c5\u5230\u5f53\u524d\u9879\u76ee\u76ee\u5f55\uff0c\u9ed8\u8ba4\u503c'
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'global')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      '\u5b89\u88c5\u5230\u7528\u6237\u5168\u5c40 agent \u76ee\u5f55'
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'both')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      '\u540c\u65f6\u5b89\u88c5 project \u548c global'
-                    )
-                  )
-                )
-              ),
-              r.a.createElement(
-                'p',
-                null,
-                '\u5168\u5c40\u76ee\u5f55\u89c4\u5219\uff1a'
-              ),
-              r.a.createElement(
-                c['a'],
-                null,
-                r.a.createElement(
-                  'thead',
-                  null,
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement('th', null, 'agent'),
-                    r.a.createElement(
-                      'th',
-                      null,
-                      'global \u5b89\u88c5\u4f4d\u7f6e'
-                    )
-                  )
-                ),
-                r.a.createElement(
-                  'tbody',
-                  null,
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'cursor')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement(
-                        'code',
-                        null,
-                        '~/.cursor/skills/fexd-tools'
-                      )
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'codex')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement(
-                        'code',
-                        null,
-                        '$CODEX_HOME/skills/fexd-tools'
-                      ),
-                      ' \u6216 ',
-                      r.a.createElement(
-                        'code',
-                        null,
-                        '~/.codex/skills/fexd-tools'
-                      )
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'claude-code')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement(
-                        'code',
-                        null,
-                        '$CLAUDE_CONFIG_DIR/skills/fexd-tools'
-                      ),
-                      ' \u6216 ',
-                      r.a.createElement(
-                        'code',
-                        null,
-                        '~/.claude/skills/fexd-tools'
-                      )
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, 'opencode')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement(
-                        'code',
-                        null,
-                        '~/.config/opencode/skills/fexd-tools'
-                      )
-                    )
-                  )
-                )
-              ),
-              r.a.createElement(
-                'h3',
-                { id: '\u5176\u4ed6\u53c2\u6570' },
-                r.a.createElement(
-                  l['AnchorLink'],
-                  {
-                    to: '#\u5176\u4ed6\u53c2\u6570',
-                    'aria-hidden': 'true',
-                    tabIndex: -1,
-                  },
-                  r.a.createElement('span', { className: 'icon icon-link' })
-                ),
-                '\u5176\u4ed6\u53c2\u6570'
-              ),
-              r.a.createElement(
-                c['a'],
-                null,
-                r.a.createElement(
-                  'thead',
-                  null,
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement('th', null, '\u53c2\u6570'),
-                    r.a.createElement('th', null, '\u8bf4\u660e')
-                  )
-                ),
-                r.a.createElement(
-                  'tbody',
-                  null,
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, '--cwd <path>')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      '\u6307\u5b9a\u6d88\u8d39\u9879\u76ee\u76ee\u5f55'
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, '--copy')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      '\u590d\u5236 skill \u76ee\u5f55\uff0c\u4e0d\u521b\u5efa\u94fe\u63a5'
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, '--force')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      '\u76ee\u6807\u5df2\u5b58\u5728\u666e\u901a\u6587\u4ef6/\u76ee\u5f55\u65f6\u5f3a\u5236\u8986\u76d6'
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, '--dry-run')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      '\u53ea\u6253\u5370\u5b89\u88c5\u8ba1\u5212\uff0c\u4e0d\u5199\u6587\u4ef6'
-                    )
-                  ),
-                  r.a.createElement(
-                    'tr',
-                    null,
-                    r.a.createElement(
-                      'td',
-                      null,
-                      r.a.createElement('code', null, '--no-gitignore')
-                    ),
-                    r.a.createElement(
-                      'td',
-                      null,
-                      '\u4e0d\u81ea\u52a8\u66f4\u65b0 ',
-                      r.a.createElement('code', null, '.gitignore')
-                    )
-                  )
-                )
-              ),
-              r.a.createElement(
-                'p',
-                null,
-                'Windows \u73af\u5883\u5982\u679c\u521b\u5efa\u94fe\u63a5\u5931\u8d25\uff0cCLI \u4f1a\u81ea\u52a8\u56de\u9000\u4e3a\u590d\u5236\u3002\u4e5f\u53ef\u4ee5\u663e\u5f0f\u4f7f\u7528\u590d\u5236\u6a21\u5f0f\uff1a'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools skills install --copy\nfexd-tools skills install --copy --force',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                '\u4f7f\u7528 ',
-                r.a.createElement('code', null, '--copy'),
-                ' \u540e\uff0c\u66f4\u65b0 ',
-                r.a.createElement('code', null, '@fexd/tools'),
-                ' \u4e0d\u4f1a\u81ea\u52a8\u5237\u65b0\u5df2\u590d\u5236\u7684 skill\uff0c\u9700\u8981\u91cd\u65b0\u6267\u884c\u4e00\u6b21\u547d\u4ee4\u3002'
-              ),
-              r.a.createElement(
-                'p',
-                null,
-                '\u67e5\u770b skills \u547d\u4ee4\u5e2e\u52a9\uff1a'
-              ),
-              r.a.createElement(i['a'], {
-                code: 'fexd-tools skills install --help',
-                lang: 'bash',
-              }),
-              r.a.createElement(
-                'p',
-                null,
-                '\u66f4\u591a AI Skills \u914d\u7f6e\u8bf4\u660e\u89c1 ',
-                r.a.createElement(
-                  l['Link'],
-                  { to: './ai-skills' },
-                  'AI Skills'
-                ),
-                '\u3002'
-              )
-            )
-          )
-        )
-      })
-    t['default'] = (e) => {
-      var t = r.a.useContext(l['context']),
-        n = t.demos
-      return (
-        r.a.useEffect(() => {
-          var t
-          null !== e &&
-            void 0 !== e &&
-            null !== (t = e.location) &&
-            void 0 !== t &&
-            t.hash &&
-            l['AnchorLink'].scrollToAnchor(
-              decodeURIComponent(e.location.hash.slice(1))
-            )
-        }, []),
-        r.a.createElement(u, { demos: n })
-      )
-    }
-  },
   kj2u: function (e, t, n) {
     'use strict'
     var a = n('h+/6')
@@ -69316,14 +68755,14 @@
                       O--, (S = e.slice(w, L)), (A.index -= w)
                     } else if (((A = l(k, 0, S, g)), !A)) continue
                     _ = A.index
-                    var j = A[0],
-                      C = S.slice(0, _),
-                      T = S.slice(_ + j.length),
+                    var C = A[0],
+                      j = S.slice(0, _),
+                      T = S.slice(_ + C.length),
                       R = w + S.length
                     d && R > d.reach && (d.reach = R)
                     var P = x.prev
-                    C && ((P = c(t, P, C)), (w += C.length)), u(t, P, O)
-                    var M = new r(m, E ? a.tokenize(j, E) : j, b, j)
+                    j && ((P = c(t, P, j)), (w += j.length)), u(t, P, O)
+                    var M = new r(m, E ? a.tokenize(C, E) : C, b, C)
                     if (((x = c(t, P, M)), T && c(t, x, T), O > 1)) {
                       var F = { cause: m + ',' + p, reach: R }
                       o(e, t, n, x.prev, w, F),
@@ -74140,17 +73579,17 @@
               var N = String(w[0]),
                 L = d(m(i(w.index), f.length), 0),
                 I = [],
-                j = 1;
-              j < w.length;
-              j++
+                C = 1;
+              C < w.length;
+              C++
             )
-              I.push(E(w[j]))
-            var C = w.groups
+              I.push(E(w[C]))
+            var j = w.groups
             if (p) {
               var T = [N].concat(I, L, f)
-              void 0 !== C && T.push(C)
+              void 0 !== j && T.push(j)
               var R = String(a.apply(void 0, T))
-            } else R = y(N, f, L, I, C, a)
+            } else R = y(N, f, L, I, j, a)
             L >= O && ((A += f.slice(O, L) + R), (O = L + N.length))
           }
           return A + f.slice(O)
@@ -76390,7 +75829,7 @@
       }
     n('/0hc')
     function N(e, t) {
-      return T(e) || C(e, t) || I(e, t) || L()
+      return T(e) || j(e, t) || I(e, t) || L()
     }
     function L() {
       throw new TypeError(
@@ -76399,7 +75838,7 @@
     }
     function I(e, t) {
       if (e) {
-        if ('string' === typeof e) return j(e, t)
+        if ('string' === typeof e) return C(e, t)
         var n = Object.prototype.toString.call(e).slice(8, -1)
         return (
           'Object' === n && e.constructor && (n = e.constructor.name),
@@ -76407,17 +75846,17 @@
             ? Array.from(e)
             : 'Arguments' === n ||
               /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
-            ? j(e, t)
+            ? C(e, t)
             : void 0
         )
       }
     }
-    function j(e, t) {
+    function C(e, t) {
       ;(null == t || t > e.length) && (t = e.length)
       for (var n = 0, a = new Array(t); n < t; n++) a[n] = e[n]
       return a
     }
-    function C(e, t) {
+    function j(e, t) {
       var n =
         null == e
           ? null
@@ -76719,11 +76158,11 @@
           N = A[1],
           L = 'site' === d,
           I = L && f.hero,
-          j = L && f.features,
-          C = !1 !== f.sidemenu && !I && !j && !f.gapless,
+          C = L && f.features,
+          j = !1 !== f.sidemenu && !I && !C && !f.gapless,
           T =
             !I &&
-            !j &&
+            !C &&
             Boolean(
               null === (t = f.slugs) || void 0 === t ? void 0 : t.length
             ) &&
@@ -76745,7 +76184,7 @@
           {
             className: '__dumi-default-layout',
             'data-route': i.pathname,
-            'data-show-sidemenu': String(C),
+            'data-show-sidemenu': String(j),
             'data-show-slugs': String(T),
             'data-site-mode': L,
             'data-gapless': String(!!f.gapless),
@@ -76784,13 +76223,13 @@
               className: '__dumi-default-layout-toc',
             }),
           I && U(f.hero),
-          j && q(f.features),
+          C && q(f.features),
           r.a.createElement(
             'div',
             { className: '__dumi-default-layout-content' },
             o,
             !I &&
-              !j &&
+              !C &&
               f.filePath &&
               !f.gapless &&
               r.a.createElement(
@@ -76819,7 +76258,7 @@
                   z
                 )
               ),
-            (I || j) &&
+            (I || C) &&
               f.footer &&
               r.a.createElement('div', {
                 className: '__dumi-default-layout-footer',
@@ -77732,8 +77171,8 @@
       return void 0 === e.state && -1 === navigator.userAgent.indexOf('CriOS')
     }
     var I = 'popstate',
-      j = 'hashchange'
-    function C() {
+      C = 'hashchange'
+    function j() {
       try {
         return window.history.state || {}
       } catch (e) {
@@ -77777,7 +77216,7 @@
         L(e) || P(h(e.state))
       }
       function T() {
-        P(h(C()))
+        P(h(j()))
       }
       var R = !1
       function P(e) {
@@ -77798,7 +77237,7 @@
         var r = n - a
         r && ((R = !0), U(r))
       }
-      var F = h(C()),
+      var F = h(j()),
         z = [F.key]
       function B(e) {
         return m + y(e)
@@ -77856,10 +77295,10 @@
         ;($ += e),
           1 === $ && 1 === e
             ? (window.addEventListener(I, N),
-              r && window.addEventListener(j, T))
+              r && window.addEventListener(C, T))
             : 0 === $ &&
               (window.removeEventListener(I, N),
-              r && window.removeEventListener(j, T))
+              r && window.removeEventListener(C, T))
       }
       var V = !1
       function X(e) {
@@ -77985,9 +77424,9 @@
         var r = n - a
         r && ((b = !0), G(r))
       }
-      var j = F(),
-        C = s(j)
-      j !== C && B(C)
+      var C = F(),
+        j = s(C)
+      C !== j && B(j)
       var T = m(),
         D = [y(T)]
       function W(e) {
@@ -78170,9 +77609,1296 @@
       return _
     }
   },
+  q3NC: function (e, t, n) {
+    'use strict'
+    n.r(t)
+    var a = n('nNWW'),
+      r = n.n(a),
+      l = n('Gdey'),
+      o = n('l4Xg'),
+      i = n('nDXD'),
+      c = r.a.memo((e) => {
+        e.demos
+        return r.a.createElement(
+          r.a.Fragment,
+          null,
+          r.a.createElement(
+            'div',
+            { className: 'markdown' },
+            r.a.createElement(
+              'h1',
+              { id: '\u6982\u89c8' },
+              r.a.createElement(
+                l['AnchorLink'],
+                { to: '#\u6982\u89c8', 'aria-hidden': 'true', tabIndex: -1 },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u6982\u89c8'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u8f7b\u91cf\u7ea7 JavaScript/TypeScript \u5de5\u5177\u51fd\u6570\u5e93\uff0c\u6db5\u76d6\u7c7b\u578b\u5224\u65ad\u3001\u6df1\u5ea6\u5408\u5e76\u3001\u6570\u636e\u64cd\u4f5c\u3001\u5f02\u6b65\u6d41\u7a0b\u3001\u56fd\u9645\u5316\u3001\u52a8\u753b\u7f13\u52a8\u7b49 90+ \u4e2a\u5e38\u7528\u5de5\u5177\u3002\u96f6\u6846\u67b6\u4f9d\u8d56\uff0c\u652f\u6301 Tree-shaking\uff0c\u9002\u7528\u4e8e React / Vue / Node.js \u7b49\u4efb\u610f\u73af\u5883\u3002'
+            ),
+            r.a.createElement(
+              'h2',
+              { id: '\u5b89\u88c5' },
+              r.a.createElement(
+                l['AnchorLink'],
+                { to: '#\u5b89\u88c5', 'aria-hidden': 'true', tabIndex: -1 },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u5b89\u88c5'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'pnpm add @fexd/tools\n# or\nyarn add @fexd/tools\n# or\nnpm install @fexd/tools',
+              lang: 'bash',
+            }),
+            r.a.createElement(
+              'h2',
+              { id: '\u5feb\u901f\u4e0a\u624b' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u5feb\u901f\u4e0a\u624b',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u5feb\u901f\u4e0a\u624b'
+            ),
+            r.a.createElement(o['a'], {
+              code: "import { deepMerge, get, catchPromise, debounce, isArray } from '@fexd/tools'\n\n// \u6df1\u5ea6\u5408\u5e76\u591a\u4e2a\u914d\u7f6e\nconst config = deepMerge(defaults, userConfig, overrides)\n\n// \u5b89\u5168\u53d6\u503c\nconst name = get(response, 'data.user.name', '\u533f\u540d')\n\n// Promise \u9519\u8bef\u5904\u7406\uff0c\u544a\u522b try/catch \u5d4c\u5957\nconst [err, data] = await catchPromise(fetchUser(id))\n\n// \u9632\u6296\nconst handleSearch = debounce((keyword) => search(keyword), 300)",
+              lang: 'ts',
+            }),
+            r.a.createElement(
+              'h2',
+              { id: 'api-\u5206\u7c7b\u7d22\u5f15' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#api-\u5206\u7c7b\u7d22\u5f15',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              'API \u5206\u7c7b\u7d22\u5f15'
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u7c7b\u578b\u5224\u65ad' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u7c7b\u578b\u5224\u65ad',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u7c7b\u578b\u5224\u65ad'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'isObject'),
+                    ' ',
+                    r.a.createElement('code', null, 'isPlainObject')
+                  ),
+                  r.a.createElement('td', null, '\u5bf9\u8c61\u5224\u65ad')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'isArray'),
+                    ' ',
+                    r.a.createElement('code', null, 'isString'),
+                    ' ',
+                    r.a.createElement('code', null, 'isNumber'),
+                    ' ',
+                    r.a.createElement('code', null, 'isBoolean')
+                  ),
+                  r.a.createElement('td', null, '\u57fa\u7840\u7c7b\u578b')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'isInteger'),
+                    ' ',
+                    r.a.createElement('code', null, 'isFinite'),
+                    ' ',
+                    r.a.createElement('code', null, 'isNaN'),
+                    ' ',
+                    r.a.createElement('code', null, 'isBigNumber'),
+                    ' ',
+                    r.a.createElement('code', null, 'isNumberString')
+                  ),
+                  r.a.createElement('td', null, '\u6570\u5b57\u7ec6\u5206')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'isNull'),
+                    ' ',
+                    r.a.createElement('code', null, 'isUndefined'),
+                    ' ',
+                    r.a.createElement('code', null, 'isNil'),
+                    ' ',
+                    r.a.createElement('code', null, 'isExist'),
+                    ' ',
+                    r.a.createElement('code', null, 'isEmpty')
+                  ),
+                  r.a.createElement('td', null, '\u7a7a\u503c\u5224\u65ad')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'isFunction'),
+                    ' ',
+                    r.a.createElement('code', null, 'isDate'),
+                    ' ',
+                    r.a.createElement('code', null, 'isError'),
+                    ' ',
+                    r.a.createElement('code', null, 'isRegExp'),
+                    ' ',
+                    r.a.createElement('code', null, 'isSymbol')
+                  ),
+                  r.a.createElement('td', null, '\u5185\u7f6e\u7c7b\u578b')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'isPromiseLike'),
+                    ' ',
+                    r.a.createElement('code', null, 'isIterable'),
+                    ' ',
+                    r.a.createElement('code', null, 'isReactElementLike')
+                  ),
+                  r.a.createElement('td', null, '\u534f\u8bae\u68c0\u6d4b')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'isMobile'),
+                    ' ',
+                    r.a.createElement('code', null, 'isAndroid'),
+                    ' ',
+                    r.a.createElement('code', null, 'isIOS'),
+                    ' ',
+                    r.a.createElement('code', null, 'isDesktop'),
+                    ' ',
+                    r.a.createElement('code', null, 'isWKWebview')
+                  ),
+                  r.a.createElement('td', null, '\u5e73\u53f0\u73af\u5883')
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u6df1\u5ea6\u5408\u5e76' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u6df1\u5ea6\u5408\u5e76',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u6df1\u5ea6\u5408\u5e76'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'deepMerge')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u53d8\u53c2\u6df1\u5ea6\u5408\u5e76\uff0c\u9012\u5f52\u5408\u5e76\u591a\u4e2a\u5bf9\u8c61\uff08\u540e\u8005\u8986\u76d6\u524d\u8005\uff09'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'merge')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u9ad8\u7ea7\u53cc\u53c2\u5408\u5e76\uff0c\u652f\u6301 override/supplement \u6a21\u5f0f\u3001\u8def\u5f84\u7b56\u7565\u3001\u6570\u7ec4\u7b56\u7565\u3001clone'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'shallowMerge')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u6d45\u5408\u5e76\u4e24\u4e2a\u5bf9\u8c61\uff0c\u4ec5\u5408\u5e76\u7b2c\u4e00\u5c42'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u6570\u636e\u64cd\u4f5c' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u6570\u636e\u64cd\u4f5c',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u6570\u636e\u64cd\u4f5c'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'get'),
+                    ' / ',
+                    r.a.createElement('code', null, 'set')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u6309\u8def\u5f84\u5b89\u5168\u53d6\u503c/\u8bbe\u503c'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'pick'),
+                    ' / ',
+                    r.a.createElement('code', null, 'pickBy')
+                  ),
+                  r.a.createElement('td', null, '\u5bf9\u8c61\u9009\u53d6')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'groupBy')
+                  ),
+                  r.a.createElement('td', null, '\u6570\u7ec4\u5206\u7ec4')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'flatten')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u6570\u7ec4\u6241\u5e73\u5316'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'intersection'),
+                    ' / ',
+                    r.a.createElement('code', null, 'difference'),
+                    ' / ',
+                    r.a.createElement('code', null, 'diffArray')
+                  ),
+                  r.a.createElement('td', null, '\u96c6\u5408\u8fd0\u7b97')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'first'),
+                    ' / ',
+                    r.a.createElement('code', null, 'last'),
+                    ' / ',
+                    r.a.createElement('code', null, 'uniqByKey'),
+                    ' / ',
+                    r.a.createElement('code', null, 'sample')
+                  ),
+                  r.a.createElement('td', null, '\u6570\u7ec4\u8f85\u52a9')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'compactObject'),
+                    ' / ',
+                    r.a.createElement('code', null, 'deepMapItem'),
+                    ' / ',
+                    r.a.createElement('code', null, 'depsChanged')
+                  ),
+                  r.a.createElement('td', null, '\u5bf9\u8c61\u5904\u7406')
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u51fd\u6570\u5de5\u5177' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u51fd\u6570\u5de5\u5177',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u51fd\u6570\u5de5\u5177'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'pipe')
+                  ),
+                  r.a.createElement('td', null, '\u7ba1\u9053\u7ec4\u5408')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'curry'),
+                    ' / ',
+                    r.a.createElement('code', null, '__')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u67ef\u91cc\u5316\u4e0e\u5360\u4f4d\u7b26\u504f\u5e94\u7528'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'memoize')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u51fd\u6570\u7ed3\u679c\u7f13\u5b58'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'lock')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u9632\u91cd\u590d\u6267\u884c'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'debounce'),
+                    ' / ',
+                    r.a.createElement('code', null, 'throttle')
+                  ),
+                  r.a.createElement('td', null, '\u9632\u6296 / \u8282\u6d41')
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u5f02\u6b65\u6d41\u7a0b' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u5f02\u6b65\u6d41\u7a0b',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u5f02\u6b65\u6d41\u7a0b'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'catchPromise')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    'Promise \u5b89\u5168\u5305\u88c5\uff0c\u8fd4\u56de ',
+                    r.a.createElement('code', null, '[error, data]'),
+                    ' \u5143\u7ec4'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'enhancePromise')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u589e\u5f3a Promise \u72b6\u6001\u67e5\u8be2'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'delay'),
+                    ' / ',
+                    r.a.createElement('code', null, 'nextTick')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u5ef6\u65f6\u4e0e\u4e0b\u4e00\u5e27'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'run'),
+                    ' / ',
+                    r.a.createElement('code', null, 'value'),
+                    ' / ',
+                    r.a.createElement('code', null, 'promiseGuess')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u5b89\u5168\u8c03\u7528\u4e0e\u503c\u89e3\u6790'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u5b57\u7b26\u4e32\u4e0e\u6570\u5b57' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u5b57\u7b26\u4e32\u4e0e\u6570\u5b57',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u5b57\u7b26\u4e32\u4e0e\u6570\u5b57'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'capitalize')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u9996\u5b57\u6bcd\u5927\u5199'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'clamp'),
+                    ' / ',
+                    r.a.createElement('code', null, 'toFixed')
+                  ),
+                  r.a.createElement('td', null, '\u6570\u503c\u64cd\u4f5c')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement(
+                      'code',
+                      null,
+                      'expandScientificNumberString'
+                    )
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u79d1\u5b66\u8ba1\u6570\u6cd5\u5c55\u5f00'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'createSeparatorFormatter')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u5206\u9694\u7b26\u683c\u5f0f\u5316\uff08\u5343\u5206\u4f4d\u3001\u5361\u53f7\u5206\u7ec4\u7b49\uff09'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u56fd\u9645\u5316' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u56fd\u9645\u5316',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u56fd\u9645\u5316'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'I18n')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u591a\u8bed\u8a00\u7ffb\u8bd1\u3001\u8d44\u6e90\u52a0\u8f7d\u3001\u683c\u5f0f\u5316\u6a21\u677f\u3001\u547d\u540d\u7a7a\u95f4\u3001\u7c7b\u578b\u7cfb\u7edf'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u8bf7\u6c42' },
+              r.a.createElement(
+                l['AnchorLink'],
+                { to: '#\u8bf7\u6c42', 'aria-hidden': 'true', tabIndex: -1 },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u8bf7\u6c42'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'singleflight')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u5e76\u53d1\u8bf7\u6c42\u5408\u5e76\uff08\u540c\u4e00\u5f02\u6b65\u8bf7\u6c42\u4e0d\u91cd\u590d\u53d1\u8d77\uff09'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'createCachedRequest')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u5e26\u7f13\u5b58\u7684\u8bf7\u6c42\u5de5\u5382'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'source')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u5728\u7ebf\u8d44\u6e90\u52a0\u8f7d'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: 'url-\u4e0e\u5e8f\u5217\u5316' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#url-\u4e0e\u5e8f\u5217\u5316',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              'URL \u4e0e\u5e8f\u5217\u5316'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'url'),
+                    ' / ',
+                    r.a.createElement('code', null, 'qs')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    'URL \u89e3\u6790\u4e0e QueryString \u5e8f\u5217\u5316'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'safeStringify')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u5b89\u5168 JSON \u5e8f\u5217\u5316\uff0c\u5904\u7406\u5faa\u73af\u5f15\u7528'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u54cd\u5e94\u5f0f' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u54cd\u5e94\u5f0f',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u54cd\u5e94\u5f0f'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'reactive')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u521b\u5efa\u54cd\u5e94\u5f0f\u4ee3\u7406\u5bf9\u8c61'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'computed')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u8ba1\u7b97\u5c5e\u6027\uff0c\u4f9d\u8d56\u53d8\u5316\u81ea\u52a8\u91cd\u7b97'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'watch')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u76d1\u542c\u54cd\u5e94\u5f0f\u6570\u636e\u53d8\u5316'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u52a8\u753b\u4e0e\u6e32\u67d3' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u52a8\u753b\u4e0e\u6e32\u67d3',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u52a8\u753b\u4e0e\u6e32\u67d3'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'easing')
+                  ),
+                  r.a.createElement('td', null, '50+ \u7f13\u52a8\u51fd\u6570')
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'Tween'),
+                    ' / ',
+                    r.a.createElement('code', null, 'FrameProcess')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u8865\u95f4\u52a8\u753b\u4e0e\u5e27\u5faa\u73af'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'preloadImage')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u56fe\u7247\u9884\u52a0\u8f7d'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u989c\u8272\u5de5\u5177' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u989c\u8272\u5de5\u5177',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u989c\u8272\u5de5\u5177'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'hexToRgb')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    'Hex \u2192 RGB(A)\uff0c\u652f\u6301 3/4/6/8 \u4f4d'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'darkenColor'),
+                    ' / ',
+                    r.a.createElement('code', null, 'getBrightness'),
+                    ' / ',
+                    r.a.createElement('code', null, 'randomRGB')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u989c\u8272\u52a0\u6df1\u3001\u4eae\u5ea6\u8ba1\u7b97\u3001\u968f\u673a\u989c\u8272'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u5b58\u50a8--\u4e8b\u4ef6--\u6269\u5c55' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u5b58\u50a8--\u4e8b\u4ef6--\u6269\u5c55',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u5b58\u50a8 / \u4e8b\u4ef6 / \u6269\u5c55'
+            ),
+            r.a.createElement(
+              i['a'],
+              null,
+              r.a.createElement(
+                'thead',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement('th', null, '\u51fd\u6570'),
+                  r.a.createElement('th', null, '\u8bf4\u660e')
+                )
+              ),
+              r.a.createElement(
+                'tbody',
+                null,
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'storage')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    'localStorage \u5b89\u5168\u5c01\u88c5'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'EventBus'),
+                    ' / ',
+                    r.a.createElement('code', null, 'ScrollListener')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u4e8b\u4ef6\u603b\u7ebf\u4e0e\u6eda\u52a8\u76d1\u542c'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'CombinationMatcher')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u7ec4\u5408\u5339\u914d\u5668\uff08SKU \u5c5e\u6027\u7b5b\u9009\uff09'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'classnames'),
+                    ' / ',
+                    r.a.createElement('code', null, 'copy'),
+                    ' / ',
+                    r.a.createElement('code', null, 'globalThis')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    'CSS \u7c7b\u540d\u3001\u526a\u8d34\u677f\u3001\u5168\u5c40\u5f15\u7528'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'formdata2obj'),
+                    ' / ',
+                    r.a.createElement('code', null, 'obj2formdata'),
+                    ' / ',
+                    r.a.createElement('code', null, 'file2base64')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u6570\u636e\u683c\u5f0f\u8f6c\u6362'
+                  )
+                ),
+                r.a.createElement(
+                  'tr',
+                  null,
+                  r.a.createElement(
+                    'td',
+                    null,
+                    r.a.createElement('code', null, 'uniqueId'),
+                    ' / ',
+                    r.a.createElement('code', null, 'random'),
+                    ' / ',
+                    r.a.createElement('code', null, 'segment'),
+                    ' / ',
+                    r.a.createElement('code', null, 'identity')
+                  ),
+                  r.a.createElement(
+                    'td',
+                    null,
+                    '\u751f\u6210\u4e0e\u8f85\u52a9'
+                  )
+                )
+              )
+            ),
+            r.a.createElement(
+              'h2',
+              { id: 'tree-shaking' },
+              r.a.createElement(
+                l['AnchorLink'],
+                { to: '#tree-shaking', 'aria-hidden': 'true', tabIndex: -1 },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              'Tree-shaking'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u5e93\u5df2\u58f0\u660e ',
+              r.a.createElement('code', null, '"sideEffects": false'),
+              ' \u5e76\u63d0\u4f9b ES Module \u5165\u53e3\uff08',
+              r.a.createElement('code', null, '"module": "es/index.js"'),
+              '\uff09\uff0c\u73b0\u4ee3\u6253\u5305\u5de5\u5177\uff08Vite / webpack / Rollup\uff09\u4f1a\u81ea\u52a8 tree-shake \u672a\u4f7f\u7528\u7684\u4ee3\u7801\uff0c\u65e0\u9700\u989d\u5916\u914d\u7f6e\u3002'
+            ),
+            r.a.createElement(
+              'h2',
+              { id: 'typescript' },
+              r.a.createElement(
+                l['AnchorLink'],
+                { to: '#typescript', 'aria-hidden': 'true', tabIndex: -1 },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              'TypeScript'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u5b8c\u6574\u7684 TypeScript \u7c7b\u578b\u5b9a\u4e49\u5f00\u7bb1\u5373\u7528\u3002\u7c7b\u578b\u5224\u65ad\u51fd\u6570\uff08',
+              r.a.createElement('code', null, 'isXxx'),
+              '\uff09\u5747\u5b9e\u73b0\u4e86 TypeScript \u7c7b\u578b\u5b88\u536b\uff0c\u652f\u6301\u5728\u6761\u4ef6\u5206\u652f\u4e2d\u81ea\u52a8\u6536\u7a84\u7c7b\u578b\u3002'
+            )
+          )
+        )
+      })
+    t['default'] = (e) => {
+      var t = r.a.useContext(l['context']),
+        n = t.demos
+      return (
+        r.a.useEffect(() => {
+          var t
+          null !== e &&
+            void 0 !== e &&
+            null !== (t = e.location) &&
+            void 0 !== t &&
+            t.hash &&
+            l['AnchorLink'].scrollToAnchor(
+              decodeURIComponent(e.location.hash.slice(1))
+            )
+        }, []),
+        r.a.createElement(c, { demos: n })
+      )
+    }
+  },
   q3YX: function (e) {
     e.exports = JSON.parse(
-      '{"menus":{"en-US":{"*":[{"path":"/","title":"@fexd/tools","meta":{}}],"/\u5f00\u53d1\u8005":[{"path":"/\u5f00\u53d1\u8005/cli","title":"CLI - \u547d\u4ee4\u884c\u5de5\u5177","meta":{"order":1}},{"path":"/\u5f00\u53d1\u8005/ai-skills","title":"AI Skills","meta":{"order":2}},{"path":"/\u5f00\u53d1\u8005/bundle-size","title":"\u5bfc\u51fa\u4f53\u79ef","meta":{"order":3}}],"/\u6587\u6863":[{"title":"\u5f03\u7528","meta":{"order":99,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f03\u7528/comb-judge","title":"CombJudge","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/get-formatter","title":"getFormatter","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/sas","title":"SAS","meta":{}}]},{"title":"\u5f02\u6b65\u4e0e\u51fd\u6570","path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570","meta":{},"children":[{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catch-promise","title":"catchPromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/curry","title":"curry","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/debounce","title":"debounce","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/delay","title":"delay","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/enhance-promise","title":"enhancePromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/identity","title":"identity","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/lock","title":"lock","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/memoize","title":"memoize","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/next-tick","title":"nextTick","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/pipe","title":"pipe","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/promise-guess","title":"promiseGuess","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/run","title":"run","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/throttle","title":"throttle","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/value","title":"value","meta":{}}]},{"title":"\u6570\u636e\u64cd\u4f5c","path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c","meta":{},"children":[{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/combination-matcher","title":"CombinationMatcher","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/compact-object","title":"compactObject","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-map-item","title":"deepMapItem","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-merge","title":"deepMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deps-changed","title":"depsChanged","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/diff-array","title":"diffArray","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/difference","title":"difference","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/first","title":"first","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/flatten","title":"flatten","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/get","title":"get","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/group-by","title":"groupBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/i18n","title":"I18n","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/intersection","title":"intersection","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/last","title":"last","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/merge","title":"merge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick","title":"pick","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick-by","title":"pickBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/reactivity","title":"reactive / computed / watch","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/sample","title":"sample","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/set","title":"set","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/shallow-merge","title":"shallowMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/uniq-by-key","title":"uniqByKey","meta":{}}]},{"title":"\u683c\u5f0f\u5316","path":"/\u6587\u6863/\u683c\u5f0f\u5316","meta":{},"children":[{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/capitalize","title":"capitalize","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/clamp","title":"clamp","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/create-separator-formatter","title":"createSeparatorFormatter","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/darken-color","title":"darkenColor","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/expand-scientific-number-string","title":"expandScientificNumberString","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/get-brightness","title":"getBrightness","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/hex-to-rgb","title":"hexToRgb","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/qs","title":"qs","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/random-rgb","title":"randomRGB","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/safe-stringify","title":"safeStringify","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/storage","title":"storage","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/to-fixed","title":"toFixed","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/url","title":"url","meta":{}}]},{"title":"\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","meta":{},"children":[{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/classnames","title":"classnames","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/copy","title":"copy","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-cached-request","title":"createCachedRequest","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-proxy-getter","title":"createProxyGetter","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/default-frame-process","title":"defaultProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/easing","title":"easing","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/event-bus","title":"EventBus","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/file2base64","title":"file2base64","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/formdata2obj","title":"formdata2obj","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/frame-process","title":"FrameProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/global-this","title":"globalThis","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/obj2formdata","title":"obj2formdata","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/preload-image","title":"preloadImage","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/random","title":"random","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/scroll-listener","title":"ScrollListener","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/segment","title":"segment","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/singleflight","title":"singleflight","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/source","title":"source","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/tween","title":"Tween","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/unique-id","title":"uniqueId","meta":{}}]},{"title":"\u7c7b\u578b\u5224\u65ad","path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad","meta":{},"children":[{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-android","title":"isAndroid","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-array","title":"isArray","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-big-number","title":"isBigNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-boolean","title":"isBoolean","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-date","title":"isDate","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-desktop","title":"isDesktop","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-empty","title":"isEmpty","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-error","title":"isError","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-exist","title":"isExist","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-finite","title":"isFinite","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-function","title":"isFunction","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-integer","title":"isInteger","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-ios","title":"isIOS","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-iterable","title":"isIterable","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-mobile","title":"isMobile","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-na-n","title":"isNaN","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-nil","title":"isNil","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-null","title":"isNull","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number","title":"isNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number-string","title":"isNumberString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-object","title":"isObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-plain-object","title":"isPlainObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-promise-like","title":"isPromiseLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-react-element-like","title":"isReactElementLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-reg-exp","title":"isRegExp","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-string","title":"isString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-symbol","title":"isSymbol","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-undefined","title":"isUndefined","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-wkwebview","title":"isWKWebview","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{"en-US":[{"title":"\u6587\u6863","path":"/\u6587\u6863"},{"title":"\u5f00\u53d1\u8005","path":"/\u5f00\u53d1\u8005"},{"title":"v0.2.2"}]},"title":"Fexd Tools","logo":"/tools/logo.png","mode":"site","repository":{"url":"https://github.com/fexd-team/tools","branch":"master"},"theme":{},"exportStatic":{}}'
+      '{"menus":{"en-US":{"*":[{"path":"/","title":"@fexd/tools","meta":{}}],"/\u6587\u6863":[{"title":"\u6982\u89c8","meta":{"order":1,"__fallback":true},"children":[],"path":"/\u6587\u6863"},{"title":"\u5f00\u53d1\u8005","meta":{"order":2,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/cli","title":"CLI - \u547d\u4ee4\u884c\u5de5\u5177","meta":{"order":1}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/ai-skills","title":"AI Skills","meta":{"order":2}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/bundle-size","title":"\u5bfc\u51fa\u4f53\u79ef","meta":{"order":3}}]},{"title":"\u5f03\u7528","meta":{"order":99,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f03\u7528/comb-judge","title":"CombJudge","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/get-formatter","title":"getFormatter","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/sas","title":"SAS","meta":{}}]},{"title":"\u5f02\u6b65\u4e0e\u51fd\u6570","path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570","meta":{},"children":[{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catch-promise","title":"catchPromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/curry","title":"curry","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/debounce","title":"debounce","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/delay","title":"delay","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/enhance-promise","title":"enhancePromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/identity","title":"identity","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/lock","title":"lock","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/memoize","title":"memoize","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/next-tick","title":"nextTick","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/pipe","title":"pipe","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/promise-guess","title":"promiseGuess","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/run","title":"run","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/throttle","title":"throttle","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/value","title":"value","meta":{}}]},{"title":"\u6570\u636e\u64cd\u4f5c","path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c","meta":{},"children":[{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/combination-matcher","title":"CombinationMatcher","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/compact-object","title":"compactObject","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-map-item","title":"deepMapItem","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-merge","title":"deepMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deps-changed","title":"depsChanged","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/diff-array","title":"diffArray","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/difference","title":"difference","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/first","title":"first","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/flatten","title":"flatten","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/get","title":"get","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/group-by","title":"groupBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/i18n","title":"I18n","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/intersection","title":"intersection","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/last","title":"last","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/merge","title":"merge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick","title":"pick","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick-by","title":"pickBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/reactivity","title":"reactive / computed / watch","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/sample","title":"sample","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/set","title":"set","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/shallow-merge","title":"shallowMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/uniq-by-key","title":"uniqByKey","meta":{}}]},{"title":"\u683c\u5f0f\u5316","path":"/\u6587\u6863/\u683c\u5f0f\u5316","meta":{},"children":[{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/capitalize","title":"capitalize","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/clamp","title":"clamp","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/create-separator-formatter","title":"createSeparatorFormatter","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/darken-color","title":"darkenColor","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/expand-scientific-number-string","title":"expandScientificNumberString","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/get-brightness","title":"getBrightness","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/hex-to-rgb","title":"hexToRgb","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/qs","title":"qs","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/random-rgb","title":"randomRGB","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/safe-stringify","title":"safeStringify","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/storage","title":"storage","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/to-fixed","title":"toFixed","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/url","title":"url","meta":{}}]},{"title":"\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","meta":{},"children":[{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/classnames","title":"classnames","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/copy","title":"copy","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-cached-request","title":"createCachedRequest","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-proxy-getter","title":"createProxyGetter","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/default-frame-process","title":"defaultProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/easing","title":"easing","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/event-bus","title":"EventBus","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/file2base64","title":"file2base64","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/formdata2obj","title":"formdata2obj","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/frame-process","title":"FrameProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/global-this","title":"globalThis","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/obj2formdata","title":"obj2formdata","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/preload-image","title":"preloadImage","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/random","title":"random","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/scroll-listener","title":"ScrollListener","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/segment","title":"segment","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/singleflight","title":"singleflight","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/source","title":"source","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/tween","title":"Tween","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/unique-id","title":"uniqueId","meta":{}}]},{"title":"\u7c7b\u578b\u5224\u65ad","path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad","meta":{},"children":[{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-android","title":"isAndroid","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-array","title":"isArray","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-big-number","title":"isBigNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-boolean","title":"isBoolean","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-date","title":"isDate","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-desktop","title":"isDesktop","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-empty","title":"isEmpty","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-error","title":"isError","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-exist","title":"isExist","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-finite","title":"isFinite","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-function","title":"isFunction","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-integer","title":"isInteger","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-ios","title":"isIOS","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-iterable","title":"isIterable","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-mobile","title":"isMobile","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-na-n","title":"isNaN","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-nil","title":"isNil","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-null","title":"isNull","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number","title":"isNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number-string","title":"isNumberString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-object","title":"isObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-plain-object","title":"isPlainObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-promise-like","title":"isPromiseLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-react-element-like","title":"isReactElementLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-reg-exp","title":"isRegExp","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-string","title":"isString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-symbol","title":"isSymbol","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-undefined","title":"isUndefined","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-wkwebview","title":"isWKWebview","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{"en-US":[{"title":"\u6587\u6863","path":"/\u6587\u6863"},{"title":"v0.2.3"}]},"title":"Fexd Tools","logo":"/tools/logo.png","mode":"site","repository":{"url":"https://github.com/fexd-team/tools","branch":"master"},"theme":{},"exportStatic":{}}'
     )
   },
   q3wE: function (e, t, n) {
@@ -80571,6 +81297,684 @@
     }
     e.exports = n
   },
+  t9kQ: function (e, t, n) {
+    'use strict'
+    n.r(t)
+    var a = n('nNWW'),
+      r = n.n(a),
+      l = n('Gdey'),
+      o = n('JsrE'),
+      i = n('l4Xg'),
+      c = n('nDXD'),
+      u = r.a.memo((e) => {
+        var t = e.demos,
+          n = t['cli-demo'].component
+        return r.a.createElement(
+          r.a.Fragment,
+          null,
+          r.a.createElement(
+            r.a.Fragment,
+            null,
+            r.a.createElement(
+              'div',
+              { className: 'markdown' },
+              r.a.createElement(
+                'h1',
+                { id: 'cli-\u547d\u4ee4\u884c\u5de5\u5177' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#cli-\u547d\u4ee4\u884c\u5de5\u5177',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                'CLI \u547d\u4ee4\u884c\u5de5\u5177'
+              ),
+              r.a.createElement(
+                'p',
+                null,
+                r.a.createElement('code', null, '@fexd/tools'),
+                ' \u5185\u7f6e\u4e86 ',
+                r.a.createElement('code', null, 'fexd-tools'),
+                ' \u547d\u4ee4\uff0c\u5b89\u88c5\u540e\u5373\u53ef\u5728\u9879\u76ee\u4e2d\u5feb\u901f\u67e5\u6587\u6863\u3001\u641c\u7d22\u5de5\u5177\u51fd\u6570\u7528\u6cd5\u3001\u6ce8\u518c AI Skills\u3002'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools help',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u5728 npm scripts \u4e2d\u53ef\u4ee5\u76f4\u63a5\u4f7f\u7528\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: '{\n  "scripts": {\n    "tools:list": "fexd-tools list",\n    "tools:skills": "fexd-tools skills install"\n  }\n}',
+                lang: 'json',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u5982\u679c\u4e34\u65f6\u6267\u884c\uff0c\u4e5f\u53ef\u4ee5\u4f7f\u7528\u5305\u7ba1\u7406\u5668\u7684 exec \u547d\u4ee4\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'npm exec fexd-tools -- list\npnpm exec fexd-tools docs deepMerge\nyarn fexd-tools search "\u5408\u5e76"',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'h2',
+                { id: '\u5217\u51fa\u5de5\u5177\u51fd\u6570' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u5217\u51fa\u5de5\u5177\u51fd\u6570',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u5217\u51fa\u5de5\u5177\u51fd\u6570'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools list',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u8f93\u51fa\u6240\u6709\u5de5\u5177\u51fd\u6570\u7684\u5206\u7c7b\u6e05\u5355\uff0c\u5e76\u6807\u8bb0\u54ea\u4e9b\u6761\u76ee\u6709\u8be6\u7ec6\u6587\u6863\uff08\u25cf \u6709\u6587\u6863 / \u25cb \u65e0\u6587\u6863\uff09\u3002'
+              ),
+              r.a.createElement(
+                'h3',
+                { id: '\u4ea4\u4e92\u6f14\u793a' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u4ea4\u4e92\u6f14\u793a',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u4ea4\u4e92\u6f14\u793a'
+              )
+            ),
+            r.a.createElement(
+              o['default'],
+              t['cli-demo'].previewerProps,
+              r.a.createElement(n, null)
+            ),
+            r.a.createElement(
+              'div',
+              { className: 'markdown' },
+              r.a.createElement(
+                'h2',
+                { id: '\u67e5\u770b\u6587\u6863' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u67e5\u770b\u6587\u6863',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u67e5\u770b\u6587\u6863'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools docs deepMerge\nfexd-tools docs I18n\nfexd-tools docs catalog',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                r.a.createElement('code', null, 'docs'),
+                ' \u4f1a\u8bfb\u53d6 npm \u5305\u5185\u7f6e\u7684 skill references \u6587\u6863\uff0c\u9002\u5408\u5728\u7ec8\u7aef\u91cc\u5feb\u901f\u67e5 API \u7b7e\u540d\u3001\u53c2\u6570\u548c\u793a\u4f8b\u3002'
+              ),
+              r.a.createElement(
+                'p',
+                null,
+                '\u4e5f\u53ef\u4ee5\u76f4\u63a5\u628a\u6587\u6863\u540d\u4f5c\u4e3a\u547d\u4ee4\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools deepMerge',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'h2',
+                { id: '\u641c\u7d22\u6587\u6863' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u641c\u7d22\u6587\u6863',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u641c\u7d22\u6587\u6863'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools search "\u5408\u5e76"\nfexd-tools search "I18n template"\nfexd-tools search "\u54cd\u5e94\u5f0f"',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                r.a.createElement('code', null, 'search'),
+                ' \u5728\u5185\u7f6e skill \u6587\u6863\u548c references \u4e2d\u5168\u6587\u641c\u7d22\uff0c\u8f93\u51fa\u547d\u4e2d\u7684\u6587\u4ef6\u548c\u884c\u53f7\u3002'
+              ),
+              r.a.createElement(
+                'h2',
+                { id: '\u5b89\u88c5-ai-skills' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u5b89\u88c5-ai-skills',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u5b89\u88c5 AI Skills'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools skills install',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u9ed8\u8ba4\u5b89\u88c5\u5230\u5e38\u89c1 agent \u7684\u9879\u76ee\u7ea7\u76ee\u5f55\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: '.cursor/skills/fexd-tools       # Cursor\n.agents/skills/fexd-tools       # Codex / OpenCode\n.claude/skills/fexd-tools       # Claude Code',
+                lang: 'text',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u8fd9\u4e9b\u76ee\u5f55\u9ed8\u8ba4\u94fe\u63a5\u5230\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'node_modules/@fexd/tools/skills/fexd-tools',
+                lang: 'text',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u5b89\u88c5\u540e\u4f1a\u81ea\u52a8\u628a\u9879\u76ee\u7ea7 skill \u76ee\u5f55\u5199\u5165 ',
+                r.a.createElement('code', null, '.gitignore'),
+                '\u3002'
+              ),
+              r.a.createElement(
+                'h3',
+                { id: '\u9884\u89c8\u5b89\u88c5\u8ba1\u5212' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u9884\u89c8\u5b89\u88c5\u8ba1\u5212',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u9884\u89c8\u5b89\u88c5\u8ba1\u5212'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools skills install --dry-run\nfexd-tools skills install --agents codex,opencode --dry-run',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u5f53\u591a\u4e2a agent \u4f7f\u7528\u540c\u4e00\u4e2a\u76ee\u5f55\u65f6\uff0cCLI \u4f1a\u5408\u5e76\u5c55\u793a\u3002'
+              ),
+              r.a.createElement(
+                'h3',
+                { id: '\u6307\u5b9a-agent' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u6307\u5b9a-agent',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u6307\u5b9a agent'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools skills install --agents cursor\nfexd-tools skills install --agents cursor,claude-code,opencode\nfexd-tools skills install --agents codex --scope global',
+                lang: 'bash',
+              }),
+              r.a.createElement('p', null, '\u652f\u6301\u7684 agent\uff1a'),
+              r.a.createElement(
+                c['a'],
+                null,
+                r.a.createElement(
+                  'thead',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement('th', null, 'agent'),
+                    r.a.createElement('th', null, '\u8bf4\u660e')
+                  )
+                ),
+                r.a.createElement(
+                  'tbody',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'common')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u5e38\u89c1 agent \u96c6\u5408\uff0c\u9ed8\u8ba4\u503c'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'cursor')
+                    ),
+                    r.a.createElement('td', null, 'Cursor')
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'codex')
+                    ),
+                    r.a.createElement('td', null, 'Codex')
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'claude-code')
+                    ),
+                    r.a.createElement('td', null, 'Claude Code')
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'opencode')
+                    ),
+                    r.a.createElement('td', null, 'OpenCode')
+                  )
+                )
+              ),
+              r.a.createElement(
+                'h3',
+                { id: '\u5b89\u88c5\u8303\u56f4' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u5b89\u88c5\u8303\u56f4',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u5b89\u88c5\u8303\u56f4'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools skills install --scope project\nfexd-tools skills install --scope global\nfexd-tools skills install --scope both',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                c['a'],
+                null,
+                r.a.createElement(
+                  'thead',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement('th', null, 'scope'),
+                    r.a.createElement('th', null, '\u8bf4\u660e')
+                  )
+                ),
+                r.a.createElement(
+                  'tbody',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'project')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u5b89\u88c5\u5230\u5f53\u524d\u9879\u76ee\u76ee\u5f55\uff0c\u9ed8\u8ba4\u503c'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'global')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u5b89\u88c5\u5230\u7528\u6237\u5168\u5c40 agent \u76ee\u5f55'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'both')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u540c\u65f6\u5b89\u88c5 project \u548c global'
+                    )
+                  )
+                )
+              ),
+              r.a.createElement(
+                'p',
+                null,
+                '\u5168\u5c40\u76ee\u5f55\u89c4\u5219\uff1a'
+              ),
+              r.a.createElement(
+                c['a'],
+                null,
+                r.a.createElement(
+                  'thead',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement('th', null, 'agent'),
+                    r.a.createElement(
+                      'th',
+                      null,
+                      'global \u5b89\u88c5\u4f4d\u7f6e'
+                    )
+                  )
+                ),
+                r.a.createElement(
+                  'tbody',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'cursor')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement(
+                        'code',
+                        null,
+                        '~/.cursor/skills/fexd-tools'
+                      )
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'codex')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement(
+                        'code',
+                        null,
+                        '$CODEX_HOME/skills/fexd-tools'
+                      ),
+                      ' \u6216 ',
+                      r.a.createElement(
+                        'code',
+                        null,
+                        '~/.codex/skills/fexd-tools'
+                      )
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'claude-code')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement(
+                        'code',
+                        null,
+                        '$CLAUDE_CONFIG_DIR/skills/fexd-tools'
+                      ),
+                      ' \u6216 ',
+                      r.a.createElement(
+                        'code',
+                        null,
+                        '~/.claude/skills/fexd-tools'
+                      )
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, 'opencode')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement(
+                        'code',
+                        null,
+                        '~/.config/opencode/skills/fexd-tools'
+                      )
+                    )
+                  )
+                )
+              ),
+              r.a.createElement(
+                'h3',
+                { id: '\u5176\u4ed6\u53c2\u6570' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u5176\u4ed6\u53c2\u6570',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u5176\u4ed6\u53c2\u6570'
+              ),
+              r.a.createElement(
+                c['a'],
+                null,
+                r.a.createElement(
+                  'thead',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement('th', null, '\u53c2\u6570'),
+                    r.a.createElement('th', null, '\u8bf4\u660e')
+                  )
+                ),
+                r.a.createElement(
+                  'tbody',
+                  null,
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, '--cwd <path>')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u6307\u5b9a\u6d88\u8d39\u9879\u76ee\u76ee\u5f55'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, '--copy')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u590d\u5236 skill \u76ee\u5f55\uff0c\u4e0d\u521b\u5efa\u94fe\u63a5'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, '--force')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u76ee\u6807\u5df2\u5b58\u5728\u666e\u901a\u6587\u4ef6/\u76ee\u5f55\u65f6\u5f3a\u5236\u8986\u76d6'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, '--dry-run')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u53ea\u6253\u5370\u5b89\u88c5\u8ba1\u5212\uff0c\u4e0d\u5199\u6587\u4ef6'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, '--no-gitignore')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u4e0d\u81ea\u52a8\u66f4\u65b0 ',
+                      r.a.createElement('code', null, '.gitignore')
+                    )
+                  )
+                )
+              ),
+              r.a.createElement(
+                'p',
+                null,
+                'Windows \u73af\u5883\u5982\u679c\u521b\u5efa\u94fe\u63a5\u5931\u8d25\uff0cCLI \u4f1a\u81ea\u52a8\u56de\u9000\u4e3a\u590d\u5236\u3002\u4e5f\u53ef\u4ee5\u663e\u5f0f\u4f7f\u7528\u590d\u5236\u6a21\u5f0f\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools skills install --copy\nfexd-tools skills install --copy --force',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u4f7f\u7528 ',
+                r.a.createElement('code', null, '--copy'),
+                ' \u540e\uff0c\u66f4\u65b0 ',
+                r.a.createElement('code', null, '@fexd/tools'),
+                ' \u4e0d\u4f1a\u81ea\u52a8\u5237\u65b0\u5df2\u590d\u5236\u7684 skill\uff0c\u9700\u8981\u91cd\u65b0\u6267\u884c\u4e00\u6b21\u547d\u4ee4\u3002'
+              ),
+              r.a.createElement(
+                'p',
+                null,
+                '\u67e5\u770b skills \u547d\u4ee4\u5e2e\u52a9\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools skills install --help',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u66f4\u591a AI Skills \u914d\u7f6e\u8bf4\u660e\u89c1 ',
+                r.a.createElement(
+                  l['Link'],
+                  { to: './ai-skills' },
+                  'AI Skills'
+                ),
+                '\u3002'
+              )
+            )
+          )
+        )
+      })
+    t['default'] = (e) => {
+      var t = r.a.useContext(l['context']),
+        n = t.demos
+      return (
+        r.a.useEffect(() => {
+          var t
+          null !== e &&
+            void 0 !== e &&
+            null !== (t = e.location) &&
+            void 0 !== t &&
+            t.hash &&
+            l['AnchorLink'].scrollToAnchor(
+              decodeURIComponent(e.location.hash.slice(1))
+            )
+        }, []),
+        r.a.createElement(u, { demos: n })
+      )
+    }
+  },
   tB8F: function (e, t, n) {
     'use strict'
     n.r(t)
@@ -80877,17 +82281,115 @@
               title: '@fexd/tools - Fexd Tools',
             },
             {
-              path: '/\u5f00\u53d1\u8005/ai-skills',
-              component: n('Ks/r').default,
+              path: '/\u6587\u6863',
+              component: n('q3NC').default,
               exact: !0,
               meta: {
-                filePath: 'documents/\u5f00\u53d1\u8005/ai-skills.md',
-                updatedTime: 1779787609e3,
+                filePath: 'documents/\u6587\u6863/index.md',
+                updatedTime: 1779872530515,
+                group: {
+                  title: '\u6982\u89c8',
+                  order: 1,
+                  __fallback: !0,
+                  path: '/\u6587\u6863',
+                },
+                slugs: [
+                  { depth: 1, value: '\u6982\u89c8', heading: '\u6982\u89c8' },
+                  { depth: 2, value: '\u5b89\u88c5', heading: '\u5b89\u88c5' },
+                  {
+                    depth: 2,
+                    value: '\u5feb\u901f\u4e0a\u624b',
+                    heading: '\u5feb\u901f\u4e0a\u624b',
+                  },
+                  {
+                    depth: 2,
+                    value: 'API \u5206\u7c7b\u7d22\u5f15',
+                    heading: 'api-\u5206\u7c7b\u7d22\u5f15',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u7c7b\u578b\u5224\u65ad',
+                    heading: '\u7c7b\u578b\u5224\u65ad',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u6df1\u5ea6\u5408\u5e76',
+                    heading: '\u6df1\u5ea6\u5408\u5e76',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u6570\u636e\u64cd\u4f5c',
+                    heading: '\u6570\u636e\u64cd\u4f5c',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u51fd\u6570\u5de5\u5177',
+                    heading: '\u51fd\u6570\u5de5\u5177',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u5f02\u6b65\u6d41\u7a0b',
+                    heading: '\u5f02\u6b65\u6d41\u7a0b',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u5b57\u7b26\u4e32\u4e0e\u6570\u5b57',
+                    heading: '\u5b57\u7b26\u4e32\u4e0e\u6570\u5b57',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u56fd\u9645\u5316',
+                    heading: '\u56fd\u9645\u5316',
+                  },
+                  { depth: 3, value: '\u8bf7\u6c42', heading: '\u8bf7\u6c42' },
+                  {
+                    depth: 3,
+                    value: 'URL \u4e0e\u5e8f\u5217\u5316',
+                    heading: 'url-\u4e0e\u5e8f\u5217\u5316',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u54cd\u5e94\u5f0f',
+                    heading: '\u54cd\u5e94\u5f0f',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u52a8\u753b\u4e0e\u6e32\u67d3',
+                    heading: '\u52a8\u753b\u4e0e\u6e32\u67d3',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u989c\u8272\u5de5\u5177',
+                    heading: '\u989c\u8272\u5de5\u5177',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u5b58\u50a8 / \u4e8b\u4ef6 / \u6269\u5c55',
+                    heading: '\u5b58\u50a8--\u4e8b\u4ef6--\u6269\u5c55',
+                  },
+                  { depth: 2, value: 'Tree-shaking', heading: 'tree-shaking' },
+                  { depth: 2, value: 'TypeScript', heading: 'typescript' },
+                ],
+                title: '\u6982\u89c8',
+                nav: { path: '/\u6587\u6863', title: '\u6587\u6863' },
+              },
+              title: '\u6982\u89c8 - Fexd Tools',
+            },
+            {
+              path: '/\u6587\u6863/\u5f00\u53d1\u8005/ai-skills',
+              component: n('CA2P').default,
+              exact: !0,
+              meta: {
+                filePath:
+                  'documents/\u6587\u6863/\u5f00\u53d1\u8005/ai-skills.md',
+                updatedTime: 1779872677849,
                 title: 'AI Skills',
-                nav: {
+                nav: { title: '\u6587\u6863', order: 1, path: '/\u6587\u6863' },
+                group: {
                   title: '\u5f00\u53d1\u8005',
                   order: 2,
-                  path: '/\u5f00\u53d1\u8005',
+                  __fallback: !0,
+                  path: '/\u6587\u6863/\u5f00\u53d1\u8005',
                 },
                 order: 2,
                 slugs: [
@@ -80952,17 +82454,20 @@
               title: 'AI Skills - Fexd Tools',
             },
             {
-              path: '/\u5f00\u53d1\u8005/bundle-size',
-              component: n('Pysx').default,
+              path: '/\u6587\u6863/\u5f00\u53d1\u8005/bundle-size',
+              component: n('RQPP').default,
               exact: !0,
               meta: {
-                filePath: 'documents/\u5f00\u53d1\u8005/bundle-size.md',
-                updatedTime: 1779787609e3,
+                filePath:
+                  'documents/\u6587\u6863/\u5f00\u53d1\u8005/bundle-size.md',
+                updatedTime: 1779872683585,
                 title: '\u5bfc\u51fa\u4f53\u79ef',
-                nav: {
+                nav: { title: '\u6587\u6863', order: 1, path: '/\u6587\u6863' },
+                group: {
                   title: '\u5f00\u53d1\u8005',
                   order: 2,
-                  path: '/\u5f00\u53d1\u8005',
+                  __fallback: !0,
+                  path: '/\u6587\u6863/\u5f00\u53d1\u8005',
                 },
                 order: 3,
                 slugs: [],
@@ -80970,17 +82475,19 @@
               title: '\u5bfc\u51fa\u4f53\u79ef - Fexd Tools',
             },
             {
-              path: '/\u5f00\u53d1\u8005/cli',
-              component: n('kfnV').default,
+              path: '/\u6587\u6863/\u5f00\u53d1\u8005/cli',
+              component: n('t9kQ').default,
               exact: !0,
               meta: {
-                filePath: 'documents/\u5f00\u53d1\u8005/cli.md',
-                updatedTime: 1779787609e3,
+                filePath: 'documents/\u6587\u6863/\u5f00\u53d1\u8005/cli.md',
+                updatedTime: 1779872686182,
                 title: 'CLI - \u547d\u4ee4\u884c\u5de5\u5177',
-                nav: {
+                nav: { title: '\u6587\u6863', order: 1, path: '/\u6587\u6863' },
+                group: {
                   title: '\u5f00\u53d1\u8005',
                   order: 2,
-                  path: '/\u5f00\u53d1\u8005',
+                  __fallback: !0,
+                  path: '/\u6587\u6863/\u5f00\u53d1\u8005',
                 },
                 order: 1,
                 slugs: [
@@ -82288,6 +83795,13 @@
                     depth: 2,
                     value: 'applyConfig \u52a8\u6001\u5408\u5e76\u914d\u7f6e',
                     heading: 'applyconfig-\u52a8\u6001\u5408\u5e76\u914d\u7f6e',
+                  },
+                  {
+                    depth: 3,
+                    value:
+                      'defaultApplyMode \u9ed8\u8ba4\u5408\u5e76\u6a21\u5f0f',
+                    heading:
+                      'defaultapplymode-\u9ed8\u8ba4\u5408\u5e76\u6a21\u5f0f',
                   },
                   {
                     depth: 2,
@@ -85135,10 +86649,10 @@
               title: 'isWKWebview - Fexd Tools',
             },
             {
-              path: '/\u5f00\u53d1\u8005',
-              meta: { order: 2 },
+              path: '/\u6587\u6863/\u5f00\u53d1\u8005',
+              meta: { order: 2, __fallback: !0 },
               exact: !0,
-              redirect: '/\u5f00\u53d1\u8005/cli',
+              redirect: '/\u6587\u6863/\u5f00\u53d1\u8005/cli',
             },
             {
               path: '/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570',
@@ -85146,12 +86660,6 @@
               exact: !0,
               redirect:
                 '/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catch-promise',
-            },
-            {
-              path: '/\u6587\u6863',
-              meta: {},
-              exact: !0,
-              redirect: '/\u6587\u6863/\u5f03\u7528',
             },
             {
               path: '/\u6587\u6863/\u5f03\u7528',
@@ -86675,7 +88183,7 @@
         S,
         A,
         O = function (e) {
-          if (e === f && j) return j
+          if (e === f && C) return C
           if (!h && e in L) return L[e]
           switch (e) {
             case g:
@@ -86699,11 +88207,11 @@
         N = !1,
         L = e.prototype,
         I = L[E] || L['@@iterator'] || (f && L[f]),
-        j = (!h && I) || O(f),
-        C = ('Array' == t && L.entries) || I
+        C = (!h && I) || O(f),
+        j = ('Array' == t && L.entries) || I
       if (
-        (C &&
-          ((w = l(C.call(new e()))),
+        (j &&
+          ((w = l(j.call(new e()))),
           p !== Object.prototype &&
             w.next &&
             (d ||
@@ -86715,14 +88223,14 @@
           I &&
           I.name !== v &&
           ((N = !0),
-          (j = function () {
+          (C = function () {
             return I.call(this)
           })),
-        (d && !x) || L[E] === j || c(L, E, j),
-        (m[t] = j),
+        (d && !x) || L[E] === C || c(L, E, C),
+        (m[t] = C),
         f)
       )
-        if (((S = { values: O(v), keys: k ? j : O(g), entries: O(b) }), x))
+        if (((S = { values: O(v), keys: k ? C : O(g), entries: O(b) }), x))
           for (A in S) (h || N || !(A in L)) && u(L, A, S[A])
         else a({ target: t, proto: !0, forced: h || N }, S)
       return S
@@ -87361,8 +88869,8 @@
       N = 'enter',
       L = 'leave',
       I = 'none',
-      j = 'prepare',
-      C = 'start',
+      C = 'prepare',
+      j = 'start',
       T = 'active',
       R = 'end',
       P = n('21Yw'),
@@ -87398,7 +88906,7 @@
       },
       z = Object(m['a'])() ? i['useLayoutEffect'] : i['useEffect'],
       B = z,
-      D = [j, C, T, R],
+      D = [C, j, T, R],
       W = !1,
       U = !0
     function q(e) {
@@ -87414,7 +88922,7 @@
           s = u[0],
           d = u[1]
         function m() {
-          o(j, !0)
+          o(C, !0)
         }
         return (
           B(
@@ -87535,24 +89043,24 @@
               case _:
                 return (
                   (e = {}),
-                  Object(a['a'])(e, j, E),
-                  Object(a['a'])(e, C, b),
+                  Object(a['a'])(e, C, E),
+                  Object(a['a'])(e, j, b),
                   Object(a['a'])(e, T, x),
                   e
                 )
               case N:
                 return (
                   (t = {}),
-                  Object(a['a'])(t, j, g),
-                  Object(a['a'])(t, C, y),
+                  Object(a['a'])(t, C, g),
+                  Object(a['a'])(t, j, y),
                   Object(a['a'])(t, T, w),
                   t
                 )
               case L:
                 return (
                   (n = {}),
-                  Object(a['a'])(n, j, v),
-                  Object(a['a'])(n, C, k),
+                  Object(a['a'])(n, C, v),
+                  Object(a['a'])(n, j, k),
                   Object(a['a'])(n, T, S),
                   n
                 )
@@ -87563,8 +89071,8 @@
           [K]
         ),
         se = G(K, function (e) {
-          if (e === j) {
-            var t = ue[j]
+          if (e === C) {
+            var t = ue[C]
             return t ? t(ae()) : W
           }
           var n
@@ -87627,7 +89135,7 @@
       )
       var Ee = Z
       return (
-        ue[j] && fe === C && (Ee = Object(r['a'])({ transition: 'none' }, Ee)),
+        ue[C] && fe === j && (Ee = Object(r['a'])({ transition: 'none' }, Ee)),
         [K, fe, Ee, null !== D && void 0 !== D ? D : t]
       )
     }
@@ -87701,11 +89209,11 @@
         if (h)
           if (_ !== O && n(e)) {
             var F, z
-            N === j
+            N === C
               ? (z = 'prepare')
               : q(N)
               ? (z = 'active')
-              : N === C && (z = 'start'),
+              : N === j && (z = 'start'),
               (R = h(
                 Object(r['a'])(
                   Object(r['a'])({}, M),
@@ -88256,7 +89764,7 @@
                 '\u5b89\u88c5'
               ),
               r.a.createElement(i['a'], {
-                code: 'pnpm add @fexd/tools',
+                code: 'pnpm add @fexd/tools\n# or\nyarn add @fexd/tools\n# or\nnpm install @fexd/tools',
                 lang: 'bash',
               }),
               r.a.createElement(
@@ -88344,7 +89852,9 @@
                       null,
                       r.a.createElement(
                         l['Link'],
-                        { to: '/%E5%BC%80%E5%8F%91%E8%80%85/cli' },
+                        {
+                          to: '/%E6%96%87%E6%A1%A3/%E5%BC%80%E5%8F%91%E8%80%85/cli',
+                        },
                         'CLI \u547d\u4ee4\u884c\u5de5\u5177'
                       )
                     ),
@@ -88362,7 +89872,9 @@
                       null,
                       r.a.createElement(
                         l['Link'],
-                        { to: '/%E5%BC%80%E5%8F%91%E8%80%85/ai-skills' },
+                        {
+                          to: '/%E6%96%87%E6%A1%A3/%E5%BC%80%E5%8F%91%E8%80%85/ai-skills',
+                        },
                         'AI Skills'
                       )
                     ),
@@ -88380,7 +89892,9 @@
                       null,
                       r.a.createElement(
                         l['Link'],
-                        { to: '/%E5%BC%80%E5%8F%91%E8%80%85/bundle-size' },
+                        {
+                          to: '/%E6%96%87%E6%A1%A3/%E5%BC%80%E5%8F%91%E8%80%85/bundle-size',
+                        },
                         '\u5bfc\u51fa\u4f53\u79ef'
                       )
                     ),
@@ -91408,8 +92922,8 @@
       N = a[w],
       L = N,
       I = a[S],
-      j = I && I[A],
-      C = Object.prototype,
+      C = I && I[A],
+      j = Object.prototype,
       T = a.RangeError,
       R = f.pack,
       P = f.unpack,
@@ -91477,14 +92991,14 @@
           ($ = V[X++]) in L || o(L, $, N[$])
         H.constructor = L
       }
-      h && p(j) !== C && h(j, C)
+      h && p(C) !== j && h(C, j)
       var K = new I(new L(2)),
-        Q = j.setInt8
+        Q = C.setInt8
       K.setInt8(0, 2147483648),
         K.setInt8(1, 2147483649),
         (!K.getInt8(0) && K.getInt8(1)) ||
           i(
-            j,
+            C,
             {
               setInt8: function (e, t) {
                 Q.call(this, e, (t << 24) >> 24)

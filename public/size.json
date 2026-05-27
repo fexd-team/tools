@@ -5,11 +5,11 @@
       "name": "@fexd/tools/es/index",
       "line": 44,
       "string": "require('@fexd/tools/es/index')",
-      "size": "62.8k",
-      "gzip": "18.8k",
-      "rawSize": 62835,
-      "rawGzip": 18753,
-      "label": "62.8k (gzipped: 18.8k)"
+      "size": "63.6k",
+      "gzip": "18.9k",
+      "rawSize": 63623,
+      "rawGzip": 18864,
+      "label": "63.6k (gzipped: 18.9k)"
     },
     {
       "fileName": "es",
@@ -18,8 +18,8 @@
       "string": "require('@fexd/tools/es/I18n')",
       "size": "23.2k",
       "gzip": "7.3k",
-      "rawSize": 23165,
-      "rawGzip": 7271,
+      "rawSize": 23246,
+      "rawGzip": 7296,
       "label": "23.2k (gzipped: 7.3k)"
     },
     {
@@ -29,8 +29,8 @@
       "string": "require('@fexd/tools/es/genMemoizedFetch')",
       "size": "10.8k",
       "gzip": "3.9k",
-      "rawSize": 10827,
-      "rawGzip": 3850,
+      "rawSize": 10829,
+      "rawGzip": 3851,
       "label": "10.8k (gzipped: 3.9k)"
     },
     {
@@ -41,7 +41,7 @@
       "size": "10.8k",
       "gzip": "3.8k",
       "rawSize": 10827,
-      "rawGzip": 3848,
+      "rawGzip": 3847,
       "label": "10.8k (gzipped: 3.8k)"
     },
     {
@@ -52,7 +52,7 @@
       "size": "10.5k",
       "gzip": "3.8k",
       "rawSize": 10538,
-      "rawGzip": 3765,
+      "rawGzip": 3764,
       "label": "10.5k (gzipped: 3.8k)"
     },
     {
@@ -62,8 +62,8 @@
       "string": "require('@fexd/tools/es/SAS')",
       "size": "10.5k",
       "gzip": "3.8k",
-      "rawSize": 10534,
-      "rawGzip": 3763,
+      "rawSize": 10536,
+      "rawGzip": 3762,
       "label": "10.5k (gzipped: 3.8k)"
     },
     {
@@ -74,7 +74,7 @@
       "size": "9.9k",
       "gzip": "3.6k",
       "rawSize": 9883,
-      "rawGzip": 3643,
+      "rawGzip": 3644,
       "label": "9.9k (gzipped: 3.6k)"
     },
     {
@@ -85,7 +85,7 @@
       "size": "9.4k",
       "gzip": "3.4k",
       "rawSize": 9411,
-      "rawGzip": 3381,
+      "rawGzip": 3380,
       "label": "9.4k (gzipped: 3.4k)"
     },
     {
@@ -117,8 +117,8 @@
       "string": "require('@fexd/tools/es/easing')",
       "size": "5.6k",
       "gzip": "2k",
-      "rawSize": 5576,
-      "rawGzip": 1952,
+      "rawSize": 5574,
+      "rawGzip": 1951,
       "label": "5.6k (gzipped: 2k)"
     },
     {
@@ -128,8 +128,8 @@
       "string": "require('@fexd/tools/es/CombJudge')",
       "size": "5k",
       "gzip": "1.9k",
-      "rawSize": 4991,
-      "rawGzip": 1879,
+      "rawSize": 4989,
+      "rawGzip": 1878,
       "label": "5k (gzipped: 1.9k)"
     },
     {
@@ -162,8 +162,19 @@
       "size": "4k",
       "gzip": "1.6k",
       "rawSize": 3974,
-      "rawGzip": 1601,
+      "rawGzip": 1602,
       "label": "4k (gzipped: 1.6k)"
+    },
+    {
+      "fileName": "es",
+      "name": "@fexd/tools/es/deepMapItem",
+      "line": 21,
+      "string": "require('@fexd/tools/es/deepMapItem')",
+      "size": "3.8k",
+      "gzip": "1.6k",
+      "rawSize": 3848,
+      "rawGzip": 1552,
+      "label": "3.8k (gzipped: 1.6k)"
     },
     {
       "fileName": "es",
@@ -172,8 +183,8 @@
       "string": "require('@fexd/tools/es/FrameProcess')",
       "size": "3.8k",
       "gzip": "1.5k",
-      "rawSize": 3777,
-      "rawGzip": 1459,
+      "rawSize": 3773,
+      "rawGzip": 1454,
       "label": "3.8k (gzipped: 1.5k)"
     },
     {
@@ -184,7 +195,7 @@
       "size": "3.6k",
       "gzip": "1.4k",
       "rawSize": 3636,
-      "rawGzip": 1408,
+      "rawGzip": 1409,
       "label": "3.6k (gzipped: 1.4k)"
     },
     {
@@ -195,19 +206,8 @@
       "size": "3.4k",
       "gzip": "1.4k",
       "rawSize": 3426,
-      "rawGzip": 1395,
+      "rawGzip": 1394,
       "label": "3.4k (gzipped: 1.4k)"
-    },
-    {
-      "fileName": "es",
-      "name": "@fexd/tools/es/deepMapItem",
-      "line": 21,
-      "string": "require('@fexd/tools/es/deepMapItem')",
-      "size": "3k",
-      "gzip": "1.3k",
-      "rawSize": 3034,
-      "rawGzip": 1265,
-      "label": "3k (gzipped: 1.3k)"
     },
     {
       "fileName": "es",
@@ -227,8 +227,8 @@
       "string": "require('@fexd/tools/es/groupBy')",
       "size": "2.6k",
       "gzip": "1.1k",
-      "rawSize": 2643,
-      "rawGzip": 1144,
+      "rawSize": 2641,
+      "rawGzip": 1145,
       "label": "2.6k (gzipped: 1.1k)"
     },
     {
@@ -239,7 +239,7 @@
       "size": "2.5k",
       "gzip": "1.1k",
       "rawSize": 2519,
-      "rawGzip": 1139,
+      "rawGzip": 1138,
       "label": "2.5k (gzipped: 1.1k)"
     },
     {
@@ -261,7 +261,7 @@
       "size": "2.6k",
       "gzip": "1k",
       "rawSize": 2553,
-      "rawGzip": 1035,
+      "rawGzip": 1036,
       "label": "2.6k (gzipped: 1k)"
     },
     {
@@ -294,7 +294,7 @@
       "size": "1.9k",
       "gzip": "1k",
       "rawSize": 1905,
-      "rawGzip": 1011,
+      "rawGzip": 1012,
       "label": "1.9k (gzipped: 1k)"
     },
     {
@@ -336,10 +336,10 @@
       "line": 82,
       "string": "require('@fexd/tools/es/pickBy')",
       "size": "2.3k",
-      "gzip": "906",
+      "gzip": "907",
       "rawSize": 2260,
-      "rawGzip": 906,
-      "label": "2.3k (gzipped: 906)"
+      "rawGzip": 907,
+      "label": "2.3k (gzipped: 907)"
     },
     {
       "fileName": "es",
@@ -347,10 +347,10 @@
       "line": 60,
       "string": "require('@fexd/tools/es/isMobile')",
       "size": "2k",
-      "gzip": "884",
-      "rawSize": 1977,
-      "rawGzip": 884,
-      "label": "2k (gzipped: 884)"
+      "gzip": "881",
+      "rawSize": 1973,
+      "rawGzip": 881,
+      "label": "2k (gzipped: 881)"
     },
     {
       "fileName": "es",
@@ -391,10 +391,10 @@
       "line": 28,
       "string": "require('@fexd/tools/es/enhancePromise')",
       "size": "1.8k",
-      "gzip": "805",
-      "rawSize": 1785,
-      "rawGzip": 805,
-      "label": "1.8k (gzipped: 805)"
+      "gzip": "803",
+      "rawSize": 1783,
+      "rawGzip": 803,
+      "label": "1.8k (gzipped: 803)"
     },
     {
       "fileName": "es",
@@ -402,10 +402,10 @@
       "line": 58,
       "string": "require('@fexd/tools/es/isIOS')",
       "size": "1.7k",
-      "gzip": "798",
+      "gzip": "797",
       "rawSize": 1745,
-      "rawGzip": 798,
-      "label": "1.7k (gzipped: 798)"
+      "rawGzip": 797,
+      "label": "1.7k (gzipped: 797)"
     },
     {
       "fileName": "es",
@@ -413,10 +413,10 @@
       "line": 25,
       "string": "require('@fexd/tools/es/diffArray')",
       "size": "1.5k",
-      "gzip": "762",
+      "gzip": "761",
       "rawSize": 1464,
-      "rawGzip": 762,
-      "label": "1.5k (gzipped: 762)"
+      "rawGzip": 761,
+      "label": "1.5k (gzipped: 761)"
     },
     {
       "fileName": "es",
@@ -424,10 +424,10 @@
       "line": 46,
       "string": "require('@fexd/tools/es/isAndroid')",
       "size": "1.6k",
-      "gzip": "733",
+      "gzip": "734",
       "rawSize": 1635,
-      "rawGzip": 733,
-      "label": "1.6k (gzipped: 733)"
+      "rawGzip": 734,
+      "label": "1.6k (gzipped: 734)"
     },
     {
       "fileName": "es",
@@ -457,10 +457,10 @@
       "line": 96,
       "string": "require('@fexd/tools/es/set')",
       "size": "1.8k",
-      "gzip": "708",
-      "rawSize": 1779,
-      "rawGzip": 708,
-      "label": "1.8k (gzipped: 708)"
+      "gzip": "710",
+      "rawSize": 1781,
+      "rawGzip": 710,
+      "label": "1.8k (gzipped: 710)"
     },
     {
       "fileName": "es",
@@ -501,10 +501,10 @@
       "line": 103,
       "string": "require('@fexd/tools/es/value')",
       "size": "1.4k",
-      "gzip": "661",
-      "rawSize": 1407,
-      "rawGzip": 661,
-      "label": "1.4k (gzipped: 661)"
+      "gzip": "662",
+      "rawSize": 1409,
+      "rawGzip": 662,
+      "label": "1.4k (gzipped: 662)"
     },
     {
       "fileName": "es",
@@ -512,10 +512,10 @@
       "line": 97,
       "string": "require('@fexd/tools/es/shallowMerge')",
       "size": "1.5k",
-      "gzip": "658",
-      "rawSize": 1482,
-      "rawGzip": 658,
-      "label": "1.5k (gzipped: 658)"
+      "gzip": "661",
+      "rawSize": 1486,
+      "rawGzip": 661,
+      "label": "1.5k (gzipped: 661)"
     },
     {
       "fileName": "es",
@@ -523,10 +523,10 @@
       "line": 83,
       "string": "require('@fexd/tools/es/pipe')",
       "size": "1.4k",
-      "gzip": "657",
+      "gzip": "656",
       "rawSize": 1417,
-      "rawGzip": 657,
-      "label": "1.4k (gzipped: 657)"
+      "rawGzip": 656,
+      "label": "1.4k (gzipped: 656)"
     },
     {
       "fileName": "es",
@@ -534,10 +534,10 @@
       "line": 90,
       "string": "require('@fexd/tools/es/run')",
       "size": "1.3k",
-      "gzip": "610",
+      "gzip": "611",
       "rawSize": 1254,
-      "rawGzip": 610,
-      "label": "1.3k (gzipped: 610)"
+      "rawGzip": 611,
+      "label": "1.3k (gzipped: 611)"
     },
     {
       "fileName": "es",
@@ -545,10 +545,10 @@
       "line": 19,
       "string": "require('@fexd/tools/es/darkenColor')",
       "size": "1.2k",
-      "gzip": "606",
-      "rawSize": 1203,
-      "rawGzip": 606,
-      "label": "1.2k (gzipped: 606)"
+      "gzip": "605",
+      "rawSize": 1201,
+      "rawGzip": 605,
+      "label": "1.2k (gzipped: 605)"
     },
     {
       "fileName": "es",
@@ -556,10 +556,10 @@
       "line": 34,
       "string": "require('@fexd/tools/es/formdata2obj')",
       "size": "1.1k",
-      "gzip": "585",
+      "gzip": "587",
       "rawSize": 1073,
-      "rawGzip": 585,
-      "label": "1.1k (gzipped: 585)"
+      "rawGzip": 587,
+      "label": "1.1k (gzipped: 587)"
     },
     {
       "fileName": "es",
@@ -578,10 +578,10 @@
       "line": 92,
       "string": "require('@fexd/tools/es/sample')",
       "size": "1.1k",
-      "gzip": "565",
+      "gzip": "564",
       "rawSize": 1130,
-      "rawGzip": 565,
-      "label": "1.1k (gzipped: 565)"
+      "rawGzip": 564,
+      "label": "1.1k (gzipped: 564)"
     },
     {
       "fileName": "es",
@@ -600,10 +600,10 @@
       "line": 39,
       "string": "require('@fexd/tools/es/globalThis')",
       "size": "1.2k",
-      "gzip": "549",
+      "gzip": "547",
       "rawSize": 1162,
-      "rawGzip": 549,
-      "label": "1.2k (gzipped: 549)"
+      "rawGzip": 547,
+      "label": "1.2k (gzipped: 547)"
     },
     {
       "fileName": "es",
@@ -622,10 +622,10 @@
       "line": 85,
       "string": "require('@fexd/tools/es/promiseGuess')",
       "size": "1.1k",
-      "gzip": "528",
+      "gzip": "529",
       "rawSize": 1090,
-      "rawGzip": 528,
-      "label": "1.1k (gzipped: 528)"
+      "rawGzip": 529,
+      "label": "1.1k (gzipped: 529)"
     },
     {
       "fileName": "es",
@@ -666,10 +666,10 @@
       "line": 75,
       "string": "require('@fexd/tools/es/last')",
       "size": "1.1k",
-      "gzip": "515",
+      "gzip": "514",
       "rawSize": 1101,
-      "rawGzip": 515,
-      "label": "1.1k (gzipped: 515)"
+      "rawGzip": 514,
+      "label": "1.1k (gzipped: 514)"
     },
     {
       "fileName": "es",
@@ -699,10 +699,21 @@
       "line": 41,
       "string": "require('@fexd/tools/es/hexToRgb')",
       "size": "904",
-      "gzip": "493",
+      "gzip": "494",
       "rawSize": 904,
+      "rawGzip": 494,
+      "label": "904 (gzipped: 494)"
+    },
+    {
+      "fileName": "es",
+      "name": "@fexd/tools/es/createProxyGetter",
+      "line": 16,
+      "string": "require('@fexd/tools/es/createProxyGetter')",
+      "size": "1k",
+      "gzip": "493",
+      "rawSize": 1025,
       "rawGzip": 493,
-      "label": "904 (gzipped: 493)"
+      "label": "1k (gzipped: 493)"
     },
     {
       "fileName": "es",
@@ -710,10 +721,10 @@
       "line": 20,
       "string": "require('@fexd/tools/es/debounce')",
       "size": "857",
-      "gzip": "470",
+      "gzip": "471",
       "rawSize": 857,
-      "rawGzip": 470,
-      "label": "857 (gzipped: 470)"
+      "rawGzip": 471,
+      "label": "857 (gzipped: 471)"
     },
     {
       "fileName": "es",
@@ -721,10 +732,10 @@
       "line": 66,
       "string": "require('@fexd/tools/es/isObject')",
       "size": "1k",
-      "gzip": "469",
+      "gzip": "467",
       "rawSize": 1019,
-      "rawGzip": 469,
-      "label": "1k (gzipped: 469)"
+      "rawGzip": 467,
+      "label": "1k (gzipped: 467)"
     },
     {
       "fileName": "es",
@@ -732,10 +743,10 @@
       "line": 7,
       "string": "require('@fexd/tools/es/__')",
       "size": "844",
-      "gzip": "461",
+      "gzip": "460",
       "rawSize": 844,
-      "rawGzip": 461,
-      "label": "844 (gzipped: 461)"
+      "rawGzip": 460,
+      "label": "844 (gzipped: 460)"
     },
     {
       "fileName": "es",
@@ -743,10 +754,10 @@
       "line": 88,
       "string": "require('@fexd/tools/es/randomRGB')",
       "size": "841",
-      "gzip": "452",
+      "gzip": "450",
       "rawSize": 841,
-      "rawGzip": 452,
-      "label": "841 (gzipped: 452)"
+      "rawGzip": 450,
+      "label": "841 (gzipped: 450)"
     },
     {
       "fileName": "es",
@@ -772,25 +783,14 @@
     },
     {
       "fileName": "es",
-      "name": "@fexd/tools/es/isReactValidElement",
+      "name": "@fexd/tools/es/isReactElementLike",
       "line": 69,
-      "string": "require('@fexd/tools/es/isReactValidElement')",
+      "string": "require('@fexd/tools/es/isReactElementLike')",
       "size": "865",
       "gzip": "430",
       "rawSize": 865,
       "rawGzip": 430,
       "label": "865 (gzipped: 430)"
-    },
-    {
-      "fileName": "es",
-      "name": "@fexd/tools/es/uniqByKey",
-      "line": 101,
-      "string": "require('@fexd/tools/es/uniqByKey')",
-      "size": "779",
-      "gzip": "429",
-      "rawSize": 779,
-      "rawGzip": 429,
-      "label": "779 (gzipped: 429)"
     },
     {
       "fileName": "es",
@@ -805,14 +805,14 @@
     },
     {
       "fileName": "es",
-      "name": "@fexd/tools/es/createProxyGetter",
-      "line": 16,
-      "string": "require('@fexd/tools/es/createProxyGetter')",
-      "size": "746",
+      "name": "@fexd/tools/es/uniqByKey",
+      "line": 101,
+      "string": "require('@fexd/tools/es/uniqByKey')",
+      "size": "781",
       "gzip": "429",
-      "rawSize": 746,
+      "rawSize": 781,
       "rawGzip": 429,
-      "label": "746 (gzipped: 429)"
+      "label": "781 (gzipped: 429)"
     },
     {
       "fileName": "es",
@@ -831,10 +831,10 @@
       "line": 57,
       "string": "require('@fexd/tools/es/isInteger')",
       "size": "770",
-      "gzip": "417",
+      "gzip": "416",
       "rawSize": 770,
-      "rawGzip": 417,
-      "label": "770 (gzipped: 417)"
+      "rawGzip": 416,
+      "label": "770 (gzipped: 416)"
     },
     {
       "fileName": "es",
@@ -871,58 +871,58 @@
     },
     {
       "fileName": "es",
-      "name": "@fexd/tools/es/random",
-      "line": 87,
-      "string": "require('@fexd/tools/es/random')",
-      "size": "693",
-      "gzip": "409",
-      "rawSize": 693,
-      "rawGzip": 409,
-      "label": "693 (gzipped: 409)"
-    },
-    {
-      "fileName": "es",
       "name": "@fexd/tools/es/capitalize",
       "line": 8,
       "string": "require('@fexd/tools/es/capitalize')",
       "size": "715",
-      "gzip": "408",
+      "gzip": "409",
       "rawSize": 715,
-      "rawGzip": 408,
-      "label": "715 (gzipped: 408)"
+      "rawGzip": 409,
+      "label": "715 (gzipped: 409)"
+    },
+    {
+      "fileName": "es",
+      "name": "@fexd/tools/es/random",
+      "line": 87,
+      "string": "require('@fexd/tools/es/random')",
+      "size": "689",
+      "gzip": "403",
+      "rawSize": 689,
+      "rawGzip": 403,
+      "label": "689 (gzipped: 403)"
     },
     {
       "fileName": "es",
       "name": "@fexd/tools/es/clamp",
       "line": 10,
       "string": "require('@fexd/tools/es/clamp')",
-      "size": "669",
+      "size": "671",
       "gzip": "401",
-      "rawSize": 669,
+      "rawSize": 671,
       "rawGzip": 401,
-      "label": "669 (gzipped: 401)"
+      "label": "671 (gzipped: 401)"
     },
     {
       "fileName": "es",
       "name": "@fexd/tools/es/isFinite",
       "line": 55,
       "string": "require('@fexd/tools/es/isFinite')",
-      "size": "728",
-      "gzip": "396",
-      "rawSize": 728,
-      "rawGzip": 396,
-      "label": "728 (gzipped: 396)"
+      "size": "726",
+      "gzip": "394",
+      "rawSize": 726,
+      "rawGzip": 394,
+      "label": "726 (gzipped: 394)"
     },
     {
       "fileName": "es",
       "name": "@fexd/tools/es/isNumberString",
       "line": 65,
       "string": "require('@fexd/tools/es/isNumberString')",
-      "size": "671",
-      "gzip": "393",
-      "rawSize": 671,
-      "rawGzip": 393,
-      "label": "671 (gzipped: 393)"
+      "size": "669",
+      "gzip": "392",
+      "rawSize": 669,
+      "rawGzip": 392,
+      "label": "669 (gzipped: 392)"
     },
     {
       "fileName": "es",
@@ -930,10 +930,10 @@
       "line": 47,
       "string": "require('@fexd/tools/es/isArray')",
       "size": "714",
-      "gzip": "386",
+      "gzip": "387",
       "rawSize": 714,
-      "rawGzip": 386,
-      "label": "714 (gzipped: 386)"
+      "rawGzip": 387,
+      "label": "714 (gzipped: 387)"
     },
     {
       "fileName": "es",
@@ -941,10 +941,10 @@
       "line": 68,
       "string": "require('@fexd/tools/es/isPromiseLike')",
       "size": "725",
-      "gzip": "386",
+      "gzip": "387",
       "rawSize": 725,
-      "rawGzip": 386,
-      "label": "725 (gzipped: 386)"
+      "rawGzip": 387,
+      "label": "725 (gzipped: 387)"
     },
     {
       "fileName": "es",
@@ -952,10 +952,10 @@
       "line": 24,
       "string": "require('@fexd/tools/es/depsChanged')",
       "size": "671",
-      "gzip": "381",
+      "gzip": "380",
       "rawSize": 671,
-      "rawGzip": 381,
-      "label": "671 (gzipped: 381)"
+      "rawGzip": 380,
+      "label": "671 (gzipped: 380)"
     },
     {
       "fileName": "es",
@@ -963,21 +963,21 @@
       "line": 70,
       "string": "require('@fexd/tools/es/isRegExp')",
       "size": "659",
-      "gzip": "377",
+      "gzip": "378",
       "rawSize": 659,
-      "rawGzip": 377,
-      "label": "659 (gzipped: 377)"
+      "rawGzip": 378,
+      "label": "659 (gzipped: 378)"
     },
     {
       "fileName": "es",
       "name": "@fexd/tools/es/delay",
       "line": 23,
       "string": "require('@fexd/tools/es/delay')",
-      "size": "637",
-      "gzip": "375",
-      "rawSize": 637,
-      "rawGzip": 375,
-      "label": "637 (gzipped: 375)"
+      "size": "635",
+      "gzip": "374",
+      "rawSize": 635,
+      "rawGzip": 374,
+      "label": "635 (gzipped: 374)"
     },
     {
       "fileName": "es",
@@ -985,10 +985,10 @@
       "line": 50,
       "string": "require('@fexd/tools/es/isDate')",
       "size": "655",
-      "gzip": "373",
+      "gzip": "372",
       "rawSize": 655,
-      "rawGzip": 373,
-      "label": "655 (gzipped: 373)"
+      "rawGzip": 372,
+      "label": "655 (gzipped: 372)"
     },
     {
       "fileName": "es",
@@ -1006,11 +1006,11 @@
       "name": "@fexd/tools/es/isExist",
       "line": 54,
       "string": "require('@fexd/tools/es/isExist')",
-      "size": "653",
-      "gzip": "366",
-      "rawSize": 653,
-      "rawGzip": 366,
-      "label": "653 (gzipped: 366)"
+      "size": "651",
+      "gzip": "365",
+      "rawSize": 651,
+      "rawGzip": 365,
+      "label": "651 (gzipped: 365)"
     },
     {
       "fileName": "es",
@@ -1018,10 +1018,10 @@
       "line": 64,
       "string": "require('@fexd/tools/es/isNumber')",
       "size": "632",
-      "gzip": "361",
+      "gzip": "360",
       "rawSize": 632,
-      "rawGzip": 361,
-      "label": "632 (gzipped: 361)"
+      "rawGzip": 360,
+      "label": "632 (gzipped: 360)"
     },
     {
       "fileName": "es",
@@ -1029,10 +1029,10 @@
       "line": 26,
       "string": "require('@fexd/tools/es/difference')",
       "size": "625",
-      "gzip": "358",
+      "gzip": "359",
       "rawSize": 625,
-      "rawGzip": 358,
-      "label": "625 (gzipped: 358)"
+      "rawGzip": 359,
+      "label": "625 (gzipped: 359)"
     },
     {
       "fileName": "es",
@@ -1102,17 +1102,6 @@
     },
     {
       "fileName": "es",
-      "name": "@fexd/tools/es/isNaN",
-      "line": 61,
-      "string": "require('@fexd/tools/es/isNaN')",
-      "size": "587",
-      "gzip": "344",
-      "rawSize": 587,
-      "rawGzip": 344,
-      "label": "587 (gzipped: 344)"
-    },
-    {
-      "fileName": "es",
       "name": "@fexd/tools/es/identity",
       "line": 43,
       "string": "require('@fexd/tools/es/identity')",
@@ -1124,14 +1113,25 @@
     },
     {
       "fileName": "es",
+      "name": "@fexd/tools/es/isNaN",
+      "line": 61,
+      "string": "require('@fexd/tools/es/isNaN')",
+      "size": "585",
+      "gzip": "343",
+      "rawSize": 585,
+      "rawGzip": 343,
+      "label": "585 (gzipped: 343)"
+    },
+    {
+      "fileName": "es",
       "name": "@fexd/tools/es/isString",
       "line": 71,
       "string": "require('@fexd/tools/es/isString')",
-      "size": "591",
-      "gzip": "340",
-      "rawSize": 591,
-      "rawGzip": 340,
-      "label": "591 (gzipped: 340)"
+      "size": "593",
+      "gzip": "342",
+      "rawSize": 593,
+      "rawGzip": 342,
+      "label": "593 (gzipped: 342)"
     }
   ],
   "cjs": [
@@ -1140,22 +1140,22 @@
       "name": "@fexd/tools/lib/index",
       "line": 44,
       "string": "require('@fexd/tools/lib/index')",
-      "size": "92.8k",
-      "gzip": "21.8k",
-      "rawSize": 92775,
-      "rawGzip": 21779,
-      "label": "92.8k (gzipped: 21.8k)"
+      "size": "93.3k",
+      "gzip": "21.9k",
+      "rawSize": 93317,
+      "rawGzip": 21869,
+      "label": "93.3k (gzipped: 21.9k)"
     },
     {
       "fileName": "lib",
       "name": "@fexd/tools/lib/I18n",
       "line": 42,
       "string": "require('@fexd/tools/lib/I18n')",
-      "size": "27.6k",
+      "size": "27.7k",
       "gzip": "7.8k",
-      "rawSize": 27649,
-      "rawGzip": 7772,
-      "label": "27.6k (gzipped: 7.8k)"
+      "rawSize": 27730,
+      "rawGzip": 7796,
+      "label": "27.7k (gzipped: 7.8k)"
     },
     {
       "fileName": "lib",
@@ -1187,7 +1187,7 @@
       "size": "11.8k",
       "gzip": "3.8k",
       "rawSize": 11760,
-      "rawGzip": 3801,
+      "rawGzip": 3800,
       "label": "11.8k (gzipped: 3.8k)"
     },
     {
@@ -1197,8 +1197,8 @@
       "string": "require('@fexd/tools/lib/singleflight')",
       "size": "11.6k",
       "gzip": "3.8k",
-      "rawSize": 11617,
-      "rawGzip": 3788,
+      "rawSize": 11615,
+      "rawGzip": 3785,
       "label": "11.6k (gzipped: 3.8k)"
     },
     {
@@ -1231,7 +1231,7 @@
       "size": "11.9k",
       "gzip": "2.8k",
       "rawSize": 11890,
-      "rawGzip": 2823,
+      "rawGzip": 2822,
       "label": "11.9k (gzipped: 2.8k)"
     },
     {
@@ -1241,8 +1241,8 @@
       "string": "require('@fexd/tools/lib/qs')",
       "size": "7.2k",
       "gzip": "2.2k",
-      "rawSize": 7235,
-      "rawGzip": 2235,
+      "rawSize": 7237,
+      "rawGzip": 2239,
       "label": "7.2k (gzipped: 2.2k)"
     },
     {
@@ -1253,7 +1253,7 @@
       "size": "6.6k",
       "gzip": "2.2k",
       "rawSize": 6574,
-      "rawGzip": 2227,
+      "rawGzip": 2229,
       "label": "6.6k (gzipped: 2.2k)"
     },
     {
@@ -1275,7 +1275,7 @@
       "size": "6k",
       "gzip": "2k",
       "rawSize": 5969,
-      "rawGzip": 1967,
+      "rawGzip": 1965,
       "label": "6k (gzipped: 2k)"
     },
     {
@@ -1286,8 +1286,19 @@
       "size": "6.3k",
       "gzip": "1.9k",
       "rawSize": 6301,
-      "rawGzip": 1940,
+      "rawGzip": 1939,
       "label": "6.3k (gzipped: 1.9k)"
+    },
+    {
+      "fileName": "lib",
+      "name": "@fexd/tools/lib/deepMapItem",
+      "line": 21,
+      "string": "require('@fexd/tools/lib/deepMapItem')",
+      "size": "5.9k",
+      "gzip": "1.8k",
+      "rawSize": 5903,
+      "rawGzip": 1771,
+      "label": "5.9k (gzipped: 1.8k)"
     },
     {
       "fileName": "lib",
@@ -1297,7 +1308,7 @@
       "size": "5k",
       "gzip": "1.7k",
       "rawSize": 5029,
-      "rawGzip": 1743,
+      "rawGzip": 1742,
       "label": "5k (gzipped: 1.7k)"
     },
     {
@@ -1308,7 +1319,7 @@
       "size": "5.6k",
       "gzip": "1.6k",
       "rawSize": 5647,
-      "rawGzip": 1643,
+      "rawGzip": 1642,
       "label": "5.6k (gzipped: 1.6k)"
     },
     {
@@ -1319,7 +1330,7 @@
       "size": "4.6k",
       "gzip": "1.5k",
       "rawSize": 4614,
-      "rawGzip": 1522,
+      "rawGzip": 1521,
       "label": "4.6k (gzipped: 1.5k)"
     },
     {
@@ -1330,19 +1341,8 @@
       "size": "4.4k",
       "gzip": "1.5k",
       "rawSize": 4373,
-      "rawGzip": 1483,
+      "rawGzip": 1481,
       "label": "4.4k (gzipped: 1.5k)"
-    },
-    {
-      "fileName": "lib",
-      "name": "@fexd/tools/lib/deepMapItem",
-      "line": 21,
-      "string": "require('@fexd/tools/lib/deepMapItem')",
-      "size": "5k",
-      "gzip": "1.4k",
-      "rawSize": 4987,
-      "rawGzip": 1441,
-      "label": "5k (gzipped: 1.4k)"
     },
     {
       "fileName": "lib",
@@ -1351,7 +1351,7 @@
       "string": "require('@fexd/tools/lib/isBigNumber')",
       "size": "3.3k",
       "gzip": "1.3k",
-      "rawSize": 3262,
+      "rawSize": 3260,
       "rawGzip": 1302,
       "label": "3.3k (gzipped: 1.3k)"
     },
@@ -1374,7 +1374,7 @@
       "size": "4.4k",
       "gzip": "1.3k",
       "rawSize": 4443,
-      "rawGzip": 1269,
+      "rawGzip": 1268,
       "label": "4.4k (gzipped: 1.3k)"
     },
     {
@@ -1385,7 +1385,7 @@
       "size": "3.2k",
       "gzip": "1.2k",
       "rawSize": 3214,
-      "rawGzip": 1199,
+      "rawGzip": 1197,
       "label": "3.2k (gzipped: 1.2k)"
     },
     {
@@ -1395,8 +1395,8 @@
       "string": "require('@fexd/tools/lib/storage')",
       "size": "3.6k",
       "gzip": "1.1k",
-      "rawSize": 3604,
-      "rawGzip": 1114,
+      "rawSize": 3602,
+      "rawGzip": 1109,
       "label": "3.6k (gzipped: 1.1k)"
     },
     {
@@ -1406,7 +1406,7 @@
       "string": "require('@fexd/tools/lib/EventBus')",
       "size": "3k",
       "gzip": "1.1k",
-      "rawSize": 3026,
+      "rawSize": 3028,
       "rawGzip": 1072,
       "label": "3k (gzipped: 1.1k)"
     },
@@ -1418,19 +1418,8 @@
       "size": "2.4k",
       "gzip": "1.1k",
       "rawSize": 2415,
-      "rawGzip": 1062,
+      "rawGzip": 1063,
       "label": "2.4k (gzipped: 1.1k)"
-    },
-    {
-      "fileName": "lib",
-      "name": "@fexd/tools/lib/expandScientificNumberString",
-      "line": 30,
-      "string": "require('@fexd/tools/lib/expandScientificNumberString')",
-      "size": "2.3k",
-      "gzip": "1.1k",
-      "rawSize": 2341,
-      "rawGzip": 1051,
-      "label": "2.3k (gzipped: 1.1k)"
     },
     {
       "fileName": "lib",
@@ -1439,9 +1428,20 @@
       "string": "require('@fexd/tools/lib/deepMerge')",
       "size": "3.1k",
       "gzip": "1.1k",
-      "rawSize": 3056,
+      "rawSize": 3054,
       "rawGzip": 1051,
       "label": "3.1k (gzipped: 1.1k)"
+    },
+    {
+      "fileName": "lib",
+      "name": "@fexd/tools/lib/expandScientificNumberString",
+      "line": 30,
+      "string": "require('@fexd/tools/lib/expandScientificNumberString')",
+      "size": "2.3k",
+      "gzip": "1.1k",
+      "rawSize": 2343,
+      "rawGzip": 1050,
+      "label": "2.3k (gzipped: 1.1k)"
     },
     {
       "fileName": "lib",
@@ -1460,10 +1460,10 @@
       "line": 82,
       "string": "require('@fexd/tools/lib/pickBy')",
       "size": "3.4k",
-      "gzip": "985",
+      "gzip": "984",
       "rawSize": 3436,
-      "rawGzip": 985,
-      "label": "3.4k (gzipped: 985)"
+      "rawGzip": 984,
+      "label": "3.4k (gzipped: 984)"
     },
     {
       "fileName": "lib",
@@ -1482,10 +1482,10 @@
       "line": 60,
       "string": "require('@fexd/tools/lib/isMobile')",
       "size": "3.4k",
-      "gzip": "958",
+      "gzip": "960",
       "rawSize": 3381,
-      "rawGzip": 958,
-      "label": "3.4k (gzipped: 958)"
+      "rawGzip": 960,
+      "label": "3.4k (gzipped: 960)"
     },
     {
       "fileName": "lib",
@@ -1493,10 +1493,10 @@
       "line": 74,
       "string": "require('@fexd/tools/lib/isWKWebview')",
       "size": "3.1k",
-      "gzip": "922",
+      "gzip": "923",
       "rawSize": 3137,
-      "rawGzip": 922,
-      "label": "3.1k (gzipped: 922)"
+      "rawGzip": 923,
+      "label": "3.1k (gzipped: 923)"
     },
     {
       "fileName": "lib",
@@ -1515,10 +1515,10 @@
       "line": 51,
       "string": "require('@fexd/tools/lib/isDesktop')",
       "size": "2.5k",
-      "gzip": "855",
+      "gzip": "854",
       "rawSize": 2538,
-      "rawGzip": 855,
-      "label": "2.5k (gzipped: 855)"
+      "rawGzip": 854,
+      "label": "2.5k (gzipped: 854)"
     },
     {
       "fileName": "lib",
@@ -1526,10 +1526,10 @@
       "line": 58,
       "string": "require('@fexd/tools/lib/isIOS')",
       "size": "2.6k",
-      "gzip": "838",
+      "gzip": "837",
       "rawSize": 2551,
-      "rawGzip": 838,
-      "label": "2.6k (gzipped: 838)"
+      "rawGzip": 837,
+      "label": "2.6k (gzipped: 837)"
     },
     {
       "fileName": "lib",
@@ -1537,10 +1537,10 @@
       "line": 28,
       "string": "require('@fexd/tools/lib/enhancePromise')",
       "size": "2.6k",
-      "gzip": "826",
+      "gzip": "827",
       "rawSize": 2563,
-      "rawGzip": 826,
-      "label": "2.6k (gzipped: 826)"
+      "rawGzip": 827,
+      "label": "2.6k (gzipped: 827)"
     },
     {
       "fileName": "lib",
@@ -1548,10 +1548,10 @@
       "line": 25,
       "string": "require('@fexd/tools/lib/diffArray')",
       "size": "2k",
-      "gzip": "801",
+      "gzip": "804",
       "rawSize": 1976,
-      "rawGzip": 801,
-      "label": "2k (gzipped: 801)"
+      "rawGzip": 804,
+      "label": "2k (gzipped: 804)"
     },
     {
       "fileName": "lib",
@@ -1559,10 +1559,10 @@
       "line": 96,
       "string": "require('@fexd/tools/lib/set')",
       "size": "2.9k",
-      "gzip": "798",
+      "gzip": "799",
       "rawSize": 2859,
-      "rawGzip": 798,
-      "label": "2.9k (gzipped: 798)"
+      "rawGzip": 799,
+      "label": "2.9k (gzipped: 799)"
     },
     {
       "fileName": "lib",
@@ -1570,10 +1570,10 @@
       "line": 46,
       "string": "require('@fexd/tools/lib/isAndroid')",
       "size": "2.4k",
-      "gzip": "776",
+      "gzip": "777",
       "rawSize": 2404,
-      "rawGzip": 776,
-      "label": "2.4k (gzipped: 776)"
+      "rawGzip": 777,
+      "label": "2.4k (gzipped: 777)"
     },
     {
       "fileName": "lib",
@@ -1581,10 +1581,10 @@
       "line": 38,
       "string": "require('@fexd/tools/lib/getFormatter')",
       "size": "1.8k",
-      "gzip": "700",
-      "rawSize": 1754,
-      "rawGzip": 700,
-      "label": "1.8k (gzipped: 700)"
+      "gzip": "699",
+      "rawSize": 1752,
+      "rawGzip": 699,
+      "label": "1.8k (gzipped: 699)"
     },
     {
       "fileName": "lib",
@@ -1592,10 +1592,10 @@
       "line": 53,
       "string": "require('@fexd/tools/lib/isError')",
       "size": "1.8k",
-      "gzip": "688",
+      "gzip": "687",
       "rawSize": 1798,
-      "rawGzip": 688,
-      "label": "1.8k (gzipped: 688)"
+      "rawGzip": 687,
+      "label": "1.8k (gzipped: 687)"
     },
     {
       "fileName": "lib",
@@ -1603,10 +1603,10 @@
       "line": 17,
       "string": "require('@fexd/tools/lib/createSeparatorFormatter')",
       "size": "1.6k",
-      "gzip": "685",
+      "gzip": "686",
       "rawSize": 1611,
-      "rawGzip": 685,
-      "label": "1.6k (gzipped: 685)"
+      "rawGzip": 686,
+      "label": "1.6k (gzipped: 686)"
     },
     {
       "fileName": "lib",
@@ -1636,10 +1636,10 @@
       "line": 80,
       "string": "require('@fexd/tools/lib/obj2formdata')",
       "size": "1.6k",
-      "gzip": "669",
-      "rawSize": 1557,
-      "rawGzip": 669,
-      "label": "1.6k (gzipped: 669)"
+      "gzip": "668",
+      "rawSize": 1555,
+      "rawGzip": 668,
+      "label": "1.6k (gzipped: 668)"
     },
     {
       "fileName": "lib",
@@ -1647,10 +1647,10 @@
       "line": 97,
       "string": "require('@fexd/tools/lib/shallowMerge')",
       "size": "1.4k",
-      "gzip": "632",
+      "gzip": "633",
       "rawSize": 1432,
-      "rawGzip": 632,
-      "label": "1.4k (gzipped: 632)"
+      "rawGzip": 633,
+      "label": "1.4k (gzipped: 633)"
     },
     {
       "fileName": "lib",
@@ -1669,10 +1669,10 @@
       "line": 1,
       "string": "require('@fexd/tools/lib/classnames')",
       "size": "1.1k",
-      "gzip": "594",
+      "gzip": "595",
       "rawSize": 1091,
-      "rawGzip": 594,
-      "label": "1.1k (gzipped: 594)"
+      "rawGzip": 595,
+      "label": "1.1k (gzipped: 595)"
     },
     {
       "fileName": "lib",
@@ -1691,10 +1691,10 @@
       "line": 67,
       "string": "require('@fexd/tools/lib/isPlainObject')",
       "size": "1.8k",
-      "gzip": "558",
+      "gzip": "556",
       "rawSize": 1821,
-      "rawGzip": 558,
-      "label": "1.8k (gzipped: 558)"
+      "rawGzip": 556,
+      "label": "1.8k (gzipped: 556)"
     },
     {
       "fileName": "lib",
@@ -1713,10 +1713,10 @@
       "line": 99,
       "string": "require('@fexd/tools/lib/throttle')",
       "size": "1.3k",
-      "gzip": "535",
+      "gzip": "534",
       "rawSize": 1313,
-      "rawGzip": 535,
-      "label": "1.3k (gzipped: 535)"
+      "rawGzip": 534,
+      "label": "1.3k (gzipped: 534)"
     },
     {
       "fileName": "lib",
@@ -1735,10 +1735,10 @@
       "line": 32,
       "string": "require('@fexd/tools/lib/first')",
       "size": "1.5k",
-      "gzip": "524",
-      "rawSize": 1519,
-      "rawGzip": 524,
-      "label": "1.5k (gzipped: 524)"
+      "gzip": "526",
+      "rawSize": 1521,
+      "rawGzip": 526,
+      "label": "1.5k (gzipped: 526)"
     },
     {
       "fileName": "lib",
@@ -1747,9 +1747,20 @@
       "string": "require('@fexd/tools/lib/promiseGuess')",
       "size": "1.6k",
       "gzip": "519",
-      "rawSize": 1612,
+      "rawSize": 1614,
       "rawGzip": 519,
       "label": "1.6k (gzipped: 519)"
+    },
+    {
+      "fileName": "lib",
+      "name": "@fexd/tools/lib/isEmpty",
+      "line": 52,
+      "string": "require('@fexd/tools/lib/isEmpty')",
+      "size": "1.3k",
+      "gzip": "517",
+      "rawSize": 1289,
+      "rawGzip": 517,
+      "label": "1.3k (gzipped: 517)"
     },
     {
       "fileName": "lib",
@@ -1758,20 +1769,9 @@
       "string": "require('@fexd/tools/lib/safeStringify')",
       "size": "1.3k",
       "gzip": "517",
-      "rawSize": 1264,
+      "rawSize": 1266,
       "rawGzip": 517,
       "label": "1.3k (gzipped: 517)"
-    },
-    {
-      "fileName": "lib",
-      "name": "@fexd/tools/lib/isEmpty",
-      "line": 52,
-      "string": "require('@fexd/tools/lib/isEmpty')",
-      "size": "1.3k",
-      "gzip": "516",
-      "rawSize": 1287,
-      "rawGzip": 516,
-      "label": "1.3k (gzipped: 516)"
     },
     {
       "fileName": "lib",
@@ -1779,10 +1779,21 @@
       "line": 39,
       "string": "require('@fexd/tools/lib/globalThis')",
       "size": "1.2k",
-      "gzip": "514",
+      "gzip": "515",
       "rawSize": 1178,
-      "rawGzip": 514,
-      "label": "1.2k (gzipped: 514)"
+      "rawGzip": 515,
+      "label": "1.2k (gzipped: 515)"
+    },
+    {
+      "fileName": "lib",
+      "name": "@fexd/tools/lib/createProxyGetter",
+      "line": 16,
+      "string": "require('@fexd/tools/lib/createProxyGetter')",
+      "size": "1.2k",
+      "gzip": "496",
+      "rawSize": 1177,
+      "rawGzip": 496,
+      "label": "1.2k (gzipped: 496)"
     },
     {
       "fileName": "lib",
@@ -1812,21 +1823,21 @@
       "line": 37,
       "string": "require('@fexd/tools/lib/getBrightness')",
       "size": "941",
-      "gzip": "461",
+      "gzip": "460",
       "rawSize": 941,
-      "rawGzip": 461,
-      "label": "941 (gzipped: 461)"
+      "rawGzip": 460,
+      "label": "941 (gzipped: 460)"
     },
     {
       "fileName": "lib",
       "name": "@fexd/tools/lib/formdata2obj",
       "line": 34,
       "string": "require('@fexd/tools/lib/formdata2obj')",
-      "size": "775",
-      "gzip": "458",
-      "rawSize": 775,
-      "rawGzip": 458,
-      "label": "775 (gzipped: 458)"
+      "size": "777",
+      "gzip": "459",
+      "rawSize": 777,
+      "rawGzip": 459,
+      "label": "777 (gzipped: 459)"
     },
     {
       "fileName": "lib",
@@ -1845,32 +1856,21 @@
       "line": 59,
       "string": "require('@fexd/tools/lib/isIterable')",
       "size": "1.1k",
-      "gzip": "404",
+      "gzip": "403",
       "rawSize": 1069,
-      "rawGzip": 404,
-      "label": "1.1k (gzipped: 404)"
+      "rawGzip": 403,
+      "label": "1.1k (gzipped: 403)"
     },
     {
       "fileName": "lib",
-      "name": "@fexd/tools/lib/isReactValidElement",
+      "name": "@fexd/tools/lib/isReactElementLike",
       "line": 69,
-      "string": "require('@fexd/tools/lib/isReactValidElement')",
+      "string": "require('@fexd/tools/lib/isReactElementLike')",
       "size": "890",
-      "gzip": "387",
+      "gzip": "388",
       "rawSize": 890,
-      "rawGzip": 387,
-      "label": "890 (gzipped: 387)"
-    },
-    {
-      "fileName": "lib",
-      "name": "@fexd/tools/lib/createProxyGetter",
-      "line": 16,
-      "string": "require('@fexd/tools/lib/createProxyGetter')",
-      "size": "737",
-      "gzip": "379",
-      "rawSize": 737,
-      "rawGzip": 379,
-      "label": "737 (gzipped: 379)"
+      "rawGzip": 388,
+      "label": "890 (gzipped: 388)"
     },
     {
       "fileName": "lib",
@@ -1879,7 +1879,7 @@
       "string": "require('@fexd/tools/lib/compactObject')",
       "size": "1k",
       "gzip": "377",
-      "rawSize": 1016,
+      "rawSize": 1014,
       "rawGzip": 377,
       "label": "1k (gzipped: 377)"
     },
@@ -1888,11 +1888,11 @@
       "name": "@fexd/tools/lib/isSymbol",
       "line": 72,
       "string": "require('@fexd/tools/lib/isSymbol')",
-      "size": "840",
-      "gzip": "369",
-      "rawSize": 840,
-      "rawGzip": 369,
-      "label": "840 (gzipped: 369)"
+      "size": "842",
+      "gzip": "370",
+      "rawSize": 842,
+      "rawGzip": 370,
+      "label": "842 (gzipped: 370)"
     },
     {
       "fileName": "lib",
@@ -1900,21 +1900,21 @@
       "line": 68,
       "string": "require('@fexd/tools/lib/isPromiseLike')",
       "size": "1.1k",
-      "gzip": "363",
+      "gzip": "364",
       "rawSize": 1107,
-      "rawGzip": 363,
-      "label": "1.1k (gzipped: 363)"
+      "rawGzip": 364,
+      "label": "1.1k (gzipped: 364)"
     },
     {
       "fileName": "lib",
       "name": "@fexd/tools/lib/hexToRgb",
       "line": 41,
       "string": "require('@fexd/tools/lib/hexToRgb')",
-      "size": "618",
-      "gzip": "361",
-      "rawSize": 618,
-      "rawGzip": 361,
-      "label": "618 (gzipped: 361)"
+      "size": "616",
+      "gzip": "360",
+      "rawSize": 616,
+      "rawGzip": 360,
+      "label": "616 (gzipped: 360)"
     },
     {
       "fileName": "lib",
@@ -1933,10 +1933,10 @@
       "line": 57,
       "string": "require('@fexd/tools/lib/isInteger')",
       "size": "747",
-      "gzip": "350",
+      "gzip": "351",
       "rawSize": 747,
-      "rawGzip": 350,
-      "label": "747 (gzipped: 350)"
+      "rawGzip": 351,
+      "label": "747 (gzipped: 351)"
     },
     {
       "fileName": "lib",
@@ -1944,10 +1944,10 @@
       "line": 20,
       "string": "require('@fexd/tools/lib/debounce')",
       "size": "571",
-      "gzip": "341",
+      "gzip": "340",
       "rawSize": 571,
-      "rawGzip": 341,
-      "label": "571 (gzipped: 341)"
+      "rawGzip": 340,
+      "label": "571 (gzipped: 340)"
     },
     {
       "fileName": "lib",
@@ -1955,10 +1955,10 @@
       "line": 65,
       "string": "require('@fexd/tools/lib/isNumberString')",
       "size": "636",
-      "gzip": "333",
+      "gzip": "334",
       "rawSize": 636,
-      "rawGzip": 333,
-      "label": "636 (gzipped: 333)"
+      "rawGzip": 334,
+      "label": "636 (gzipped: 334)"
     },
     {
       "fileName": "lib",
@@ -1987,11 +1987,11 @@
       "name": "@fexd/tools/lib/isExist",
       "line": 54,
       "string": "require('@fexd/tools/lib/isExist')",
-      "size": "763",
-      "gzip": "320",
-      "rawSize": 763,
-      "rawGzip": 320,
-      "label": "763 (gzipped: 320)"
+      "size": "761",
+      "gzip": "319",
+      "rawSize": 761,
+      "rawGzip": 319,
+      "label": "761 (gzipped: 319)"
     },
     {
       "fileName": "lib",
@@ -1999,10 +1999,10 @@
       "line": 100,
       "string": "require('@fexd/tools/lib/toFixed')",
       "size": "495",
-      "gzip": "314",
+      "gzip": "315",
       "rawSize": 495,
-      "rawGzip": 314,
-      "label": "495 (gzipped: 314)"
+      "rawGzip": 315,
+      "label": "495 (gzipped: 315)"
     },
     {
       "fileName": "lib",
@@ -2028,25 +2028,25 @@
     },
     {
       "fileName": "lib",
-      "name": "@fexd/tools/lib/uniqueId",
-      "line": 102,
-      "string": "require('@fexd/tools/lib/uniqueId')",
-      "size": "462",
-      "gzip": "296",
-      "rawSize": 462,
-      "rawGzip": 296,
-      "label": "462 (gzipped: 296)"
-    },
-    {
-      "fileName": "lib",
       "name": "@fexd/tools/lib/uniqByKey",
       "line": 101,
       "string": "require('@fexd/tools/lib/uniqByKey')",
-      "size": "493",
-      "gzip": "296",
-      "rawSize": 493,
-      "rawGzip": 296,
-      "label": "493 (gzipped: 296)"
+      "size": "495",
+      "gzip": "300",
+      "rawSize": 495,
+      "rawGzip": 300,
+      "label": "495 (gzipped: 300)"
+    },
+    {
+      "fileName": "lib",
+      "name": "@fexd/tools/lib/uniqueId",
+      "line": 102,
+      "string": "require('@fexd/tools/lib/uniqueId')",
+      "size": "460",
+      "gzip": "293",
+      "rawSize": 460,
+      "rawGzip": 293,
+      "label": "460 (gzipped: 293)"
     },
     {
       "fileName": "lib",
@@ -2076,21 +2076,21 @@
       "line": 55,
       "string": "require('@fexd/tools/lib/isFinite')",
       "size": "442",
-      "gzip": "272",
+      "gzip": "273",
       "rawSize": 442,
-      "rawGzip": 272,
-      "label": "442 (gzipped: 272)"
+      "rawGzip": 273,
+      "label": "442 (gzipped: 273)"
     },
     {
       "fileName": "lib",
       "name": "@fexd/tools/lib/isArray",
       "line": 47,
       "string": "require('@fexd/tools/lib/isArray')",
-      "size": "426",
-      "gzip": "271",
-      "rawSize": 426,
-      "rawGzip": 271,
-      "label": "426 (gzipped: 271)"
+      "size": "428",
+      "gzip": "273",
+      "rawSize": 428,
+      "rawGzip": 273,
+      "label": "428 (gzipped: 273)"
     },
     {
       "fileName": "lib",
@@ -2108,11 +2108,11 @@
       "name": "@fexd/tools/lib/isRegExp",
       "line": 70,
       "string": "require('@fexd/tools/lib/isRegExp')",
-      "size": "371",
-      "gzip": "258",
-      "rawSize": 371,
-      "rawGzip": 258,
-      "label": "371 (gzipped: 258)"
+      "size": "373",
+      "gzip": "260",
+      "rawSize": 373,
+      "rawGzip": 260,
+      "label": "373 (gzipped: 260)"
     },
     {
       "fileName": "lib",
@@ -2120,10 +2120,10 @@
       "line": 50,
       "string": "require('@fexd/tools/lib/isDate')",
       "size": "369",
-      "gzip": "257",
+      "gzip": "256",
       "rawSize": 369,
-      "rawGzip": 257,
-      "label": "369 (gzipped: 257)"
+      "rawGzip": 256,
+      "label": "369 (gzipped: 256)"
     },
     {
       "fileName": "lib",
@@ -2142,10 +2142,10 @@
       "line": 23,
       "string": "require('@fexd/tools/lib/delay')",
       "size": "351",
-      "gzip": "246",
+      "gzip": "245",
       "rawSize": 351,
-      "rawGzip": 246,
-      "label": "351 (gzipped: 246)"
+      "rawGzip": 245,
+      "label": "351 (gzipped: 245)"
     },
     {
       "fileName": "lib",
@@ -2164,32 +2164,32 @@
       "line": 49,
       "string": "require('@fexd/tools/lib/isBoolean')",
       "size": "317",
-      "gzip": "228",
+      "gzip": "227",
       "rawSize": 317,
-      "rawGzip": 228,
-      "label": "317 (gzipped: 228)"
+      "rawGzip": 227,
+      "label": "317 (gzipped: 227)"
     },
     {
       "fileName": "lib",
       "name": "@fexd/tools/lib/nextTick",
       "line": 79,
       "string": "require('@fexd/tools/lib/nextTick')",
-      "size": "322",
-      "gzip": "228",
-      "rawSize": 322,
-      "rawGzip": 228,
-      "label": "322 (gzipped: 228)"
+      "size": "320",
+      "gzip": "227",
+      "rawSize": 320,
+      "rawGzip": 227,
+      "label": "320 (gzipped: 227)"
     },
     {
       "fileName": "lib",
       "name": "@fexd/tools/lib/difference",
       "line": 26,
       "string": "require('@fexd/tools/lib/difference')",
-      "size": "329",
-      "gzip": "223",
-      "rawSize": 329,
-      "rawGzip": 223,
-      "label": "329 (gzipped: 223)"
+      "size": "327",
+      "gzip": "226",
+      "rawSize": 327,
+      "rawGzip": 226,
+      "label": "327 (gzipped: 226)"
     },
     {
       "fileName": "lib",
@@ -2215,14 +2215,14 @@
     },
     {
       "fileName": "lib",
-      "name": "@fexd/tools/lib/isString",
-      "line": 71,
-      "string": "require('@fexd/tools/lib/isString')",
-      "size": "299",
+      "name": "@fexd/tools/lib/isUndefined",
+      "line": 73,
+      "string": "require('@fexd/tools/lib/isUndefined')",
+      "size": "309",
       "gzip": "219",
-      "rawSize": 299,
+      "rawSize": 309,
       "rawGzip": 219,
-      "label": "299 (gzipped: 219)"
+      "label": "309 (gzipped: 219)"
     },
     {
       "fileName": "lib",
@@ -2230,21 +2230,21 @@
       "line": 62,
       "string": "require('@fexd/tools/lib/isNil')",
       "size": "306",
-      "gzip": "218",
+      "gzip": "219",
       "rawSize": 306,
-      "rawGzip": 218,
-      "label": "306 (gzipped: 218)"
+      "rawGzip": 219,
+      "label": "306 (gzipped: 219)"
     },
     {
       "fileName": "lib",
-      "name": "@fexd/tools/lib/isUndefined",
-      "line": 73,
-      "string": "require('@fexd/tools/lib/isUndefined')",
-      "size": "309",
-      "gzip": "218",
-      "rawSize": 309,
-      "rawGzip": 218,
-      "label": "309 (gzipped: 218)"
+      "name": "@fexd/tools/lib/isString",
+      "line": 71,
+      "string": "require('@fexd/tools/lib/isString')",
+      "size": "297",
+      "gzip": "219",
+      "rawSize": 297,
+      "rawGzip": 219,
+      "label": "297 (gzipped: 219)"
     },
     {
       "fileName": "lib",
@@ -2263,10 +2263,10 @@
       "line": 43,
       "string": "require('@fexd/tools/lib/identity')",
       "size": "300",
-      "gzip": "214",
+      "gzip": "216",
       "rawSize": 300,
-      "rawGzip": 214,
-      "label": "300 (gzipped: 214)"
+      "rawGzip": 216,
+      "label": "300 (gzipped: 216)"
     }
   ]
 }

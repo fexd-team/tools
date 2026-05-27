@@ -1,6 +1,9 @@
 ---
 title: AI Skills
 nav:
+  title: 文档
+  order: 1
+group:
   title: 开发者
   order: 2
 order: 2
@@ -74,13 +77,13 @@ fexd-tools skills install --agents cursor,claude-code,opencode
 
 可选值：
 
-| agent | project 安装位置 |
-|-------|-----------------|
-| `cursor` | `.cursor/skills/fexd-tools` |
-| `codex` | `.agents/skills/fexd-tools` |
-| `claude-code` | `.claude/skills/fexd-tools` |
-| `opencode` | `.opencode/skills/fexd-tools` |
-| `common` | 以上常见 agent 的集合，默认值 |
+| agent         | project 安装位置              |
+| ------------- | ----------------------------- |
+| `cursor`      | `.cursor/skills/fexd-tools`   |
+| `codex`       | `.agents/skills/fexd-tools`   |
+| `claude-code` | `.claude/skills/fexd-tools`   |
+| `opencode`    | `.opencode/skills/fexd-tools` |
+| `common`      | 以上常见 agent 的集合，默认值 |
 
 ### 安装到全局目录
 
@@ -99,15 +102,15 @@ fexd-tools skills install --scope both
 
 ### 常用参数
 
-| 参数 | 作用 |
-|------|------|
+| 参数              | 作用                                                        |
+| ----------------- | ----------------------------------------------------------- |
 | `--agents <list>` | 指定 agent，支持 `common,cursor,codex,claude-code,opencode` |
-| `--scope <scope>` | 安装范围，支持 `project,global,both`，默认 `project` |
-| `--cwd <path>` | 指定消费项目目录，适合 monorepo 或脚本从子目录执行 |
-| `--copy` | 直接复制 skill 目录，不创建链接 |
-| `--force` | 目标已存在普通文件/目录时强制覆盖 |
-| `--dry-run` | 只打印安装计划，不写文件 |
-| `--no-gitignore` | 不自动更新 `.gitignore` |
+| `--scope <scope>` | 安装范围，支持 `project,global,both`，默认 `project`        |
+| `--cwd <path>`    | 指定消费项目目录，适合 monorepo 或脚本从子目录执行          |
+| `--copy`          | 直接复制 skill 目录，不创建链接                             |
+| `--force`         | 目标已存在普通文件/目录时强制覆盖                           |
+| `--dry-run`       | 只打印安装计划，不写文件                                    |
+| `--no-gitignore`  | 不自动更新 `.gitignore`                                     |
 
 先预览安装计划：
 

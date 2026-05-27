@@ -7,7 +7,7 @@ import isObject from './isObject'
 import isFunction from './isFunction'
 import memoize from './memoize'
 import EventBus from './EventBus'
-import merge, { DeepMergeOptions } from './merge'
+import merge, { DeepMergeOptions, MergeMode } from './merge'
 import isPromiseLike from './isPromiseLike'
 import random from './random'
 
@@ -25,6 +25,14 @@ export interface I18nConfig {
   defaultType?: string
   fallback?: I18n[] | Record<any, any>
   translateFallback?: ((keys: any, options: any) => any) | any
+  /**
+   * applyConfig 的默认合并模式。
+   * - 'override'（默认）: 新值覆盖已有值
+   * - 'supplement': 仅补充缺失的键，不覆盖已有值
+   *
+   * 调用 applyConfig 时显式传入的 mode 会覆盖此默认值。
+   */
+  defaultApplyMode?: MergeMode
 }
 
 export interface ApplyConfigOptions extends DeepMergeOptions {
@@ -224,6 +232,10 @@ export default class I18n {
 
   applyConfig = async (config: I18nConfig, options?: ApplyConfigOptions) => {
     const { priority, ...mergeOptions } = options ?? ({} as ApplyConfigOptions)
+
+    if (mergeOptions.mode === undefined && this.config.defaultApplyMode) {
+      mergeOptions.mode = this.config.defaultApplyMode
+    }
 
     if (
       priority !== undefined &&

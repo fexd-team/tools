@@ -13,9 +13,5 @@ export default {
     includes: ['documents', 'src'],
     excludes: ['src/tests'],
   },
-  navs: [
-    { title: '文档', path: '/文档' },
-    { title: '开发者', path: '/开发者' },
-    { title: `v${version}` },
-  ],
+  navs: [{ title: '文档', path: '/文档' }, { title: `v${version}` }],
 }

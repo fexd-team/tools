@@ -1,6 +1,9 @@
 ---
 title: CLI - 命令行工具
 nav:
+  title: 文档
+  order: 1
+group:
   title: 开发者
   order: 2
 order: 1
@@ -50,32 +53,72 @@ fexd-tools list
 import React from 'react'
 
 const G = ({ c, children }) => <span style={{ color: c }}>{children}</span>
-const B = ({ children }) => <span style={{ fontWeight: 'bold' }}>{children}</span>
+const B = ({ children }) => (
+  <span style={{ fontWeight: 'bold' }}>{children}</span>
+)
 
 const categories = [
   { name: '国际化', items: [{ name: 'I18n', doc: true }] },
-  { name: '深度合并', items: [{ name: 'deepMerge', doc: true }, { name: 'shallowMerge' }] },
-  { name: '颜色工具', items: [{ name: 'darkenColor', doc: true }, { name: 'getBrightness', doc: true }, { name: 'randomRGB', doc: true }] },
-  { name: '函数工具', items: [{ name: 'pipe', doc: true }, { name: 'curry', doc: true }, { name: 'memoize', doc: true }, { name: 'lock', doc: true }, { name: '__' }] },
+  {
+    name: '深度合并',
+    items: [{ name: 'deepMerge', doc: true }, { name: 'shallowMerge' }],
+  },
+  {
+    name: '颜色工具',
+    items: [
+      { name: 'darkenColor', doc: true },
+      { name: 'getBrightness', doc: true },
+      { name: 'randomRGB', doc: true },
+    ],
+  },
+  {
+    name: '函数工具',
+    items: [
+      { name: 'pipe', doc: true },
+      { name: 'curry', doc: true },
+      { name: 'memoize', doc: true },
+      { name: 'lock', doc: true },
+      { name: '__' },
+    ],
+  },
   { name: '节流防抖', items: [{ name: 'debounce' }, { name: 'throttle' }] },
 ]
 
 export default () => (
-  <pre style={{ margin: 0, fontFamily: 'Consolas, Monaco, monospace', fontSize: 13, lineHeight: 1.6 }}>
-    <div><B><G c="#00d9ff">  @fexd/tools</G></B> <G c="#888">— 工具函数列表</G></div>
+  <pre
+    style={{
+      margin: 0,
+      fontFamily: 'Consolas, Monaco, monospace',
+      fontSize: 13,
+      lineHeight: 1.6,
+    }}
+  >
+    <div>
+      <B>
+        <G c="#00d9ff"> @fexd/tools</G>
+      </B>{' '}
+      <G c="#888">— 工具函数列表</G>
+    </div>
     <br />
     {categories.map((cat) => (
       <div key={cat.name}>
-        <div>  <G c="#f5a623">■</G> <B>{cat.name}</B></div>
+        <div>
+          {' '}
+          <G c="#f5a623">■</G> <B>{cat.name}</B>
+        </div>
         {cat.items.map((item) => (
           <div key={item.name}>
-            {'    '}{item.doc ? <G c="#52c41a">●</G> : <G c="#555">○</G>} {item.name}{!item.doc && <G c="#555"> (无详细文档)</G>}
+            {'    '}
+            {item.doc ? <G c="#52c41a">●</G> : <G c="#555">○</G>} {item.name}
+            {!item.doc && <G c="#555"> (无详细文档)</G>}
           </div>
         ))}
         <br />
       </div>
     ))}
-    <G c="#888">  使用 </G><G c="#00d9ff">fexd-tools docs {'<name>'}</G><G c="#888"> 查看详细文档</G>
+    <G c="#888"> 使用 </G>
+    <G c="#00d9ff">fexd-tools docs {'<name>'}</G>
+    <G c="#888"> 查看详细文档</G>
   </pre>
 )
 ```
@@ -147,13 +190,13 @@ fexd-tools skills install --agents codex --scope global
 
 支持的 agent：
 
-| agent | 说明 |
-|-------|------|
-| `common` | 常见 agent 集合，默认值 |
-| `cursor` | Cursor |
-| `codex` | Codex |
-| `claude-code` | Claude Code |
-| `opencode` | OpenCode |
+| agent         | 说明                    |
+| ------------- | ----------------------- |
+| `common`      | 常见 agent 集合，默认值 |
+| `cursor`      | Cursor                  |
+| `codex`       | Codex                   |
+| `claude-code` | Claude Code             |
+| `opencode`    | OpenCode                |
 
 ### 安装范围
 
@@ -163,30 +206,30 @@ fexd-tools skills install --scope global
 fexd-tools skills install --scope both
 ```
 
-| scope | 说明 |
-|-------|------|
+| scope     | 说明                       |
+| --------- | -------------------------- |
 | `project` | 安装到当前项目目录，默认值 |
-| `global` | 安装到用户全局 agent 目录 |
-| `both` | 同时安装 project 和 global |
+| `global`  | 安装到用户全局 agent 目录  |
+| `both`    | 同时安装 project 和 global |
 
 全局目录规则：
 
-| agent | global 安装位置 |
-|-------|----------------|
-| `cursor` | `~/.cursor/skills/fexd-tools` |
-| `codex` | `$CODEX_HOME/skills/fexd-tools` 或 `~/.codex/skills/fexd-tools` |
+| agent         | global 安装位置                                                         |
+| ------------- | ----------------------------------------------------------------------- |
+| `cursor`      | `~/.cursor/skills/fexd-tools`                                           |
+| `codex`       | `$CODEX_HOME/skills/fexd-tools` 或 `~/.codex/skills/fexd-tools`         |
 | `claude-code` | `$CLAUDE_CONFIG_DIR/skills/fexd-tools` 或 `~/.claude/skills/fexd-tools` |
-| `opencode` | `~/.config/opencode/skills/fexd-tools` |
+| `opencode`    | `~/.config/opencode/skills/fexd-tools`                                  |
 
 ### 其他参数
 
-| 参数 | 说明 |
-|------|------|
-| `--cwd <path>` | 指定消费项目目录 |
-| `--copy` | 复制 skill 目录，不创建链接 |
-| `--force` | 目标已存在普通文件/目录时强制覆盖 |
-| `--dry-run` | 只打印安装计划，不写文件 |
-| `--no-gitignore` | 不自动更新 `.gitignore` |
+| 参数             | 说明                              |
+| ---------------- | --------------------------------- |
+| `--cwd <path>`   | 指定消费项目目录                  |
+| `--copy`         | 复制 skill 目录，不创建链接       |
+| `--force`        | 目标已存在普通文件/目录时强制覆盖 |
+| `--dry-run`      | 只打印安装计划，不写文件          |
+| `--no-gitignore` | 不自动更新 `.gitignore`           |
 
 Windows 环境如果创建链接失败，CLI 会自动回退为复制。也可以显式使用复制模式：
 

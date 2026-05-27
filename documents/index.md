@@ -10,6 +10,10 @@ sidemenu: false
 
 ```bash
 pnpm add @fexd/tools
+# or
+yarn add @fexd/tools
+# or
+npm install @fexd/tools
 ```
 
 ## 快速开始
@@ -39,11 +43,11 @@ module.exports = {
 
 ## 🖥️ CLI 与 AI Skills
 
-| 文档                            | 说明                                            |
-| ------------------------------- | ----------------------------------------------- |
-| [CLI 命令行工具](/开发者/cli)   | 终端查文档、搜索用法、安装 AI Skills            |
-| [AI Skills](/开发者/ai-skills)  | 让 AI 编辑器理解 @fexd/tools 的 Skills 配置指南 |
-| [导出体积](/开发者/bundle-size) | 每个工具函数的独立打包体积（ESM/CJS + Gzip）    |
+| 文档                                 | 说明                                            |
+| ------------------------------------ | ----------------------------------------------- |
+| [CLI 命令行工具](/文档/开发者/cli)   | 终端查文档、搜索用法、安装 AI Skills            |
+| [AI Skills](/文档/开发者/ai-skills)  | 让 AI 编辑器理解 @fexd/tools 的 Skills 配置指南 |
+| [导出体积](/文档/开发者/bundle-size) | 每个工具函数的独立打包体积（ESM/CJS + Gzip）    |
 
 ## API 分类索引
 
