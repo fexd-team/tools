@@ -10,6 +10,7 @@ import EventBus from './EventBus'
 import merge, { DeepMergeOptions, MergeMode } from './merge'
 import isPromiseLike from './isPromiseLike'
 import random from './random'
+import _globalThis from './globalThis'
 
 const NSReg = /:/
 
@@ -138,6 +139,7 @@ export default class I18n {
     this.config = config
 
     I18n.instances.push(this)
+    this._mountDebugInstance()
     if (I18n.language) {
       this.applyLanguage(I18n.language)
     } else {
@@ -420,4 +422,22 @@ export default class I18n {
   }
 
   t = this.translate
+
+  private _mountDebugInstance() {
+    try {
+      const debug = (_globalThis as any).__FEXD_DEBUG__?.i18n
+      if (debug?.instances) {
+        debug.instances.push(this)
+      }
+    } catch {}
+  }
 }
+
+try {
+  const g = _globalThis as any
+  if (!g.__FEXD_DEBUG__) g.__FEXD_DEBUG__ = {}
+  if (!g.__FEXD_DEBUG__.i18n) {
+    g.__FEXD_DEBUG__.i18n = { classes: [], instances: [] }
+  }
+  g.__FEXD_DEBUG__.i18n.classes.push(I18n)
+} catch {}

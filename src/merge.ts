@@ -131,7 +131,16 @@ const merge = <T extends Record<string, any>>(
   const depth = _depth ?? 0
   const seen = _seen ?? new WeakMap()
   if (seen.has(target)) return seen.get(target)
-  if (seen.has(source)) return seen.get(source)
+
+  const sourceAlreadySeen = seen.has(source)
+  if (sourceAlreadySeen) {
+    const mode = options?.mode ?? 'override'
+    if (mode !== 'supplement') {
+      return seen.get(source)
+    }
+    // supplement 模式：不短路，继续正常合并。
+    // 不同的 target 子树需要独立保持各自的值，同时仍可补充缺失字段。
+  }
 
   const isMergeableObject =
     options?.isMergeableObject ?? defaultIsMergeableObject
@@ -146,7 +155,9 @@ const merge = <T extends Record<string, any>>(
   }
 
   seen.set(target, result)
-  seen.set(source, result)
+  if (!sourceAlreadySeen) {
+    seen.set(source, result)
+  }
 
   // 浅合并快速路径：达到指定深度后，对子对象使用浅合并
   if (shallowAfterDepth !== undefined && depth >= shallowAfterDepth) {

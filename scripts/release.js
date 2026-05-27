@@ -36,7 +36,7 @@ if (!isForce) {
   }
 }
 
-run('npm run build', 'build')
+// run('npm run build', 'build')
 run(
   `npm publish --access=public${tagFlag} --registry=${registry}`,
   `publish → ${registry}`

@@ -561,6 +561,235 @@ describe('merge', () => {
     })
   })
 
+  describe('source 共享引用 + supplement 模式', () => {
+    test('supplement 模式下 source 共享引用不应替换不同的 target 子对象', () => {
+      const sharedLocale = { greeting: 'Hello', farewell: 'Goodbye' }
+      const source = { en_US: sharedLocale, 'en-US': sharedLocale }
+      const target = {
+        en_US: { greeting: 'Hi', farewell: 'Bye' },
+        'en-US': { greeting: 'Hey!', farewell: 'See ya' },
+      }
+      const refA = target['en_US']
+      const refB = target['en-US']
+
+      merge(target, source, { mode: 'supplement' })
+
+      expect(target['en_US']).toBe(refA)
+      expect(target['en-US']).toBe(refB)
+      expect(target['en_US'].greeting).toBe('Hi')
+      expect(target['en-US'].greeting).toBe('Hey!')
+      expect(target['en-US'].farewell).toBe('See ya')
+    })
+
+    test('override 写入的值不应被后续 supplement 的共享引用覆盖', () => {
+      const config: any = {
+        en_US: { greeting: 'Override-Hi', farewell: 'Override-Bye' },
+        'en-US': { greeting: 'Override-Hey!', farewell: 'Override-See ya' },
+      }
+      const sharedDefaults = {
+        greeting: 'Default',
+        farewell: 'DefaultBye',
+        extra: 'bonus',
+      }
+      merge(
+        config,
+        { en_US: sharedDefaults, 'en-US': sharedDefaults },
+        { mode: 'supplement' }
+      )
+
+      expect(config['en_US'].greeting).toBe('Override-Hi')
+      expect(config['en-US'].greeting).toBe('Override-Hey!')
+      expect(config['en-US'].farewell).toBe('Override-See ya')
+      expect(config['en_US'].extra).toBe('bonus')
+      expect(config['en-US'].extra).toBe('bonus')
+    })
+
+    test('source 真正的循环引用在 supplement 模式下仍不应栈溢出', () => {
+      const circular: any = { name: 'loop' }
+      circular.self = circular
+
+      let result: any
+      expect(() => {
+        result = merge({ name: 'existing', self: { deep: true } }, circular, {
+          mode: 'supplement',
+        })
+      }).not.toThrow()
+
+      expect(result.name).toBe('existing')
+    })
+
+    test('override 模式下 source 共享引用保持现有行为', () => {
+      const shared = { x: 1 }
+      const source = { a: shared, b: shared }
+      const target: any = { a: { x: 10 }, b: { x: 20 } }
+
+      merge(target, source, { mode: 'override' })
+
+      expect(target.a.x).toBe(1)
+      expect(target.a).toBe(target.b)
+    })
+
+    test('三个以上共享引用各自独立保持', () => {
+      const shared = { val: 'src' }
+      const source = { a: shared, b: shared, c: shared }
+      const target: any = {
+        a: { val: 'A' },
+        b: { val: 'B' },
+        c: { val: 'C' },
+      }
+
+      merge(target, source, { mode: 'supplement' })
+
+      expect(target.a.val).toBe('A')
+      expect(target.b.val).toBe('B')
+      expect(target.c.val).toBe('C')
+      expect(target.a).not.toBe(target.b)
+      expect(target.b).not.toBe(target.c)
+    })
+
+    test('嵌套层级中的共享引用也应独立保持', () => {
+      const innerShared = { x: 1 }
+      const source = { level1: { a: innerShared, b: innerShared } }
+      const target: any = {
+        level1: { a: { x: 10 }, b: { x: 20 } },
+      }
+
+      merge(target, source, { mode: 'supplement' })
+
+      expect(target.level1.a.x).toBe(10)
+      expect(target.level1.b.x).toBe(20)
+      expect(target.level1.a).not.toBe(target.level1.b)
+    })
+
+    test('supplement 时 target 缺少 key：resolveRef 将共享 source 解析为首次合并结果', () => {
+      const shared = { greeting: 'Hello', farewell: 'Goodbye' }
+      const source = { en_US: shared, 'en-US': shared }
+      const target: any = { en_US: { greeting: 'Hi' } }
+
+      merge(target, source, { mode: 'supplement' })
+
+      expect(target['en_US'].greeting).toBe('Hi')
+      expect(target['en_US'].farewell).toBe('Goodbye')
+      expect(target['en-US']).toBeDefined()
+      // resolveRef 将 shared 解析为 en_US 的合并结果（含 override 值），
+      // 对 I18n 场景来说，别名 locale 共享 override 值是合理的
+      expect(target['en-US']).toBe(target['en_US'])
+      expect(target['en-US'].greeting).toBe('Hi')
+    })
+
+    test('clone + supplement + 共享引用：不修改原 target，各子树独立', () => {
+      const shared = { val: 'src', extra: 'bonus' }
+      const source = { a: shared, b: shared }
+      const target: any = { a: { val: 'A' }, b: { val: 'B' } }
+      const origA = target.a
+      const origB = target.b
+
+      const result = merge(target, source, {
+        mode: 'supplement',
+        clone: true,
+      })
+
+      expect(target.a).toBe(origA)
+      expect(target.b).toBe(origB)
+      expect(result.a.val).toBe('A')
+      expect(result.b.val).toBe('B')
+      expect(result.a.extra).toBe('bonus')
+      expect(result.b.extra).toBe('bonus')
+      expect(result.a).not.toBe(result.b)
+    })
+
+    test('paths 局部 override + 共享引用不影响 supplement 的 key', () => {
+      const shared = { val: 'src' }
+      const source = { a: shared, b: shared }
+      const target: any = { a: { val: 'A' }, b: { val: 'B' } }
+
+      merge(target, source, {
+        mode: 'supplement',
+        paths: { a: 'override' },
+      })
+
+      expect(target.a.val).toBe('src')
+      expect(target.b.val).toBe('B')
+    })
+
+    test('shallowAfterDepth + supplement + 共享引用', () => {
+      const shared = { greeting: 'Hello', extra: 'bonus' }
+      const source = { en_US: shared, 'en-US': shared }
+      const target: any = {
+        en_US: { greeting: 'Hi' },
+        'en-US': { greeting: 'Hey' },
+      }
+
+      merge(target, source, { mode: 'supplement', shallowAfterDepth: 1 })
+
+      expect(target['en_US'].greeting).toBe('Hi')
+      expect(target['en-US'].greeting).toBe('Hey')
+      expect(target['en_US'].extra).toBe('bonus')
+      expect(target['en-US'].extra).toBe('bonus')
+    })
+
+    test('source 互相引用（非自引用）在 supplement 模式下不应栈溢出', () => {
+      const a: any = { id: 'srcA' }
+      const b: any = { id: 'srcB' }
+      a.ref = b
+      b.ref = a
+
+      let result: any
+      expect(() => {
+        result = merge({ ref: { id: 'targetB', ref: { id: 'targetA' } } }, a, {
+          mode: 'supplement',
+        })
+      }).not.toThrow()
+
+      expect(result.id).toBe('srcA')
+      expect(result.ref.id).toBe('targetB')
+    })
+
+    test('source 和 target 是同一对象时 supplement 不应出错', () => {
+      const obj: any = { a: 1, b: { x: 2 } }
+
+      expect(() => {
+        merge(obj, obj, { mode: 'supplement' })
+      }).not.toThrow()
+
+      expect(obj.a).toBe(1)
+      expect(obj.b.x).toBe(2)
+    })
+
+    test('模拟真实 I18n 场景：多包逐层 supplement 共享 locale', () => {
+      const sharedEn = { save: 'Save', cancel: 'Cancel' }
+      const sharedZh = { save: '保存', cancel: '取消' }
+
+      const bizOverride: any = {
+        en_US: { save: 'Submit' },
+        'en-US': { save: 'Submit' },
+        zh_CN: { save: '提交' },
+        'zh-CN': { save: '提交' },
+      }
+
+      const frameworkDefaults = {
+        en_US: sharedEn,
+        'en-US': sharedEn,
+        zh_CN: sharedZh,
+        'zh-CN': sharedZh,
+      }
+
+      merge(bizOverride, frameworkDefaults, { mode: 'supplement' })
+
+      expect(bizOverride['en_US'].save).toBe('Submit')
+      expect(bizOverride['en-US'].save).toBe('Submit')
+      expect(bizOverride['en_US'].cancel).toBe('Cancel')
+      expect(bizOverride['en-US'].cancel).toBe('Cancel')
+      expect(bizOverride['zh_CN'].save).toBe('提交')
+      expect(bizOverride['zh-CN'].save).toBe('提交')
+      expect(bizOverride['zh_CN'].cancel).toBe('取消')
+      expect(bizOverride['zh-CN'].cancel).toBe('取消')
+
+      expect(bizOverride['en_US']).not.toBe(bizOverride['en-US'])
+      expect(bizOverride['zh_CN']).not.toBe(bizOverride['zh-CN'])
+    })
+  })
+
   // ═══════════════════════════════════════════════════════
   //  边界情况和特殊输入
   // ═══════════════════════════════════════════════════════
