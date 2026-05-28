@@ -67,8 +67,8 @@ function getAgents() {
     opencode: {
       name: 'opencode',
       displayName: 'OpenCode',
-      projectSkillsDirs: ['.opencode/skills'],
-      globalSkillsDir: path.join(home, '.config', 'opencode', 'skills'),
+      projectSkillsDirs: ['.agents/skills'],
+      globalSkillsDir: path.join(home, '.agents', 'skills'),
     },
   }
 }
@@ -490,7 +490,7 @@ function showSkillsHelp() {
     ${c('dim', 'Cursor')}      .cursor/skills
     ${c('dim', 'Codex')}       .agents/skills
     ${c('dim', 'Claude Code')} .claude/skills
-    ${c('dim', 'OpenCode')}    .opencode/skills
+    ${c('dim', 'OpenCode')}    .agents/skills
 `)
 }
 
