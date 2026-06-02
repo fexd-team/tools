@@ -1,6 +1,6 @@
 {
   "name": "@fexd/tools",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "fexd tools library",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -28,6 +28,7 @@
     "release:beta": "node ./scripts/release.js --tag=beta",
     "release:force": "node ./scripts/release.js --force",
     "test": "jest --coverage",
+    "test:skills": "node ./scripts/test-skills-discovery.js",
     "test:watch": "jest --watch --coverage"
   },
   "homepage": "https://github.com/fexd-team/tools",
@@ -80,7 +81,9 @@
     "extends": [
       "@commitlint/config-conventional"
     ],
-    "rules": {}
+    "rules": {
+      "body-max-line-length": [2, "always", 1000]
+    }
   },
   "sideEffects": false,
   "dependencies": {

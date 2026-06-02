@@ -6,6 +6,16 @@
 import { enhancePromise } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 查询 Promise 执行状态（pending/fulfilled/rejected）
+- 超时控制
+
+## 不适用场景
+
+- 简单错误处理 → 用 catchPromise
+- 需要竞速 → 用 promiseGuess
+
 ## 签名
 
 ```ts
@@ -47,3 +57,8 @@ deferred.resolve(42)
 - `isResolved` 与 `isFulfilled` 等价
 - `resolve`/`reject` 仅在 pending 时生效，重复调用会被忽略
 - 保留原生 `then`/`catch`/`finally`，可与 async/await 混用
+
+## 相关函数
+
+- `catchPromise` — 简单错误处理
+- `promiseGuess` — 多 Promise 竞速

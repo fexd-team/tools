@@ -6,6 +6,16 @@
 import { isRegExp } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 判断值是否为正则表达式
+- 跨 realm 安全判断
+
+## 不适用场景
+
+- 需要判断字符串 → 用 isString
+- 日常使用较少
+
 ## 签名
 
 ```ts
@@ -27,3 +37,7 @@ isRegExp({}) // false
 - 先 `instanceof RegExp`，再 `[object RegExp]` toString 兜底
 - 带类型守卫；字符串形式的正则模式为 false
 - 跨 iframe 中不同全局的 RegExp 仍可能被识别
+
+## 相关函数
+
+isObject, isError

@@ -6,6 +6,18 @@
 import { pick, pickBy, isNumber, isString } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 从对象中提取指定键（`pick`）
+- 按类型或条件过滤对象属性（`pickBy`）
+- 移除对象中的 null/undefined（`pickBy` 默认行为）
+
+## 不适用场景
+
+- 只需移除空值（null/undefined/空字符串）→ 用 `compactObject`（更简洁）
+- 需要递归深度选取或过滤 → 需自行递归处理或用 `deepMapItem`
+- 需要合并对象 → 用 `deepMerge` / `merge` / `shallowMerge`
+
 ## pick 签名
 
 ```ts
@@ -26,15 +38,12 @@ const pickBy = (
 ```ts
 const user = { id: 1, name: 'Alice', age: 25, role: null }
 
-// pick：按键名
 pick(user, ['id', 'name'])
 // => { id: 1, name: 'Alice' }
 
-// pickBy：默认过滤 null/undefined
 pickBy(user)
 // => { id: 1, name: 'Alice', age: 25 }
 
-// pickBy：自定义条件
 pickBy(user, isNumber)
 // => { id: 1, age: 25 }
 
@@ -47,3 +56,9 @@ pickBy(user, (v, k) => k.length > 2)
 - 始终返回新对象，不修改源对象
 - `pick` 中不存在的键会被忽略
 - `pickBy` 默认使用 `isExist` 过滤 null/undefined
+
+## 相关函数
+
+- `compactObject` — 移除对象中的空值
+- `deepMapItem` — 深度遍历变换对象各节点
+- `isExist` — pickBy 默认的过滤条件

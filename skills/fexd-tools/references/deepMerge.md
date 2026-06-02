@@ -6,13 +6,27 @@
 import { deepMerge } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 合并多个嵌套配置对象，后者覆盖前者
+- 应用用户覆盖到默认选项，保留嵌套默认字段
+- 简单的多对象递归合并，不需要精细控制
+
+## 不适用场景
+
+- 需要不可变操作（不修改源对象）→ 用 `merge(..., { clone: true })`
+- 需要仅补缺不覆盖 → 用 `merge(..., { mode: 'supplement' })`
+- 数组需要拼接或按索引合并 → 用 `merge(..., { arrayMerge: 'concat' | 'combine' })`
+- 只需合并第一层属性 → 用 `shallowMerge`
+- 对象可能存在循环引用 → 用 `merge`（自动保护）
+
 ## 签名
 
 ```ts
 deepMerge(...sources: any[]): object
 ```
 
-## 基本用法
+## 用法
 
 ```ts
 // 双对象合并
@@ -31,31 +45,15 @@ deepMerge(
 // => { config: { theme: { primary: '#1890ff', bg: '#fff' }, debug: true } }
 ```
 
-## 行为特点
-
-- **变参**：接收任意数量对象，自动过滤非对象参数
-- **就地修改**：合并结果写入第一个有效对象
-- **递归合并**：嵌套对象递归处理，非对象值直接覆盖
-- **数组为值**：数组视为原子值直接替换，不递归
-
-## 与 merge 的区别
-
-| | `deepMerge` | `merge` |
-|---|---|---|
-| 参数 | 变参 `(...sources)` | 双参 `(target, source, options?)` |
-| 模式 | 仅 override | override / supplement |
-| 数组策略 | 固定替换 | replace / concat / combine |
-| 路径控制 | 无 | `paths` 精细到字段 |
-| 自定义合并 | 无 | `customMerge` |
-| clone | 无（就地修改） | `clone: true` 可选 |
-| 循环引用 | 不检测 | 自动保护 |
-| 场景 | 简单多对象合并 | i18n、表单等需精细控制的场景 |
-
-简单合并场景用 `deepMerge`，需要精细控制时用 `merge`。
-
 ## 注意事项
 
-- 就地修改第一个有效对象，需要不可变请先拷贝
+- **就地修改第一个有效对象**，需要不可变请先拷贝或用 `merge`
 - 非对象参数（null/undefined/number 等）自动过滤
-- 数组整体替换，不递归合并数组元素
+- 数组视为原子值直接替换，不递归合并数组元素
 - 不检测循环引用，有循环引用的对象请用 `merge`
+
+## 相关函数
+
+- `merge` — 高级深度合并，支持 supplement/override、路径策略、数组策略、clone、循环引用保护
+- `shallowMerge` — 浅合并，仅合并第一层属性，不递归
+- `compactObject` — 移除对象中的空值，非合并操作

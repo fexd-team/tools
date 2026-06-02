@@ -57,11 +57,14 @@ npx fexd-tools search "合并"
 
 ## AI Skills
 
-内置 AI Agent Skill，让 Cursor / Claude Code / Codex / OpenCode 等 AI 编码助手了解本库的完整 API，提升代码补全和问答的准确度。
+内置 AI Agent Skill，并可自动发现当前项目依赖包中发布的 `skills/*/SKILL.md`。运行一次命令即可让 Cursor / Claude Code / Codex / OpenCode 等 AI 编码助手了解本库及相关依赖的真实用法。
 
 ```bash
 # 安装到当前项目（默认支持常见 agent）
 npx fexd-tools skills install
+
+# 只安装指定包/skill（等价于 --include）
+npx fexd-tools skills install @risk-bc/*,@fexd/pro-components
 
 # 指定 agent
 npx fexd-tools skills install --agents cursor,claude-code
@@ -71,6 +74,28 @@ npx fexd-tools skills install --scope global
 
 # 更多选项
 npx fexd-tools skills install --help
+```
+
+发现到的 skill 会使用 `SKILL.md` frontmatter 中的 `name` 作为安装目录名，避免目录名和 skill 声明不一致。
+
+可直接在 `package.json` 里配置黑白名单，适合简单规则：
+
+```json
+{
+  "skills-install": {
+    "include": ["@risk-bc/*"],
+    "exclude": ["@fexd/pro-components"]
+  }
+}
+```
+
+规则较多时，也可以放到 `skills.config.js`：
+
+```js
+module.exports = {
+  include: ['@risk-bc/*', { package: '@fexd/tools', skills: ['fexd-tools'] }],
+  exclude: ['@fexd/pro-components'],
+}
 ```
 
 ## API 速览

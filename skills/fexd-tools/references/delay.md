@@ -6,6 +6,18 @@
 import { delay } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 异步等待指定时间
+- 轮询间隔
+- 替代 setTimeout 的 Promise 写法
+
+## 不适用场景
+
+- 需要下一帧执行 → 用 nextTick
+- 需要防抖 → 用 debounce
+- 需要取消定时 → 用 setTimeout + clearTimeout
+
 ## 签名
 
 ```ts
@@ -40,3 +52,8 @@ fetch('/api')
 - `time` 省略时 `setTimeout` 以 `undefined` 调度，行为取决于环境
 - 传入 `Infinity` 时 Promise **永不 resolve**，可用于永久挂起
 - 无 reject 路径，仅作延时，错误处理需自行包装
+
+## 相关函数
+
+- `nextTick` — 下一帧执行回调
+- `debounce` — 防抖

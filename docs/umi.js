@@ -1488,7 +1488,7 @@
         return Qt
       }),
       n.d(t, 'last', function () {
-        return Jt
+        return Yt
       }),
       n.d(t, 'lock', function () {
         return Ee
@@ -1551,7 +1551,7 @@
         return z
       }),
       n.d(t, 'segment', function () {
-        return Yn
+        return Jn
       }),
       n.d(t, 'catchPromise', function () {
         return Zn
@@ -1635,7 +1635,7 @@
         return Ka
       }),
       n.d(t, 'deepMapItem', function () {
-        return Ya
+        return Ja
       }),
       n.d(t, 'reactive', function () {
         return cr
@@ -2191,7 +2191,7 @@
       )
     }
     var Q = (e, t, n) => (n && void 0 !== n[e] ? n[e] : t),
-      Y = (e, t) => {
+      J = (e, t) => {
         if (t) {
           for (
             var n = ''.concat(e, '.'), a = {}, r = Object.keys(t), l = 0;
@@ -2204,7 +2204,7 @@
           return Object.keys(a).length > 0 ? a : void 0
         }
       },
-      J = (e, t) => {
+      Y = (e, t) => {
         for (var n in t) void 0 === e[n] && (e[n] = t[n])
       },
       Z = (e, t) => {
@@ -2255,7 +2255,7 @@
           s || u.set(t, v),
           void 0 !== g && c >= g)
         )
-          return 'supplement' === p ? J(v, t) : Z(v, t), v
+          return 'supplement' === p ? Y(v, t) : Z(v, t), v
         var y = (e) => ($(e) && u.has(e) ? u.get(e) : e)
         for (var k in t) {
           var w = v[k],
@@ -2292,7 +2292,7 @@
                       S,
                       {
                         mode: 'supplement',
-                        paths: Y(A, h),
+                        paths: J(A, h),
                         isMergeableObject: f,
                         customMerge:
                           null === n || void 0 === n ? void 0 : n.customMerge,
@@ -2309,7 +2309,7 @@
                     S,
                     {
                       mode: Q(A, 'override', h),
-                      paths: Y(A, h),
+                      paths: J(A, h),
                       isMergeableObject: f,
                       customMerge:
                         null === n || void 0 === n ? void 0 : n.customMerge,
@@ -3283,14 +3283,14 @@
       Xe = Ve,
       Ke = n('Ef+f'),
       Qe = n('vbhF'),
-      Ye = n('NDrN'),
-      Je = n('jl5J')
+      Je = n('NDrN'),
+      Ye = n('jl5J')
     function Ze(e) {
       return (
         Object(Ke['a'])(e) ||
         Object(Qe['a'])(e) ||
-        Object(Ye['a'])(e) ||
-        Object(Je['a'])()
+        Object(Je['a'])(e) ||
+        Object(Ye['a'])()
       )
     }
     var et = function e() {
@@ -3476,14 +3476,14 @@
       Xt = Vt,
       Kt = () => Dt() && ae(Object(A['a'])(N['a'], 'webkit')),
       Qt = Kt,
-      Yt = (e) => {
+      Jt = (e) => {
         if (W(e)) return e[e.length - 1]
         if ($(e)) {
           var t = Object.keys(e)
-          return e[Yt(t)]
+          return e[Jt(t)]
         }
       },
-      Jt = Yt,
+      Yt = Jt,
       Zt = (e) => Promise.resolve().then(e),
       en = Zt,
       tn = function (e) {
@@ -3773,7 +3773,7 @@
         })
       },
       Qn = Kn
-    function Yn(e, t, n) {
+    function Jn(e, t, n) {
       var r = Object(a['default'])(n, 2),
         l = r[0],
         o = r[1],
@@ -3789,7 +3789,7 @@
           })
       return c.push(u), c
     }
-    var Jn = (function () {
+    var Yn = (function () {
         var e = Object(M['default'])(
           Object(R['default'])().mark(function e(t) {
             var n
@@ -3822,7 +3822,7 @@
           return e.apply(this, arguments)
         }
       })(),
-      Zn = Jn
+      Zn = Yn
     function ea(e, t) {
       return e.filter((e) => !t.includes(e))
     }
@@ -4240,8 +4240,8 @@
         }
         return s.length > 0 ? e : _(r, void 0, e, void 0, s)
       },
-      Ya = Qa,
-      Ja = () => {
+      Ja = Qa,
+      Ya = () => {
         var e = {},
           t = (t) => (e[t] || (e[t] = new Set()), e[t])
         return {
@@ -4255,7 +4255,7 @@
           },
         }
       },
-      Za = Ja(),
+      Za = Ya(),
       er = new Set(),
       tr = new Map(),
       nr = (e) => {
@@ -14457,7 +14457,9 @@
               r.a.createElement('code', null, '@fexd/tools'),
               ' \u968f npm \u5305\u53d1\u5e03\u4e86\u5b8c\u6574\u7684 ',
               r.a.createElement('strong', null, 'AI Agent Skills'),
-              ' \u6587\u6863\u3002\u5b89\u88c5\u540e\uff0c\u53ef\u4ee5\u901a\u8fc7\u5185\u7f6e CLI \u4e00\u952e\u628a\u8fd9\u4e9b\u6587\u6863\u6ce8\u518c\u5230 Cursor\u3001Codex\u3001Claude Code\u3001OpenCode \u7b49\u5e38\u89c1 AI Agent \u7684 skills \u76ee\u5f55\uff0c\u8ba9 AI \u5728\u5199\u4ee3\u7801\u65f6\u4f18\u5148\u8bfb\u53d6\u5de5\u5177\u51fd\u6570\u7684\u771f\u5b9e\u7528\u6cd5\u3002'
+              ' \u6587\u6863\u3002\u5b89\u88c5\u540e\uff0c\u53ef\u4ee5\u901a\u8fc7\u5185\u7f6e CLI \u4e00\u952e\u628a\u672c\u5e93\u4ee5\u53ca\u5f53\u524d\u9879\u76ee\u4f9d\u8d56\u5305\u4e2d\u53d1\u5e03\u7684 ',
+              r.a.createElement('code', null, 'skills/*/SKILL.md'),
+              ' \u6ce8\u518c\u5230 Cursor\u3001Codex\u3001Claude Code\u3001OpenCode \u7b49\u5e38\u89c1 AI Agent \u7684 skills \u76ee\u5f55\uff0c\u8ba9 AI \u5728\u5199\u4ee3\u7801\u65f6\u4f18\u5148\u8bfb\u53d6\u771f\u5b9e\u7528\u6cd5\u3002'
             ),
             r.a.createElement(
               'h3',
@@ -14522,10 +14524,14 @@
             r.a.createElement(
               'p',
               null,
-              '\u9ed8\u8ba4\u4f1a\u628a ',
-              r.a.createElement('code', null, 'fexd-tools'),
-              ' skill \u5b89\u88c5\u5230\u5e38\u89c1 agent \u7684\u9879\u76ee\u7ea7\u76ee\u5f55\uff0c\u5e76\u81ea\u52a8\u628a\u8fd9\u4e9b\u94fe\u63a5\u5199\u5165 ',
-              r.a.createElement('code', null, '.gitignore'),
+              '\u9ed8\u8ba4\u4f1a\u626b\u63cf ',
+              r.a.createElement('code', null, 'node_modules'),
+              ' \u548c workspace \u5305\u4e2d\u7684 ',
+              r.a.createElement('code', null, 'skills/*/SKILL.md'),
+              '\uff0c\u5e76\u628a\u53d1\u73b0\u5230\u7684 skill \u5b89\u88c5\u5230\u5e38\u89c1 agent \u7684\u9879\u76ee\u7ea7\u76ee\u5f55\u3002\u5b89\u88c5\u76ee\u5f55\u540d\u4f7f\u7528 ',
+              r.a.createElement('code', null, 'SKILL.md'),
+              ' frontmatter \u91cc\u7684 ',
+              r.a.createElement('code', null, 'name'),
               '\uff1a'
             ),
             r.a.createElement(o['a'], {
@@ -14535,18 +14541,21 @@
             r.a.createElement(
               'p',
               null,
-              '\u8fd9\u4e9b\u76ee\u5f55\u9ed8\u8ba4\u90fd\u662f\u6307\u5411 ',
-              r.a.createElement(
-                'code',
-                null,
-                'node_modules/@fexd/tools/skills/fexd-tools'
-              ),
-              ' \u7684\u94fe\u63a5\u3002\u66f4\u65b0 ',
-              r.a.createElement('code', null, '@fexd/tools'),
-              ' \u540e\uff0cskill \u5185\u5bb9\u4f1a\u968f ',
+              '\u8fd9\u4e9b\u76ee\u5f55\u9ed8\u8ba4\u90fd\u662f\u6307\u5411\u6765\u6e90\u5305\u5185 ',
+              r.a.createElement('code', null, 'skills/<\u76ee\u5f55\u540d>'),
+              ' \u7684\u94fe\u63a5\u3002\u66f4\u65b0 npm \u4f9d\u8d56\u540e\uff0cskill \u5185\u5bb9\u4f1a\u968f ',
               r.a.createElement('code', null, 'node_modules'),
               ' \u81ea\u52a8\u66f4\u65b0\u3002'
             ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u4f9d\u8d56\u5305\u53ea\u9700\u8981\u968f\u5305\u53d1\u5e03\u6807\u51c6\u76ee\u5f55\u5373\u53ef\uff0c\u4e0d\u9700\u8981\u518d\u63d0\u4f9b\u81ea\u5df1\u7684 CLI\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'node_modules/@scope/package/\n\u2514\u2500\u2500 skills/\n    \u2514\u2500\u2500 any-folder-name/\n        \u2514\u2500\u2500 SKILL.md   # frontmatter name \u51b3\u5b9a\u6700\u7ec8\u5b89\u88c5\u76ee\u5f55\u540d',
+              lang: 'text',
+            }),
             r.a.createElement(
               'h3',
               { id: '\u6307\u5b9a-agent' },
@@ -14646,11 +14655,7 @@
                   r.a.createElement(
                     'td',
                     null,
-                    r.a.createElement(
-                      'code',
-                      null,
-                      '.opencode/skills/fexd-tools'
-                    )
+                    r.a.createElement('code', null, '.agents/skills/fexd-tools')
                   )
                 ),
                 r.a.createElement(
@@ -14862,46 +14867,114 @@
             }),
             r.a.createElement(
               'h3',
-              { id: '\u5907\u9009\u4f7f\u7528-skills-npm' },
+              { id: '\u914d\u7f6e\u9ed1\u767d\u540d\u5355' },
               r.a.createElement(
                 l['AnchorLink'],
                 {
-                  to: '#\u5907\u9009\u4f7f\u7528-skills-npm',
+                  to: '#\u914d\u7f6e\u9ed1\u767d\u540d\u5355',
                   'aria-hidden': 'true',
                   tabIndex: -1,
                 },
                 r.a.createElement('span', { className: 'icon icon-link' })
               ),
-              '\u5907\u9009\uff1a\u4f7f\u7528 skills-npm'
+              '\u914d\u7f6e\u9ed1\u767d\u540d\u5355'
             ),
             r.a.createElement(
               'p',
               null,
-              '\u5982\u679c\u4f60\u7684\u9879\u76ee\u5e0c\u671b\u7edf\u4e00\u626b\u63cf\u591a\u4e2a npm \u5305\u91cc\u7684 skills\uff0c\u800c\u4e0d\u53ea\u662f ',
-              r.a.createElement('code', null, '@fexd/tools'),
-              '\uff0c\u53ef\u4ee5\u4f7f\u7528 ',
-              r.a.createElement(
-                l['Link'],
-                { to: 'https://github.com/nicepkg/skills-npm' },
-                'skills-npm'
-              ),
-              '\uff1a'
+              '\u5982\u679c\u9879\u76ee\u91cc\u4f9d\u8d56\u5f88\u591a\u5e26 skill \u7684\u5305\uff0c\u53ef\u4ee5\u76f4\u63a5\u5728 ',
+              r.a.createElement('code', null, 'package.json'),
+              ' \u914d\u7f6e\u9ed1\u767d\u540d\u5355\uff1a'
             ),
             r.a.createElement(o['a'], {
-              code: 'pnpm add -D skills-npm',
-              lang: 'bash',
-            }),
-            r.a.createElement(o['a'], {
-              code: '{\n  "scripts": {\n    "prepare": "skills-npm"\n  }\n}',
+              code: '{\n  "skills-install": {\n    "include": ["@risk-bc/*"],\n    "exclude": ["@fexd/pro-components"]\n  }\n}',
               lang: 'json',
             }),
             r.a.createElement(
               'p',
               null,
-              r.a.createElement('code', null, 'skills-npm'),
-              ' \u9002\u5408\u505a\u901a\u7528\u53d1\u73b0\uff1b',
+              r.a.createElement('code', null, 'skills-install'),
+              ' \u7684\u8bed\u4e49\u662f\u201c\u5b89\u88c5 skills \u65f6\u7684\u7b5b\u9009\u89c4\u5219\u201d\uff0c\u6bd4\u9876\u5c42 ',
+              r.a.createElement('code', null, 'skills'),
+              ' \u66f4\u4e0d\u5bb9\u6613\u548c\u5305\u81ea\u8eab\u58f0\u660e\u6df7\u5728\u4e00\u8d77\u3002\u89c4\u5219\u8f83\u591a\u65f6\uff0c\u4e5f\u53ef\u4ee5\u653e\u5230\u9879\u76ee\u6839\u76ee\u5f55\u7684 ',
+              r.a.createElement('code', null, 'skills.config.js'),
+              '\u3001',
+              r.a.createElement('code', null, 'skills.config.cjs'),
+              ' \u6216 ',
+              r.a.createElement('code', null, 'skills.config.json'),
+              '\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: "module.exports = {\n  include: ['@risk-bc/*', { package: '@fexd/tools', skills: ['fexd-tools'] }],\n  exclude: ['@fexd/pro-components'],\n}",
+              lang: 'js',
+            }),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement('code', null, 'include'),
+              ' \u5b58\u5728\u65f6\u53ea\u5b89\u88c5\u5339\u914d\u7684\u5305\u6216 skill\uff1b',
+              r.a.createElement('code', null, 'exclude'),
+              ' \u5728\u767d\u540d\u5355\u4e4b\u540e\u751f\u6548\u3002\u5b57\u7b26\u4e32\u652f\u6301 ',
+              r.a.createElement('code', null, '*'),
+              ' / ',
+              r.a.createElement('code', null, '?'),
+              ' \u901a\u914d\uff0c\u4e5f\u53ef\u4ee5\u7528\u5bf9\u8c61\u5f62\u5f0f\u7cbe\u786e\u5230\u67d0\u4e2a\u5305\u91cc\u7684 skill\u3002'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u4e34\u65f6\u8fc7\u6ee4\u53ef\u4ee5\u76f4\u63a5\u901a\u8fc7\u53c2\u6570\u4f20\u5165\uff1a'
+            ),
+            r.a.createElement(o['a'], {
+              code: 'fexd-tools skills install @risk-bc/*,@fexd/pro-components\nfexd-tools skills install --include @risk-bc/*\nfexd-tools skills install --exclude @fexd/pro-components\nfexd-tools skills install --include @risk-bc/review:risk-bc-review',
+              lang: 'bash',
+            }),
+            r.a.createElement(
+              'p',
+              null,
+              r.a.createElement('code', null, 'install'),
+              ' \u540e\u9762\u7684\u88f8\u53c2\u6570\u7b49\u4ef7\u4e8e ',
+              r.a.createElement('code', null, '--include'),
+              '\uff0c\u591a\u4e2a\u89c4\u5219\u7528\u9017\u53f7\u5206\u9694\u3002'
+            ),
+            r.a.createElement(
+              'h3',
+              { id: '\u4e0e-skills-npm-\u7684\u5173\u7cfb' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u4e0e-skills-npm-\u7684\u5173\u7cfb',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' })
+              ),
+              '\u4e0e skills-npm \u7684\u5173\u7cfb'
+            ),
+            r.a.createElement(
+              'p',
+              null,
               r.a.createElement('code', null, 'fexd-tools skills install'),
-              ' \u5219\u53ea\u5904\u7406\u672c\u5de5\u5177\u5e93\uff0c\u4f9d\u8d56\u66f4\u5c11\u3001\u8bca\u65ad\u66f4\u660e\u786e\u3002'
+              ' \u53c2\u8003\u4e86 ',
+              r.a.createElement(
+                l['Link'],
+                { to: 'https://github.com/nicepkg/skills-npm' },
+                'skills-npm'
+              ),
+              ' \u7684 npm \u5305\u5185\u7f6e skills \u7ea6\u5b9a\uff0c\u4f46\u4fdd\u6301 CommonJS \u4e0e\u5185\u7f6e\u4f9d\u8d56\u5b9e\u73b0\uff0c\u9002\u5408\u9700\u8981\u517c\u5bb9\u8f83\u4f4e Node.js \u7248\u672c\u7684\u9879\u76ee\u3002'
+            ),
+            r.a.createElement(
+              'p',
+              null,
+              '\u4e0e ',
+              r.a.createElement('code', null, 'skills-npm'),
+              ' \u4e0d\u540c\uff0c',
+              r.a.createElement('code', null, 'fexd-tools'),
+              ' \u4f1a\u4f7f\u7528 ',
+              r.a.createElement('code', null, 'SKILL.md'),
+              ' frontmatter \u4e2d\u7684 ',
+              r.a.createElement('code', null, 'name'),
+              ' \u4f5c\u4e3a\u6700\u7ec8\u5b89\u88c5\u76ee\u5f55\u540d\uff0c\u907f\u514d\u5b89\u88c5\u8def\u5f84\u548c skill \u58f0\u660e\u4e0d\u4e00\u81f4\u3002'
             ),
             r.a.createElement(
               'h3',
@@ -15215,8 +15288,8 @@
       X = 'unhandledrejection',
       K = 'rejectionhandled',
       Q = 0,
-      Y = 1,
-      J = 2,
+      J = 1,
+      Y = 2,
       Z = 1,
       ee = 2,
       te = C(P, function () {
@@ -15252,7 +15325,7 @@
           var a = t.reactions
           A(function () {
             var r = t.value,
-              l = t.state == Y,
+              l = t.state == J,
               o = 0
             while (a.length > o) {
               var i,
@@ -15332,7 +15405,7 @@
           ((t.done = !0),
           a && (t = a),
           (t.value = n),
-          (t.state = J),
+          (t.state = Y),
           re(e, t, !0))
       },
       de = function (e, t, n, a) {
@@ -15350,7 +15423,7 @@
                     se(e, a, l, t)
                   }
                 })
-              : ((t.value = n), (t.state = Y), re(e, t, !1))
+              : ((t.value = n), (t.state = J), re(e, t, !1))
           } catch (l) {
             se(e, { done: !1 }, l, t)
           }
@@ -16736,7 +16809,7 @@
           if (']' != t.charAt(t.length - 1)) return N
           if (((n = q(t.slice(1, -1))), !n)) return N
           e.host = n
-        } else if (J(e)) {
+        } else if (Y(e)) {
           if (((t = h(t)), F.test(t))) return N
           if (((n = U(t)), null === n)) return N
           e.host = n
@@ -16890,9 +16963,9 @@
         var n = p(e, 0)
         return n > 32 && n < 127 && !d(t, e) ? e : encodeURIComponent(e)
       },
-      Y = { ftp: 21, file: null, http: 80, https: 443, ws: 80, wss: 443 },
-      J = function (e) {
-        return d(Y, e.scheme)
+      J = { ftp: 21, file: null, http: 80, https: 443, ws: 80, wss: 443 },
+      Y = function (e) {
+        return d(J, e.scheme)
       },
       Z = function (e) {
         return '' != e.username || '' != e.password
@@ -17000,19 +17073,19 @@
                 }
                 if (
                   n &&
-                  (J(e) != d(Y, m) ||
+                  (Y(e) != d(J, m) ||
                     ('file' == m && (Z(e) || null !== e.port)) ||
                     ('file' == e.scheme && !e.host))
                 )
                   return
                 if (((e.scheme = m), n))
-                  return void (J(e) && Y[e.scheme] == e.port && (e.port = null))
+                  return void (Y(e) && J[e.scheme] == e.port && (e.port = null))
                 ;(m = ''),
                   'file' == e.scheme
                     ? (u = be)
-                    : J(e) && r && r.scheme == e.scheme
+                    : Y(e) && r && r.scheme == e.scheme
                     ? (u = ue)
-                    : J(e)
+                    : Y(e)
                     ? (u = fe)
                     : '/' == l[s + 1]
                     ? ((u = se), s++)
@@ -17054,7 +17127,7 @@
                   (e.port = r.port),
                   (e.path = r.path.slice()),
                   (e.query = r.query)
-              else if ('/' == o || ('\\' == o && J(e))) u = me
+              else if ('/' == o || ('\\' == o && Y(e))) u = me
               else if ('?' == o)
                 (e.username = r.username),
                   (e.password = r.password),
@@ -17085,7 +17158,7 @@
               }
               break
             case me:
-              if (!J(e) || ('/' != o && '\\' != o)) {
+              if (!Y(e) || ('/' != o && '\\' != o)) {
                 if ('/' != o) {
                   ;(e.username = r.username),
                     (e.password = r.password),
@@ -17123,7 +17196,7 @@
                 '/' == o ||
                 '?' == o ||
                 '#' == o ||
-                ('\\' == o && J(e))
+                ('\\' == o && Y(e))
               ) {
                 if (p && '' == m) return O
                 ;(s -= f(m).length + 1), (m = ''), (u = Ee)
@@ -17141,9 +17214,9 @@
                   '/' == o ||
                   '?' == o ||
                   '#' == o ||
-                  ('\\' == o && J(e))
+                  ('\\' == o && Y(e))
                 ) {
-                  if (J(e) && '' == m) return N
+                  if (Y(e) && '' == m) return N
                   if (n && '' == m && (Z(e) || null !== e.port)) return
                   if (((c = W(e, m)), c)) return c
                   if (((m = ''), (u = xe), n)) return
@@ -17163,13 +17236,13 @@
                   '/' == o ||
                   '?' == o ||
                   '#' == o ||
-                  ('\\' == o && J(e)) ||
+                  ('\\' == o && Y(e)) ||
                   n
                 ) {
                   if ('' != m) {
                     var y = parseInt(m, 10)
                     if (y > 65535) return L
-                    ;(e.port = J(e) && y === Y[e.scheme] ? null : y), (m = '')
+                    ;(e.port = Y(e) && y === J[e.scheme] ? null : y), (m = '')
                   }
                   if (n) return
                   u = xe
@@ -17239,7 +17312,7 @@
               m += o
               break
             case xe:
-              if (J(e)) {
+              if (Y(e)) {
                 if (((u = we), '/' != o && '\\' != o)) continue
               } else if (n || '?' != o)
                 if (n || '#' != o) {
@@ -17251,15 +17324,15 @@
               if (
                 o == a ||
                 '/' == o ||
-                ('\\' == o && J(e)) ||
+                ('\\' == o && Y(e)) ||
                 (!n && ('?' == o || '#' == o))
               ) {
                 if (
                   (le(m)
                     ? (ae(e),
-                      '/' == o || ('\\' == o && J(e)) || e.path.push(''))
+                      '/' == o || ('\\' == o && Y(e)) || e.path.push(''))
                     : re(m)
-                    ? '/' == o || ('\\' == o && J(e)) || e.path.push('')
+                    ? '/' == o || ('\\' == o && Y(e)) || e.path.push('')
                     : ('file' == e.scheme &&
                         !e.path.length &&
                         te(m) &&
@@ -17284,7 +17357,7 @@
             case Ae:
               n || '#' != o
                 ? o != a &&
-                  ("'" == o && J(e)
+                  ("'" == o && Y(e)
                     ? (e.query += '%27')
                     : (e.query += '#' == o ? '%23' : Q(o, H)))
                 : ((e.fragment = ''), (u = Oe))
@@ -17362,7 +17435,7 @@
           } catch (a) {
             return 'null'
           }
-        return 'file' != t && J(e)
+        return 'file' != t && Y(e)
           ? t + '://' + $(e.host) + (null !== n ? ':' + n : '')
           : 'null'
       },
@@ -19351,8 +19424,8 @@
       X = S.f,
       K = A.f,
       Q = x.f,
-      Y = O.f,
-      J = L('symbols'),
+      J = O.f,
+      Y = L('symbols'),
       Z = L('op-symbols'),
       ee = L('string-to-symbol-registry'),
       te = L('symbol-to-string-registry'),
@@ -19379,7 +19452,7 @@
             }
           : K,
       oe = function (e, t) {
-        var n = (J[e] = b(H[W]))
+        var n = (Y[e] = b(H[W]))
         return (
           q(n, { type: B, tag: e, description: t }), i || (n.description = t), n
         )
@@ -19396,7 +19469,7 @@
         var a = g(t, !0)
         return (
           p(n),
-          d(J, a)
+          d(Y, a)
             ? (n.enumerable
                 ? (d(e, D) && e[D][a] && (e[D][a] = !1),
                   (n = b(n, { enumerable: v(0, !1) })))
@@ -19421,19 +19494,19 @@
       },
       de = function (e) {
         var t = g(e, !0),
-          n = Y.call(this, t)
+          n = J.call(this, t)
         return (
-          !(this === $ && d(J, t) && !d(Z, t)) &&
-          (!(n || !d(this, t) || !d(J, t) || (d(this, D) && this[D][t])) || n)
+          !(this === $ && d(Y, t) && !d(Z, t)) &&
+          (!(n || !d(this, t) || !d(Y, t) || (d(this, D) && this[D][t])) || n)
         )
       },
       me = function (e, t) {
         var n = E(e),
           a = g(t, !0)
-        if (n !== $ || !d(J, a) || d(Z, a)) {
+        if (n !== $ || !d(Y, a) || d(Z, a)) {
           var r = X(n, a)
           return (
-            !r || !d(J, a) || (d(n, D) && n[D][a]) || (r.enumerable = !0), r
+            !r || !d(Y, a) || (d(n, D) && n[D][a]) || (r.enumerable = !0), r
           )
         }
       },
@@ -19442,7 +19515,7 @@
           n = []
         return (
           z(t, function (e) {
-            d(J, e) || d(C, e) || n.push(e)
+            d(Y, e) || d(C, e) || n.push(e)
           }),
           n
         )
@@ -19453,7 +19526,7 @@
           a = []
         return (
           z(n, function (e) {
-            !d(J, e) || (t && !d($, e)) || a.push(J[e])
+            !d(Y, e) || (t && !d($, e)) || a.push(Y[e])
           }),
           a
         )
@@ -23635,8 +23708,8 @@
       ],
       K = a['createContext'](null),
       Q = 'responsive',
-      Y = 'invalidate'
-    function J(e) {
+      J = 'invalidate'
+    function Y(e) {
       return '+ '.concat(e.length, ' ...')
     }
     function Z(e, t) {
@@ -23706,7 +23779,7 @@
         ke = Math.max(H, te),
         xe = k === Q,
         we = c.length && xe,
-        Se = k === Y,
+        Se = k === J,
         Ae = we || ('number' === typeof k && c.length > k),
         Oe = Object(a['useMemo'])(
           function () {
@@ -23857,7 +23930,7 @@
             S(_e)
           ))
       else {
-        var Ue = x || J
+        var Ue = x || Y
         ze = a['createElement'](
           B,
           Object(l['a'])({}, De, We),
@@ -23898,7 +23971,7 @@
     ;(ee.displayName = 'Overflow'),
       (ee.Item = V),
       (ee.RESPONSIVE = Q),
-      (ee.INVALIDATE = Y)
+      (ee.INVALIDATE = J)
     var te = ee,
       ne = te,
       ae = n('mkLn'),
@@ -24318,7 +24391,7 @@
     }
     var Ke = n('sgiM'),
       Qe = n('8DO7')
-    function Ye(e, t, n, a) {
+    function Je(e, t, n, a) {
       var r = Ve.a.unstable_batchedUpdates
         ? function (e) {
             Ve.a.unstable_batchedUpdates(n, e)
@@ -24333,7 +24406,7 @@
         }
       )
     }
-    var Je = n('gmW1'),
+    var Ye = n('gmW1'),
       Ze = Object(a['forwardRef'])(function (e, t) {
         var n = e.didUpdate,
           r = e.getContainer,
@@ -24346,7 +24419,7 @@
         var c = Object(a['useRef'])(!1)
         return (
           !c.current &&
-            Object(Je['a'])() &&
+            Object(Ye['a'])() &&
             ((i.current = r()),
             (o.current = i.current.parentNode),
             (c.current = !0)),
@@ -24752,8 +24825,8 @@
     }
     'undefined' !== typeof window && (St = window.getComputedStyle ? Pt : Ut)
     var Qt = ['margin', 'border', 'padding'],
-      Yt = -1,
-      Jt = 2,
+      Jt = -1,
+      Yt = 2,
       Zt = 1,
       en = 0
     function tn(e, t, n) {
@@ -24805,17 +24878,17 @@
         (i = St(e, t)),
         (null === i || void 0 === i || Number(i) < 0) && (i = e.style[t] || 0),
         (i = parseFloat(i) || 0)),
-        void 0 === a && (a = o ? Zt : Yt)
+        void 0 === a && (a = o ? Zt : Jt)
       var c = void 0 !== l || o,
         u = l || i
-      return a === Yt
+      return a === Jt
         ? c
           ? u - nn(e, ['border', 'padding'], r)
           : i
         : c
         ? a === Zt
           ? u
-          : u + (a === Jt ? -nn(e, ['border'], r) : nn(e, ['margin'], r))
+          : u + (a === Yt ? -nn(e, ['border'], r) : nn(e, ['margin'], r))
         : i + nn(e, Qt.slice(a), r)
     }
     Xt(['Width', 'Height'], function (e) {
@@ -24863,7 +24936,7 @@
       var n = 'width' === e ? ['Left', 'Right'] : ['Top', 'Bottom']
       an[e] = function (t, a) {
         var r = a
-        if (void 0 === r) return t && on(t, e, Yt)
+        if (void 0 === r) return t && on(t, e, Jt)
         if (t) {
           var l = Kt(t)
           return l && (r += nn(t, ['padding', 'border'], n)), _t(t, e, r)
@@ -25343,7 +25416,7 @@
           r.a.useEffect(
             function () {
               u
-                ? x.current || (x.current = Ye(window, 'resize', v))
+                ? x.current || (x.current = Je(window, 'resize', v))
                 : x.current && (x.current.remove(), (x.current = null))
             },
             [u]
@@ -25977,7 +26050,7 @@
             [G]
           )
         var Q = Object(s['a'])({}, lt(e))
-        function Y() {
+        function J() {
           return new Promise(function (e) {
             H.current = e
           })
@@ -26002,7 +26075,7 @@
               },
             }
           })
-        var J = Object(s['a'])(
+        var Y = Object(s['a'])(
             Object(s['a'])({}, P),
             {},
             {
@@ -26032,8 +26105,8 @@
               { visible: n, ref: N, leavedClassName: ''.concat(r, '-hidden') },
               Q,
               {
-                onAppearPrepare: Y,
-                onEnterPrepare: Y,
+                onAppearPrepare: J,
+                onEnterPrepare: J,
                 removeOnLeave: p,
                 forceRender: h,
               }
@@ -26063,7 +26136,7 @@
                     onMouseDownCapture: S,
                     onTouchStartCapture: A,
                     onClick: O,
-                    style: Object(s['a'])(Object(s['a'])({}, l), J),
+                    style: Object(s['a'])(Object(s['a'])({}, l), Y),
                   },
                   ee
                 )
@@ -26073,8 +26146,8 @@
         )
       })
     Qn.displayName = 'PopupInner'
-    var Yn = Qn,
-      Jn = a['forwardRef'](function (e, t) {
+    var Jn = Qn,
+      Yn = a['forwardRef'](function (e, t) {
         var n = e.prefixCls,
           r = e.visible,
           o = e.zIndex,
@@ -26127,8 +26200,8 @@
           )
         )
       })
-    Jn.displayName = 'MobilePopupInner'
-    var Zn = Jn,
+    Yn.displayName = 'MobilePopupInner'
+    var Zn = Yn,
       ea = ['visible', 'mobile'],
       ta = a['forwardRef'](function (e, t) {
         var n = e.visible,
@@ -26151,7 +26224,7 @@
         )
         var y = g
           ? a['createElement'](Zn, Object(l['a'])({}, b, { mobile: r, ref: t }))
-          : a['createElement'](Yn, Object(l['a'])({}, b, { ref: t }))
+          : a['createElement'](Jn, Object(l['a'])({}, b, { ref: t }))
         return a['createElement']('div', null, a['createElement'](ot, b), y)
       })
     ta.displayName = 'Popup'
@@ -26491,14 +26564,14 @@
                         (!this.isClickToHide() &&
                           !this.isContextMenuToShow()) ||
                         ((e = t.getDocument(this.getRootDomNode())),
-                        (this.clickOutsideHandler = Ye(
+                        (this.clickOutsideHandler = Je(
                           e,
                           'mousedown',
                           this.onDocumentClick
                         ))),
                       this.touchOutsideHandler ||
                         ((e = e || t.getDocument(this.getRootDomNode())),
-                        (this.touchOutsideHandler = Ye(
+                        (this.touchOutsideHandler = Je(
                           e,
                           'touchstart',
                           this.onDocumentClick
@@ -26506,7 +26579,7 @@
                       !this.contextMenuOutsideHandler1 &&
                         this.isContextMenuToShow() &&
                         ((e = e || t.getDocument(this.getRootDomNode())),
-                        (this.contextMenuOutsideHandler1 = Ye(
+                        (this.contextMenuOutsideHandler1 = Je(
                           e,
                           'scroll',
                           this.onContextMenuClose
@@ -26514,7 +26587,7 @@
                       void (
                         !this.contextMenuOutsideHandler2 &&
                         this.isContextMenuToShow() &&
-                        (this.contextMenuOutsideHandler2 = Ye(
+                        (this.contextMenuOutsideHandler2 = Je(
                           window,
                           'blur',
                           this.onContextMenuClose
@@ -27057,9 +27130,9 @@
           X = a['useRef'](),
           K = a['useRef']()
         var Q = E || M,
-          Y = g || F,
-          J = C.includes(d),
-          Z = !T && J,
+          J = g || F,
+          Y = C.includes(d),
+          Z = !T && Y,
           ee = G(P, d),
           te = fe(d, V, S, A),
           ae = te.active,
@@ -27087,7 +27160,7 @@
           ye = function (e) {
             V ||
               (null === w || void 0 === w || w({ key: d, domEvent: e }),
-              'inline' === I && D(d, !J))
+              'inline' === I && D(d, !Y))
           },
           ke = Be(function (e) {
             null === y || void 0 === y || y(he(e)), z(e)
@@ -27123,7 +27196,7 @@
             a['createElement'](
               Ee,
               {
-                icon: 'horizontal' !== I ? Y : null,
+                icon: 'horizontal' !== I ? J : null,
                 props: Object(s['a'])(
                   Object(s['a'])({}, e),
                   {},
@@ -27188,7 +27261,7 @@
               onItemClick: ke,
               mode: 'horizontal' === I ? 'vertical' : I,
               itemIcon: Q,
-              expandIcon: Y,
+              expandIcon: J,
             },
             je
           )
@@ -27619,8 +27692,8 @@
           X = void 0 === V ? 24 : V,
           K = e.motion,
           Q = e.defaultMotions,
-          Y = e.triggerSubMenuAction,
-          J = void 0 === Y ? 'hover' : Y,
+          J = e.triggerSubMenuAction,
+          Y = void 0 === J ? 'hover' : J,
           Z = e.builtinPlacements,
           ee = e.itemIcon,
           te = e.expandIcon,
@@ -27702,19 +27775,19 @@
               }
             )
           }, [])
-        var Ye = Va(),
-          Je = Ye.registerPath,
-          Ze = Ye.unregisterPath,
-          et = Ye.refreshOverflowKeys,
-          tt = Ye.isSubPathKey,
-          nt = Ye.getKeyPath,
-          at = Ye.getKeys,
-          rt = Ye.getSubPathKeys,
+        var Je = Va(),
+          Ye = Je.registerPath,
+          Ze = Je.unregisterPath,
+          et = Je.refreshOverflowKeys,
+          tt = Je.isSubPathKey,
+          nt = Je.getKeyPath,
+          at = Je.getKeys,
+          rt = Je.getSubPathKeys,
           lt = a['useMemo'](
             function () {
-              return { registerPath: Je, unregisterPath: Ze }
+              return { registerPath: Ye, unregisterPath: Ze }
             },
-            [Je, Ze]
+            [Ye, Ze]
           ),
           ot = a['useMemo'](
             function () {
@@ -27940,7 +28013,7 @@
                 subMenuCloseDelay: j,
                 forceSubMenuRender: T,
                 builtinPlacements: Z,
-                triggerSubMenuAction: J,
+                triggerSubMenuAction: Y,
                 getPopupContainer: yt,
                 itemIcon: ee,
                 expandIcon: te,
@@ -27957,14 +28030,14 @@
           )
         )
       }),
-      Ya = Qa,
-      Ja = ['className', 'title', 'eventKey', 'children'],
+      Ja = Qa,
+      Ya = ['className', 'title', 'eventKey', 'children'],
       Za = ['children'],
       er = function (e) {
         var t = e.className,
           n = e.title,
           r = (e.eventKey, e.children),
-          o = Object(u['a'])(e, Ja),
+          o = Object(u['a'])(e, Ya),
           i = a['useContext'](se),
           c = i.prefixCls,
           s = ''.concat(c, '-item-group')
@@ -28008,7 +28081,7 @@
             style: n,
           })
     }
-    var ar = Ya
+    var ar = Ja
     ;(ar.Item = Pe), (ar.SubMenu = ka), (ar.ItemGroup = tr), (ar.Divider = nr)
     var rr = ar,
       lr = { adjustX: 1, adjustY: 1 },
@@ -28660,10 +28733,10 @@
         X = Object(i['a'])(V, 2),
         K = X[0],
         Q = X[1],
-        Y = Object(a['useState'])(0),
-        J = Object(i['a'])(Y, 2),
-        Z = J[0],
-        ee = J[1],
+        J = Object(a['useState'])(0),
+        Y = Object(i['a'])(J, 2),
+        Z = Y[0],
+        ee = Y[1],
         te = Object(a['useState'])(0),
         ne = Object(i['a'])(te, 2),
         ae = ne[0],
@@ -28865,8 +28938,8 @@
         Xe = Object(a['useState'])(),
         Ke = Object(i['a'])(Xe, 2),
         Qe = Ke[0],
-        Ye = Ke[1],
-        Je = Ae.get(E),
+        Je = Ke[1],
+        Ye = Ae.get(E),
         Ze = Object(a['useRef'])()
       function et() {
         x['a'].cancel(Ze.current)
@@ -28875,25 +28948,25 @@
         function () {
           var e = {}
           return (
-            Je &&
+            Ye &&
               (U
-                ? (g ? (e.right = Je.right) : (e.left = Je.left),
-                  (e.width = Je.width))
-                : ((e.top = Je.top), (e.height = Je.height))),
+                ? (g ? (e.right = Ye.right) : (e.left = Ye.left),
+                  (e.width = Ye.width))
+                : ((e.top = Ye.top), (e.height = Ye.height))),
             et(),
             (Ze.current = Object(x['a'])(function () {
-              Ye(e)
+              Je(e)
             })),
             et
           )
         },
-        [Je, U, g]
+        [Ye, U, g]
       ),
         Object(a['useEffect'])(
           function () {
             Fe()
           },
-          [E, Je, Ae, U]
+          [E, Ye, Ae, U]
         ),
         Object(a['useEffect'])(
           function () {
@@ -29207,14 +29280,14 @@
         X = Object(i['a'])(V, 2),
         K = X[0],
         Q = X[1],
-        Y = Object(a['useState'])(function () {
+        J = Object(a['useState'])(function () {
           return W.findIndex(function (e) {
             return e.key === K
           })
         }),
-        J = Object(i['a'])(Y, 2),
-        Z = J[0],
-        ee = J[1]
+        Y = Object(i['a'])(J, 2),
+        Z = Y[0],
+        ee = Y[1]
       Object(a['useEffect'])(
         function () {
           var e,
@@ -29376,12 +29449,12 @@
     function Qr(e) {
       if (Array.isArray(e)) return e
     }
-    function Yr(e, t) {
+    function Jr(e, t) {
       var n,
         a = null === (n = e.match(/\.(\w+)$/)) || void 0 === n ? void 0 : n[1]
       return a || (a = t.tsx ? 'tsx' : 'jsx'), a
     }
-    var Jr = function (e) {
+    var Yr = function (e) {
       var t,
         n,
         l,
@@ -29428,7 +29501,7 @@
         A = $r(S, 2),
         O = A[0],
         _ = A[1],
-        N = Object(a['useState'])(Yr(O, u.sources[O])),
+        N = Object(a['useState'])(Jr(O, u.sources[O])),
         L = $r(N, 2),
         I = L[0],
         C = L[1],
@@ -29454,7 +29527,7 @@
               }
             : H
       function X(e) {
-        _(e), C(Yr(e, u.sources[e]))
+        _(e), C(Jr(e, u.sources[e]))
       }
       return (
         Object(a['useEffect'])(
@@ -29650,7 +29723,7 @@
                   },
                   Object.keys(u.sources).map(function (e) {
                     return r.a.createElement(jr, {
-                      tab: '_' === e ? 'index.'.concat(Yr(e, u.sources[e])) : e,
+                      tab: '_' === e ? 'index.'.concat(Jr(e, u.sources[e])) : e,
                       key: e,
                     })
                   })
@@ -29664,7 +29737,7 @@
         )
       )
     }
-    t['default'] = Jr
+    t['default'] = Yr
   },
   K29s: function (e, t, n) {
     var a = n('7xa0'),
@@ -37422,7 +37495,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'curry-demo',
         },
@@ -37518,7 +37591,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'debounce-demo',
         },
@@ -37662,7 +37735,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'delay-demo',
         },
@@ -37928,7 +38001,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'lock-demo',
         },
@@ -38232,7 +38305,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'memoize-demo',
         },
@@ -38574,7 +38647,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'pipe-demo',
         },
@@ -38670,7 +38743,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'throttle-demo',
         },
@@ -38914,7 +38987,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'CombinationMatcher-demo',
         },
@@ -39123,7 +39196,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'deepMerge-demo',
         },
@@ -39416,7 +39489,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'diffArray-demo',
         },
@@ -39729,7 +39802,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'difference-demo',
         },
@@ -39992,7 +40065,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'flatten-demo',
         },
@@ -40418,7 +40491,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'get-demo',
         },
@@ -40665,7 +40738,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'groupBy-demo',
         },
@@ -40975,7 +41048,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'I18n-demo',
         },
@@ -41386,7 +41459,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'merge-demo',
         },
@@ -41674,7 +41747,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'pick-demo',
         },
@@ -42109,7 +42182,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'reactivity-demo',
         },
@@ -42418,7 +42491,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'sample-demo',
         },
@@ -42609,7 +42682,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'uniqByKey-demo',
         },
@@ -42857,7 +42930,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'clamp-demo',
         },
@@ -43082,7 +43155,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'createSeparatorFormatter-demo',
         },
@@ -43396,7 +43469,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'darkenColor-demo',
         },
@@ -43625,7 +43698,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'getBrightness-demo',
         },
@@ -43821,7 +43894,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'hexToRgb-demo',
         },
@@ -43924,7 +43997,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'qs-demo',
         },
@@ -44164,7 +44237,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'randomRGB-demo',
         },
@@ -44249,7 +44322,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'storage-demo',
         },
@@ -44514,7 +44587,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'toFixed-demo',
         },
@@ -44628,7 +44701,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'classnames-demo',
         },
@@ -44708,7 +44781,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'copy-demo',
         },
@@ -44950,7 +45023,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'easing-demo',
         },
@@ -45248,7 +45321,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'EventBus-demo',
         },
@@ -45367,7 +45440,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'random-demo',
         },
@@ -45679,7 +45752,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'ScrollListener-demo',
         },
@@ -45932,7 +46005,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'segment-demo',
         },
@@ -46357,7 +46430,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'singleflight-demo',
         },
@@ -46415,7 +46488,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'Tween-demo',
         },
@@ -46697,7 +46770,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'Tween-demo-1',
         },
@@ -46919,7 +46992,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.5' },
+            '@fexd/tools': { version: '0.2.6' },
           },
           identifier: 'Tween-demo-2',
         },
@@ -52073,11 +52146,11 @@
         (this.type = t),
         (this.sanitizeURL = l)
     }
-    var Y = {}
+    var J = {}
     'children dangerouslySetInnerHTML defaultValue defaultChecked innerHTML suppressContentEditableWarning suppressHydrationWarning style'
       .split(' ')
       .forEach(function (e) {
-        Y[e] = new Q(e, 0, !1, e, null, !1)
+        J[e] = new Q(e, 0, !1, e, null, !1)
       }),
       [
         ['acceptCharset', 'accept-charset'],
@@ -52086,12 +52159,12 @@
         ['httpEquiv', 'http-equiv'],
       ].forEach(function (e) {
         var t = e[0]
-        Y[t] = new Q(t, 1, !1, e[1], null, !1)
+        J[t] = new Q(t, 1, !1, e[1], null, !1)
       }),
       ['contentEditable', 'draggable', 'spellCheck', 'value'].forEach(function (
         e
       ) {
-        Y[e] = new Q(e, 2, !1, e.toLowerCase(), null, !1)
+        J[e] = new Q(e, 2, !1, e.toLowerCase(), null, !1)
       }),
       [
         'autoReverse',
@@ -52099,49 +52172,49 @@
         'focusable',
         'preserveAlpha',
       ].forEach(function (e) {
-        Y[e] = new Q(e, 2, !1, e, null, !1)
+        J[e] = new Q(e, 2, !1, e, null, !1)
       }),
       'allowFullScreen async autoFocus autoPlay controls default defer disabled disablePictureInPicture formNoValidate hidden loop noModule noValidate open playsInline readOnly required reversed scoped seamless itemScope'
         .split(' ')
         .forEach(function (e) {
-          Y[e] = new Q(e, 3, !1, e.toLowerCase(), null, !1)
+          J[e] = new Q(e, 3, !1, e.toLowerCase(), null, !1)
         }),
       ['checked', 'multiple', 'muted', 'selected'].forEach(function (e) {
-        Y[e] = new Q(e, 3, !0, e, null, !1)
+        J[e] = new Q(e, 3, !0, e, null, !1)
       }),
       ['capture', 'download'].forEach(function (e) {
-        Y[e] = new Q(e, 4, !1, e, null, !1)
+        J[e] = new Q(e, 4, !1, e, null, !1)
       }),
       ['cols', 'rows', 'size', 'span'].forEach(function (e) {
-        Y[e] = new Q(e, 6, !1, e, null, !1)
+        J[e] = new Q(e, 6, !1, e, null, !1)
       }),
       ['rowSpan', 'start'].forEach(function (e) {
-        Y[e] = new Q(e, 5, !1, e.toLowerCase(), null, !1)
+        J[e] = new Q(e, 5, !1, e.toLowerCase(), null, !1)
       })
-    var J = /[\-:]([a-z])/g
+    var Y = /[\-:]([a-z])/g
     function Z(e) {
       return e[1].toUpperCase()
     }
     'accent-height alignment-baseline arabic-form baseline-shift cap-height clip-path clip-rule color-interpolation color-interpolation-filters color-profile color-rendering dominant-baseline enable-background fill-opacity fill-rule flood-color flood-opacity font-family font-size font-size-adjust font-stretch font-style font-variant font-weight glyph-name glyph-orientation-horizontal glyph-orientation-vertical horiz-adv-x horiz-origin-x image-rendering letter-spacing lighting-color marker-end marker-mid marker-start overline-position overline-thickness paint-order panose-1 pointer-events rendering-intent shape-rendering stop-color stop-opacity strikethrough-position strikethrough-thickness stroke-dasharray stroke-dashoffset stroke-linecap stroke-linejoin stroke-miterlimit stroke-opacity stroke-width text-anchor text-decoration text-rendering underline-position underline-thickness unicode-bidi unicode-range units-per-em v-alphabetic v-hanging v-ideographic v-mathematical vector-effect vert-adv-y vert-origin-x vert-origin-y word-spacing writing-mode xmlns:xlink x-height'
       .split(' ')
       .forEach(function (e) {
-        var t = e.replace(J, Z)
-        Y[t] = new Q(t, 1, !1, e, null, !1)
+        var t = e.replace(Y, Z)
+        J[t] = new Q(t, 1, !1, e, null, !1)
       }),
       'xlink:actuate xlink:arcrole xlink:role xlink:show xlink:title xlink:type'
         .split(' ')
         .forEach(function (e) {
-          var t = e.replace(J, Z)
-          Y[t] = new Q(t, 1, !1, e, 'http://www.w3.org/1999/xlink', !1)
+          var t = e.replace(Y, Z)
+          J[t] = new Q(t, 1, !1, e, 'http://www.w3.org/1999/xlink', !1)
         }),
       ['xml:base', 'xml:lang', 'xml:space'].forEach(function (e) {
-        var t = e.replace(J, Z)
-        Y[t] = new Q(t, 1, !1, e, 'http://www.w3.org/XML/1998/namespace', !1)
+        var t = e.replace(Y, Z)
+        J[t] = new Q(t, 1, !1, e, 'http://www.w3.org/XML/1998/namespace', !1)
       }),
       ['tabIndex', 'crossOrigin'].forEach(function (e) {
-        Y[e] = new Q(e, 1, !1, e.toLowerCase(), null, !1)
+        J[e] = new Q(e, 1, !1, e.toLowerCase(), null, !1)
       }),
-      (Y.xlinkHref = new Q(
+      (J.xlinkHref = new Q(
         'xlinkHref',
         1,
         !1,
@@ -52150,11 +52223,11 @@
         !0
       )),
       ['src', 'href', 'action', 'formAction'].forEach(function (e) {
-        Y[e] = new Q(e, 1, !1, e.toLowerCase(), null, !0)
+        J[e] = new Q(e, 1, !1, e.toLowerCase(), null, !0)
       })
     var ee = a.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
     function te(e, t, n, a) {
-      var r = Y.hasOwnProperty(t) ? Y[t] : null,
+      var r = J.hasOwnProperty(t) ? J[t] : null,
         l =
           null !== r
             ? 0 === r.type
@@ -52576,7 +52649,7 @@
       },
       Ke = {},
       Qe = {}
-    function Ye(e) {
+    function Je(e) {
       if (Ke[e]) return Ke[e]
       if (!Xe[e]) return e
       var t,
@@ -52591,10 +52664,10 @@
         delete Xe.animationiteration.animation,
         delete Xe.animationstart.animation),
       'TransitionEvent' in window || delete Xe.transitionend.transition)
-    var Je = Ye('animationend'),
-      Ze = Ye('animationiteration'),
-      et = Ye('animationstart'),
-      tt = Ye('transitionend'),
+    var Ye = Je('animationend'),
+      Ze = Je('animationiteration'),
+      et = Je('animationstart'),
+      tt = Je('transitionend'),
       nt =
         'abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange seeked seeking stalled suspend timeupdate volumechange waiting'.split(
           ' '
@@ -53021,7 +53094,7 @@
       Kt = [
         'abort',
         'abort',
-        Je,
+        Ye,
         'animationEnd',
         Ze,
         'animationIteration',
@@ -53099,15 +53172,15 @@
       ),
       Qt(Kt, 2)
     for (
-      var Yt =
+      var Jt =
           'change selectionchange textInput compositionstart compositionend compositionupdate'.split(
             ' '
           ),
-        Jt = 0;
-      Jt < Yt.length;
-      Jt++
+        Yt = 0;
+      Yt < Jt.length;
+      Yt++
     )
-      Xt.set(Yt[Jt], 0)
+      Xt.set(Jt[Yt], 0)
     var Zt = l.unstable_UserBlockingPriority,
       en = l.unstable_runWithPriority,
       tn = !0
@@ -53543,10 +53616,10 @@
     function Qn(e) {
       e && e.dispatchConfig.registrationName && Kn(e._targetInst, null, e)
     }
-    function Yn(e) {
+    function Jn(e) {
       dt(e, Xn)
     }
-    var Jn = null,
+    var Yn = null,
       Zn = null,
       ea = null
     function ta() {
@@ -53555,7 +53628,7 @@
         t,
         n = Zn,
         a = n.length,
-        r = 'value' in Jn ? Jn.value : Jn.textContent,
+        r = 'value' in Yn ? Yn.value : Yn.textContent,
         l = r.length
       for (e = 0; e < a && n[e] === r[e]; e++);
       var o = a - e
@@ -53749,7 +53822,7 @@
     function xa(e, t) {
       if (ya)
         return 'compositionend' === e || (!da && va(e, t))
-          ? ((e = ta()), (ea = Zn = Jn = null), (ya = !1), e)
+          ? ((e = ta()), (ea = Zn = Yn = null), (ya = !1), e)
           : null
       switch (e) {
         case 'paste':
@@ -53800,18 +53873,18 @@
                   'ko' !== n.locale &&
                   (ya || l !== Ea.compositionStart
                     ? l === Ea.compositionEnd && ya && (r = ta())
-                    : ((Jn = a),
-                      (Zn = 'value' in Jn ? Jn.value : Jn.textContent),
+                    : ((Yn = a),
+                      (Zn = 'value' in Yn ? Yn.value : Yn.textContent),
                       (ya = !0))),
                 (l = ca.getPooled(l, t, n, a)),
                 r ? (l.data = r) : ((r = ba(n)), null !== r && (l.data = r)),
-                Yn(l),
+                Jn(l),
                 (r = l))
               : (r = null),
             (e = fa ? ka(e, n) : xa(e, n))
               ? ((t = ua.getPooled(Ea.beforeInput, t, n, a)),
                 (t.data = e),
-                Yn(t))
+                Jn(t))
               : (t = null),
             null === r ? t : null === t ? r : [r, t]
           )
@@ -53855,7 +53928,7 @@
         (e = ra.getPooled(Oa.change, e, t, n)),
         (e.type = 'change'),
         T(n),
-        Yn(e),
+        Jn(e),
         e
       )
     }
@@ -54001,7 +54074,7 @@
         pointerType: null,
         isPrimary: null,
       }),
-      Ya = {
+      Ja = {
         mouseEnter: {
           registrationName: 'onMouseEnter',
           dependencies: ['mouseout', 'mouseover'],
@@ -54019,8 +54092,8 @@
           dependencies: ['pointerout', 'pointerover'],
         },
       },
-      Ja = {
-        eventTypes: Ya,
+      Ya = {
+        eventTypes: Ja,
         extractEvents: function (e, t, n, a, r) {
           var l = 'mouseover' === e || 'pointerover' === e,
             o = 'mouseout' === e || 'pointerout' === e
@@ -54050,14 +54123,14 @@
           if (o === t) return null
           if ('mouseout' === e || 'mouseover' === e)
             var c = Ka,
-              u = Ya.mouseLeave,
-              s = Ya.mouseEnter,
+              u = Ja.mouseLeave,
+              s = Ja.mouseEnter,
               d = 'mouse'
           else
             ('pointerout' !== e && 'pointerover' !== e) ||
               ((c = Qa),
-              (u = Ya.pointerLeave),
-              (s = Ya.pointerEnter),
+              (u = Ja.pointerLeave),
+              (s = Ja.pointerEnter),
               (d = 'pointer'))
           if (
             ((e = null == o ? l : qn(o)),
@@ -54161,7 +54234,7 @@
               (e = ra.getPooled(rr.select, or, e, t)),
               (e.type = 'select'),
               (e.target = lr),
-              Yn(e),
+              Jn(e),
               e))
     }
     var sr = {
@@ -54400,7 +54473,7 @@
             case 'touchstart':
               e = br
               break
-            case Je:
+            case Ye:
             case Ze:
             case et:
               e = dr
@@ -54432,7 +54505,7 @@
             default:
               e = ra
           }
-          return (t = e.getPooled(r, t, n, a)), Yn(t), t
+          return (t = e.getPooled(r, t, n, a)), Jn(t), t
         },
       }
     if (b) throw Error(o(101))
@@ -54448,7 +54521,7 @@
       (g = qn),
       _({
         SimpleEventPlugin: xr,
-        EnterLeaveEventPlugin: Ja,
+        EnterLeaveEventPlugin: Ya,
         ChangeEventPlugin: Ba,
         SelectEventPlugin: sr,
         BeforeInputEventPlugin: wa,
@@ -54535,8 +54608,8 @@
       Xr = l.unstable_LowPriority,
       Kr = l.unstable_IdlePriority,
       Qr = {},
-      Yr = l.unstable_shouldYield,
-      Jr = void 0 !== Ur ? Ur : function () {},
+      Jr = l.unstable_shouldYield,
+      Yr = void 0 !== Ur ? Ur : function () {},
       Zr = null,
       el = null,
       tl = !1,
@@ -55336,13 +55409,13 @@
     function Ql() {
       Or($l), Or(Hl), Or(Vl)
     }
-    function Yl(e) {
+    function Jl(e) {
       Xl(Vl.current)
       var t = Xl($l.current),
         n = qe(t, e.type)
       t !== n && (_r(Hl, e), _r($l, n))
     }
-    function Jl(e) {
+    function Yl(e) {
       Hl.current === e && (Or($l), Or(Hl))
     }
     var Zl = { current: 0 }
@@ -55967,7 +56040,7 @@
             fi(e, t, r))
       )
     }
-    function Yo(e, t, n, a, r, l) {
+    function Jo(e, t, n, a, r, l) {
       if (null === e) {
         var o = n.type
         return 'function' !== typeof o ||
@@ -55979,7 +56052,7 @@
             (e.ref = t.ref),
             (e.return = t),
             (t.child = e))
-          : ((t.tag = 15), (t.type = o), Jo(e, t, o, a, r, l))
+          : ((t.tag = 15), (t.type = o), Yo(e, t, o, a, r, l))
       }
       return (
         (o = e.child),
@@ -55996,7 +56069,7 @@
             (t.child = e))
       )
     }
-    function Jo(e, t, n, a, r, l) {
+    function Yo(e, t, n, a, r, l) {
       return null !== e &&
         nr(e.memoizedProps, a) &&
         e.ref === t.ref &&
@@ -56420,7 +56493,7 @@
             null
           )
         case 5:
-          Jl(t), (n = Xl(Vl.current))
+          Yl(t), (n = Xl(Vl.current))
           var l = t.type
           if (null !== e && null != t.stateNode)
             oi(e, t, l, a, n), e.ref !== t.ref && (t.effectTag |= 128)
@@ -56772,7 +56845,7 @@
             throw Error(o(285))
           return (e.effectTag = (-4097 & t) | 64), e
         case 5:
-          return Jl(e), null
+          return Yl(e), null
         case 13:
           return (
             Or(Zl),
@@ -57381,7 +57454,7 @@
         var n = e.stateNode
         null === n && (n = e.stateNode = new vi()),
           t.forEach(function (t) {
-            var a = Yc.bind(null, e, t)
+            var a = Jc.bind(null, e, t)
             n.has(t) || (n.add(t), t.then(a, a))
           })
       }
@@ -57434,8 +57507,8 @@
       Xi = 2,
       Ki = 3,
       Qi = 4,
-      Yi = 5,
-      Ji = Ui,
+      Ji = 5,
+      Yi = Ui,
       Zi = null,
       ec = null,
       tc = 0,
@@ -57460,7 +57533,7 @@
       yc = null,
       kc = 0
     function xc() {
-      return (Ji & (Gi | $i)) !== Ui
+      return (Yi & (Gi | $i)) !== Ui
         ? 1073741821 - ((al() / 10) | 0)
         : 0 !== kc
         ? kc
@@ -57470,7 +57543,7 @@
       if (((t = t.mode), 0 === (2 & t))) return 1073741823
       var a = rl()
       if (0 === (4 & t)) return 99 === a ? 1073741823 : 1073741822
-      if ((Ji & Gi) !== Ui) return tc
+      if ((Yi & Gi) !== Ui) return tc
       if (null !== n) e = dl(e, 0 | n.timeoutMs || 5e3, 250)
       else
         switch (a) {
@@ -57497,11 +57570,11 @@
       if (((e = Ac(e, t)), null !== e)) {
         var n = rl()
         1073741823 === t
-          ? (Ji & qi) !== Ui && (Ji & (Gi | $i)) === Ui
+          ? (Yi & qi) !== Ui && (Yi & (Gi | $i)) === Ui
             ? Lc(e)
-            : (_c(e), Ji === Ui && ul())
+            : (_c(e), Yi === Ui && ul())
           : _c(e),
-          (4 & Ji) === Ui ||
+          (4 & Yi) === Ui ||
             (98 !== n && 99 !== n) ||
             (null === vc
               ? (vc = new Map([[e, t]]))
@@ -57589,10 +57662,10 @@
       if (((kc = 0), t)) return (t = xc()), pu(e, t), _c(e), null
       var n = Oc(e)
       if (0 !== n) {
-        if (((t = e.callbackNode), (Ji & (Gi | $i)) !== Ui)) throw Error(o(327))
+        if (((t = e.callbackNode), (Yi & (Gi | $i)) !== Ui)) throw Error(o(327))
         if ((Hc(), (e === Zi && n === tc) || Tc(e, n), null !== ec)) {
-          var a = Ji
-          Ji |= Gi
+          var a = Yi
+          Yi |= Gi
           var r = Pc()
           do {
             try {
@@ -57602,7 +57675,7 @@
               Rc(e, c)
             }
           } while (1)
-          if ((gl(), (Ji = a), (Bi.current = r), nc === Vi))
+          if ((gl(), (Yi = a), (Bi.current = r), nc === Vi))
             throw ((t = ac), Tc(e, n), mu(e, n), _c(e), t)
           if (null === ec)
             switch (
@@ -57689,7 +57762,7 @@
                 }
                 qc(e)
                 break
-              case Yi:
+              case Ji:
                 if (1073741823 !== rc && null !== oc) {
                   l = rc
                   var i = oc
@@ -57720,11 +57793,11 @@
     }
     function Lc(e) {
       var t = e.lastExpiredTime
-      if (((t = 0 !== t ? t : 1073741823), (Ji & (Gi | $i)) !== Ui))
+      if (((t = 0 !== t ? t : 1073741823), (Yi & (Gi | $i)) !== Ui))
         throw Error(o(327))
       if ((Hc(), (e === Zi && t === tc) || Tc(e, t), null !== ec)) {
-        var n = Ji
-        Ji |= Gi
+        var n = Yi
+        Yi |= Gi
         var a = Pc()
         do {
           try {
@@ -57734,7 +57807,7 @@
             Rc(e, r)
           }
         } while (1)
-        if ((gl(), (Ji = n), (Bi.current = a), nc === Vi))
+        if ((gl(), (Yi = n), (Bi.current = a), nc === Vi))
           throw ((n = ac), Tc(e, t), mu(e, t), _c(e), n)
         if (null !== ec) throw Error(o(261))
         ;(e.finishedWork = e.current.alternate),
@@ -57756,21 +57829,21 @@
       }
     }
     function Cc(e, t) {
-      var n = Ji
-      Ji |= 1
+      var n = Yi
+      Yi |= 1
       try {
         return e(t)
       } finally {
-        ;(Ji = n), Ji === Ui && ul()
+        ;(Yi = n), Yi === Ui && ul()
       }
     }
     function jc(e, t) {
-      var n = Ji
-      ;(Ji &= -2), (Ji |= qi)
+      var n = Yi
+      ;(Yi &= -2), (Yi |= qi)
       try {
         return e(t)
       } finally {
-        ;(Ji = n), Ji === Ui && ul()
+        ;(Yi = n), Yi === Ui && ul()
       }
     }
     function Tc(e, t) {
@@ -57788,7 +57861,7 @@
               Ql(), Or(Ir), Or(Lr)
               break
             case 5:
-              Jl(a)
+              Yl(a)
               break
             case 4:
               Ql()
@@ -57909,7 +57982,7 @@
                   xe(o)
               )
             }
-            nc !== Yi && (nc = Xi), (i = gi(i, o)), (d = l)
+            nc !== Ji && (nc = Xi), (i = gi(i, o)), (d = l)
             do {
               switch (d.tag) {
                 case 3:
@@ -57960,7 +58033,7 @@
       for (; null !== ec; ) ec = Bc(ec)
     }
     function Dc() {
-      for (; null !== ec && !Yr(); ) ec = Bc(ec)
+      for (; null !== ec && !Jr(); ) ec = Bc(ec)
     }
     function Bc(e) {
       var t = zi(e.alternate, e, tc)
@@ -58005,7 +58078,7 @@
         if (((t = ec.sibling), null !== t)) return t
         ec = e
       } while (null !== ec)
-      return nc === Hi && (nc = Yi), null
+      return nc === Hi && (nc = Ji), null
     }
     function Uc(e) {
       var t = e.expirationTime
@@ -58019,7 +58092,7 @@
       do {
         Hc()
       } while (null !== Ec)
-      if ((Ji & (Gi | $i)) !== Ui) throw Error(o(327))
+      if ((Yi & (Gi | $i)) !== Ui) throw Error(o(327))
       var n = e.finishedWork,
         a = e.finishedExpirationTime
       if (null === n) return null
@@ -58052,8 +58125,8 @@
           : (r = n.firstEffect),
         null !== r)
       ) {
-        var l = Ji
-        ;(Ji |= $i), (Wi.current = null), (Ln = tn)
+        var l = Yi
+        ;(Yi |= $i), (Wi.current = null), (Ln = tn)
         var i = wn()
         if (Sn(i)) {
           if ('selectionStart' in i)
@@ -58244,7 +58317,7 @@
             Kc(dc, O), (dc = dc.nextEffect)
           }
         } while (null !== dc)
-        ;(dc = null), Jr(), (Ji = l)
+        ;(dc = null), Yr(), (Yi = l)
       } else e.current = n
       if (hc) (hc = !1), (Ec = e), (gc = t)
       else
@@ -58254,12 +58327,12 @@
         ((t = e.firstPendingTime),
         0 === t && (pc = null),
         1073741823 === t ? (e === yc ? bc++ : ((bc = 0), (yc = e))) : (bc = 0),
-        'function' === typeof Jc && Jc(n.stateNode, a),
+        'function' === typeof Yc && Yc(n.stateNode, a),
         _c(e),
         mc)
       )
         throw ((mc = !1), (e = fc), (fc = null), e)
-      return (Ji & qi) !== Ui || ul(), null
+      return (Yi & qi) !== Ui || ul(), null
     }
     function $c() {
       for (; null !== dc; ) {
@@ -58283,9 +58356,9 @@
     function Vc() {
       if (null === Ec) return !1
       var e = Ec
-      if (((Ec = null), (Ji & (Gi | $i)) !== Ui)) throw Error(o(331))
-      var t = Ji
-      for (Ji |= $i, e = e.current.firstEffect; null !== e; ) {
+      if (((Ec = null), (Yi & (Gi | $i)) !== Ui)) throw Error(o(331))
+      var t = Yi
+      for (Yi |= $i, e = e.current.firstEffect; null !== e; ) {
         try {
           var n = e
           if (0 !== (512 & n.effectTag))
@@ -58302,7 +58375,7 @@
         }
         ;(n = e.nextEffect), (e.nextEffect = null), (e = n)
       }
-      return (Ji = t), ul(), !0
+      return (Yi = t), ul(), !0
     }
     function Xc(e, t, n) {
       ;(t = gi(n, t)),
@@ -58348,7 +58421,7 @@
             ((t = e.lastPingedTime),
             (0 !== t && t < n) || ((e.lastPingedTime = n), _c(e)))
     }
-    function Yc(e, t) {
+    function Jc(e, t) {
       var n = e.stateNode
       null !== n && n.delete(t),
         (t = 0),
@@ -58368,7 +58441,7 @@
                 ai(t), Ho()
                 break
               case 5:
-                if ((Yl(t), 4 & t.mode && 1 !== n && r.hidden))
+                if ((Jl(t), 4 & t.mode && 1 !== n && r.hidden))
                   return (t.expirationTime = t.childExpirationTime = 1), null
                 break
               case 1:
@@ -58482,7 +58555,7 @@
                 t = Qo(null, t, r, e, n)
                 break e
               case 14:
-                t = Yo(null, t, r, ml(r.type, e), a, n)
+                t = Jo(null, t, r, ml(r.type, e), a, n)
                 break e
             }
             throw Error(o(306, r, ''))
@@ -58531,7 +58604,7 @@
           return t
         case 5:
           return (
-            Yl(t),
+            Jl(t),
             null === e && qo(t),
             (a = t.type),
             (r = t.pendingProps),
@@ -58648,10 +58721,10 @@
             (r = t.type),
             (l = ml(r, t.pendingProps)),
             (l = ml(r.type, l)),
-            Yo(e, t, r, l, a, n)
+            Jo(e, t, r, l, a, n)
           )
         case 15:
-          return Jo(e, t, t.type, t.pendingProps, a, n)
+          return Yo(e, t, t.type, t.pendingProps, a, n)
         case 17:
           return (
             (a = t.type),
@@ -58671,7 +58744,7 @@
       }
       throw Error(o(156, t.tag))
     }
-    var Jc = null,
+    var Yc = null,
       Zc = null
     function eu(e) {
       if ('undefined' === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__) return !1
@@ -58679,7 +58752,7 @@
       if (t.isDisabled || !t.supportsFiber) return !0
       try {
         var n = t.inject(e)
-        ;(Jc = function (e) {
+        ;(Yc = function (e) {
           try {
             t.onCommitFiberRoot(n, e, void 0, 64 === (64 & e.current.effectTag))
           } catch (a) {}
@@ -59102,24 +59175,24 @@
       }),
       (P = Cc),
       (M = function (e, t, n, a, r) {
-        var l = Ji
-        Ji |= 4
+        var l = Yi
+        Yi |= 4
         try {
           return ol(98, e.bind(null, t, n, a, r))
         } finally {
-          ;(Ji = l), Ji === Ui && ul()
+          ;(Yi = l), Yi === Ui && ul()
         }
       }),
       (F = function () {
-        ;(Ji & (1 | Gi | $i)) === Ui && (Ic(), Hc())
+        ;(Yi & (1 | Gi | $i)) === Ui && (Ic(), Hc())
       }),
       (z = function (e, t) {
-        var n = Ji
-        Ji |= 2
+        var n = Yi
+        Yi |= 2
         try {
           return e(t)
         } finally {
-          ;(Ji = n), Ji === Ui && ul()
+          ;(Yi = n), Yi === Ui && ul()
         }
       })
     var Au = {
@@ -59129,7 +59202,7 @@
         Gn,
         _,
         S,
-        Yn,
+        Jn,
         function (e) {
           dt(e, Qn)
         },
@@ -59182,13 +59255,13 @@
         return (e = ut(t)), (e = null === e ? null : e.stateNode), e
       }),
       (t.flushSync = function (e, t) {
-        if ((Ji & (Gi | $i)) !== Ui) throw Error(o(187))
-        var n = Ji
-        Ji |= 1
+        if ((Yi & (Gi | $i)) !== Ui) throw Error(o(187))
+        var n = Yi
+        Yi |= 1
         try {
           return ol(99, e.bind(null, t))
         } finally {
-          ;(Ji = n), ul()
+          ;(Yi = n), ul()
         }
       }),
       (t.hydrate = function (e, t, n) {
@@ -77408,9 +77481,9 @@
       }
       var h = w()
       function E(e) {
-        Object(a['a'])(J, e),
-          (J.length = t.length),
-          h.notifyListeners(J.location, J.action)
+        Object(a['a'])(Y, e),
+          (Y.length = t.length),
+          h.notifyListeners(Y.location, Y.action)
       }
       var b = !1,
         x = null
@@ -77427,7 +77500,7 @@
         if (e !== t) D(t)
         else {
           var n = m(),
-            a = J.location
+            a = Y.location
           if (!b && O(a, n)) return
           if (x === y(n)) return
           ;(x = null), L(n)
@@ -77443,7 +77516,7 @@
         }
       }
       function I(e) {
-        var t = J.location,
+        var t = Y.location,
           n = B.lastIndexOf(y(t))
         ;-1 === n && (n = 0)
         var a = B.lastIndexOf(y(e))
@@ -77466,7 +77539,7 @@
       }
       function U(e, t) {
         var n = 'PUSH',
-          a = k(e, void 0, void 0, J.location)
+          a = k(e, void 0, void 0, Y.location)
         h.confirmTransitionTo(a, n, l, function (e) {
           if (e) {
             var t = y(a),
@@ -77474,7 +77547,7 @@
               l = F() !== r
             if (l) {
               ;(x = t), z(r)
-              var o = B.lastIndexOf(y(J.location)),
+              var o = B.lastIndexOf(y(Y.location)),
                 i = B.slice(0, o + 1)
               i.push(t), (B = i), E({ action: n, location: a })
             } else E()
@@ -77483,14 +77556,14 @@
       }
       function q(e, t) {
         var n = 'REPLACE',
-          a = k(e, void 0, void 0, J.location)
+          a = k(e, void 0, void 0, Y.location)
         h.confirmTransitionTo(a, n, l, function (e) {
           if (e) {
             var t = y(a),
               r = s(c + t),
               l = F() !== r
             l && ((x = t), D(r))
-            var o = B.indexOf(y(J.location))
+            var o = B.indexOf(y(Y.location))
             ;-1 !== o && (B[o] = t), E({ action: n, location: a })
           }
         })
@@ -77522,7 +77595,7 @@
           }
         )
       }
-      function Y(e) {
+      function J(e) {
         var t = h.appendListener(e)
         return (
           X(1),
@@ -77531,7 +77604,7 @@
           }
         )
       }
-      var J = {
+      var Y = {
         length: t.length,
         action: 'POP',
         location: T,
@@ -77542,9 +77615,9 @@
         goBack: $,
         goForward: H,
         block: Q,
-        listen: Y,
+        listen: J,
       }
-      return J
+      return Y
     }
     function W(e, t, n) {
       return Math.min(Math.max(e, t), n)
@@ -78925,7 +78998,7 @@
   },
   q3YX: function (e) {
     e.exports = JSON.parse(
-      '{"menus":{"en-US":{"*":[{"path":"/","title":"@fexd/tools","meta":{}}],"/\u6587\u6863":[{"title":"\u6982\u89c8","meta":{"order":1,"__fallback":true},"children":[],"path":"/\u6587\u6863"},{"title":"\u5f00\u53d1\u8005","meta":{"order":2,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/cli","title":"CLI - \u547d\u4ee4\u884c\u5de5\u5177","meta":{"order":1}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/ai-skills","title":"AI Skills","meta":{"order":2}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/bundle-size","title":"\u5bfc\u51fa\u4f53\u79ef","meta":{"order":3}}]},{"title":"\u5f03\u7528","meta":{"order":99,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f03\u7528/comb-judge","title":"CombJudge","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/get-formatter","title":"getFormatter","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/sas","title":"SAS","meta":{}}]},{"title":"\u5f02\u6b65\u4e0e\u51fd\u6570","path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570","meta":{},"children":[{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catch-promise","title":"catchPromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/curry","title":"curry","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/debounce","title":"debounce","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/delay","title":"delay","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/enhance-promise","title":"enhancePromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/identity","title":"identity","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/lock","title":"lock","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/memoize","title":"memoize","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/next-tick","title":"nextTick","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/pipe","title":"pipe","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/promise-guess","title":"promiseGuess","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/run","title":"run","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/throttle","title":"throttle","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/value","title":"value","meta":{}}]},{"title":"\u6570\u636e\u64cd\u4f5c","path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c","meta":{},"children":[{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/combination-matcher","title":"CombinationMatcher","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/compact-object","title":"compactObject","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-map-item","title":"deepMapItem","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-merge","title":"deepMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deps-changed","title":"depsChanged","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/diff-array","title":"diffArray","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/difference","title":"difference","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/first","title":"first","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/flatten","title":"flatten","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/get","title":"get","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/group-by","title":"groupBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/i18n","title":"I18n","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/intersection","title":"intersection","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/last","title":"last","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/merge","title":"merge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick","title":"pick","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick-by","title":"pickBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/reactivity","title":"reactive / computed / watch","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/sample","title":"sample","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/set","title":"set","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/shallow-merge","title":"shallowMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/uniq-by-key","title":"uniqByKey","meta":{}}]},{"title":"\u683c\u5f0f\u5316","path":"/\u6587\u6863/\u683c\u5f0f\u5316","meta":{},"children":[{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/capitalize","title":"capitalize","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/clamp","title":"clamp","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/create-separator-formatter","title":"createSeparatorFormatter","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/darken-color","title":"darkenColor","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/expand-scientific-number-string","title":"expandScientificNumberString","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/get-brightness","title":"getBrightness","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/hex-to-rgb","title":"hexToRgb","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/qs","title":"qs","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/random-rgb","title":"randomRGB","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/safe-stringify","title":"safeStringify","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/storage","title":"storage","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/to-fixed","title":"toFixed","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/url","title":"url","meta":{}}]},{"title":"\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","meta":{},"children":[{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/classnames","title":"classnames","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/copy","title":"copy","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-cached-request","title":"createCachedRequest","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-proxy-getter","title":"createProxyGetter","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/default-frame-process","title":"defaultProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/easing","title":"easing","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/event-bus","title":"EventBus","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/file2base64","title":"file2base64","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/formdata2obj","title":"formdata2obj","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/frame-process","title":"FrameProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/global-this","title":"globalThis","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/obj2formdata","title":"obj2formdata","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/preload-image","title":"preloadImage","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/random","title":"random","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/scroll-listener","title":"ScrollListener","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/segment","title":"segment","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/singleflight","title":"singleflight","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/source","title":"source","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/tween","title":"Tween","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/unique-id","title":"uniqueId","meta":{}}]},{"title":"\u7c7b\u578b\u5224\u65ad","path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad","meta":{},"children":[{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-android","title":"isAndroid","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-array","title":"isArray","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-big-number","title":"isBigNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-boolean","title":"isBoolean","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-date","title":"isDate","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-desktop","title":"isDesktop","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-empty","title":"isEmpty","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-error","title":"isError","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-exist","title":"isExist","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-finite","title":"isFinite","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-function","title":"isFunction","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-integer","title":"isInteger","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-ios","title":"isIOS","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-iterable","title":"isIterable","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-mobile","title":"isMobile","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-na-n","title":"isNaN","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-nil","title":"isNil","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-null","title":"isNull","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number","title":"isNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number-string","title":"isNumberString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-object","title":"isObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-plain-object","title":"isPlainObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-promise-like","title":"isPromiseLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-react-element-like","title":"isReactElementLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-reg-exp","title":"isRegExp","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-string","title":"isString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-symbol","title":"isSymbol","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-undefined","title":"isUndefined","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-wkwebview","title":"isWKWebview","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{"en-US":[{"title":"\u6587\u6863","path":"/\u6587\u6863"},{"title":"v0.2.5"}]},"title":"Fexd Tools","logo":"/tools/logo.png","mode":"site","repository":{"url":"https://github.com/fexd-team/tools","branch":"master"},"theme":{},"exportStatic":{}}'
+      '{"menus":{"en-US":{"*":[{"path":"/","title":"@fexd/tools","meta":{}}],"/\u6587\u6863":[{"title":"\u6982\u89c8","meta":{"order":1,"__fallback":true},"children":[],"path":"/\u6587\u6863"},{"title":"\u5f00\u53d1\u8005","meta":{"order":2,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/cli","title":"CLI - \u547d\u4ee4\u884c\u5de5\u5177","meta":{"order":1}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/ai-skills","title":"AI Skills","meta":{"order":2}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/bundle-size","title":"\u5bfc\u51fa\u4f53\u79ef","meta":{"order":3}}]},{"title":"\u5f03\u7528","meta":{"order":99,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f03\u7528/comb-judge","title":"CombJudge","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/get-formatter","title":"getFormatter","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/sas","title":"SAS","meta":{}}]},{"title":"\u5f02\u6b65\u4e0e\u51fd\u6570","path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570","meta":{},"children":[{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catch-promise","title":"catchPromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/curry","title":"curry","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/debounce","title":"debounce","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/delay","title":"delay","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/enhance-promise","title":"enhancePromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/identity","title":"identity","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/lock","title":"lock","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/memoize","title":"memoize","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/next-tick","title":"nextTick","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/pipe","title":"pipe","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/promise-guess","title":"promiseGuess","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/run","title":"run","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/throttle","title":"throttle","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/value","title":"value","meta":{}}]},{"title":"\u6570\u636e\u64cd\u4f5c","path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c","meta":{},"children":[{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/combination-matcher","title":"CombinationMatcher","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/compact-object","title":"compactObject","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-map-item","title":"deepMapItem","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-merge","title":"deepMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deps-changed","title":"depsChanged","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/diff-array","title":"diffArray","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/difference","title":"difference","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/first","title":"first","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/flatten","title":"flatten","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/get","title":"get","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/group-by","title":"groupBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/i18n","title":"I18n","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/intersection","title":"intersection","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/last","title":"last","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/merge","title":"merge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick","title":"pick","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick-by","title":"pickBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/reactivity","title":"reactive / computed / watch","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/sample","title":"sample","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/set","title":"set","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/shallow-merge","title":"shallowMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/uniq-by-key","title":"uniqByKey","meta":{}}]},{"title":"\u683c\u5f0f\u5316","path":"/\u6587\u6863/\u683c\u5f0f\u5316","meta":{},"children":[{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/capitalize","title":"capitalize","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/clamp","title":"clamp","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/create-separator-formatter","title":"createSeparatorFormatter","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/darken-color","title":"darkenColor","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/expand-scientific-number-string","title":"expandScientificNumberString","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/get-brightness","title":"getBrightness","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/hex-to-rgb","title":"hexToRgb","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/qs","title":"qs","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/random-rgb","title":"randomRGB","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/safe-stringify","title":"safeStringify","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/storage","title":"storage","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/to-fixed","title":"toFixed","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/url","title":"url","meta":{}}]},{"title":"\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","meta":{},"children":[{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/classnames","title":"classnames","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/copy","title":"copy","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-cached-request","title":"createCachedRequest","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-proxy-getter","title":"createProxyGetter","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/default-frame-process","title":"defaultProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/easing","title":"easing","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/event-bus","title":"EventBus","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/file2base64","title":"file2base64","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/formdata2obj","title":"formdata2obj","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/frame-process","title":"FrameProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/global-this","title":"globalThis","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/obj2formdata","title":"obj2formdata","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/preload-image","title":"preloadImage","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/random","title":"random","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/scroll-listener","title":"ScrollListener","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/segment","title":"segment","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/singleflight","title":"singleflight","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/source","title":"source","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/tween","title":"Tween","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/unique-id","title":"uniqueId","meta":{}}]},{"title":"\u7c7b\u578b\u5224\u65ad","path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad","meta":{},"children":[{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-android","title":"isAndroid","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-array","title":"isArray","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-big-number","title":"isBigNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-boolean","title":"isBoolean","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-date","title":"isDate","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-desktop","title":"isDesktop","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-empty","title":"isEmpty","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-error","title":"isError","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-exist","title":"isExist","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-finite","title":"isFinite","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-function","title":"isFunction","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-integer","title":"isInteger","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-ios","title":"isIOS","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-iterable","title":"isIterable","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-mobile","title":"isMobile","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-na-n","title":"isNaN","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-nil","title":"isNil","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-null","title":"isNull","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number","title":"isNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number-string","title":"isNumberString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-object","title":"isObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-plain-object","title":"isPlainObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-promise-like","title":"isPromiseLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-react-element-like","title":"isReactElementLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-reg-exp","title":"isRegExp","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-string","title":"isString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-symbol","title":"isSymbol","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-undefined","title":"isUndefined","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-wkwebview","title":"isWKWebview","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{"en-US":[{"title":"\u6587\u6863","path":"/\u6587\u6863"},{"title":"v0.2.6"}]},"title":"Fexd Tools","logo":"/tools/logo.png","mode":"site","repository":{"url":"https://github.com/fexd-team/tools","branch":"master"},"theme":{},"exportStatic":{}}'
     )
   },
   q3wE: function (e, t, n) {
@@ -81513,7 +81586,15 @@
               r.a.createElement(
                 'p',
                 null,
-                '\u9ed8\u8ba4\u5b89\u88c5\u5230\u5e38\u89c1 agent \u7684\u9879\u76ee\u7ea7\u76ee\u5f55\uff1a'
+                '\u9ed8\u8ba4\u4f1a\u626b\u63cf\u5f53\u524d\u9879\u76ee\u7684 ',
+                r.a.createElement('code', null, 'node_modules'),
+                ' \u548c workspace \u5305\uff0c\u53d1\u73b0\u5176\u4e2d\u7684 ',
+                r.a.createElement('code', null, 'skills/*/SKILL.md'),
+                ' \u540e\u5b89\u88c5\u5230\u5e38\u89c1 agent \u7684\u9879\u76ee\u7ea7\u76ee\u5f55\u3002\u5b89\u88c5\u76ee\u5f55\u540d\u4f7f\u7528 ',
+                r.a.createElement('code', null, 'SKILL.md'),
+                ' frontmatter \u4e2d\u7684 ',
+                r.a.createElement('code', null, 'name'),
+                '\uff1a'
               ),
               r.a.createElement(i['a'], {
                 code: '.cursor/skills/fexd-tools       # Cursor\n.agents/skills/fexd-tools       # Codex / OpenCode\n.claude/skills/fexd-tools       # Claude Code',
@@ -81522,10 +81603,21 @@
               r.a.createElement(
                 'p',
                 null,
-                '\u8fd9\u4e9b\u76ee\u5f55\u9ed8\u8ba4\u94fe\u63a5\u5230\uff1a'
+                '\u4f8b\u5982 ',
+                r.a.createElement('code', null, '@fexd/tools'),
+                ' \u81ea\u8eab\u4f1a\u94fe\u63a5\u5230\uff1a'
               ),
               r.a.createElement(i['a'], {
                 code: 'node_modules/@fexd/tools/skills/fexd-tools',
+                lang: 'text',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                '\u5176\u4ed6\u5305\u53ea\u8981\u968f npm \u5305\u53d1\u5e03\u6807\u51c6\u76ee\u5f55\u5373\u53ef\u88ab\u7edf\u4e00\u53d1\u73b0\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'node_modules/@scope/package/skills/<skill-dir>/SKILL.md',
                 lang: 'text',
               }),
               r.a.createElement(
@@ -81557,6 +81649,92 @@
                 'p',
                 null,
                 '\u5f53\u591a\u4e2a agent \u4f7f\u7528\u540c\u4e00\u4e2a\u76ee\u5f55\u65f6\uff0cCLI \u4f1a\u5408\u5e76\u5c55\u793a\u3002'
+              ),
+              r.a.createElement(
+                'h3',
+                { id: '\u914d\u7f6e\u9ed1\u767d\u540d\u5355' },
+                r.a.createElement(
+                  l['AnchorLink'],
+                  {
+                    to: '#\u914d\u7f6e\u9ed1\u767d\u540d\u5355',
+                    'aria-hidden': 'true',
+                    tabIndex: -1,
+                  },
+                  r.a.createElement('span', { className: 'icon icon-link' })
+                ),
+                '\u914d\u7f6e\u9ed1\u767d\u540d\u5355'
+              ),
+              r.a.createElement(
+                'p',
+                null,
+                '\u7b80\u5355\u89c4\u5219\u53ef\u4ee5\u76f4\u63a5\u653e\u5728 ',
+                r.a.createElement('code', null, 'package.json'),
+                '\uff0c\u4e0d\u9700\u8981\u989d\u5916\u6587\u4ef6\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: '{\n  "skills-install": {\n    "include": ["@risk-bc/*"],\n    "exclude": ["@fexd/pro-components"]\n  }\n}',
+                lang: 'json',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                r.a.createElement('code', null, 'skills-install'),
+                ' \u7684\u8bed\u4e49\u662f\u201c\u5b89\u88c5 skills \u65f6\u7684\u7b5b\u9009\u89c4\u5219\u201d\uff0c\u6bd4\u9876\u5c42 ',
+                r.a.createElement('code', null, 'skills'),
+                ' \u66f4\u4e0d\u5bb9\u6613\u548c\u5305\u81ea\u8eab\u58f0\u660e\u6df7\u5728\u4e00\u8d77\u3002\u8fd9\u7c7b\u201c\u5199\u8fdb package.json\u201d \u7684\u505a\u6cd5\u5f88\u5e38\u89c1\uff0c\u4f8b\u5982 ',
+                r.a.createElement('code', null, 'prettier'),
+                '\u3001',
+                r.a.createElement('code', null, 'eslintConfig'),
+                '\u3001',
+                r.a.createElement('code', null, 'browserslist'),
+                '\u3001',
+                r.a.createElement('code', null, 'lint-staged'),
+                '\u3001',
+                r.a.createElement('code', null, 'commitlint'),
+                ' \u90fd\u652f\u6301\u628a\u914d\u7f6e\u5199\u8fdb ',
+                r.a.createElement('code', null, 'package.json'),
+                '\u3002\u5982\u679c\u89c4\u5219\u53d8\u591a\uff0c\u5efa\u8bae\u62c6\u5230\u9879\u76ee\u6839\u76ee\u5f55\u7684 ',
+                r.a.createElement('code', null, 'skills.config.js'),
+                '\u3001',
+                r.a.createElement('code', null, 'skills.config.cjs'),
+                ' \u6216 ',
+                r.a.createElement('code', null, 'skills.config.json'),
+                '\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: "module.exports = {\n  include: ['@risk-bc/*', { package: '@fexd/tools', skills: ['fexd-tools'] }],\n  exclude: ['@fexd/pro-components'],\n}",
+                lang: 'js',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                r.a.createElement('code', null, 'include'),
+                ' \u5b58\u5728\u65f6\u53ea\u5b89\u88c5\u5339\u914d\u9879\uff1b',
+                r.a.createElement('code', null, 'exclude'),
+                ' \u4f1a\u5728\u767d\u540d\u5355\u4e4b\u540e\u518d\u6392\u9664\u3002\u5b57\u7b26\u4e32\u53ef\u4ee5\u5339\u914d\u5305\u540d\u6216 skill name\uff0c\u5e76\u652f\u6301 ',
+                r.a.createElement('code', null, '*'),
+                ' / ',
+                r.a.createElement('code', null, '?'),
+                ' \u901a\u914d\uff1b\u5bf9\u8c61\u5f62\u5f0f\u7528\u4e8e\u9650\u5236\u67d0\u4e2a\u5305\u91cc\u7684\u7279\u5b9a skill\u3002'
+              ),
+              r.a.createElement(
+                'p',
+                null,
+                '\u4e34\u65f6\u89c4\u5219\u53ef\u4ee5\u7528 CLI \u53c2\u6570\uff1a'
+              ),
+              r.a.createElement(i['a'], {
+                code: 'fexd-tools skills install @risk-bc/*,@fexd/pro-components\nfexd-tools skills install --include @risk-bc/*\nfexd-tools skills install --exclude @fexd/pro-components\nfexd-tools skills install --include @risk-bc/review:risk-bc-review\nfexd-tools skills install --config ./skills.config.cjs\nfexd-tools skills install --no-config',
+                lang: 'bash',
+              }),
+              r.a.createElement(
+                'p',
+                null,
+                r.a.createElement('code', null, 'install'),
+                ' \u540e\u9762\u7684\u88f8\u53c2\u6570\u4f1a\u88ab\u5f53\u4f5c ',
+                r.a.createElement('code', null, 'include'),
+                ' \u767d\u540d\u5355\uff0c\u9002\u5408\u4e34\u65f6\u53ea\u5b89\u88c5\u4e00\u6279\u5305\u6216 skill\uff1b\u591a\u4e2a\u89c4\u5219\u7528\u9017\u53f7\u5206\u9694\uff0c\u8bed\u4e49\u7b49\u4ef7\u4e8e ',
+                r.a.createElement('code', null, '--include'),
+                '\u3002'
               ),
               r.a.createElement(
                 'h3',
@@ -81937,6 +82115,65 @@
                       null,
                       '\u4e0d\u81ea\u52a8\u66f4\u65b0 ',
                       r.a.createElement('code', null, '.gitignore')
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, '--include')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u767d\u540d\u5355\uff0c\u652f\u6301\u5305\u540d\u3001skill \u540d\u3001',
+                      r.a.createElement('code', null, 'package:skill'),
+                      '\uff1b\u4e5f\u53ef\u7701\u7565\u6210\u88f8\u53c2\u6570'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, '--exclude')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u9ed1\u540d\u5355\uff0c\u683c\u5f0f\u540c ',
+                      r.a.createElement('code', null, '--include')
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, '--config')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u6307\u5b9a\u914d\u7f6e\u6587\u4ef6'
+                    )
+                  ),
+                  r.a.createElement(
+                    'tr',
+                    null,
+                    r.a.createElement(
+                      'td',
+                      null,
+                      r.a.createElement('code', null, '--no-config')
+                    ),
+                    r.a.createElement(
+                      'td',
+                      null,
+                      '\u4e0d\u8bfb\u53d6\u9879\u76ee\u914d\u7f6e\u6587\u4ef6'
                     )
                   )
                 )
@@ -82456,8 +82693,13 @@
                   },
                   {
                     depth: 3,
-                    value: '\u5907\u9009\uff1a\u4f7f\u7528 skills-npm',
-                    heading: '\u5907\u9009\u4f7f\u7528-skills-npm',
+                    value: '\u914d\u7f6e\u9ed1\u767d\u540d\u5355',
+                    heading: '\u914d\u7f6e\u9ed1\u767d\u540d\u5355',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u4e0e skills-npm \u7684\u5173\u7cfb',
+                    heading: '\u4e0e-skills-npm-\u7684\u5173\u7cfb',
                   },
                   {
                     depth: 3,
@@ -82552,6 +82794,11 @@
                     depth: 3,
                     value: '\u9884\u89c8\u5b89\u88c5\u8ba1\u5212',
                     heading: '\u9884\u89c8\u5b89\u88c5\u8ba1\u5212',
+                  },
+                  {
+                    depth: 3,
+                    value: '\u914d\u7f6e\u9ed1\u767d\u540d\u5355',
+                    heading: '\u914d\u7f6e\u9ed1\u767d\u540d\u5355',
                   },
                   {
                     depth: 3,
@@ -89035,10 +89282,10 @@
         X = Object(l['a'])(V, 2),
         K = X[0],
         Q = X[1],
-        Y = Object(P['a'])(null),
-        J = Object(l['a'])(Y, 2),
-        Z = J[0],
-        ee = J[1],
+        J = Object(P['a'])(null),
+        Y = Object(l['a'])(J, 2),
+        Z = Y[0],
+        ee = Y[1],
         te = Object(i['useRef'])(!1),
         ne = Object(i['useRef'])(null)
       function ae() {
@@ -89170,7 +89417,7 @@
       X = n('ygww'),
       K = n('0fP7'),
       Q = n('fd+W'),
-      Y = (function (e) {
+      J = (function (e) {
         Object(K['a'])(n, e)
         var t = Object(Q['a'])(n)
         function n() {
@@ -89188,7 +89435,7 @@
           n
         )
       })(i['Component']),
-      J = Y
+      Y = J
     function Z(e) {
       var t = e
       function n(e) {
@@ -89282,7 +89529,7 @@
             B = D.ref
           B || (R = i['cloneElement'](R, { ref: P }))
         }
-        return i['createElement'](J, { ref: k }, R)
+        return i['createElement'](Y, { ref: k }, R)
       })
       return (s.displayName = 'CSSMotion'), s
     }

@@ -4,7 +4,8 @@ const fs = require('fs')
 const os = require('os')
 const path = require('path')
 
-const SKILLS_DIR = path.join(__dirname, '..', 'skills', 'fexd-tools')
+const PACKAGE_ROOT = path.join(__dirname, '..')
+const SKILLS_DIR = path.join(PACKAGE_ROOT, 'skills', 'fexd-tools')
 const REFS_DIR = path.join(SKILLS_DIR, 'references')
 const SKILL_NAME = 'fexd-tools'
 const COMMON_AGENTS = ['cursor', 'codex', 'claude-code', 'opencode']
@@ -32,8 +33,32 @@ function readMarkdown(filePath) {
   }
 }
 
+function readJson(filePath) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  } catch {
+    return null
+  }
+}
+
 function normalizeSlash(filePath) {
   return filePath.replace(/\\/g, '/')
+}
+
+function isDirectoryLike(filePath) {
+  try {
+    return fs.statSync(filePath).isDirectory()
+  } catch {
+    return false
+  }
+}
+
+function getRealPath(filePath) {
+  try {
+    return fs.realpathSync(filePath)
+  } catch {
+    return path.resolve(filePath)
+  }
 }
 
 function getHomeDir() {
@@ -82,7 +107,12 @@ function parseOptions(args) {
     copy: false,
     dryRun: false,
     gitignore: true,
+    config: true,
+    configPath: null,
+    include: null,
+    exclude: null,
   }
+  const positionalIncludes = []
 
   for (let i = 0; i < args.length; i++) {
     const arg = args[i]
@@ -120,9 +150,32 @@ function parseOptions(args) {
       options.gitignore = false
     } else if (arg === '--gitignore') {
       options.gitignore = true
-    } else {
+    } else if (arg === '--config' && next) {
+      options.configPath = next
+      i++
+    } else if (arg.indexOf('--config=') === 0) {
+      options.configPath = arg.slice('--config='.length)
+    } else if (arg === '--no-config') {
+      options.config = false
+    } else if (arg === '--include' && next) {
+      options.include = parseFilterArg(next)
+      i++
+    } else if (arg.indexOf('--include=') === 0) {
+      options.include = parseFilterArg(arg.slice('--include='.length))
+    } else if (arg === '--exclude' && next) {
+      options.exclude = parseFilterArg(next)
+      i++
+    } else if (arg.indexOf('--exclude=') === 0) {
+      options.exclude = parseFilterArg(arg.slice('--exclude='.length))
+    } else if (arg.charAt(0) === '-') {
       throw new Error(`未知参数：${arg}`)
+    } else {
+      positionalIncludes.push.apply(positionalIncludes, parseFilterArg(arg))
     }
+  }
+
+  if (positionalIncludes.length) {
+    options.include = (options.include || []).concat(positionalIncludes)
   }
 
   if (!options.agents.length || options.agents.indexOf('common') >= 0) {
@@ -136,6 +189,29 @@ function parseOptions(args) {
   }
 
   return options
+}
+
+function parseFilterArg(value) {
+  return String(value || '')
+    .split(',')
+    .map((item) => parseFilterToken(item.trim()))
+    .filter(Boolean)
+}
+
+function parseFilterToken(token) {
+  if (!token) return null
+
+  const separatorIndex = token.indexOf(':')
+  if (separatorIndex < 0) return token
+
+  const packagePattern = token.slice(0, separatorIndex).trim()
+  const skillName = token.slice(separatorIndex + 1).trim()
+  if (!packagePattern || !skillName) return token
+
+  return {
+    package: packagePattern,
+    skills: [skillName],
+  }
 }
 
 function findWorkspaceRoot(cwd) {
@@ -174,34 +250,410 @@ function parseSkillFrontmatter(content) {
   if (!match) return null
 
   const yaml = match[1]
+  const nameMatch = yaml.match(/^\s*name\s*:\s*(.+?)\s*$/m)
+  const name = nameMatch ? parseYamlScalar(nameMatch[1]) : undefined
+  const descriptionMatch = yaml.match(/^\s*description\s*:\s*(.+?)\s*$/m)
+  const description = descriptionMatch
+    ? parseYamlScalar(descriptionMatch[1])
+    : undefined
+
   return {
-    name: (yaml.match(/^\s*name\s*:\s*(.+?)\s*$/m) || [])[1],
-    hasDescription: /^\s*description\s*:/m.test(yaml),
+    name,
+    description,
+    hasDescription: Boolean(description),
   }
 }
 
-function validateSkillSource() {
-  const skillMdPath = path.join(SKILLS_DIR, 'SKILL.md')
+function parseYamlScalar(value) {
+  const trimmed = String(value || '').trim()
+  if (!trimmed) return trimmed
+
+  const quote = trimmed.charAt(0)
+  if (
+    (quote === '"' || quote === "'") &&
+    trimmed.charAt(trimmed.length - 1) === quote
+  ) {
+    return trimmed.slice(1, -1)
+  }
+
+  return trimmed
+}
+
+function readSkillSource(skillDir, meta) {
+  const skillMdPath = path.join(skillDir, 'SKILL.md')
   if (!fs.existsSync(skillMdPath)) {
-    throw new Error(`未找到 SKILL.md：${skillMdPath}`)
+    return {
+      valid: false,
+      skillDir,
+      reason: `未找到 SKILL.md：${skillMdPath}`,
+      meta: meta || {},
+    }
   }
 
-  const frontmatter = parseSkillFrontmatter(
-    fs.readFileSync(skillMdPath, 'utf8')
-  )
+  const content = fs.readFileSync(skillMdPath, 'utf8')
+  const frontmatter = parseSkillFrontmatter(content)
   if (!frontmatter) {
-    throw new Error('SKILL.md 必须以 YAML frontmatter 开头')
+    return {
+      valid: false,
+      skillDir,
+      reason: 'SKILL.md 必须以 YAML frontmatter 开头',
+      meta: meta || {},
+    }
   }
 
-  if (frontmatter.name !== SKILL_NAME) {
-    throw new Error(
-      `SKILL.md name 应为 ${SKILL_NAME}，当前为 ${frontmatter.name || '空'}`
-    )
+  if (!frontmatter.name) {
+    return {
+      valid: false,
+      skillDir,
+      reason: 'SKILL.md frontmatter 缺少 name',
+      meta: meta || {},
+    }
   }
 
   if (!frontmatter.hasDescription) {
-    throw new Error('SKILL.md frontmatter 缺少 description')
+    return {
+      valid: false,
+      skillDir,
+      reason: 'SKILL.md frontmatter 缺少 description',
+      meta: meta || {},
+    }
   }
+
+  return Object.assign(
+    {
+      valid: true,
+      name: frontmatter.name,
+      targetName: frontmatter.name,
+      dirName: path.basename(skillDir),
+      skillDir,
+      skillMdPath,
+      realSkillDir: getRealPath(skillDir),
+    },
+    meta || {}
+  )
+}
+
+function validateSkillSource(source) {
+  if (!source || !source.valid) {
+    throw new Error(source ? source.reason : '无效的 skill source')
+  }
+}
+
+function getPackageMeta(packageRoot, fallbackName) {
+  const pkg = readJson(path.join(packageRoot, 'package.json')) || {}
+  return {
+    packageName: pkg.name || fallbackName || path.basename(packageRoot),
+    packageVersion: pkg.version,
+    packageRoot,
+  }
+}
+
+function scanPackageForSkillSources(packageRoot, fallbackName) {
+  const packageMeta = getPackageMeta(packageRoot, fallbackName)
+  const skillsRoot = path.join(packageRoot, 'skills')
+  if (!isDirectoryLike(skillsRoot)) return []
+
+  return fs
+    .readdirSync(skillsRoot)
+    .map((name) => path.join(skillsRoot, name))
+    .filter((skillDir) => isDirectoryLike(skillDir))
+    .map((skillDir) =>
+      readSkillSource(
+        skillDir,
+        Object.assign({}, packageMeta, {
+          sourceType: 'package',
+        })
+      )
+    )
+    .filter((source) => source.valid)
+}
+
+function scanNodeModulesForSkillSources(nodeModulesDir) {
+  if (!isDirectoryLike(nodeModulesDir)) return []
+
+  const sources = []
+  fs.readdirSync(nodeModulesDir).forEach((name) => {
+    if (!name || name.charAt(0) === '.') return
+
+    const entryPath = path.join(nodeModulesDir, name)
+    if (!isDirectoryLike(entryPath)) return
+
+    if (name.charAt(0) === '@') {
+      fs.readdirSync(entryPath).forEach((packageName) => {
+        const packageRoot = path.join(entryPath, packageName)
+        if (!isDirectoryLike(packageRoot)) return
+        sources.push.apply(
+          sources,
+          scanPackageForSkillSources(packageRoot, `${name}/${packageName}`)
+        )
+      })
+      return
+    }
+
+    sources.push.apply(sources, scanPackageForSkillSources(entryPath, name))
+  })
+
+  return sources
+}
+
+function getWorkspacePatterns(workspaceRoot) {
+  const pkg = readJson(path.join(workspaceRoot, 'package.json')) || {}
+  const workspaces = pkg.workspaces
+  if (Array.isArray(workspaces)) return workspaces
+  if (workspaces && Array.isArray(workspaces.packages)) {
+    return workspaces.packages
+  }
+  return []
+}
+
+function expandSimpleWorkspacePattern(workspaceRoot, pattern) {
+  if (!pattern || pattern.indexOf('!') === 0) return []
+
+  const normalized = normalizeSlash(pattern)
+  const starIndex = normalized.indexOf('*')
+  if (starIndex < 0) {
+    const absolutePath = path.join(workspaceRoot, normalized)
+    return isDirectoryLike(absolutePath) ? [absolutePath] : []
+  }
+
+  const beforeStar = normalized.slice(0, starIndex).replace(/\/$/, '')
+  const afterStar = normalized.slice(starIndex + 1).replace(/^\//, '')
+  const parentDir = path.join(workspaceRoot, beforeStar)
+  if (!isDirectoryLike(parentDir)) return []
+
+  return fs
+    .readdirSync(parentDir)
+    .map((name) => path.join(parentDir, name, afterStar))
+    .filter((dir) => isDirectoryLike(dir))
+}
+
+function scanWorkspaceForSkillSources(workspaceRoot) {
+  const patterns = getWorkspacePatterns(workspaceRoot)
+  const packageRoots = []
+
+  patterns.forEach((pattern) => {
+    expandSimpleWorkspacePattern(workspaceRoot, pattern).forEach((dir) => {
+      if (fs.existsSync(path.join(dir, 'package.json'))) {
+        packageRoots.push(dir)
+      }
+    })
+  })
+
+  return packageRoots.reduce(
+    (list, packageRoot) => list.concat(scanPackageForSkillSources(packageRoot)),
+    []
+  )
+}
+
+function resolveSkillsConfigPath(workspaceRoot, configPath) {
+  if (configPath) {
+    return path.isAbsolute(configPath)
+      ? configPath
+      : path.join(workspaceRoot, configPath)
+  }
+
+  const candidates = [
+    'skills.config.cjs',
+    'skills.config.js',
+    'skills.config.json',
+  ].map((name) => path.join(workspaceRoot, name))
+
+  return candidates.find((filePath) => fs.existsSync(filePath)) || null
+}
+
+function readConfigFile(filePath) {
+  if (!filePath || !fs.existsSync(filePath)) return {}
+
+  if (filePath.endsWith('.json')) {
+    return readJson(filePath) || {}
+  }
+
+  const resolved = require.resolve(filePath)
+  delete require.cache[resolved]
+  const config = require(resolved)
+  return config && config.default ? config.default : config
+}
+
+function loadSkillsConfig(workspaceRoot, options) {
+  if (options.config === false) return {}
+
+  const configPath = resolveSkillsConfigPath(workspaceRoot, options.configPath)
+  if (options.configPath && !fs.existsSync(configPath)) {
+    throw new Error(`未找到配置文件：${configPath}`)
+  }
+  const fileConfig = readConfigFile(configPath)
+  const packageJson = readJson(path.join(workspaceRoot, 'package.json')) || {}
+  const packageConfig =
+    packageJson['skills-install'] &&
+    typeof packageJson['skills-install'] === 'object'
+      ? packageJson['skills-install']
+      : {}
+
+  return normalizeSkillsConfig(
+    Object.assign({}, packageConfig, fileConfig || {})
+  )
+}
+
+function normalizeSkillsConfig(config) {
+  const skillsConfig =
+    config && config.skills && typeof config.skills === 'object'
+      ? config.skills
+      : config || {}
+
+  return {
+    include: normalizeFilterList(skillsConfig.include),
+    exclude: normalizeFilterList(skillsConfig.exclude),
+  }
+}
+
+function normalizeFilterList(value) {
+  if (!value) return []
+  if (typeof value === 'string') return parseFilterArg(value)
+  if (!Array.isArray(value)) return []
+
+  return value
+    .map((item) => {
+      if (!item) return null
+      if (typeof item === 'string') return item
+      if (typeof item !== 'object') return null
+
+      const result = {}
+      if (item.package) result.package = item.package
+      if (item.skill) result.skills = [item.skill]
+      if (item.skills) {
+        result.skills = Array.isArray(item.skills)
+          ? item.skills.slice()
+          : String(item.skills)
+              .split(',')
+              .map((name) => name.trim())
+              .filter(Boolean)
+      }
+      return result.package || (result.skills && result.skills.length)
+        ? result
+        : null
+    })
+    .filter(Boolean)
+}
+
+function resolveSkillFilters(options, workspaceRoot) {
+  const config = loadSkillsConfig(workspaceRoot, options)
+
+  return {
+    include:
+      options.include !== null && typeof options.include !== 'undefined'
+        ? options.include
+        : config.include || [],
+    exclude:
+      options.exclude !== null && typeof options.exclude !== 'undefined'
+        ? options.exclude
+        : config.exclude || [],
+  }
+}
+
+function wildcardToRegExp(pattern) {
+  const source = String(pattern || '')
+    .replace(/[|\\{}()[\]^$+.:]/g, '\\$&')
+    .replace(/\*/g, '.*')
+    .replace(/\?/g, '.')
+
+  return new RegExp(`^${source}$`)
+}
+
+function matchesPattern(value, pattern) {
+  if (!pattern) return false
+  if (pattern === value) return true
+  return wildcardToRegExp(pattern).test(value)
+}
+
+function matchesPackagePattern(source, pattern) {
+  return matchesPattern(source.packageName, pattern)
+}
+
+function matchesSkillPattern(source, pattern) {
+  return (
+    matchesPattern(source.name, pattern) ||
+    matchesPattern(source.dirName, pattern)
+  )
+}
+
+function matchesFilterItem(source, item) {
+  if (typeof item === 'string') {
+    return (
+      matchesPackagePattern(source, item) || matchesSkillPattern(source, item)
+    )
+  }
+
+  if (!item || typeof item !== 'object') return false
+
+  const packageMatched = item.package
+    ? matchesPackagePattern(source, item.package)
+    : true
+  const skills = item.skills || []
+  const skillMatched = skills.length
+    ? skills.some((skillName) => matchesSkillPattern(source, skillName))
+    : true
+
+  return packageMatched && skillMatched
+}
+
+function filterSkillSources(sources, filters) {
+  const include = filters.include || []
+  const exclude = filters.exclude || []
+
+  return sources.filter((source) => {
+    const included = include.length
+      ? include.some((item) => matchesFilterItem(source, item))
+      : true
+    const excluded = exclude.some((item) => matchesFilterItem(source, item))
+    return included && !excluded
+  })
+}
+
+function uniqueSkillSources(sources) {
+  const seenPaths = {}
+  const seenNames = {}
+  const result = []
+
+  sources.forEach((source) => {
+    const pathKey = source.realSkillDir.toLowerCase()
+    if (seenPaths[pathKey]) return
+
+    if (seenNames[source.name]) {
+      if (source.sourceType === 'builtin') return
+      seenNames[source.name].duplicates.push(source)
+      return
+    }
+
+    const item = Object.assign({}, source, { duplicates: [] })
+    seenPaths[pathKey] = item
+    seenNames[source.name] = item
+    result.push(item)
+  })
+
+  return result
+}
+
+function discoverSkillSources(options) {
+  options = options || {}
+  const workspaceRoot =
+    options.workspaceRoot || findWorkspaceRoot(options.cwd || process.cwd())
+  const builtinSource = readSkillSource(SKILLS_DIR, {
+    packageName: '@fexd/tools',
+    packageVersion: (readJson(path.join(PACKAGE_ROOT, 'package.json')) || {})
+      .version,
+    packageRoot: PACKAGE_ROOT,
+    sourceType: 'builtin',
+  })
+  validateSkillSource(builtinSource)
+  const sources = scanNodeModulesForSkillSources(
+    path.join(workspaceRoot, 'node_modules')
+  )
+    .concat(scanWorkspaceForSkillSources(workspaceRoot))
+    .concat([builtinSource])
+    .filter((source) => source.valid)
+  const filters = resolveSkillFilters(options, workspaceRoot)
+
+  return uniqueSkillSources(filterSkillSources(sources, filters))
 }
 
 function removeSync(target) {
@@ -322,7 +774,8 @@ function resolveAgents(agentNames) {
     })
 }
 
-function getTargetsForAgent(agent, workspaceRoot, scope) {
+function getTargetsForAgent(agent, workspaceRoot, scope, skillName) {
+  skillName = skillName || SKILL_NAME
   const scopes = scope === 'both' ? ['project', 'global'] : [scope]
   const targets = []
 
@@ -332,7 +785,7 @@ function getTargetsForAgent(agent, workspaceRoot, scope) {
         targets.push({
           agent,
           scope: item,
-          path: path.join(workspaceRoot, dir, SKILL_NAME),
+          path: path.join(workspaceRoot, dir, skillName),
         })
       })
     }
@@ -341,7 +794,7 @@ function getTargetsForAgent(agent, workspaceRoot, scope) {
       targets.push({
         agent,
         scope: item,
-        path: path.join(agent.globalSkillsDir, SKILL_NAME),
+        path: path.join(agent.globalSkillsDir, skillName),
       })
     }
   })
@@ -417,33 +870,74 @@ function installSkills(args) {
   const options = parseOptions(args)
   const workspaceRoot = findWorkspaceRoot(options.cwd)
   const agents = resolveAgents(options.agents)
-  const targets = uniqueTargets(
-    agents.reduce(
-      (list, agent) =>
-        list.concat(getTargetsForAgent(agent, workspaceRoot, options.scope)),
-      []
-    )
+  const sources = discoverSkillSources(
+    Object.assign({}, options, { workspaceRoot })
   )
-
-  validateSkillSource()
+  const allTargets = []
 
   console.log(`\n${c('bold', c('cyan', '  @fexd/tools skills'))}\n`)
   console.log(`  ${c('dim', 'workspace:')} ${workspaceRoot}`)
-  console.log(`  ${c('dim', 'source:')} ${SKILLS_DIR}`)
+  console.log(`  ${c('dim', 'sources:')} ${sources.length}`)
   console.log()
 
-  targets.forEach((target) => {
-    const scope =
-      target.scope === 'global' ? c('magenta', 'global') : c('cyan', 'project')
-    console.log(`  ${c('bold', getTargetDisplayName(target))} ${scope}`)
-    ensureLinkOrCopy(
-      SKILLS_DIR,
-      target.path,
-      Object.assign({}, options, { workspaceRoot })
+  sources.forEach((source) => {
+    validateSkillSource(source)
+
+    if (source.dirName !== source.name) {
+      console.log(
+        `  ${c('yellow', 'Warning')} ${source.packageName}: ${c(
+          'cyan',
+          source.dirName
+        )} -> ${c('cyan', source.name)}`
+      )
+    }
+
+    if (source.duplicates && source.duplicates.length) {
+      console.log(
+        `  ${c('yellow', 'Warning')} duplicate skill name ${c(
+          'cyan',
+          source.name
+        )}; using ${source.skillDir}`
+      )
+    }
+
+    const targets = uniqueTargets(
+      agents.reduce(
+        (list, agent) =>
+          list.concat(
+            getTargetsForAgent(
+              agent,
+              workspaceRoot,
+              options.scope,
+              source.targetName
+            )
+          ),
+        []
+      )
     )
+
+    console.log(
+      `  ${c('bold', source.name)} ${c('dim', `from ${source.packageName}`)}`
+    )
+
+    targets.forEach((target) => {
+      const scope =
+        target.scope === 'global'
+          ? c('magenta', 'global')
+          : c('cyan', 'project')
+      console.log(`    ${c('bold', getTargetDisplayName(target))} ${scope}`)
+      ensureLinkOrCopy(
+        source.skillDir,
+        target.path,
+        Object.assign({}, options, { workspaceRoot })
+      )
+    })
+
+    allTargets.push.apply(allTargets, targets)
+    console.log()
   })
 
-  updateGitignore(workspaceRoot, targets, options)
+  updateGitignore(workspaceRoot, allTargets, options)
   console.log()
 }
 
@@ -454,8 +948,8 @@ function showSkillsHelp() {
   ${c('bold', '用法：')}
     ${c(
       'green',
-      'fexd-tools skills install'
-    )}                         安装到常见 agent 的项目目录
+      'fexd-tools skills install [include]'
+    )}               安装本库及依赖包里的 skills
     ${c(
       'green',
       'fexd-tools skills install --agents cursor,codex'
@@ -476,6 +970,16 @@ function showSkillsHelp() {
     ${c('cyan', '--copy')}               复制 skill 目录，不创建链接
     ${c('cyan', '--dry-run')}            只打印计划，不写文件
     ${c('cyan', '--no-gitignore')}       不自动更新项目 .gitignore
+    ${c(
+      'cyan',
+      '--include <list>'
+    )}      白名单，包名/skill 名或 package:skill，支持 *；也可省略 --include 写成裸参数
+    ${c('cyan', '--exclude <list>')}      黑名单，格式同 --include
+    ${c(
+      'cyan',
+      '--config <path>'
+    )}       指定配置文件；默认查找 skills.config.js/cjs/json
+    ${c('cyan', '--no-config')}           不读取项目配置文件
 
   ${c('bold', '示例：')}
     ${c('dim', '$')} fexd-tools skills install
@@ -485,96 +989,121 @@ function showSkillsHelp() {
     )} fexd-tools skills install --agents cursor,claude-code,opencode
     ${c('dim', '$')} fexd-tools skills install --agents codex --scope global
     ${c('dim', '$')} fexd-tools skills install --copy
+    ${c('dim', '$')} fexd-tools skills install @risk-bc/*,@fexd/pro-components
+    ${c('dim', '$')} fexd-tools skills install --include @risk-bc/*
+    ${c(
+      'dim',
+      '$'
+    )} fexd-tools skills install --exclude @fexd/pro-components:fexd-pro-components
 
   ${c('bold', '默认项目目录：')}
     ${c('dim', 'Cursor')}      .cursor/skills
     ${c('dim', 'Codex')}       .agents/skills
     ${c('dim', 'Claude Code')} .claude/skills
     ${c('dim', 'OpenCode')}    .agents/skills
+
+  ${c('bold', '发现规则：')}
+    扫描当前项目 node_modules 与 workspace 包中的 skills/*/SKILL.md
+    安装目录名使用 SKILL.md frontmatter 里的 name
 `)
 }
 
 const UTILS_CATALOG = {
-  国际化: ['I18n'],
-  深度合并: ['deepMerge', 'shallowMerge'],
-  类型判断: [
+  合并对象: ['deepMerge', 'merge', 'shallowMerge'],
+  读写对象属性: [
+    'get',
+    'set',
+    'pick',
+    'pickBy',
+    'compactObject',
+    'value',
+    'run',
+    'deepMapItem',
+    'depsChanged',
+  ],
+  操作数组: [
+    'groupBy',
+    'uniqByKey',
+    'difference',
+    'intersection',
+    'diffArray',
+    'flatten',
+    'first',
+    'last',
+    'sample',
+  ],
+  判断值的类型: [
     'isObject',
     'isPlainObject',
     'isArray',
     'isFunction',
     'isString',
     'isNumber',
+    'isInteger',
+    'isFinite',
     'isBoolean',
+    'isSymbol',
     'isDate',
     'isUndefined',
     'isNull',
+    'isNil',
     'isNaN',
     'isExist',
+    'isEmpty',
     'isPromiseLike',
     'isBigNumber',
     'isNumberString',
     'isError',
     'isRegExp',
     'isIterable',
-    'isMobile',
-    'isAndroid',
-    'isIOS',
-    'isDesktop',
-    'isWKWebview',
+    'isReactElementLike',
   ],
-  数据操作: [
-    'get',
-    'set',
-    'pick',
-    'pickBy',
-    'groupBy',
-    'intersection',
-    'difference',
-    'diffArray',
-    'flatten',
-    'first',
-    'last',
-    'uniqByKey',
-    'sample',
+  判断运行平台: ['isMobile', 'isAndroid', 'isIOS', 'isDesktop', 'isWKWebview'],
+  控制函数执行: [
+    'debounce',
+    'throttle',
+    'memoize',
+    'lock',
+    'singleflight',
+    'createCachedRequest',
+    'pipe',
+    'curry',
+    '__',
   ],
+  处理异步: [
+    'catchPromise',
+    'enhancePromise',
+    'delay',
+    'nextTick',
+    'promiseGuess',
+  ],
+  URL与序列化: ['url', 'qs', 'safeStringify', 'formdata2obj', 'obj2formdata'],
+  国际化: ['I18n'],
+  浏览器环境与存储: [
+    'storage',
+    'globalThis',
+    'copy',
+    'preloadImage',
+    'file2base64',
+  ],
+  动画与缓动: ['easing', 'Tween', 'FrameProcess', 'ScrollListener'],
+  颜色工具: ['darkenColor', 'getBrightness', 'hexToRgb', 'randomRGB'],
   字符串与数字: [
     'capitalize',
     'clamp',
     'toFixed',
     'expandScientificNumberString',
     'createSeparatorFormatter',
-  ],
-  函数工具: ['pipe', 'curry', 'memoize', 'lock', '__'],
-  异步流程: [
-    'catchPromise',
-    'enhancePromise',
-    'delay',
-    'promiseGuess',
-    'nextTick',
-    'run',
-    'value',
-  ],
-  节流防抖: ['debounce', 'throttle'],
-  URL与序列化: ['url', 'qs'],
-  存储: ['storage'],
-  事件与通信: ['EventBus', 'ScrollListener'],
-  动画与渲染: ['easing', 'Tween', 'FrameProcess', 'preloadImage'],
-  颜色工具: ['darkenColor', 'getBrightness', 'randomRGB'],
-  响应式: ['reactive', 'computed', 'watch'],
-  扩展工具: [
-    'CombinationMatcher',
-    'classnames',
-    'copy',
     'segment',
-    'globalThis',
-    'createProxyGetter',
-    'formdata2obj',
-    'obj2formdata',
-    'identity',
-    'uniqueId',
     'random',
+    'uniqueId',
   ],
-  请求: ['source', 'singleflight', 'createCachedRequest'],
+  响应式: ['reactive', 'computed', 'watch'],
+  事件与通信: ['EventBus'],
+  组合匹配: ['CombinationMatcher'],
+  其他工具: ['classnames', 'identity', 'createProxyGetter'],
+  动态加载: ['source'],
+  弃用: ['getFormatter', 'CombJudge', 'SAS'],
 }
 
 function listUtils() {
@@ -716,7 +1245,7 @@ function showHelp() {
     ${c('green', 'fexd-tools list')}                 列出所有工具函数
     ${c('green', 'fexd-tools docs <name>')}          查看工具函数文档
     ${c('green', 'fexd-tools search <query>')}       搜索文档内容
-    ${c('green', 'fexd-tools skills install')}       安装内置 agent skill
+    ${c('green', 'fexd-tools skills install')}       安装本库及依赖包 skills
     ${c('green', 'fexd-tools help')}                 显示帮助信息
 
   ${c('bold', '示例：')}
@@ -733,33 +1262,33 @@ function showHelp() {
 `)
 }
 
-const [, , command, ...args] = process.argv
+function main(argv) {
+  const [, , command, ...args] = argv
 
-const commandMap = {
-  list: listUtils,
-  ls: listUtils,
-  docs: () => (args[0] ? showDocs(args[0]) : showHelp()),
-  doc: () => (args[0] ? showDocs(args[0]) : showHelp()),
-  search: () => (args.length > 0 ? searchDocs(args.join(' ')) : showHelp()),
-  find: () => (args.length > 0 ? searchDocs(args.join(' ')) : showHelp()),
-  skills: () => {
-    if (args[0] === 'install') {
-      if (args.indexOf('--help') >= 0 || args.indexOf('-h') >= 0) {
-        showSkillsHelp()
+  const commandMap = {
+    list: listUtils,
+    ls: listUtils,
+    docs: () => (args[0] ? showDocs(args[0]) : showHelp()),
+    doc: () => (args[0] ? showDocs(args[0]) : showHelp()),
+    search: () => (args.length > 0 ? searchDocs(args.join(' ')) : showHelp()),
+    find: () => (args.length > 0 ? searchDocs(args.join(' ')) : showHelp()),
+    skills: () => {
+      if (args[0] === 'install') {
+        if (args.indexOf('--help') >= 0 || args.indexOf('-h') >= 0) {
+          showSkillsHelp()
+          return
+        }
+        installSkills(args.slice(1))
         return
       }
-      installSkills(args.slice(1))
-      return
-    }
-    showSkillsHelp()
-  },
-  help: showHelp,
-  '-h': showHelp,
-  '--help': showHelp,
-}
+      showSkillsHelp()
+    },
+    help: showHelp,
+    '-h': showHelp,
+    '--help': showHelp,
+  }
 
-const handler = commandMap[command]
-try {
+  const handler = commandMap[command]
   if (handler) {
     handler()
   } else if (command) {
@@ -767,7 +1296,29 @@ try {
   } else {
     showHelp()
   }
-} catch (error) {
-  console.error(`\n  ${c('red', '✗')} ${error.message}\n`)
-  process.exit(1)
+}
+
+if (require.main === module) {
+  try {
+    main(process.argv)
+  } catch (error) {
+    console.error(`\n  ${c('red', '✗')} ${error.message}\n`)
+    process.exit(1)
+  }
+}
+
+module.exports = {
+  discoverSkillSources,
+  filterSkillSources,
+  findWorkspaceRoot,
+  getTargetsForAgent,
+  loadSkillsConfig,
+  parseOptions,
+  parseSkillFrontmatter,
+  readSkillSource,
+  resolveSkillFilters,
+  scanNodeModulesForSkillSources,
+  scanPackageForSkillSources,
+  scanWorkspaceForSkillSources,
+  uniqueSkillSources,
 }

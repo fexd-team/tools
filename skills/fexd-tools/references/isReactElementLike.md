@@ -6,6 +6,16 @@
 import { isReactElementLike } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 判断值是否为 React-like 元素（检测 $$typeof Symbol）
+- 渲染函数中安全判断
+
+## 不适用场景
+
+- 需要精确判断 React 版本 → 需自行检查
+- 非 React 环境
+
 ## 签名
 
 ```ts
@@ -33,3 +43,7 @@ isReactElementLike({ $$typeof: 'not-symbol' }) // false
 - 兼容 React 14~19 全版本（包括 React 19 新 JSX transform 产生的元素）
 - 比 `React.isValidElement` 范围更广：检测所有 React 内部类型，不仅限于 Element
 - 被 `safeStringify` 和 `isPlainObject` 内部使用，避免序列化或误判 React 对象
+
+## 相关函数
+
+isObject, isFunction

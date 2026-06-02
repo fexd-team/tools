@@ -6,6 +6,18 @@
 import { catchPromise } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 简单的异步错误分支判断，偏好 Go 风格 `err, val` 模式
+- 避免 try/catch 嵌套
+- 配合解构做错误处理
+
+## 不适用场景
+
+- 需要复杂控制流（多层 await、条件分支）→ 用 `try/catch`
+- 需要区分不同类型的错误 → `try/catch` 的 `instanceof` 判断更直接
+- 同步代码的错误处理 → 用 `try/catch`
+
 ## 签名
 
 ```ts
@@ -17,7 +29,6 @@ const catchPromise = <T = any>(
 ## 用法
 
 ```ts
-// 直接传入 Promise
 const [err, data] = await catchPromise(fetch('/api/user').then((r) => r.json()))
 if (err) {
   console.error(err)
@@ -25,7 +36,6 @@ if (err) {
 }
 console.log(data)
 
-// 传入返回 Promise 的函数（惰性执行）
 const [err2, result] = await catchPromise(() => riskyAsyncTask())
 ```
 
@@ -33,4 +43,8 @@ const [err2, result] = await catchPromise(() => riskyAsyncTask())
 
 - 成功时返回 `[undefined, data]`，失败时返回 `[err, undefined]`
 - 入参为函数时通过 `run` 调用，支持同步/异步返回值
-- 适合配合解构做错误分支判断，风格类似 Go 的 `err, val` 模式
+
+## 相关函数
+
+- `enhancePromise` — 增强 Promise 状态查询
+- `run` — 安全函数调用，catchPromise 内部使用

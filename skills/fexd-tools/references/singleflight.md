@@ -6,6 +6,19 @@
 import { singleflight } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 多个组件同时请求同一个接口，应只发一次请求
+- 多个调用方并发调用同一异步函数，共享同一 in-flight Promise
+- 请求结束后自动解锁，无需手动管理
+
+## 不适用场景
+
+- 需要手动控制锁定/解锁时机 → 用 `lock`
+- 需要按参数区分不同请求 → 用 `createCachedRequest`
+- 请求完成后仍需缓存结果供后续使用 → 用 `createCachedRequest`
+- 缓存纯函数计算结果（非异步） → 用 `memoize`
+
 ## 签名
 
 ```ts
@@ -25,15 +38,20 @@ const fetchOnce = singleflight(async () => {
   return res.json()
 })
 
-// 并发调用只发起一次请求，其余等待同一 Promise
 const [a, b] = await Promise.all([fetchOnce(), fetchOnce()])
 
-fetchOnce.isLocked() // => 请求进行中为 true
-fetchOnce.unlock() // 手动解锁后可再次发起
+fetchOnce.isLocked()
+fetchOnce.unlock()
 ```
 
 ## 注意事项
 
 - 基于 `lock` 实现，锁定期间重复调用复用同一 Promise
-- 请求结束（成功或失败）后在 `finally` 中自动 `unlock`
-- 无参数；需按参数去重时请用 `createCachedRequest` 或 `memoize`
+- 请求结束（成功或失败）后在 `finally` 中**自动 `unlock`**
+- **无参数**；需按参数去重时请用 `createCachedRequest` 或 `memoize`
+
+## 相关函数
+
+- `lock` — 手动锁定/解锁，适合防重复提交
+- `createCachedRequest` — 按参数缓存请求结果，带过期时间
+- `memoize` — 缓存纯函数结果，按第一个参数缓存

@@ -6,6 +6,16 @@
 import { isIterable } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 判断值是否实现 ES 迭代协议（Symbol.iterator）
+- for...of 前安全检查
+
+## 不适用场景
+
+- 需要判断数组 → 用 isArray（更具体）
+- 需要判断类数组 → 需自行检查 length
+
 ## 签名
 
 ```ts
@@ -16,26 +26,26 @@ isIterable(value: any): boolean
 
 ```ts
 // 内置可迭代类型
-isIterable([1, 2, 3])         // true
-isIterable('hello')           // true
-isIterable(new Map())         // true
-isIterable(new Set())         // true
-isIterable(new Uint8Array())  // true
+isIterable([1, 2, 3]) // true
+isIterable('hello') // true
+isIterable(new Map()) // true
+isIterable(new Set()) // true
+isIterable(new Uint8Array()) // true
 
 // 自定义迭代器
 const range = {
   [Symbol.iterator]() {
     let i = 0
     return { next: () => ({ value: i++, done: i > 3 }) }
-  }
+  },
 }
-isIterable(range)  // true
+isIterable(range) // true
 
 // 非可迭代
-isIterable({})          // false (普通对象没有 Symbol.iterator)
-isIterable(42)          // false
-isIterable(null)        // false
-isIterable(undefined)   // false
+isIterable({}) // false (普通对象没有 Symbol.iterator)
+isIterable(42) // false
+isIterable(null) // false
+isIterable(undefined) // false
 ```
 
 ## 要点
@@ -45,3 +55,7 @@ isIterable(undefined)   // false
 - 字符串是 iterable（每次迭代一个字符）
 - null/undefined 安全处理，不会抛错
 - 适用于判断值是否能传入 `Array.from()`、展开运算符 `[...value]` 等场景
+
+## 相关函数
+
+isArray, isObject

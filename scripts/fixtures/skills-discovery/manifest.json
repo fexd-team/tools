@@ -1,0 +1,112 @@
+{
+  "fixtures": [
+    {
+      "id": "valid-plain-mismatched-dir",
+      "source": "packages/valid-plain-mismatched-dir",
+      "packageNameTemplate": "fexd-skill-fixture-plain-__RUN_ID__",
+      "validSkills": [
+        {
+          "dirName": "folder-name",
+          "name": "fixture-frontmatter-name"
+        }
+      ]
+    },
+    {
+      "id": "valid-scoped-package",
+      "source": "packages/valid-scoped-package",
+      "packageNameTemplate": "@fexd-skill-fixture-__RUN_ID__/scoped-package",
+      "validSkills": [
+        {
+          "dirName": "scoped-folder",
+          "name": "fixture-scoped-frontmatter"
+        }
+      ]
+    },
+    {
+      "id": "valid-multi-skill-package",
+      "source": "packages/valid-multi-skill-package",
+      "packageNameTemplate": "fexd-skill-fixture-multi-__RUN_ID__",
+      "validSkills": [
+        {
+          "dirName": "multi-one",
+          "name": "fixture-multi-one"
+        },
+        {
+          "dirName": "multi-two",
+          "name": "fixture-multi-two"
+        }
+      ]
+    },
+    {
+      "id": "valid-quoted-frontmatter",
+      "source": "packages/valid-quoted-frontmatter",
+      "packageNameTemplate": "fexd-skill-fixture-quoted-__RUN_ID__",
+      "validSkills": [
+        {
+          "dirName": "quoted-dir",
+          "name": "fixture-quoted-name"
+        }
+      ]
+    },
+    {
+      "id": "valid-duplicate-a",
+      "source": "packages/valid-duplicate-a",
+      "packageNameTemplate": "fexd-skill-fixture-duplicate-a-__RUN_ID__",
+      "validSkills": [
+        {
+          "dirName": "duplicate-a",
+          "name": "fixture-duplicate-name"
+        }
+      ]
+    },
+    {
+      "id": "valid-duplicate-b",
+      "source": "packages/valid-duplicate-b",
+      "packageNameTemplate": "fexd-skill-fixture-duplicate-b-__RUN_ID__",
+      "validSkills": [
+        {
+          "dirName": "duplicate-b",
+          "name": "fixture-duplicate-name"
+        }
+      ]
+    },
+    {
+      "id": "invalid-missing-skill-md",
+      "source": "packages/invalid-missing-skill-md",
+      "packageNameTemplate": "fexd-skill-fixture-missing-md-__RUN_ID__",
+      "invalidSkillDirs": ["missing-md"]
+    },
+    {
+      "id": "invalid-no-frontmatter",
+      "source": "packages/invalid-no-frontmatter",
+      "packageNameTemplate": "fexd-skill-fixture-no-frontmatter-__RUN_ID__",
+      "invalidSkillDirs": ["no-frontmatter"]
+    },
+    {
+      "id": "invalid-missing-name",
+      "source": "packages/invalid-missing-name",
+      "packageNameTemplate": "fexd-skill-fixture-missing-name-__RUN_ID__",
+      "invalidSkillDirs": ["missing-name"]
+    },
+    {
+      "id": "invalid-blank-name",
+      "source": "packages/invalid-blank-name",
+      "packageNameTemplate": "fexd-skill-fixture-blank-name-__RUN_ID__",
+      "invalidSkillDirs": ["blank-name"]
+    },
+    {
+      "id": "invalid-missing-description",
+      "source": "packages/invalid-missing-description",
+      "packageNameTemplate": "fexd-skill-fixture-missing-description-__RUN_ID__",
+      "invalidSkillDirs": ["missing-description"],
+      "invalidSkillNames": ["fixture-missing-description"]
+    },
+    {
+      "id": "invalid-blank-description",
+      "source": "packages/invalid-blank-description",
+      "packageNameTemplate": "fexd-skill-fixture-blank-description-__RUN_ID__",
+      "invalidSkillDirs": ["blank-description"],
+      "invalidSkillNames": ["fixture-blank-description"]
+    }
+  ]
+}

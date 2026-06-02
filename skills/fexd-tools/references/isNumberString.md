@@ -6,6 +6,16 @@
 import { isNumberString } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 判断字符串是否可转为数字
+- 表单输入校验
+
+## 不适用场景
+
+- 需要判断大数字符串 → 用 isBigNumber
+- 需要判断数字类型 → 用 isNumber
+
 ## 签名
 
 ```ts
@@ -29,3 +39,7 @@ isNumberString('') // false
 - 正则：`/^[-+]?\d+(\.\d+)?([eE][-+]?\d+)?$/`，须为 string
 - 不支持前导空格、千分位、单独 `.5` 等格式
 - `isBigNumber` 的前置校验依赖本函数
+
+## 相关函数
+
+isBigNumber, isNumber

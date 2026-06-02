@@ -6,6 +6,18 @@
 import { source } from '@fexd/tools'
 ```
 
+## 适用场景
+
+- 动态加载外部 JS/CSS 资源
+- CDN 资源按需加载
+- 提取全局变量
+
+## 不适用场景
+
+- SSR/Node 环境（依赖 document）
+- 需要缓存请求结果 → 用 createCachedRequest
+- 需要合并并发请求 → 用 singleflight
+
 ## 签名
 
 ```ts
@@ -37,3 +49,8 @@ source.css('https://cdn.example.com/style.css')
 - `externals` 从 `globalThis` 读取，缺失时输出警告
 - 仅适用于浏览器环境（依赖 `document`）
 - 实现位于 `src/source/`，默认导出 `{ js, css }`
+
+## 相关函数
+
+- `singleflight` — 对同一请求去重，与 source 的 JS 去重机制互补
+- `createCachedRequest` — 缓存请求结果，适合需要缓存策略的资源加载

@@ -11,7 +11,7 @@ order: 2
 
 ## 🤖 AI Skills —— 让 AI 编辑器理解 @fexd/tools
 
-`@fexd/tools` 随 npm 包发布了完整的 **AI Agent Skills** 文档。安装后，可以通过内置 CLI 一键把这些文档注册到 Cursor、Codex、Claude Code、OpenCode 等常见 AI Agent 的 skills 目录，让 AI 在写代码时优先读取工具函数的真实用法。
+`@fexd/tools` 随 npm 包发布了完整的 **AI Agent Skills** 文档。安装后，可以通过内置 CLI 一键把本库以及当前项目依赖包中发布的 `skills/*/SKILL.md` 注册到 Cursor、Codex、Claude Code、OpenCode 等常见 AI Agent 的 skills 目录，让 AI 在写代码时优先读取真实用法。
 
 ### 📦 发布了什么？
 
@@ -56,7 +56,7 @@ fexd-tools skills install
 npm run prepare:skills
 ```
 
-默认会把 `fexd-tools` skill 安装到常见 agent 的项目级目录，并自动把这些链接写入 `.gitignore`：
+默认会扫描 `node_modules` 和 workspace 包中的 `skills/*/SKILL.md`，并把发现到的 skill 安装到常见 agent 的项目级目录。安装目录名使用 `SKILL.md` frontmatter 里的 `name`：
 
 ```text
 .cursor/skills/fexd-tools       # Cursor 项目目录
@@ -64,7 +64,16 @@ npm run prepare:skills
 .claude/skills/fexd-tools       # Claude Code 项目目录
 ```
 
-这些目录默认都是指向 `node_modules/@fexd/tools/skills/fexd-tools` 的链接。更新 `@fexd/tools` 后，skill 内容会随 `node_modules` 自动更新。
+这些目录默认都是指向来源包内 `skills/<目录名>` 的链接。更新 npm 依赖后，skill 内容会随 `node_modules` 自动更新。
+
+依赖包只需要随包发布标准目录即可，不需要再提供自己的 CLI：
+
+```text
+node_modules/@scope/package/
+└── skills/
+    └── any-folder-name/
+        └── SKILL.md   # frontmatter name 决定最终安装目录名
+```
 
 ### 指定 Agent
 
@@ -82,7 +91,7 @@ fexd-tools skills install --agents cursor,claude-code,opencode
 | `cursor`      | `.cursor/skills/fexd-tools`   |
 | `codex`       | `.agents/skills/fexd-tools`   |
 | `claude-code` | `.claude/skills/fexd-tools`   |
-| `opencode`    | `.opencode/skills/fexd-tools` |
+| `opencode`    | `.agents/skills/fexd-tools`   |
 | `common`      | 以上常见 agent 的集合，默认值 |
 
 ### 安装到全局目录
@@ -124,23 +133,46 @@ Windows 环境如果链接权限受限，可以使用复制模式：
 fexd-tools skills install --copy
 ```
 
-### 备选：使用 skills-npm
+### 配置黑白名单
 
-如果你的项目希望统一扫描多个 npm 包里的 skills，而不只是 `@fexd/tools`，可以使用 [skills-npm](https://github.com/nicepkg/skills-npm)：
-
-```bash
-pnpm add -D skills-npm
-```
+如果项目里依赖很多带 skill 的包，可以直接在 `package.json` 配置黑白名单：
 
 ```json
 {
-  "scripts": {
-    "prepare": "skills-npm"
+  "skills-install": {
+    "include": ["@risk-bc/*"],
+    "exclude": ["@fexd/pro-components"]
   }
 }
 ```
 
-`skills-npm` 适合做通用发现；`fexd-tools skills install` 则只处理本工具库，依赖更少、诊断更明确。
+`skills-install` 的语义是“安装 skills 时的筛选规则”，比顶层 `skills` 更不容易和包自身声明混在一起。规则较多时，也可以放到项目根目录的 `skills.config.js`、`skills.config.cjs` 或 `skills.config.json`：
+
+```js
+module.exports = {
+  include: ['@risk-bc/*', { package: '@fexd/tools', skills: ['fexd-tools'] }],
+  exclude: ['@fexd/pro-components'],
+}
+```
+
+`include` 存在时只安装匹配的包或 skill；`exclude` 在白名单之后生效。字符串支持 `*` / `?` 通配，也可以用对象形式精确到某个包里的 skill。
+
+临时过滤可以直接通过参数传入：
+
+```bash
+fexd-tools skills install @risk-bc/*,@fexd/pro-components
+fexd-tools skills install --include @risk-bc/*
+fexd-tools skills install --exclude @fexd/pro-components
+fexd-tools skills install --include @risk-bc/review:risk-bc-review
+```
+
+`install` 后面的裸参数等价于 `--include`，多个规则用逗号分隔。
+
+### 与 skills-npm 的关系
+
+`fexd-tools skills install` 参考了 [skills-npm](https://github.com/nicepkg/skills-npm) 的 npm 包内置 skills 约定，但保持 CommonJS 与内置依赖实现，适合需要兼容较低 Node.js 版本的项目。
+
+与 `skills-npm` 不同，`fexd-tools` 会使用 `SKILL.md` frontmatter 中的 `name` 作为最终安装目录名，避免安装路径和 skill 声明不一致。
 
 ### 🔗 手动创建符号链接
 

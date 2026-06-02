@@ -1,0 +1,8 @@
+{
+  "name": "skills-package-json-config-fixture",
+  "private": true,
+  "skills-install": {
+    "include": ["fixture-frontmatter-name"],
+    "exclude": [{ "package": "@fexd/pro-components" }]
+  }
+}
