@@ -14996,7 +14996,7 @@
               '\u5982\u679c\u4e0d\u60f3\u901a\u8fc7 CLI\uff0c\u4e5f\u53ef\u4ee5\u624b\u52a8\u521b\u5efa\u94fe\u63a5\uff1a'
             ),
             r.a.createElement(o['a'], {
-              code: '# macOS / Linux\nmkdir -p .agents/skills\nln -s ../../node_modules/@fexd/tools/skills/fexd-tools .agents/skills/fexd-tools\n\n# Windows\nmklink /J .agents\\skills\\fexd-tools node_modules\\@fexd\\tools\\skills\\fexd-tools',
+              code: '# Codex / OpenCode: macOS / Linux\nmkdir -p .agents/skills\nln -s ../../node_modules/@fexd/tools/skills/fexd-tools .agents/skills/fexd-tools\n\n# Codex / OpenCode: Windows\nmklink /J .agents\\skills\\fexd-tools node_modules\\@fexd\\tools\\skills\\fexd-tools',
               lang: 'bash',
             }),
             r.a.createElement(
@@ -37495,7 +37495,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'curry-demo',
         },
@@ -37591,7 +37591,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'debounce-demo',
         },
@@ -37735,7 +37735,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'delay-demo',
         },
@@ -38001,7 +38001,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'lock-demo',
         },
@@ -38305,7 +38305,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'memoize-demo',
         },
@@ -38647,7 +38647,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'pipe-demo',
         },
@@ -38743,7 +38743,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'throttle-demo',
         },
@@ -38987,7 +38987,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'CombinationMatcher-demo',
         },
@@ -39196,7 +39196,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'deepMerge-demo',
         },
@@ -39489,7 +39489,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'diffArray-demo',
         },
@@ -39802,7 +39802,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'difference-demo',
         },
@@ -40065,7 +40065,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'flatten-demo',
         },
@@ -40491,7 +40491,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'get-demo',
         },
@@ -40738,7 +40738,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'groupBy-demo',
         },
@@ -41048,7 +41048,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'I18n-demo',
         },
@@ -41459,7 +41459,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'merge-demo',
         },
@@ -41747,7 +41747,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'pick-demo',
         },
@@ -42182,7 +42182,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'reactivity-demo',
         },
@@ -42491,7 +42491,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'sample-demo',
         },
@@ -42682,7 +42682,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'uniqByKey-demo',
         },
@@ -42930,7 +42930,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'clamp-demo',
         },
@@ -43155,7 +43155,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'createSeparatorFormatter-demo',
         },
@@ -43469,7 +43469,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'darkenColor-demo',
         },
@@ -43698,7 +43698,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'getBrightness-demo',
         },
@@ -43894,7 +43894,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'hexToRgb-demo',
         },
@@ -43997,7 +43997,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'qs-demo',
         },
@@ -44237,7 +44237,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'randomRGB-demo',
         },
@@ -44322,7 +44322,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'storage-demo',
         },
@@ -44587,7 +44587,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'toFixed-demo',
         },
@@ -44701,7 +44701,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'classnames-demo',
         },
@@ -44781,7 +44781,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'copy-demo',
         },
@@ -45023,7 +45023,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'easing-demo',
         },
@@ -45321,7 +45321,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'EventBus-demo',
         },
@@ -45440,7 +45440,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'random-demo',
         },
@@ -45752,7 +45752,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'ScrollListener-demo',
         },
@@ -46005,7 +46005,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'segment-demo',
         },
@@ -46430,7 +46430,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'singleflight-demo',
         },
@@ -46488,7 +46488,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'Tween-demo',
         },
@@ -46770,7 +46770,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'Tween-demo-1',
         },
@@ -46992,7 +46992,7 @@
           },
           dependencies: {
             react: { version: '16.14.0' },
-            '@fexd/tools': { version: '0.2.6' },
+            '@fexd/tools': { version: '0.2.7' },
           },
           identifier: 'Tween-demo-2',
         },
@@ -78998,7 +78998,7 @@
   },
   q3YX: function (e) {
     e.exports = JSON.parse(
-      '{"menus":{"en-US":{"*":[{"path":"/","title":"@fexd/tools","meta":{}}],"/\u6587\u6863":[{"title":"\u6982\u89c8","meta":{"order":1,"__fallback":true},"children":[],"path":"/\u6587\u6863"},{"title":"\u5f00\u53d1\u8005","meta":{"order":2,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/cli","title":"CLI - \u547d\u4ee4\u884c\u5de5\u5177","meta":{"order":1}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/ai-skills","title":"AI Skills","meta":{"order":2}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/bundle-size","title":"\u5bfc\u51fa\u4f53\u79ef","meta":{"order":3}}]},{"title":"\u5f03\u7528","meta":{"order":99,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f03\u7528/comb-judge","title":"CombJudge","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/get-formatter","title":"getFormatter","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/sas","title":"SAS","meta":{}}]},{"title":"\u5f02\u6b65\u4e0e\u51fd\u6570","path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570","meta":{},"children":[{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catch-promise","title":"catchPromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/curry","title":"curry","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/debounce","title":"debounce","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/delay","title":"delay","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/enhance-promise","title":"enhancePromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/identity","title":"identity","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/lock","title":"lock","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/memoize","title":"memoize","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/next-tick","title":"nextTick","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/pipe","title":"pipe","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/promise-guess","title":"promiseGuess","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/run","title":"run","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/throttle","title":"throttle","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/value","title":"value","meta":{}}]},{"title":"\u6570\u636e\u64cd\u4f5c","path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c","meta":{},"children":[{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/combination-matcher","title":"CombinationMatcher","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/compact-object","title":"compactObject","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-map-item","title":"deepMapItem","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-merge","title":"deepMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deps-changed","title":"depsChanged","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/diff-array","title":"diffArray","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/difference","title":"difference","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/first","title":"first","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/flatten","title":"flatten","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/get","title":"get","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/group-by","title":"groupBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/i18n","title":"I18n","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/intersection","title":"intersection","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/last","title":"last","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/merge","title":"merge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick","title":"pick","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick-by","title":"pickBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/reactivity","title":"reactive / computed / watch","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/sample","title":"sample","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/set","title":"set","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/shallow-merge","title":"shallowMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/uniq-by-key","title":"uniqByKey","meta":{}}]},{"title":"\u683c\u5f0f\u5316","path":"/\u6587\u6863/\u683c\u5f0f\u5316","meta":{},"children":[{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/capitalize","title":"capitalize","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/clamp","title":"clamp","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/create-separator-formatter","title":"createSeparatorFormatter","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/darken-color","title":"darkenColor","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/expand-scientific-number-string","title":"expandScientificNumberString","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/get-brightness","title":"getBrightness","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/hex-to-rgb","title":"hexToRgb","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/qs","title":"qs","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/random-rgb","title":"randomRGB","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/safe-stringify","title":"safeStringify","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/storage","title":"storage","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/to-fixed","title":"toFixed","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/url","title":"url","meta":{}}]},{"title":"\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","meta":{},"children":[{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/classnames","title":"classnames","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/copy","title":"copy","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-cached-request","title":"createCachedRequest","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-proxy-getter","title":"createProxyGetter","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/default-frame-process","title":"defaultProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/easing","title":"easing","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/event-bus","title":"EventBus","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/file2base64","title":"file2base64","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/formdata2obj","title":"formdata2obj","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/frame-process","title":"FrameProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/global-this","title":"globalThis","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/obj2formdata","title":"obj2formdata","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/preload-image","title":"preloadImage","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/random","title":"random","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/scroll-listener","title":"ScrollListener","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/segment","title":"segment","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/singleflight","title":"singleflight","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/source","title":"source","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/tween","title":"Tween","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/unique-id","title":"uniqueId","meta":{}}]},{"title":"\u7c7b\u578b\u5224\u65ad","path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad","meta":{},"children":[{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-android","title":"isAndroid","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-array","title":"isArray","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-big-number","title":"isBigNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-boolean","title":"isBoolean","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-date","title":"isDate","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-desktop","title":"isDesktop","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-empty","title":"isEmpty","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-error","title":"isError","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-exist","title":"isExist","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-finite","title":"isFinite","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-function","title":"isFunction","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-integer","title":"isInteger","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-ios","title":"isIOS","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-iterable","title":"isIterable","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-mobile","title":"isMobile","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-na-n","title":"isNaN","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-nil","title":"isNil","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-null","title":"isNull","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number","title":"isNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number-string","title":"isNumberString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-object","title":"isObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-plain-object","title":"isPlainObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-promise-like","title":"isPromiseLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-react-element-like","title":"isReactElementLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-reg-exp","title":"isRegExp","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-string","title":"isString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-symbol","title":"isSymbol","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-undefined","title":"isUndefined","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-wkwebview","title":"isWKWebview","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{"en-US":[{"title":"\u6587\u6863","path":"/\u6587\u6863"},{"title":"v0.2.6"}]},"title":"Fexd Tools","logo":"/tools/logo.png","mode":"site","repository":{"url":"https://github.com/fexd-team/tools","branch":"master"},"theme":{},"exportStatic":{}}'
+      '{"menus":{"en-US":{"*":[{"path":"/","title":"@fexd/tools","meta":{}}],"/\u6587\u6863":[{"title":"\u6982\u89c8","meta":{"order":1,"__fallback":true},"children":[],"path":"/\u6587\u6863"},{"title":"\u5f00\u53d1\u8005","meta":{"order":2,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/cli","title":"CLI - \u547d\u4ee4\u884c\u5de5\u5177","meta":{"order":1}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/ai-skills","title":"AI Skills","meta":{"order":2}},{"path":"/\u6587\u6863/\u5f00\u53d1\u8005/bundle-size","title":"\u5bfc\u51fa\u4f53\u79ef","meta":{"order":3}}]},{"title":"\u5f03\u7528","meta":{"order":99,"__fallback":true},"children":[{"path":"/\u6587\u6863/\u5f03\u7528/comb-judge","title":"CombJudge","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/get-formatter","title":"getFormatter","meta":{}},{"path":"/\u6587\u6863/\u5f03\u7528/sas","title":"SAS","meta":{}}]},{"title":"\u5f02\u6b65\u4e0e\u51fd\u6570","path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570","meta":{},"children":[{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/catch-promise","title":"catchPromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/curry","title":"curry","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/debounce","title":"debounce","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/delay","title":"delay","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/enhance-promise","title":"enhancePromise","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/identity","title":"identity","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/lock","title":"lock","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/memoize","title":"memoize","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/next-tick","title":"nextTick","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/pipe","title":"pipe","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/promise-guess","title":"promiseGuess","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/run","title":"run","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/throttle","title":"throttle","meta":{}},{"path":"/\u6587\u6863/\u5f02\u6b65\u4e0e\u51fd\u6570/value","title":"value","meta":{}}]},{"title":"\u6570\u636e\u64cd\u4f5c","path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c","meta":{},"children":[{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/combination-matcher","title":"CombinationMatcher","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/compact-object","title":"compactObject","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-map-item","title":"deepMapItem","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deep-merge","title":"deepMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/deps-changed","title":"depsChanged","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/diff-array","title":"diffArray","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/difference","title":"difference","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/first","title":"first","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/flatten","title":"flatten","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/get","title":"get","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/group-by","title":"groupBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/i18n","title":"I18n","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/intersection","title":"intersection","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/last","title":"last","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/merge","title":"merge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick","title":"pick","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/pick-by","title":"pickBy","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/reactivity","title":"reactive / computed / watch","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/sample","title":"sample","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/set","title":"set","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/shallow-merge","title":"shallowMerge","meta":{}},{"path":"/\u6587\u6863/\u6570\u636e\u64cd\u4f5c/uniq-by-key","title":"uniqByKey","meta":{}}]},{"title":"\u683c\u5f0f\u5316","path":"/\u6587\u6863/\u683c\u5f0f\u5316","meta":{},"children":[{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/capitalize","title":"capitalize","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/clamp","title":"clamp","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/create-separator-formatter","title":"createSeparatorFormatter","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/darken-color","title":"darkenColor","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/expand-scientific-number-string","title":"expandScientificNumberString","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/get-brightness","title":"getBrightness","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/hex-to-rgb","title":"hexToRgb","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/qs","title":"qs","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/random-rgb","title":"randomRGB","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/safe-stringify","title":"safeStringify","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/storage","title":"storage","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/to-fixed","title":"toFixed","meta":{}},{"path":"/\u6587\u6863/\u683c\u5f0f\u5316/url","title":"url","meta":{}}]},{"title":"\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177","meta":{},"children":[{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/classnames","title":"classnames","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/copy","title":"copy","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-cached-request","title":"createCachedRequest","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/create-proxy-getter","title":"createProxyGetter","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/default-frame-process","title":"defaultProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/easing","title":"easing","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/event-bus","title":"EventBus","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/file2base64","title":"file2base64","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/formdata2obj","title":"formdata2obj","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/frame-process","title":"FrameProcess","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/global-this","title":"globalThis","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/obj2formdata","title":"obj2formdata","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/preload-image","title":"preloadImage","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/random","title":"random","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/scroll-listener","title":"ScrollListener","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/segment","title":"segment","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/singleflight","title":"singleflight","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/source","title":"source","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/tween","title":"Tween","meta":{}},{"path":"/\u6587\u6863/\u6d4f\u89c8\u5668\u4e0e\u5de5\u5177/unique-id","title":"uniqueId","meta":{}}]},{"title":"\u7c7b\u578b\u5224\u65ad","path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad","meta":{},"children":[{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-android","title":"isAndroid","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-array","title":"isArray","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-big-number","title":"isBigNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-boolean","title":"isBoolean","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-date","title":"isDate","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-desktop","title":"isDesktop","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-empty","title":"isEmpty","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-error","title":"isError","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-exist","title":"isExist","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-finite","title":"isFinite","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-function","title":"isFunction","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-integer","title":"isInteger","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-ios","title":"isIOS","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-iterable","title":"isIterable","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-mobile","title":"isMobile","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-na-n","title":"isNaN","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-nil","title":"isNil","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-null","title":"isNull","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number","title":"isNumber","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-number-string","title":"isNumberString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-object","title":"isObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-plain-object","title":"isPlainObject","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-promise-like","title":"isPromiseLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-react-element-like","title":"isReactElementLike","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-reg-exp","title":"isRegExp","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-string","title":"isString","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-symbol","title":"isSymbol","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-undefined","title":"isUndefined","meta":{}},{"path":"/\u6587\u6863/\u7c7b\u578b\u5224\u65ad/is-wkwebview","title":"isWKWebview","meta":{}}]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{"en-US":[{"title":"\u6587\u6863","path":"/\u6587\u6863"},{"title":"v0.2.7"}]},"title":"Fexd Tools","logo":"/tools/logo.png","mode":"site","repository":{"url":"https://github.com/fexd-team/tools","branch":"master"},"theme":{},"exportStatic":{}}'
     )
   },
   q3wE: function (e, t, n) {
@@ -82010,7 +82010,7 @@
                       r.a.createElement(
                         'code',
                         null,
-                        '~/.config/opencode/skills/fexd-tools'
+                        '~/.agents/skills/fexd-tools'
                       )
                     )
                   )
@@ -82646,7 +82646,7 @@
               meta: {
                 filePath:
                   'documents/\u6587\u6863/\u5f00\u53d1\u8005/ai-skills.md',
-                updatedTime: 1779873366e3,
+                updatedTime: 1780477493e3,
                 title: 'AI Skills',
                 nav: { title: '\u6587\u6863', order: 1, path: '/\u6587\u6863' },
                 group: {
@@ -82749,7 +82749,7 @@
               exact: !0,
               meta: {
                 filePath: 'documents/\u6587\u6863/\u5f00\u53d1\u8005/cli.md',
-                updatedTime: 1779873366e3,
+                updatedTime: 1780477493e3,
                 title: 'CLI - \u547d\u4ee4\u884c\u5de5\u5177',
                 nav: { title: '\u6587\u6863', order: 1, path: '/\u6587\u6863' },
                 group: {
