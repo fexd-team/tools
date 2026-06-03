@@ -262,7 +262,7 @@ fexd-tools skills install --scope both
 | `cursor`      | `~/.cursor/skills/fexd-tools`                                           |
 | `codex`       | `$CODEX_HOME/skills/fexd-tools` 或 `~/.codex/skills/fexd-tools`         |
 | `claude-code` | `$CLAUDE_CONFIG_DIR/skills/fexd-tools` 或 `~/.claude/skills/fexd-tools` |
-| `opencode`    | `~/.config/opencode/skills/fexd-tools`                                  |
+| `opencode`    | `~/.agents/skills/fexd-tools`                                           |
 
 ### 其他参数
 

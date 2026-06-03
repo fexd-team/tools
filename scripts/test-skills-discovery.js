@@ -2,6 +2,7 @@ const assert = require('assert')
 const childProcess = require('child_process')
 const crypto = require('crypto')
 const fs = require('fs')
+const os = require('os')
 const path = require('path')
 
 const projectRoot = path.resolve(__dirname, '..')
@@ -245,6 +246,154 @@ try {
       `dry-run output should not include invalid skill: ${skillName}`
     )
   })
+
+  const opencodeOutput = childProcess.execFileSync(
+    process.execPath,
+    [
+      'cli/index.js',
+      'skills',
+      'install',
+      '--agents',
+      'opencode',
+      '--dry-run',
+      '--no-gitignore',
+    ],
+    {
+      cwd: projectRoot,
+      encoding: 'utf8',
+    }
+  )
+  assert(
+    opencodeOutput.indexOf('.agents/skills/fexd-tools') >= 0,
+    'OpenCode should install project skills into .agents/skills'
+  )
+  assert(
+    opencodeOutput.indexOf('.opencode') < 0,
+    'OpenCode should not install project skills into .opencode'
+  )
+  assert(
+    opencodeOutput.indexOf('.agent/skills/fexd-tools') < 0,
+    'OpenCode should not install project skills into .agent/skills'
+  )
+
+  const tempRoot = fs.mkdtempSync(
+    path.join(os.tmpdir(), `fexd-skills-install-${runId}-`)
+  )
+  try {
+    const sourceDir = path.join(tempRoot, 'source-skill')
+    fs.mkdirSync(sourceDir, { recursive: true })
+    fs.writeFileSync(path.join(sourceDir, 'SKILL.md'), 'fallback skill')
+
+    const fallbackTarget = path.join(
+      tempRoot,
+      '.cursor',
+      'skills',
+      'fallback-skill'
+    )
+    const originalSymlinkSync = fs.symlinkSync
+    fs.symlinkSync = function mockFailedSymlink(_source, target) {
+      fs.writeFileSync(target, '')
+      const error = new Error('mock link failure after partial target')
+      error.code = 'EPERM'
+      throw error
+    }
+    try {
+      cli.ensureLinkOrCopy(sourceDir, fallbackTarget, {
+        workspaceRoot: tempRoot,
+        copy: false,
+        dryRun: false,
+        force: false,
+      })
+    } finally {
+      fs.symlinkSync = originalSymlinkSync
+    }
+    assert(
+      fs.statSync(fallbackTarget).isDirectory(),
+      'failed link fallback should replace partial empty target with directory copy'
+    )
+    assert.strictEqual(
+      fs.readFileSync(path.join(fallbackTarget, 'SKILL.md'), 'utf8'),
+      'fallback skill',
+      'failed link fallback should copy skill files after cleanup'
+    )
+
+    const staleEmptyTarget = path.join(
+      tempRoot,
+      '.cursor',
+      'skills',
+      'stale-empty-skill'
+    )
+    fs.writeFileSync(staleEmptyTarget, '')
+    cli.ensureLinkOrCopy(sourceDir, staleEmptyTarget, {
+      workspaceRoot: tempRoot,
+      copy: true,
+      dryRun: false,
+      force: false,
+    })
+    assert(
+      fs.statSync(staleEmptyTarget).isDirectory(),
+      'stale empty target file should be replaced during install'
+    )
+  } finally {
+    removeSync(tempRoot)
+  }
+
+  const originalLog = console.log
+  const previousExitCode = process.exitCode
+  const failureLogs = []
+  const visitedTargets = []
+  let installExitCode
+  try {
+    process.exitCode = 0
+    console.log = function captureInstallLog() {
+      failureLogs.push(Array.prototype.join.call(arguments, ' '))
+    }
+    cli.installSkills(
+      [
+        '--agents',
+        'cursor,codex',
+        '--dry-run',
+        '--no-gitignore',
+        '--no-config',
+        '--include',
+        'fexd-tools',
+      ],
+      {
+        ensureLinkOrCopy: function mockTargetInstaller(_source, target) {
+          const relativeTarget = target.replace(projectRoot, '')
+          visitedTargets.push(relativeTarget)
+          if (target.indexOf(`${path.sep}.cursor${path.sep}`) >= 0) {
+            throw new Error('mock target install failure')
+          }
+        },
+      }
+    )
+    installExitCode = process.exitCode
+  } finally {
+    console.log = originalLog
+    process.exitCode = previousExitCode
+  }
+  assert(
+    visitedTargets.some(
+      (target) => target.indexOf(`${path.sep}.cursor${path.sep}`) >= 0
+    ),
+    'test setup should visit the Cursor target'
+  )
+  assert(
+    visitedTargets.some(
+      (target) => target.indexOf(`${path.sep}.agents${path.sep}`) >= 0
+    ),
+    'failed target should not stop later target installs'
+  )
+  assert.strictEqual(
+    installExitCode,
+    1,
+    'partial install failures should set a failing exit code'
+  )
+  assert(
+    failureLogs.join('\n').indexOf('mock target install failure') >= 0,
+    'partial install failures should be summarized after all installs'
+  )
 
   const filteredSources = cli.discoverSkillSources({
     cwd: projectRoot,

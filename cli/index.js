@@ -656,17 +656,38 @@ function discoverSkillSources(options) {
   return uniqueSkillSources(filterSkillSources(sources, filters))
 }
 
-function removeSync(target) {
-  if (!fs.existsSync(target)) return
+function lstatSafe(target) {
+  try {
+    return fs.lstatSync(target)
+  } catch (error) {
+    if (error && error.code === 'ENOENT') return null
+    throw error
+  }
+}
 
-  const stat = fs.lstatSync(target)
+function unlinkFileOrLinkSync(target) {
+  try {
+    fs.unlinkSync(target)
+  } catch (error) {
+    if (error && (error.code === 'EISDIR' || error.code === 'EPERM')) {
+      fs.rmdirSync(target)
+      return
+    }
+    throw error
+  }
+}
+
+function removeSync(target) {
+  const stat = lstatSafe(target)
+  if (!stat) return
+
   if (stat.isDirectory() && !stat.isSymbolicLink()) {
     fs.readdirSync(target).forEach((name) =>
       removeSync(path.join(target, name))
     )
     fs.rmdirSync(target)
   } else {
-    fs.unlinkSync(target)
+    unlinkFileOrLinkSync(target)
   }
 }
 
@@ -686,12 +707,16 @@ function copyDirSync(source, target) {
 }
 
 function isSameLinkTarget(source, target) {
-  const parent = path.dirname(target)
-  const currentTarget = fs.readlinkSync(target)
-  return (
-    path.resolve(parent, currentTarget) === path.resolve(source) ||
-    path.resolve(currentTarget) === path.resolve(source)
-  )
+  try {
+    const parent = path.dirname(target)
+    const currentTarget = fs.readlinkSync(target)
+    return (
+      path.resolve(parent, currentTarget) === path.resolve(source) ||
+      path.resolve(currentTarget) === path.resolve(source)
+    )
+  } catch {
+    return false
+  }
 }
 
 function ensureLinkOrCopy(source, target, options) {
@@ -709,13 +734,16 @@ function ensureLinkOrCopy(source, target, options) {
 
   fs.mkdirSync(path.dirname(target), { recursive: true })
 
-  if (fs.existsSync(target)) {
-    const stat = fs.lstatSync(target)
+  const targetStat = lstatSafe(target)
+  if (targetStat) {
+    const stat = targetStat
     if (stat.isSymbolicLink()) {
       if (isSameLinkTarget(source, target)) {
         console.log(`  ${c('green', 'OK')} ${relativeTarget}`)
         return
       }
+      removeSync(target)
+    } else if (stat.isFile() && stat.size === 0) {
       removeSync(target)
     } else if (options.force) {
       removeSync(target)
@@ -740,7 +768,13 @@ function ensureLinkOrCopy(source, target, options) {
     )
     console.log(`  ${c('green', 'Linked')} ${relativeTarget}`)
   } catch (error) {
-    copyDirSync(source, target)
+    removeSync(target)
+    try {
+      copyDirSync(source, target)
+    } catch (copyError) {
+      removeSync(target)
+      throw copyError
+    }
     console.log(
       `  ${c('yellow', 'Copied')} ${relativeTarget} ${c(
         'dim',
@@ -866,7 +900,7 @@ function updateGitignore(workspaceRoot, targets, options) {
   console.log(`\n  ${c('green', 'Updated')} .gitignore`)
 }
 
-function installSkills(args) {
+function installSkills(args, hooks) {
   const options = parseOptions(args)
   const workspaceRoot = findWorkspaceRoot(options.cwd)
   const agents = resolveAgents(options.agents)
@@ -874,6 +908,9 @@ function installSkills(args) {
     Object.assign({}, options, { workspaceRoot })
   )
   const allTargets = []
+  const failures = []
+  const installTarget =
+    hooks && hooks.ensureLinkOrCopy ? hooks.ensureLinkOrCopy : ensureLinkOrCopy
 
   console.log(`\n${c('bold', c('cyan', '  @fexd/tools skills'))}\n`)
   console.log(`  ${c('dim', 'workspace:')} ${workspaceRoot}`)
@@ -926,18 +963,54 @@ function installSkills(args) {
           ? c('magenta', 'global')
           : c('cyan', 'project')
       console.log(`    ${c('bold', getTargetDisplayName(target))} ${scope}`)
-      ensureLinkOrCopy(
-        source.skillDir,
-        target.path,
-        Object.assign({}, options, { workspaceRoot })
-      )
+      try {
+        installTarget(
+          source.skillDir,
+          target.path,
+          Object.assign({}, options, { workspaceRoot })
+        )
+        allTargets.push(target)
+      } catch (error) {
+        const relativeTarget = normalizeSlash(
+          path.relative(workspaceRoot, target.path)
+        )
+        failures.push({
+          source,
+          target,
+          error,
+          relativeTarget,
+        })
+        console.log(
+          `      ${c('red', 'Failed')} ${c('cyan', relativeTarget)} ${c(
+            'dim',
+            error && error.message ? error.message : String(error)
+          )}`
+        )
+      }
     })
 
-    allTargets.push.apply(allTargets, targets)
     console.log()
   })
 
   updateGitignore(workspaceRoot, allTargets, options)
+
+  if (failures.length) {
+    console.log(`\n  ${c('red', 'Failed')} ${failures.length} target(s):`)
+    failures.forEach((failure) => {
+      const message =
+        failure.error && failure.error.message
+          ? failure.error.message
+          : String(failure.error)
+      console.log(
+        `    ${c('cyan', failure.source.name)} -> ${c(
+          'cyan',
+          failure.relativeTarget
+        )}: ${message}`
+      )
+    })
+    process.exitCode = 1
+  }
+
   console.log()
 }
 
@@ -1309,9 +1382,11 @@ if (require.main === module) {
 
 module.exports = {
   discoverSkillSources,
+  ensureLinkOrCopy,
   filterSkillSources,
   findWorkspaceRoot,
   getTargetsForAgent,
+  installSkills,
   loadSkillsConfig,
   parseOptions,
   parseSkillFrontmatter,

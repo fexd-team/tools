@@ -179,11 +179,11 @@ fexd-tools skills install --include @risk-bc/review:risk-bc-review
 如果不想通过 CLI，也可以手动创建链接：
 
 ```bash
-# macOS / Linux
+# Codex / OpenCode: macOS / Linux
 mkdir -p .agents/skills
 ln -s ../../node_modules/@fexd/tools/skills/fexd-tools .agents/skills/fexd-tools
 
-# Windows
+# Codex / OpenCode: Windows
 mklink /J .agents\skills\fexd-tools node_modules\@fexd\tools\skills\fexd-tools
 ```
 
